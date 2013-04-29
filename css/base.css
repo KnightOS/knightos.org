@@ -1,0 +1,150 @@
+html, body {
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background: url('../images/background.png') repeat scroll transparent;
+}
+
+#nav {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(to bottom, #222222, #111111);
+    border-bottom: #252525 1px solid;
+    color: #fff;
+    padding: 5px;
+}
+
+#nav > div {
+    width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 16pt;
+    position: absolute;
+    right: 0;
+}
+
+h1 a {
+    color: #000;
+    text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
+    text-decoration: none;
+    transition: all .2s linear;
+}
+
+h1 a:hover {
+    text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
+    color: #fff;
+}
+
+#nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#nav ul li {
+    float: left;
+    padding: 3px 8px;
+}
+
+#nav ul li a {
+    color: #999;
+    text-decoration: none;
+    transition: all .2s linear;
+}
+
+#nav ul li a:hover {
+    color: #fff;
+}
+
+#nav ul li a.selected {
+    color: #fff;
+    font-weight: bold;
+}
+
+#container {
+    z-index: 1;
+    min-height: 100%;
+    width: 800px;
+    margin: 0 auto;
+    position: relative;
+    background: #fff;
+    box-shadow: 0 0 5px 3px #000;
+}
+
+#body {
+    padding: 45px 5px 20px 5px;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    height: 20px;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 5px;
+    border-top: 1px solid #888;
+}
+
+.logo {
+    position: absolute;
+    right: 5px;
+    top: 40px;
+    z-index: 1;
+}
+
+.calcdemo {
+    text-align: center;
+    position: relative;
+    z-index: 0;
+    height: 422px;
+    width: 800px;
+    margin-left: -5px;
+    border-bottom: 1px solid #555;
+    box-shadow: 0 4px 2px -2px #888;
+}
+
+.demo {
+    position: absolute;
+    top: 130px;
+    left: 205px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 0;
+    font-size: 26pt;
+    font-weight: normal;
+    padding: 0;
+}
+
+h3 {
+    margin: 0;
+    font-size: 12pt;
+    color: #888;
+    font-style: italic;
+    text-align: center;
+    font-weight: normal;
+}
