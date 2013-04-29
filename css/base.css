@@ -213,7 +213,7 @@ a:visited {
     opacity: 1;
 }
 
-.download p.red {
+.red, .download p.red {
     color: red;
 }
 
