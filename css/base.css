@@ -148,3 +148,11 @@ h3 {
     text-align: center;
     font-weight: normal;
 }
+
+a {
+    color: #0072C4;
+}
+
+a:visited {
+    color: #004B82;
+}
