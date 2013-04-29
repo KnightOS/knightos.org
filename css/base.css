@@ -216,3 +216,11 @@ a:visited {
 .download p.red {
     color: red;
 }
+
+.clearfix {
+    clear: both;
+}
+
+.center {
+    text-align: center;
+}
