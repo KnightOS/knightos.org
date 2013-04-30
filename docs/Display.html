@@ -21,11 +21,24 @@
         </div>
         <div id="container">
             <div id="body">
-                <h2>Display</h2>
-                
+                <h2>Display Functions</h2>
+                <p>These functions are mostly used to work with 768-byte screen buffers in memory. After drawing to them, you should
+use <a href="#fastCopy">fastCopy</a> to draw them to the LCD.</p>
+
                 <div class="docitem">
+    <h3 id="allocScreenBuffer"><a href="#allocScreenBuffer" class="anchor"></a>allocScreenBuffer</h3>
+    <p>Allocates a 768-byte screen buffer.</p>
+
+    <div class="docsection">
+        <h4>Outputs</h4>
+<p>IY: Screen buffer</p>
+
+
+    </div>
+</div>
+<div class="docitem">
     <h3 id="clearBuffer"><a href="#clearBuffer" class="anchor"></a>clearBuffer</h3>
-    <p>Sets all of a screen buffer to zero.</p>
+    <p>Turns off all pixels on a screen buffer.</p>
 
     <div class="docsection">
         <h4>Inputs</h4>
@@ -35,8 +48,26 @@
     </div>
 </div>
 <div class="docitem">
+    <h3 id="drawLine"><a href="#drawLine" class="anchor"></a>drawLine</h3>
+    <p>Draws a line on the screen buffer using OR (turns pixels ON) logic.</p>
+
+    <div class="docsection">
+        <h4>Inputs</h4>
+<p>IY: Screen buffer</p>
+
+<p>D, E: X1, Y1</p>
+
+<p>H, L: X2, Y2</p>
+
+<h4>Notes</h4>
+<p>This function does not clip lines to the screen boundaries.</p>
+
+
+    </div>
+</div>
+<div class="docitem">
     <h3 id="fastCopy"><a href="#fastCopy" class="anchor"></a>fastCopy</h3>
-    <p>Copies the specified screen buffer to the LCD.</p>
+    <p>Copies the screen buffer to the LCD.</p>
 
     <div class="docsection">
         <h4>Inputs</h4>
@@ -52,7 +83,7 @@
 </div>
 <div class="docitem">
     <h3 id="getPixel"><a href="#getPixel" class="anchor"></a>getPixel</h3>
-    <p>Finds the address of and mask for a pixel in the specified screen buffer.</p>
+    <p>Finds the address of and mask for a pixel on the screen buffer.</p>
 
     <div class="docsection">
         <h4>Inputs</h4>
@@ -73,7 +104,7 @@
 </div>
 <div class="docitem">
     <h3 id="invertPixel"><a href="#invertPixel" class="anchor"></a>invertPixel</h3>
-    <p>Inverts a pixel in the specified screen buffer.</p>
+    <p>Inverts a pixel on the screen buffer.</p>
 
     <div class="docsection">
         <h4>Inputs</h4>
@@ -85,8 +116,164 @@
     </div>
 </div>
 <div class="docitem">
+    <h3 id="putSprite16AND"><a href="#putSprite16AND" class="anchor"></a>putSprite16AND</h3>
+    <p>Draws a 16xB sprite on the screen buffer using AND (turns pixels OFF) logic.</p>
+
+    <div class="docsection">
+        <h4>Inputs</h4>
+<p>IY: Screen buffer</p>
+
+<p>HL: Sprite pointer</p>
+
+<p>D, E: X, Y</p>
+
+<p>B: Height</p>
+
+<h4>Notes</h4>
+<p>Each 16-wide group of pixels is represented by two adjacent octets.</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="putSprite16OR"><a href="#putSprite16OR" class="anchor"></a>putSprite16OR</h3>
+    <p>Draws a 16xB sprite on the screen buffer using OR (turns pixels ON) logic.</p>
+
+    <div class="docsection">
+        <h4>Inputs</h4>
+<p>IY: Screen buffer</p>
+
+<p>HL: Sprite pointer</p>
+
+<p>D, E: X, Y</p>
+
+<p>B: Height</p>
+
+<h4>Notes</h4>
+<p>Each 16-wide group of pixels is represented by two adjacent octets.</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="putSprite16XOR"><a href="#putSprite16XOR" class="anchor"></a>putSprite16XOR</h3>
+    <p>Draws a 16xB sprite on the screen buffer using XOR (invert) logic.</p>
+
+    <div class="docsection">
+        <h4>Inputs</h4>
+<p>IY: Screen buffer</p>
+
+<p>HL: Sprite pointer</p>
+
+<p>D, E: X, Y</p>
+
+<p>B: Height</p>
+
+<h4>Notes</h4>
+<p>Each 16-wide group of pixels is represented by two adjacent octets.</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="putSpriteAND"><a href="#putSpriteAND" class="anchor"></a>putSpriteAND</h3>
+    <p>Draws an 8xB sprite on the screen buffer using AND (turns pixels OFF) logic.</p>
+
+    <div class="docsection">
+        <h4>Inputs</h4>
+<p>IY: Screen buffer</p>
+
+<p>HL: Sprite pointer</p>
+
+<p>D, E: X, Y</p>
+
+<p>B: Height</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="putSpriteOR"><a href="#putSpriteOR" class="anchor"></a>putSpriteOR</h3>
+    <p>Draws an 8xB sprite on the screen buffer using OR (turns pixels ON) logic.</p>
+
+    <div class="docsection">
+        <h4>Inputs</h4>
+<p>IY: Screen buffer</p>
+
+<p>HL: Sprite pointer</p>
+
+<p>D, E: X, Y</p>
+
+<p>B: Height</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="putSpriteXOR"><a href="#putSpriteXOR" class="anchor"></a>putSpriteXOR</h3>
+    <p>Draws an 8xB sprite on the screen buffer using XOR (invert) logic.</p>
+
+    <div class="docsection">
+        <h4>Inputs</h4>
+<p>IY: Screen buffer</p>
+
+<p>HL: Sprite pointer</p>
+
+<p>D, E: X, Y</p>
+
+<p>B: Height</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="rectAND"><a href="#rectAND" class="anchor"></a>rectAND</h3>
+    <p>Draws a filled rectangle on the screen buffer using AND (turns pixels OFF) logic.</p>
+
+    <div class="docsection">
+        <h4>Inputs</h4>
+<p>IY: Screen buffer</p>
+
+<p>E, L: X, Y</p>
+
+<p>C, B: Width, height</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="rectOR"><a href="#rectOR" class="anchor"></a>rectOR</h3>
+    <p>Draws a filled rectangle on the screen buffer using OR (turns pixels ON) logic.</p>
+
+    <div class="docsection">
+        <h4>Inputs</h4>
+<p>IY: Screen buffer</p>
+
+<p>E, L: X, Y</p>
+
+<p>C, B: Width, height</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="rectXOR"><a href="#rectXOR" class="anchor"></a>rectXOR</h3>
+    <p>Draws a filled rectangle on the screen buffer using XOR (invert) logic.</p>
+
+    <div class="docsection">
+        <h4>Inputs</h4>
+<p>IY: Screen buffer</p>
+
+<p>E, L: X, Y</p>
+
+<p>C, B: Width, height</p>
+
+
+    </div>
+</div>
+<div class="docitem">
     <h3 id="resetPixel"><a href="#resetPixel" class="anchor"></a>resetPixel</h3>
-    <p>Sets (turns on) a pixel in the specified screen buffer.</p>
+    <p>Sets (turns on) a pixel on the screen buffer.</p>
 
     <div class="docsection">
         <h4>Inputs</h4>
@@ -99,7 +286,7 @@
 </div>
 <div class="docitem">
     <h3 id="setPixel"><a href="#setPixel" class="anchor"></a>setPixel</h3>
-    <p>Sets (turns on) a pixel in the specified screen buffer.</p>
+    <p>Sets (turns on) a pixel on the screen buffer.</p>
 
     <div class="docsection">
         <h4>Inputs</h4>

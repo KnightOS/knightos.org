@@ -21,73 +21,52 @@
         </div>
         <div id="container">
             <div id="body">
-                <h2>System Functions</h2>
+                <h2>Filesystem Functions</h2>
                 
                 <div class="docitem">
-    <h3 id="contextSwitch"><a href="#contextSwitch" class="anchor"></a>contextSwitch</h3>
-    <p>Triggers a context switch early.</p>
-
-    <div class="docsection">
-        
-    </div>
-</div>
-<div class="docitem">
-    <h3 id="formatMem"><a href="#formatMem" class="anchor"></a>formatMem</h3>
-    <p>Formats memory in preparation for memory allocation.</p>
-
-    <div class="docsection">
-        <h4>Notes</h4>
-<p>This function will deallocate <strong>all allocated memory</strong>.</p>
-
-
-    </div>
-</div>
-<div class="docitem">
-    <h3 id="malloc"><a href="#malloc" class="anchor"></a>malloc</h3>
-    <p>Allocates the specified amount of memory.</p>
+    <h3 id="deleteFile"><a href="#deleteFile" class="anchor"></a>deleteFile</h3>
+    <p>Deletes a file.</p>
 
     <div class="docsection">
         <h4>Inputs</h4>
-<p>BC: Length of requested section, in bytes</p>
+<p>DE: Path to file (string pointer)</p>
+
+<h4>Outputs</h4>
+<p>Z: Set if file was deleted, reset if file did not exist</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="fileExists"><a href="#fileExists" class="anchor"></a>fileExists</h3>
+    <p>Determines if a file exists.</p>
+
+    <div class="docsection">
+        <h4>Inputs</h4>
+<p>DE: Path to file (string pointer)</p>
+
+<h4>Outputs</h4>
+<p>Z: Set if file exists, reset if not</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="findFileEntry"><a href="#findFileEntry" class="anchor"></a>findFileEntry</h3>
+    <p>Finds a file entry in the FAT.</p>
+
+    <div class="docsection">
+        <h4>Inputs</h4>
+<p>DE: Path to file (string pointer)</p>
 
 <h4>Outputs</h4>
 <p>Z: Set on success, reset on failure</p>
 
-<p>A: Error code (on failure)</p>
+<p>A: Flash page (on success); Error code (on failure)</p>
 
-<p>IX: First byte of allocated memory (on success)</p>
-
-
-    </div>
-</div>
-<div class="docitem">
-    <h3 id="reboot"><a href="#reboot" class="anchor"></a>reboot</h3>
-    <p>Restarts the device.</p>
-
-    <div class="docsection">
-        <h4>Notes</h4>
-<p>This will never return. Call it with <code>jp reboot</code></p>
+<p>HL: Address relative to 0x4000 (on success)</p>
 
 
-    </div>
-</div>
-<div class="docitem">
-    <h3 id="shutdown"><a href="#shutdown" class="anchor"></a>shutdown</h3>
-    <p>Shuts off the device.</p>
-
-    <div class="docsection">
-        <h4>Notes</h4>
-<p>This will never return. Call it with <code>jp shutdown</code></p>
-
-
-    </div>
-</div>
-<div class="docitem">
-    <h3 id="suspendDevice"><a href="#suspendDevice" class="anchor"></a>suspendDevice</h3>
-    <p>Turns off the screen, enters low power mode, and halts system operation until the ON key is pressed.</p>
-
-    <div class="docsection">
-        
     </div>
 </div>
 

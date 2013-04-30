@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+    <head>
+        <title>KnightOS</title>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="../css/base.css" />
+        <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+    </head>
+    <body>
+        <div id="nav">
+            <div>
+                <h1><a href="/">KnightOS</a></h1>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/downloads.html">Download</a></li>
+                    <li><a href="https://github.com/KnightSoft/KnightOS" target="_blank">Source Code</a></li>
+                    <li><a href="/documentation.html" class="selected">Documentation</a></li>
+                    <li><a href="http://webchat.freenode.net/?channels=knightos&uio=d4" target="_blank">IRC</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="container">
+            <div id="body">
+                <h2>Miscellaneous Functions</h2>
+                
+                <div class="docitem">
+    <h3 id="add16To32"><a href="#add16To32" class="anchor"></a>add16To32</h3>
+    <p>Performs <code>ACIX = ACIX + DE</code></p>
+
+    <div class="docsection">
+        
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="compareStrings"><a href="#compareStrings" class="anchor"></a>compareStrings</h3>
+    <p>Determines if two strings are equal.</p>
+
+    <div class="docsection">
+        <h4>Inputs</h4>
+<p>HL: String pointer</p>
+
+<p>DE: String pointer</p>
+
+<h4>Outputs</h4>
+<p>Z: Set if equal, reset if not equal</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="cpDEBC"><a href="#cpDEBC" class="anchor"></a>cpDEBC</h3>
+    <p>Compares DE to BC.</p>
+
+    <div class="docsection">
+        <h4>Output</h4>
+<p>Same as z80 CP instruction.</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="cpHLBC"><a href="#cpHLBC" class="anchor"></a>cpHLBC</h3>
+    <p>Compares HL to BC.</p>
+
+    <div class="docsection">
+        <h4>Output</h4>
+<p>Same as z80 CP instruction.</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="cpHLDE"><a href="#cpHLDE" class="anchor"></a>cpHLDE</h3>
+    <p>Compares HL to DE.</p>
+
+    <div class="docsection">
+        <h4>Output</h4>
+<p>Same as z80 CP instruction.</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="DEMulA"><a href="#DEMulA" class="anchor"></a>DEMulA</h3>
+    <p>Performs `HL = DE * A"</p>
+
+    <div class="docsection">
+        
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="div32By16"><a href="#div32By16" class="anchor"></a>div32By16</h3>
+    <p>Performs <code>ACIX = ACIX / DE</code></p>
+
+    <div class="docsection">
+        <h4>Outputs</h4>
+<p>As described above, and:</p>
+
+<p>HL: Remainder</p>
+
+<p>B: 0</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="divACByDE"><a href="#divACByDE" class="anchor"></a>divACByDE</h3>
+    <p>Performs <code>AC = AC / DE</code></p>
+
+    <div class="docsection">
+        <h4>Outputs</h4>
+<p>As described above, and:</p>
+
+<p>HL: Remainder</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="divHLByC"><a href="#divHLByC" class="anchor"></a>divHLByC</h3>
+    <p>Performs <code>HL = HL / C</code></p>
+
+    <div class="docsection">
+        <h4>Outputs</h4>
+<p>As described above, and:</p>
+
+<p>A: Remainder</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="getBatteryLevel"><a href="#getBatteryLevel" class="anchor"></a>getBatteryLevel</h3>
+    <p>Determines the approximate battery level.</p>
+
+    <div class="docsection">
+        <h4>Outputs</h4>
+<p>B: Battery level</p>
+
+<h4>Notes</h4>
+<p>B is a value from 0 to 4, where 0 is critical and 4 is full.</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="getBootCodeVersionString"><a href="#getBootCodeVersionString" class="anchor"></a>getBootCodeVersionString</h3>
+    <p>Gets the version string from the device's boot code.</p>
+
+    <div class="docsection">
+        <h4>Outputs</h4>
+<p>HL: String pointer</p>
+
+<h4>Notes</h4>
+<p>This allocates memory to hold the string. Deallocate it with [[free]] when you no longer need it.</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="hexToA"><a href="#hexToA" class="anchor"></a>hexToA</h3>
+    <p>Converts a hexadecimal string to a number.</p>
+
+    <div class="docsection">
+        <h4>Inputs</h4>
+<p>HL: String pointer</p>
+
+<h4>Outputs</h4>
+<p>A: Value</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="hexToHL"><a href="#hexToHL" class="anchor"></a>hexToHL</h3>
+    <p>Converts a hexadecimal string to a number.</p>
+
+    <div class="docsection">
+        <h4>Inputs</h4>
+<p>HL: String pointer</p>
+
+<h4>Outputs</h4>
+<p>HL: Value</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="stringCopy"><a href="#stringCopy" class="anchor"></a>stringCopy</h3>
+    <p>Copies a string.</p>
+
+    <div class="docsection">
+        <h4>Inputs</h4>
+<p>HL: String pointer</p>
+
+<p>DE: Destination</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="stringLength"><a href="#stringLength" class="anchor"></a>stringLength</h3>
+    <p>Determines the length of a zero delimited string.</p>
+
+    <div class="docsection">
+        <h4>Inputs</h4>
+<p>HL: String pointer</p>
+
+<h4>Outputs</h4>
+<p>BC: String length</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="sub16From32"><a href="#sub16From32" class="anchor"></a>sub16From32</h3>
+    <p>Performs <code>ACIX = ACIX - DE</code></p>
+
+    <div class="docsection">
+        
+    </div>
+</div>
+
+            </div>
+            <div id="footer">
+                This site is licensed with the <a href="http://opensource.org/licenses/MIT" target="_blank">MIT license</a>.
+            </div>
+        </div>
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-40439865-1']);
+          _gaq.push(['_trackPageview']);
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+    </body>
+</html>
