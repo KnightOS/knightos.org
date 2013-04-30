@@ -224,3 +224,38 @@ a:visited {
 .center {
     text-align: center;
 }
+
+.docitem a.anchor {
+    width: 26px;
+    height: 26px;
+    background: url('../images/link.png') transparent scroll no-repeat;
+    position: absolute;
+    top: 0;
+    left: -40px;
+    display: inline-block;
+    padding-right: 10px;
+    opacity: 0;
+    transition: all .2s linear;
+}
+
+.docitem h3 {
+    font-style: normal;
+    text-align: left;
+    font-size: 16pt;
+    font-weight: bold;
+    position: relative;
+}
+
+.docitem h3:hover a.anchor {
+    opacity: 1;
+}
+
+.docitem  .docsection p {
+    margin: 0;
+    padding: 0;
+}
+
+.docitem h4 {
+    margin: 4px 0;
+    padding: 0;
+}
