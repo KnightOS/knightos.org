@@ -21,59 +21,11 @@
         </div>
         <div id="container">
             <div id="body">
-                <h2>System</h2>
+                <h2>Hardware</h2>
                 
                 <div class="docitem">
-    <h3 id="contextSwitch"><a href="#contextSwitch" class="anchor"></a>contextSwitch</h3>
-    <p>Triggers a context switch early.</p>
-
-    <div class="docsection">
-        
-    </div>
-</div>
-<div class="docitem">
-    <h3 id="malloc"><a href="#malloc" class="anchor"></a>malloc</h3>
-    <p>Allocates the specified amount of memory.</p>
-
-    <div class="docsection">
-        <h4>Inputs</h4>
-<p>BC: Length of requested section, in bytes</p>
-
-<h4>Outputs</h4>
-<p>Z: Set on success, reset on failure</p>
-
-<p>A: Error code (on failure)</p>
-
-<p>IX: First byte of allocated memory (on success)</p>
-
-
-    </div>
-</div>
-<div class="docitem">
-    <h3 id="reboot"><a href="#reboot" class="anchor"></a>reboot</h3>
-    <p>Restarts the device.</p>
-
-    <div class="docsection">
-        <h4>Notes</h4>
-<p>This will never return. Call it with <code>jp shutdown</code></p>
-
-
-    </div>
-</div>
-<div class="docitem">
-    <h3 id="shutdown"><a href="#shutdown" class="anchor"></a>shutdown</h3>
-    <p>Shuts off the device.</p>
-
-    <div class="docsection">
-        <h4>Notes</h4>
-<p>This will never return. Call it with <code>jp shutdown</code></p>
-
-
-    </div>
-</div>
-<div class="docitem">
-    <h3 id="suspendDevice"><a href="#suspendDevice" class="anchor"></a>suspendDevice</h3>
-    <p>Turns off the screen, enters low power mode, and halts system operation until the ON key is pressed.</p>
+    <h3 id="getLcdLock"><a href="#getLcdLock" class="anchor"></a>getLcdLock</h3>
+    <p>Locks the LCD to the current thread.</p>
 
     <div class="docsection">
         

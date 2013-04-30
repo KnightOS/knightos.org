@@ -21,62 +21,93 @@
         </div>
         <div id="container">
             <div id="body">
-                <h2>System</h2>
+                <h2>Display</h2>
                 
                 <div class="docitem">
-    <h3 id="contextSwitch"><a href="#contextSwitch" class="anchor"></a>contextSwitch</h3>
-    <p>Triggers a context switch early.</p>
-
-    <div class="docsection">
-        
-    </div>
-</div>
-<div class="docitem">
-    <h3 id="malloc"><a href="#malloc" class="anchor"></a>malloc</h3>
-    <p>Allocates the specified amount of memory.</p>
+    <h3 id="clearBuffer"><a href="#clearBuffer" class="anchor"></a>clearBuffer</h3>
+    <p>Sets all of a screen buffer to zero.</p>
 
     <div class="docsection">
         <h4>Inputs</h4>
-<p>BC: Length of requested section, in bytes</p>
+<p>IY: Screen buffer</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="fastCopy"><a href="#fastCopy" class="anchor"></a>fastCopy</h3>
+    <p>Copies the specified screen buffer to the LCD.</p>
+
+    <div class="docsection">
+        <h4>Inputs</h4>
+<p>IY: Screen buffer</p>
+
+<h4>Notes</h4>
+<p>This routine will return immediately without drawing to the LCD if the calling thead does not have an</p>
+
+<p>LCD lock. Acquire one with <a href="Hardware.html#getLcdLock">getLcdLock</a>.</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="getPixel"><a href="#getPixel" class="anchor"></a>getPixel</h3>
+    <p>Finds the address of and mask for a pixel in the specified screen buffer.</p>
+
+    <div class="docsection">
+        <h4>Inputs</h4>
+<p>IY: Screen buffer</p>
+
+<p>A,L: X, Y</p>
 
 <h4>Outputs</h4>
-<p>Z: Set on success, reset on failure</p>
+<p>HL: Address of pixel</p>
 
-<p>A: Error code (on failure)</p>
+<p>A: Mask</p>
 
-<p>IX: First byte of allocated memory (on success)</p>
-
-
-    </div>
-</div>
-<div class="docitem">
-    <h3 id="reboot"><a href="#reboot" class="anchor"></a>reboot</h3>
-    <p>Restarts the device.</p>
-
-    <div class="docsection">
-        <h4>Notes</h4>
-<p>This will never return. Call it with <code>jp shutdown</code></p>
+<h4>Notes</h4>
+<p>If the pixel is on, HL &amp; A is nonzero.</p>
 
 
     </div>
 </div>
 <div class="docitem">
-    <h3 id="shutdown"><a href="#shutdown" class="anchor"></a>shutdown</h3>
-    <p>Shuts off the device.</p>
+    <h3 id="invertPixel"><a href="#invertPixel" class="anchor"></a>invertPixel</h3>
+    <p>Inverts a pixel in the specified screen buffer.</p>
 
     <div class="docsection">
-        <h4>Notes</h4>
-<p>This will never return. Call it with <code>jp shutdown</code></p>
+        <h4>Inputs</h4>
+<p>IY: Screen buffer</p>
+
+<p>A,L: X, Y</p>
 
 
     </div>
 </div>
 <div class="docitem">
-    <h3 id="suspendDevice"><a href="#suspendDevice" class="anchor"></a>suspendDevice</h3>
-    <p>Turns off the screen, enters low power mode, and halts system operation until the ON key is pressed.</p>
+    <h3 id="resetPixel"><a href="#resetPixel" class="anchor"></a>resetPixel</h3>
+    <p>Sets (turns on) a pixel in the specified screen buffer.</p>
 
     <div class="docsection">
-        
+        <h4>Inputs</h4>
+<p>IY: Screen buffer</p>
+
+<p>A,L: X, Y</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="setPixel"><a href="#setPixel" class="anchor"></a>setPixel</h3>
+    <p>Sets (turns on) a pixel in the specified screen buffer.</p>
+
+    <div class="docsection">
+        <h4>Inputs</h4>
+<p>IY: Screen buffer</p>
+
+<p>A,L: X, Y</p>
+
+
     </div>
 </div>
 
