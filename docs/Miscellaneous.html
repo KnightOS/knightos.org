@@ -48,7 +48,7 @@
     </div>
 </div>
 <div class="docitem">
-    <h3 id="cpDEBC"><a href="#cpDEBC" class="anchor"></a>cpDEBC</h3>
+    <h3 id="cpBCDE"><a href="#cpBCDE" class="anchor"></a>cpBCDE</h3>
     <p>Compares DE to BC.</p>
 
     <div class="docsection">
@@ -82,7 +82,7 @@
 </div>
 <div class="docitem">
     <h3 id="DEMulA"><a href="#DEMulA" class="anchor"></a>DEMulA</h3>
-    <p>Performs `HL = DE * A"</p>
+    <p>Performs <code>HL = DE * A</code></p>
 
     <div class="docsection">
         
@@ -181,6 +181,26 @@
 
 <h4>Outputs</h4>
 <p>HL: Value</p>
+
+
+    </div>
+</div>
+<div class="docitem">
+    <h3 id="radixSort"><a href="#radixSort" class="anchor"></a>radixSort</h3>
+    <p>Sorts a specified array of numbers.</p>
+
+    <div class="docsection">
+        <h4>Inputs</h4>
+<p>HL: first element in array</p>
+
+<p>DE: Last element in array</p>
+
+<h4>Notes</h4>
+<p>This routine is an in-place version of a radix sort, which has an O(k*n)</p>
+
+<p>runtime for k-bit numbers.  It also requires a smaller, fixed amount of</p>
+
+<p>stack space.</p>
 
 
     </div>

@@ -8,9 +8,7 @@ html, body {
 
 body {
     background: url('../images/background.png') repeat scroll transparent;
-}
-
-#nav {
+}#nav {
     position: absolute;
     z-index: 2;
     top: 0;
@@ -264,4 +262,8 @@ a:visited {
 .docitem h4 {
     margin: 4px 0;
     padding: 0;
+}
+
+.linklist p {
+    margin: 0;
 }
