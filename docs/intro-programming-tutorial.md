@@ -49,7 +49,7 @@ it to `/bin` and run `hello` from a terminal. Viola, your first KnightOS program
 
 This is the header for your program. The "kernel.inc" file contains equates for kernel functions, and macros for
 relative-loaded programs. The "stdio.inc" file adds the `stdio(...)` macro, as well as equates for stdio functions. The `.db`
-line defines some information the kernel needs from you - the 0 are your thread flags (we'll talk about these later), and the
+line defines some information the kernel needs from you: the 0 is your thread flags (read the docs about those later), and the
 50 is the size of your stack, divided by two (so your stack is 100 bytes long, allowing for 50 PUSH instructions). You have to
 explicitly request a certain stack size in KnightOS. Finally, we have `.org 0`, which indicates to the assembler that your
 program starts at zero. This allows us to relocate your program when it runs.
