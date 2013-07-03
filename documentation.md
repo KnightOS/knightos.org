@@ -18,7 +18,7 @@ There are a number of articles documenting the system in prose.
 
 ### KnightOS Articles
 
-* [Introductory Programming Tutorial](#)
+* [Introductory Programming Tutorial](/docs/intro-programming-tutorial.html)
 * [Package management](#)
 * [Writing libraries for KnightOS](#)
 * [Designing graphical interfaces](#)
