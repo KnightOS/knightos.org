@@ -198,8 +198,8 @@ arrow keys. The following things are of note:
 * You must get a lock for any hardware you want to use - in this case, the LCD and keypad.
 * You can use the `jr` instruction normally, without relocating it.
 * We have to allocate a screen buffer with allocScreenBuffer
-  * You can alternatively manually allocate it. All display functions expect a screen buffer to
-    be passed in via the IY register.
+* You can alternatively manually allocate it. All display functions expect a screen buffer to
+  be passed in via the IY register.
 
 ## Getting into the Castle
 
