@@ -35,16 +35,15 @@ There are a number of articles documenting the system in prose.
 The kernel has automatically generated documentation based on comments in the source code that document
 each kernel function. This documentation is split up into several categories:
 
-* [System](#): Basic system manipulation and core functions
-* [Threading](#): Functions related to starting, stopping, and managing threads
-* [Hardware](#): Access to devices and thread-safe locking mechanisms
-* [Time](#): Clock and time manipulation functions (limited on older devices)
-* [Flash](#): Functions for writing to Flash memory
-* [Filesystem](#): Filesystem manipulation and traversal
-* [Filestreams](#): File stream reading, writing, and utility functions
-* [Drawing](#): Functions for working with and drawing on display buffers
-* [Text](#): Drawing text on display buffers
-* [Miscellaeneous](#): Various useful functions that don't fit elsewhere
+* [Cryptography](/docs/reference/crypto.html): Cryptographic hashing functions
+* [Display](/docs/reference/display.html): Functions for manipulating monochrome display buffers
+* [File Streams](/docs/reference/file_stream.html): File stream reading, writing, seeking, etc
+* [Filesystem](/docs/reference/filesystem.html): Deleting, renaming, moving file and directories
+* [Hardware](/docs/reference/hardware.html): Hardware management and thread-safe sharing
+* [Miscellaneous](/docs/reference/miscellaneous.html): Various utility and helper functions
+* [System](/docs/reference/system.html): Core functions for interacting with the kernel
+* [Text](/docs/reference/text.html): Rendering and measuring text on monochrome display buffers
+* [Threads](/docs/reference/thread.html): Thread creation and management functions
 
 ## Library Documentation
 

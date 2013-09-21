@@ -1,0 +1,463 @@
+---
+title: Display Documentation
+layout: documentation
+---
+
+<h1>Display</h1>
+
+
+<div id="clearBuffer" class="docsection">
+    <h2>
+        <a href="#clearBuffer">clearBuffer</a>
+    </h2>
+    
+    Turns off all pixels on a screen buffer.
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+            </dl>
+        
+    
+</div>
+
+<div id="fastCopy" class="docsection">
+    <h2>
+        <a href="#fastCopy">fastCopy</a>
+    </h2>
+    
+    Copies the screen buffer to the LCD.
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+            </dl>
+        
+    
+        <h3>Notes</h3>
+        
+            <p>This routine will return immediately without drawing to the LCD if the calling thead does not have an LCD lock. Acquire one with <a href="hardware.html#getLcdLock">getLcdLock</a>.</p>
+        
+    
+</div>
+
+<div id="getPixel" class="docsection">
+    <h2>
+        <a href="#getPixel">getPixel</a>
+    </h2>
+    
+    Finds the address of and mask for a pixel on the screen buffer.
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+                <dt>A,L</dt>
+                <dd><p>X, Y</p></dt>
+                
+            </dl>
+        
+    
+        <h3>Notes</h3>
+        
+            <p>If the pixel is on, HL &amp; A is nonzero.</p>
+        
+    
+        <h3>Outputs</h3>
+        
+            <dl>
+                
+                <dt>A</dt>
+                <dd><p>Mask</p></dt>
+                
+                <dt>HL</dt>
+                <dd><p>Address of pixel</p></dt>
+                
+            </dl>
+        
+    
+</div>
+
+<div id="setPixel" class="docsection">
+    <h2>
+        <a href="#setPixel">setPixel</a>
+    </h2>
+    
+    Sets (turns on) a pixel on the screen buffer.
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+                <dt>A,L</dt>
+                <dd><p>X, Y</p></dt>
+                
+            </dl>
+        
+    
+</div>
+
+<div id="resetPixel" class="docsection">
+    <h2>
+        <a href="#resetPixel">resetPixel</a>
+    </h2>
+    
+    Sets (turns on) a pixel on the screen buffer.
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+                <dt>A,L</dt>
+                <dd><p>X, Y</p></dt>
+                
+            </dl>
+        
+    
+</div>
+
+<div id="invertPixel" class="docsection">
+    <h2>
+        <a href="#invertPixel">invertPixel</a>
+    </h2>
+    
+    Inverts a pixel on the screen buffer.
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+                <dt>A,L</dt>
+                <dd><p>X, Y</p></dt>
+                
+            </dl>
+        
+    
+</div>
+
+<div id="drawLine" class="docsection">
+    <h2>
+        <a href="#drawLine">drawLine</a>
+    </h2>
+    
+    Draws a line on the screen buffer using OR (turns pixels ON) logic.
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+                <dt>D, E</dt>
+                <dd><p>X1, Y1</p></dt>
+                
+                <dt>H, L</dt>
+                <dd><p>X2, Y2</p></dt>
+                
+            </dl>
+        
+    
+        <h3>Notes</h3>
+        
+            <p>This function does not clip lines to the screen boundaries.</p>
+        
+    
+</div>
+
+<div id="putSpriteXOR" class="docsection">
+    <h2>
+        <a href="#putSpriteXOR">putSpriteXOR</a>
+    </h2>
+    
+    Draws an 8xB sprite on the screen buffer using XOR (invert) logic.
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+                <dt>D, E</dt>
+                <dd><p>X, Y</p></dt>
+                
+                <dt>B</dt>
+                <dd><p>Height</p></dt>
+                
+                <dt>HL</dt>
+                <dd><p>Sprite pointer</p></dt>
+                
+            </dl>
+        
+    
+</div>
+
+<div id="putSpriteAND" class="docsection">
+    <h2>
+        <a href="#putSpriteAND">putSpriteAND</a>
+    </h2>
+    
+    Draws an 8xB sprite on the screen buffer using AND (turns pixels OFF) logic.
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+                <dt>D, E</dt>
+                <dd><p>X, Y</p></dt>
+                
+                <dt>B</dt>
+                <dd><p>Height</p></dt>
+                
+                <dt>HL</dt>
+                <dd><p>Sprite pointer</p></dt>
+                
+            </dl>
+        
+    
+</div>
+
+<div id="putSpriteOR" class="docsection">
+    <h2>
+        <a href="#putSpriteOR">putSpriteOR</a>
+    </h2>
+    
+    Draws an 8xB sprite on the screen buffer using OR (turns pixels ON) logic.
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+                <dt>D, E</dt>
+                <dd><p>X, Y</p></dt>
+                
+                <dt>B</dt>
+                <dd><p>Height</p></dt>
+                
+                <dt>HL</dt>
+                <dd><p>Sprite pointer</p></dt>
+                
+            </dl>
+        
+    
+</div>
+
+<div id="rectXOR" class="docsection">
+    <h2>
+        <a href="#rectXOR">rectXOR</a>
+    </h2>
+    
+    Draws a filled rectangle on the screen buffer using XOR (invert) logic.
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+                <dt>C, B</dt>
+                <dd><p>Width, height</p></dt>
+                
+                <dt>E, L</dt>
+                <dd><p>X, Y</p></dt>
+                
+            </dl>
+        
+    
+</div>
+
+<div id="rectOR" class="docsection">
+    <h2>
+        <a href="#rectOR">rectOR</a>
+    </h2>
+    
+    Draws a filled rectangle on the screen buffer using OR (turns pixels ON) logic.
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+                <dt>C, B</dt>
+                <dd><p>Width, height</p></dt>
+                
+                <dt>E, L</dt>
+                <dd><p>X, Y</p></dt>
+                
+            </dl>
+        
+    
+</div>
+
+<div id="rectAND" class="docsection">
+    <h2>
+        <a href="#rectAND">rectAND</a>
+    </h2>
+    
+    Draws a filled rectangle on the screen buffer using AND (turns pixels OFF) logic.
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+                <dt>C, B</dt>
+                <dd><p>Width, height</p></dt>
+                
+                <dt>E, L</dt>
+                <dd><p>X, Y</p></dt>
+                
+            </dl>
+        
+    
+</div>
+
+<div id="putSprite16XOR" class="docsection">
+    <h2>
+        <a href="#putSprite16XOR">putSprite16XOR</a>
+    </h2>
+    
+    Draws a 16xB sprite on the screen buffer using XOR (invert) logic.
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+                <dt>D, E</dt>
+                <dd><p>X, Y</p></dt>
+                
+                <dt>B</dt>
+                <dd><p>Height</p></dt>
+                
+                <dt>HL</dt>
+                <dd><p>Sprite pointer</p></dt>
+                
+            </dl>
+        
+    
+        <h3>Notes</h3>
+        
+            <p>Each 16-wide group of pixels is represented by two adjacent octets.</p>
+        
+    
+</div>
+
+<div id="putSprite16OR" class="docsection">
+    <h2>
+        <a href="#putSprite16OR">putSprite16OR</a>
+    </h2>
+    
+    Draws a 16xB sprite on the screen buffer using OR (turns pixels ON) logic.
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+                <dt>D, E</dt>
+                <dd><p>X, Y</p></dt>
+                
+                <dt>B</dt>
+                <dd><p>Height</p></dt>
+                
+                <dt>HL</dt>
+                <dd><p>Sprite pointer</p></dt>
+                
+            </dl>
+        
+    
+        <h3>Notes</h3>
+        
+            <p>Each 16-wide group of pixels is represented by two adjacent octets.</p>
+        
+    
+</div>
+
+<div id="putSprite16AND" class="docsection">
+    <h2>
+        <a href="#putSprite16AND">putSprite16AND</a>
+    </h2>
+    
+    Draws a 16xB sprite on the screen buffer using AND (turns pixels OFF) logic.
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+                <dt>D, E</dt>
+                <dd><p>X, Y</p></dt>
+                
+                <dt>B</dt>
+                <dd><p>Height</p></dt>
+                
+                <dt>HL</dt>
+                <dd><p>Sprite pointer</p></dt>
+                
+            </dl>
+        
+    
+        <h3>Notes</h3>
+        
+            <p>Each 16-wide group of pixels is represented by two adjacent octets.</p>
+        
+    
+</div>
+
+<div id="allocScreenBuffer" class="docsection">
+    <h2>
+        <a href="#allocScreenBuffer">allocScreenBuffer</a>
+    </h2>
+    
+    Allocates a 768-byte screen buffer.
+    
+        <h3>Outputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+            </dl>
+        
+    
+</div>

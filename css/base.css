@@ -1,3 +1,79 @@
 body {
     padding-top: 45px;
 }
+
+.documentation .docsection {
+    padding-left: 5px;
+    margin-left: -5px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+}
+
+.documentation {
+    margin-bottom: 50px;
+}
+
+.documentation h2 {
+    font-size: 18pt;
+    position: relative;
+}
+
+.documentation h2 a:before {
+    content: url('/img/link.png');
+    position: absolute;
+    left: -40px;
+    opacity: 0;
+    transition: opacity linear 0.2s;
+    cursor: pointer;
+}
+
+.documentation h2 a:hover:before {
+    opacity: 1;
+}
+
+.documentation h2 a {
+    color: #000;
+    cursor: text;
+}
+
+.documentation h2 a:hover {
+    text-decoration: none;
+}
+
+.documentation h3 {
+    font-size: 14pt;
+    margin: 0;
+}
+
+.documentation dl {
+    margin: 0;
+}
+
+.documentation .linked {
+    -webkit-animation: fadeColor 3s linear 1;
+    animation: fadeColor 3s linear 1;
+}
+
+@-webkit-keyframes fadeColor {
+    from {
+        background-color: #bbb;
+    }
+    80% {
+        background-color: #bbb;
+    }
+    to {
+        background-color: transparent;
+    }
+}
+
+@keyframes fadeColor {
+    from {
+        background-color: #bbb;
+    }
+    80% {
+        background-color: #bbb;
+    }
+    to {
+        background-color: transparent;
+    }
+}

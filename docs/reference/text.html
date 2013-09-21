@@ -1,0 +1,439 @@
+---
+title: Text Documentation
+layout: documentation
+---
+
+<h1>Text</h1>
+
+
+<div id="drawChar" class="docsection">
+    <h2>
+        <a href="#drawChar">drawChar</a>
+    </h2>
+    
+    Draws a character to the screen buffer using OR logic (turns pixels ON).
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+                <dt>A</dt>
+                <dd><p>Character to print</p></dt>
+                
+                <dt>B</dt>
+                <dd><p>Left margin</p></dt>
+                
+                <dt>D, E</dt>
+                <dd><p>X, Y</p></dt>
+                
+            </dl>
+        
+    
+        <h3>Notes</h3>
+        
+            <p>The left margin is only required if your string contains newlines.</p>
+        
+    
+        <h3>Outputs</h3>
+        
+            <dl>
+                
+                <dt>D, E</dt>
+                <dd><p>Moved to next character position</p></dt>
+                
+            </dl>
+        
+    
+</div>
+
+<div id="drawCharAND" class="docsection">
+    <h2>
+        <a href="#drawCharAND">drawCharAND</a>
+    </h2>
+    
+    Draws a character to the screen buffer using AND logic (turns pixels OFF).
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+                <dt>A</dt>
+                <dd><p>Character to print</p></dt>
+                
+                <dt>B</dt>
+                <dd><p>Left margin</p></dt>
+                
+                <dt>D, E</dt>
+                <dd><p>X, Y</p></dt>
+                
+            </dl>
+        
+    
+        <h3>Notes</h3>
+        
+            <p>The left margin is only required if your string contains newlines.</p>
+        
+    
+        <h3>Outputs</h3>
+        
+            <dl>
+                
+                <dt>D, E</dt>
+                <dd><p>Moved to next character position</p></dt>
+                
+            </dl>
+        
+    
+</div>
+
+<div id="drawCharXOR" class="docsection">
+    <h2>
+        <a href="#drawCharXOR">drawCharXOR</a>
+    </h2>
+    
+    Draws a character to the screen buffer using XOR logic (inverts pixels).
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+                <dt>A</dt>
+                <dd><p>Character to print</p></dt>
+                
+                <dt>B</dt>
+                <dd><p>Left margin</p></dt>
+                
+                <dt>D, E</dt>
+                <dd><p>X, Y</p></dt>
+                
+            </dl>
+        
+    
+        <h3>Notes</h3>
+        
+            <p>The left margin is only required if your string contains newlines.</p>
+        
+    
+        <h3>Outputs</h3>
+        
+            <dl>
+                
+                <dt>D, E</dt>
+                <dd><p>Moved to next character position</p></dt>
+                
+            </dl>
+        
+    
+</div>
+
+<div id="drawStr" class="docsection">
+    <h2>
+        <a href="#drawStr">drawStr</a>
+    </h2>
+    
+    Draws a zero-delimited string to the screen buffer using OR logic (turns pixels ON).
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+                <dt>D, E</dt>
+                <dd><p>X, Y</p></dt>
+                
+                <dt>B</dt>
+                <dd><p>Left margin</p></dt>
+                
+                <dt>HL</dt>
+                <dd><p>String</p></dt>
+                
+            </dl>
+        
+    
+        <h3>Notes</h3>
+        
+            <p>The left margin is only required if your string contains newlines.</p>
+        
+    
+        <h3>Outputs</h3>
+        
+            <dl>
+                
+                <dt>D, E</dt>
+                <dd><p>Advanced to position of next character</p></dt>
+                
+            </dl>
+        
+    
+</div>
+
+<div id="drawStrAND" class="docsection">
+    <h2>
+        <a href="#drawStrAND">drawStrAND</a>
+    </h2>
+    
+    Draws a zero-delimited string to the screen buffer using AND logic (turns pixels OFF).
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+                <dt>D, E</dt>
+                <dd><p>X, Y</p></dt>
+                
+                <dt>B</dt>
+                <dd><p>Left margin</p></dt>
+                
+                <dt>HL</dt>
+                <dd><p>String</p></dt>
+                
+            </dl>
+        
+    
+        <h3>Notes</h3>
+        
+            <p>The left margin is only required if your string contains newlines.</p>
+        
+    
+        <h3>Outputs</h3>
+        
+            <dl>
+                
+                <dt>D, E</dt>
+                <dd><p>Advanced to position of next character</p></dt>
+                
+            </dl>
+        
+    
+</div>
+
+<div id="drawStrXOR" class="docsection">
+    <h2>
+        <a href="#drawStrXOR">drawStrXOR</a>
+    </h2>
+    
+    Draws a zero-delimited string to the screen buffer using XOR logic (inverts pixels).
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+                <dt>D, E</dt>
+                <dd><p>X, Y</p></dt>
+                
+                <dt>B</dt>
+                <dd><p>Left margin</p></dt>
+                
+                <dt>HL</dt>
+                <dd><p>String</p></dt>
+                
+            </dl>
+        
+    
+        <h3>Notes</h3>
+        
+            <p>The left margin is only required if your string contains newlines.</p>
+        
+    
+        <h3>Outputs</h3>
+        
+            <dl>
+                
+                <dt>D, E</dt>
+                <dd><p>Advanced to position of next character</p></dt>
+                
+            </dl>
+        
+    
+</div>
+
+<div id="drawStrFromStream" class="docsection">
+    <h2>
+        <a href="#drawStrFromStream">drawStrFromStream</a>
+    </h2>
+    
+    Draws a zero-delimited string to the screen buffer using OR logic (turns pixels ON).
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+                <dt>D, E</dt>
+                <dd><p>X, Y</p></dt>
+                
+                <dt>B</dt>
+                <dd><p>Stream ID</p></dt>
+                
+            </dl>
+        
+    
+        <h3>Outputs</h3>
+        
+            <dl>
+                
+                <dt>Stream is advanced to byte after 0.
+drawStrFromStream</dt>
+                <dd></dt>
+                
+            </dl>
+        
+    
+</div>
+
+<div id="drawHexA" class="docsection">
+    <h2>
+        <a href="#drawHexA">drawHexA</a>
+    </h2>
+    
+    Draws the contents of A in hexadecimal to the screen buffer using OR logic (turns pixels ON).
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+                <dt>D, E</dt>
+                <dd><p>X, Y</p></dt>
+                
+                <dt>A</dt>
+                <dd><p>Value</p></dt>
+                
+            </dl>
+        
+    
+        <h3>Outputs</h3>
+        
+            <dl>
+                
+                <dt>D, E</dt>
+                <dd><p>Advanced to position of next character</p></dt>
+                
+            </dl>
+        
+    
+</div>
+
+<div id="drawHexHL" class="docsection">
+    <h2>
+        <a href="#drawHexHL">drawHexHL</a>
+    </h2>
+    
+    Draws the contents of HL in hexadecimal to the screen buffer using OR logic (turns pixels ON).
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>IY</dt>
+                <dd><p>Screen buffer</p></dt>
+                
+                <dt>D, E</dt>
+                <dd><p>X, Y</p></dt>
+                
+                <dt>HL</dt>
+                <dd><p>Value</p></dt>
+                
+            </dl>
+        
+    
+        <h3>Outputs</h3>
+        
+            <dl>
+                
+                <dt>D, E</dt>
+                <dd><p>Advanced to position of next character</p></dt>
+                
+            </dl>
+        
+    
+</div>
+
+<div id="measureChar" class="docsection">
+    <h2>
+        <a href="#measureChar">measureChar</a>
+    </h2>
+    
+    Measures the width of a character in pixels.
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>A</dt>
+                <dd><p>Character to measure</p></dt>
+                
+            </dl>
+        
+    
+        <h3>Notes</h3>
+        
+            <p>The height of each character is always 5 pixels. The width also often includes a column of empty pixels on the right (exceptions include '_').</p>
+        
+    
+        <h3>Outputs</h3>
+        
+            <dl>
+                
+                <dt>A</dt>
+                <dd><p>Width of character</p></dt>
+                
+            </dl>
+        
+    
+</div>
+
+<div id="measureStr" class="docsection">
+    <h2>
+        <a href="#measureStr">measureStr</a>
+    </h2>
+    
+    Measures the width of a string in pixels.
+    
+        <h3>Inputs</h3>
+        
+            <dl>
+                
+                <dt>HL</dt>
+                <dd><p>String to measure</p></dt>
+                
+            </dl>
+        
+    
+        <h3>Notes</h3>
+        
+            <p>The height of any string is always 5 pixels. This function does not support newlines.</p>
+        
+    
+        <h3>Outputs</h3>
+        
+            <dl>
+                
+                <dt>A</dt>
+                <dd><p>Width of string</p></dt>
+                
+            </dl>
+        
+    
+</div>
