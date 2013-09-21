@@ -5,96 +5,105 @@ layout: documentation
 
 <h1>Filesystem</h1>
 
-
-<div id="deleteFile" class="docsection">
-    <h2>
-        <a href="#deleteFile">deleteFile</a>
-    </h2>
+<div class="docs">
     
-    Deletes a file.
+    <div id="deleteFile" class="docsection">
+        <div>
+            <h2>
+                <a href="#deleteFile">deleteFile</a>
+            </h2>
+            
+            Deletes a file.
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>DE</dt>
+                        <dd><p>Path to file (string pointer)</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>Z</dt>
+                        <dd><p>Set if file was deleted, reset if file did not exist</p></dt>
+                        
+                    </dl>
+                
+            
+        </div>
+    </div>
     
-        <h3>Inputs</h3>
-        
-            <dl>
+    <div id="fileExists" class="docsection">
+        <div>
+            <h2>
+                <a href="#fileExists">fileExists</a>
+            </h2>
+            
+            Determines if a file exists.
+            
+                <h3>Inputs</h3>
                 
-                <dt>DE</dt>
-                <dd><p>Path to file (string pointer)</p></dt>
+                    <dl>
+                        
+                        <dt>DE</dt>
+                        <dd><p>Path to file (string pointer)</p></dt>
+                        
+                    </dl>
                 
-            </dl>
-        
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>Z</dt>
+                        <dd><p>Set if file exists, reset if not</p></dt>
+                        
+                    </dl>
+                
+            
+        </div>
+    </div>
     
-        <h3>Outputs</h3>
-        
-            <dl>
+    <div id="findFileEntry" class="docsection">
+        <div>
+            <h2>
+                <a href="#findFileEntry">findFileEntry</a>
+            </h2>
+            
+            Finds a file entry in the FAT.
+            
+                <h3>Inputs</h3>
                 
-                <dt>Z</dt>
-                <dd><p>Set if file was deleted, reset if file did not exist</p></dt>
+                    <dl>
+                        
+                        <dt>DE</dt>
+                        <dd><p>Path to file (string pointer)</p></dt>
+                        
+                    </dl>
                 
-            </dl>
-        
-    
-</div>
-
-<div id="fileExists" class="docsection">
-    <h2>
-        <a href="#fileExists">fileExists</a>
-    </h2>
-    
-    Determines if a file exists.
-    
-        <h3>Inputs</h3>
-        
-            <dl>
+            
+                <h3>Outputs</h3>
                 
-                <dt>DE</dt>
-                <dd><p>Path to file (string pointer)</p></dt>
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>Flash page (on success); Error code (on failure)</p></dt>
+                        
+                        <dt>Z</dt>
+                        <dd><p>Set on success, reset on failure</p></dt>
+                        
+                        <dt>HL</dt>
+                        <dd><p>Address relative to 0x4000 (on success)</p></dt>
+                        
+                    </dl>
                 
-            </dl>
-        
-    
-        <h3>Outputs</h3>
-        
-            <dl>
-                
-                <dt>Z</dt>
-                <dd><p>Set if file exists, reset if not</p></dt>
-                
-            </dl>
-        
-    
-</div>
-
-<div id="findFileEntry" class="docsection">
-    <h2>
-        <a href="#findFileEntry">findFileEntry</a>
-    </h2>
-    
-    Finds a file entry in the FAT.
-    
-        <h3>Inputs</h3>
-        
-            <dl>
-                
-                <dt>DE</dt>
-                <dd><p>Path to file (string pointer)</p></dt>
-                
-            </dl>
-        
-    
-        <h3>Outputs</h3>
-        
-            <dl>
-                
-                <dt>A</dt>
-                <dd><p>Flash page (on success); Error code (on failure)</p></dt>
-                
-                <dt>Z</dt>
-                <dd><p>Set on success, reset on failure</p></dt>
-                
-                <dt>HL</dt>
-                <dd><p>Address relative to 0x4000 (on success)</p></dt>
-                
-            </dl>
-        
+            
+        </div>
+    </div>
     
 </div>

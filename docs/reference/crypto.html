@@ -5,145 +5,160 @@ layout: documentation
 
 <h1>Crypto</h1>
 
-
-<div id="crc16" class="docsection">
-    <h2>
-        <a href="#crc16">crc16</a>
-    </h2>
+<div class="docs">
     
-    Performs a Cyclic Redundancy Check on data.
+    <div id="crc16" class="docsection">
+        <div>
+            <h2>
+                <a href="#crc16">crc16</a>
+            </h2>
+            
+            Performs a Cyclic Redundancy Check on data.
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>HL</dt>
+                        <dd><p>Pointer to data</p></dt>
+                        
+                        <dt>BC</dt>
+                        <dd><p>Size of data</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>DE</dt>
+                        <dd><p>CRC of data</p></dt>
+                        
+                    </dl>
+                
+            
+        </div>
+    </div>
     
-        <h3>Inputs</h3>
-        
-            <dl>
+    <div id="sha1Init" class="docsection">
+        <div>
+            <h2>
+                <a href="#sha1Init">sha1Init</a>
+            </h2>
+            
+            Allocates a memory block to keep the state and result of a SHA1 hash operation.  The result is kept in the first 20 bytes of the allocated block.  You must use <span class="deadlink">sha1Clean</span> to deallocate the block; simply using <a href="system.html#free">free</a> will result in a memory leak!
+            
+                <h3>Outputs</h3>
                 
-                <dt>HL</dt>
-                <dd><p>Pointer to data</p></dt>
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>Error code (on failure)</p></dt>
+                        
+                        <dt>IX</dt>
+                        <dd><p>location of allocated block (on success)</p></dt>
+                        
+                        <dt>Z</dt>
+                        <dd><p>Set on success, reset on failure</p></dt>
+                        
+                    </dl>
                 
-                <dt>BC</dt>
-                <dd><p>Size of data</p></dt>
-                
-            </dl>
-        
+            
+        </div>
+    </div>
     
-        <h3>Outputs</h3>
-        
-            <dl>
+    <div id="sha1Crypto" class="docsection">
+        <div>
+            <h2>
+                <a href="#sha1Crypto">sha1Crypto</a>
+            </h2>
+            
+            Safely deallocates a SHA1 state block allocated by sha1Init.
+            
+                <h3>Inputs</h3>
                 
-                <dt>DE</dt>
-                <dd><p>CRC of data</p></dt>
+                    <dl>
+                        
+                        <dt>IX</dt>
+                        <dd><p>location of allocated block</p></dt>
+                        
+                    </dl>
                 
-            </dl>
-        
+            
+        </div>
+    </div>
     
-</div>
-
-<div id="sha1Init" class="docsection">
-    <h2>
-        <a href="#sha1Init">sha1Init</a>
-    </h2>
+    <div id="sha1Pad" class="docsection">
+        <div>
+            <h2>
+                <a href="#sha1Pad">sha1Pad</a>
+            </h2>
+            
+            Finishes the SHA1 computation by appending the required bits to the input.  Call this routine once after calling <a href="crypto.html#sha1AddByte">sha1AddByte</a> for each input byte.  After this routine, the 8 bytes pointed to by IX will contain the big-endian SHA1 hash.
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>IX</dt>
+                        <dd><p>location of SHA1 state block</p></dt>
+                        
+                    </dl>
+                
+            
+        </div>
+    </div>
     
-    Allocates a memory block to keep the state and result of a SHA1 hash operation.  The result is kept in the first 20 bytes of the allocated block.  You must use <span class="deadlink">sha1Clean</span> to deallocate the block; simply using <a href="system.html#free">free</a> will result in a memory leak!
+    <div id="sha1AddByte" class="docsection">
+        <div>
+            <h2>
+                <a href="#sha1AddByte">sha1AddByte</a>
+            </h2>
+            
+            Adds a single byte to the SHA1 hash input stream. Call this function once for each byte in the input stream, then call <a href="crypto.html#sha1Pad">sha1Pad</a>.
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>Byte to add</p></dt>
+                        
+                        <dt>IX</dt>
+                        <dd><p>location of SHA1 state block</p></dt>
+                        
+                    </dl>
+                
+            
+        </div>
+    </div>
     
-        <h3>Outputs</h3>
-        
-            <dl>
+    <div id="sha1AddRange" class="docsection">
+        <div>
+            <h2>
+                <a href="#sha1AddRange">sha1AddRange</a>
+            </h2>
+            
+            Adds a range of bytes to a SHA1 hash.  This routine is equivalent to, but faster than, calling <a href="crypto.html#sha1AddByte">sha1AddByte</a> many times.
+            
+                <h3>Inputs</h3>
                 
-                <dt>A</dt>
-                <dd><p>Error code (on failure)</p></dt>
+                    <dl>
+                        
+                        <dt>IX</dt>
+                        <dd><p>location of SHA1 state block</p></dt>
+                        
+                        <dt>HL</dt>
+                        <dd><p>location of range to add</p></dt>
+                        
+                        <dt>BC</dt>
+                        <dd><p>number of bytes to add</p></dt>
+                        
+                    </dl>
                 
-                <dt>IX</dt>
-                <dd><p>location of allocated block (on success)</p></dt>
-                
-                <dt>Z</dt>
-                <dd><p>Set on success, reset on failure</p></dt>
-                
-            </dl>
-        
-    
-</div>
-
-<div id="sha1Crypto" class="docsection">
-    <h2>
-        <a href="#sha1Crypto">sha1Crypto</a>
-    </h2>
-    
-    Safely deallocates a SHA1 state block allocated by sha1Init.
-    
-        <h3>Inputs</h3>
-        
-            <dl>
-                
-                <dt>IX</dt>
-                <dd><p>location of allocated block</p></dt>
-                
-            </dl>
-        
-    
-</div>
-
-<div id="sha1Pad" class="docsection">
-    <h2>
-        <a href="#sha1Pad">sha1Pad</a>
-    </h2>
-    
-    Finishes the SHA1 computation by appending the required bits to the input.  Call this routine once after calling <a href="crypto.html#sha1AddByte">sha1AddByte</a> for each input byte.  After this routine, the 8 bytes pointed to by IX will contain the big-endian SHA1 hash.
-    
-        <h3>Inputs</h3>
-        
-            <dl>
-                
-                <dt>IX</dt>
-                <dd><p>location of SHA1 state block</p></dt>
-                
-            </dl>
-        
-    
-</div>
-
-<div id="sha1AddByte" class="docsection">
-    <h2>
-        <a href="#sha1AddByte">sha1AddByte</a>
-    </h2>
-    
-    Adds a single byte to the SHA1 hash input stream. Call this function once for each byte in the input stream, then call <a href="crypto.html#sha1Pad">sha1Pad</a>.
-    
-        <h3>Inputs</h3>
-        
-            <dl>
-                
-                <dt>A</dt>
-                <dd><p>Byte to add</p></dt>
-                
-                <dt>IX</dt>
-                <dd><p>location of SHA1 state block</p></dt>
-                
-            </dl>
-        
-    
-</div>
-
-<div id="sha1AddRange" class="docsection">
-    <h2>
-        <a href="#sha1AddRange">sha1AddRange</a>
-    </h2>
-    
-    Adds a range of bytes to a SHA1 hash.  This routine is equivalent to, but faster than, calling <a href="crypto.html#sha1AddByte">sha1AddByte</a> many times.
-    
-        <h3>Inputs</h3>
-        
-            <dl>
-                
-                <dt>IX</dt>
-                <dd><p>location of SHA1 state block</p></dt>
-                
-                <dt>HL</dt>
-                <dd><p>location of range to add</p></dt>
-                
-                <dt>BC</dt>
-                <dd><p>number of bytes to add</p></dt>
-                
-            </dl>
-        
+            
+        </div>
+    </div>
     
 </div>

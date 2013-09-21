@@ -5,235 +5,260 @@ layout: documentation
 
 <h1>System</h1>
 
-
-<div id="shutdown" class="docsection">
-    <h2>
-        <a href="#shutdown">shutdown</a>
-    </h2>
+<div class="docs">
     
-    Shuts off the device.
-    
-        <h3>Notes</h3>
-        
-            <p>This will never return. Call it with <code>jp shutdown</code></p>
-        
-    
-</div>
-
-<div id="reboot" class="docsection">
-    <h2>
-        <a href="#reboot">reboot</a>
-    </h2>
-    
-    Restarts the device.
-    
-        <h3>Notes</h3>
-        
-            <p>This will never return. Call it with <code>jp reboot</code></p>
-        
-    
-</div>
-
-<div id="contextSwitch" class="docsection">
-    <h2>
-        <a href="#contextSwitch">contextSwitch</a>
-    </h2>
-    
-    Triggers a context switch early.
-    
-</div>
-
-<div id="formatMem" class="docsection">
-    <h2>
-        <a href="#formatMem">formatMem</a>
-    </h2>
-    
-    Formats memory in preparation for memory allocation.
-    
-        <h3>Notes</h3>
-        
-            <p>This function will deallocate <strong>all allocated memory</strong>.</p>
-        
-    
-</div>
-
-<div id="calloc" class="docsection">
-    <h2>
-        <a href="#calloc">calloc</a>
-    </h2>
-    
-    Allocates memory for a given number of elements of a given size (that is, BC * A bytes total), then fills it with zeros.
-    
-        <h3>Inputs</h3>
-        
-            <dl>
+    <div id="shutdown" class="docsection">
+        <div>
+            <h2>
+                <a href="#shutdown">shutdown</a>
+            </h2>
+            
+            Shuts off the device.
+            
+                <h3>Notes</h3>
                 
-                <dt>A</dt>
-                <dd><p>Size of element</p></dt>
+                    <p>This will never return. Call it with <code>jp shutdown</code></p>
                 
-                <dt>BC</dt>
-                <dd><p>Number of elements</p></dt>
-                
-            </dl>
-        
+            
+        </div>
+    </div>
     
-        <h3>Outputs</h3>
-        
-            <dl>
+    <div id="reboot" class="docsection">
+        <div>
+            <h2>
+                <a href="#reboot">reboot</a>
+            </h2>
+            
+            Restarts the device.
+            
+                <h3>Notes</h3>
                 
-                <dt>A</dt>
-                <dd><p>Error code (on failure)</p></dt>
+                    <p>This will never return. Call it with <code>jp reboot</code></p>
                 
-                <dt>IX</dt>
-                <dd><p>First byte of allocated and zeroed memory (on success)</p></dt>
-                
-                <dt>Z</dt>
-                <dd><p>Set on success, reset on failure</p></dt>
-                
-            </dl>
-        
+            
+        </div>
+    </div>
     
-</div>
-
-<div id="memset" class="docsection">
-    <h2>
-        <a href="#memset">memset</a>
-    </h2>
+    <div id="contextSwitch" class="docsection">
+        <div>
+            <h2>
+                <a href="#contextSwitch">contextSwitch</a>
+            </h2>
+            
+            Triggers a context switch early.
+            
+        </div>
+    </div>
     
-    Sets the value of an entire allocated section of memory.
+    <div id="formatMem" class="docsection">
+        <div>
+            <h2>
+                <a href="#formatMem">formatMem</a>
+            </h2>
+            
+            Formats memory in preparation for memory allocation.
+            
+                <h3>Notes</h3>
+                
+                    <p>This function will deallocate <strong>all allocated memory</strong>.</p>
+                
+            
+        </div>
+    </div>
     
-        <h3>Inputs</h3>
-        
-            <dl>
+    <div id="calloc" class="docsection">
+        <div>
+            <h2>
+                <a href="#calloc">calloc</a>
+            </h2>
+            
+            Allocates memory for a given number of elements of a given size (that is, BC * A bytes total), then fills it with zeros.
+            
+                <h3>Inputs</h3>
                 
-                <dt>A</dt>
-                <dd><p>Value to set</p></dt>
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>Size of element</p></dt>
+                        
+                        <dt>BC</dt>
+                        <dd><p>Number of elements</p></dt>
+                        
+                    </dl>
                 
-                <dt>IX</dt>
-                <dd><p>Pointer to anywhere in allocated section</p></dt>
+            
+                <h3>Outputs</h3>
                 
-            </dl>
-        
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>Error code (on failure)</p></dt>
+                        
+                        <dt>IX</dt>
+                        <dd><p>First byte of allocated and zeroed memory (on success)</p></dt>
+                        
+                        <dt>Z</dt>
+                        <dd><p>Set on success, reset on failure</p></dt>
+                        
+                    </dl>
+                
+            
+        </div>
+    </div>
     
-</div>
-
-<div id="memSeekToStart" class="docsection">
-    <h2>
-        <a href="#memSeekToStart">memSeekToStart</a>
-    </h2>
-    
-    Move IX to the beginning of the memory section it points to.
-    
-        <h3>Inputs</h3>
-        
-            <dl>
+    <div id="memset" class="docsection">
+        <div>
+            <h2>
+                <a href="#memset">memset</a>
+            </h2>
+            
+            Sets the value of an entire allocated section of memory.
+            
+                <h3>Inputs</h3>
                 
-                <dt>IX</dt>
-                <dd><p>Pointer to anywhere in a section of allocated memory</p></dt>
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>Value to set</p></dt>
+                        
+                        <dt>IX</dt>
+                        <dd><p>Pointer to anywhere in allocated section</p></dt>
+                        
+                    </dl>
                 
-            </dl>
-        
+            
+        </div>
+    </div>
     
-        <h3>Outputs</h3>
-        
-            <dl>
+    <div id="memSeekToStart" class="docsection">
+        <div>
+            <h2>
+                <a href="#memSeekToStart">memSeekToStart</a>
+            </h2>
+            
+            Move IX to the beginning of the memory section it points to.
+            
+                <h3>Inputs</h3>
                 
-                <dt>IX</dt>
-                <dd><p>Pointer to first byte of section</p></dt>
+                    <dl>
+                        
+                        <dt>IX</dt>
+                        <dd><p>Pointer to anywhere in a section of allocated memory</p></dt>
+                        
+                    </dl>
                 
-            </dl>
-        
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>IX</dt>
+                        <dd><p>Pointer to first byte of section</p></dt>
+                        
+                    </dl>
+                
+            
+        </div>
+    </div>
     
-</div>
-
-<div id="memSeekToEnd" class="docsection">
-    <h2>
-        <a href="#memSeekToEnd">memSeekToEnd</a>
-    </h2>
-    
-    Move IX to the end of the memory section it points to.
-    
-        <h3>Inputs</h3>
-        
-            <dl>
+    <div id="memSeekToEnd" class="docsection">
+        <div>
+            <h2>
+                <a href="#memSeekToEnd">memSeekToEnd</a>
+            </h2>
+            
+            Move IX to the end of the memory section it points to.
+            
+                <h3>Inputs</h3>
                 
-                <dt>IX</dt>
-                <dd><p>Pointer to anywhere in a section of allocated memory</p></dt>
+                    <dl>
+                        
+                        <dt>IX</dt>
+                        <dd><p>Pointer to anywhere in a section of allocated memory</p></dt>
+                        
+                    </dl>
                 
-            </dl>
-        
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>IX</dt>
+                        <dd><p>Pointer to last byte of section</p></dt>
+                        
+                    </dl>
+                
+            
+        </div>
+    </div>
     
-        <h3>Outputs</h3>
-        
-            <dl>
+    <div id="malloc" class="docsection">
+        <div>
+            <h2>
+                <a href="#malloc">malloc</a>
+            </h2>
+            
+            Allocates the specified amount of memory.
+            
+                <h3>Inputs</h3>
                 
-                <dt>IX</dt>
-                <dd><p>Pointer to last byte of section</p></dt>
+                    <dl>
+                        
+                        <dt>BC</dt>
+                        <dd><p>Length of requested section, in bytes</p></dt>
+                        
+                    </dl>
                 
-            </dl>
-        
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>Error code (on failure)</p></dt>
+                        
+                        <dt>IX</dt>
+                        <dd><p>First byte of allocated memory (on success)</p></dt>
+                        
+                        <dt>Z</dt>
+                        <dd><p>Set on success, reset on failure</p></dt>
+                        
+                    </dl>
+                
+            
+        </div>
+    </div>
     
-</div>
-
-<div id="malloc" class="docsection">
-    <h2>
-        <a href="#malloc">malloc</a>
-    </h2>
-    
-    Allocates the specified amount of memory.
-    
-        <h3>Inputs</h3>
-        
-            <dl>
+    <div id="free" class="docsection">
+        <div>
+            <h2>
+                <a href="#free">free</a>
+            </h2>
+            
+            Frees a previously allocated section of memory
+            
+                <h3>Inputs</h3>
                 
-                <dt>BC</dt>
-                <dd><p>Length of requested section, in bytes</p></dt>
+                    <dl>
+                        
+                        <dt>IX</dt>
+                        <dd><p>Pointer to first byte of section</p></dt>
+                        
+                    </dl>
                 
-            </dl>
-        
+            
+        </div>
+    </div>
     
-        <h3>Outputs</h3>
-        
-            <dl>
-                
-                <dt>A</dt>
-                <dd><p>Error code (on failure)</p></dt>
-                
-                <dt>IX</dt>
-                <dd><p>First byte of allocated memory (on success)</p></dt>
-                
-                <dt>Z</dt>
-                <dd><p>Set on success, reset on failure</p></dt>
-                
-            </dl>
-        
-    
-</div>
-
-<div id="free" class="docsection">
-    <h2>
-        <a href="#free">free</a>
-    </h2>
-    
-    Frees a previously allocated section of memory
-    
-        <h3>Inputs</h3>
-        
-            <dl>
-                
-                <dt>IX</dt>
-                <dd><p>Pointer to first byte of section</p></dt>
-                
-            </dl>
-        
-    
-</div>
-
-<div id="suspendDevice" class="docsection">
-    <h2>
-        <a href="#suspendDevice">suspendDevice</a>
-    </h2>
-    
-    Turns off the screen, enters low power mode, and halts system operation until the ON key is pressed.
+    <div id="suspendDevice" class="docsection">
+        <div>
+            <h2>
+                <a href="#suspendDevice">suspendDevice</a>
+            </h2>
+            
+            Turns off the screen, enters low power mode, and halts system operation until the ON key is pressed.
+            
+        </div>
+    </div>
     
 </div>
