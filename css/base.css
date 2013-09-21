@@ -65,10 +65,10 @@ body {
 
 @-webkit-keyframes fadeColor {
     from {
-        background-color: #ccc;
+        background-color: #ddd;
     }
     80% {
-        background-color: #ccc;
+        background-color: #ddd;
     }
     to {
         background-color: transparent;
@@ -77,10 +77,10 @@ body {
 
 @keyframes fadeColor {
     from {
-        background-color: #ccc;
+        background-color: #ddd;
     }
     80% {
-        background-color: #ccc;
+        background-color: #ddd;
     }
     to {
         background-color: transparent;
