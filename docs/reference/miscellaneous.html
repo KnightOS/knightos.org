@@ -7,173 +7,6 @@ layout: documentation
 
 <div class="docs">
     
-    <div id="hexToHL" class="docsection">
-        <div>
-            <h2>
-                <a href="#hexToHL">hexToHL</a>
-            </h2>
-            
-            Converts a hexadecimal string to a number.
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>HL</dt>
-                        <dd><p>String pointer</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>HL</dt>
-                        <dd><p>Value</p></dt>
-                        
-                    </dl>
-                
-            
-        </div>
-    </div>
-    
-    <div id="hexToA" class="docsection">
-        <div>
-            <h2>
-                <a href="#hexToA">hexToA</a>
-            </h2>
-            
-            Converts a hexadecimal string to a number.
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>HL</dt>
-                        <dd><p>String pointer</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Value</p></dt>
-                        
-                    </dl>
-                
-            
-        </div>
-    </div>
-    
-    <div id="cpHLDE" class="docsection">
-        <div>
-            <h2>
-                <a href="#cpHLDE">cpHLDE</a>
-            </h2>
-            
-            Compares HL to DE.
-            
-                <h3>Output</h3>
-                
-                    <p>Same as z80 CP instruction.</p>
-                
-            
-        </div>
-    </div>
-    
-    <div id="cpHLBC" class="docsection">
-        <div>
-            <h2>
-                <a href="#cpHLBC">cpHLBC</a>
-            </h2>
-            
-            Compares HL to BC.
-            
-                <h3>Output</h3>
-                
-                    <p>Same as z80 CP instruction.</p>
-                
-            
-        </div>
-    </div>
-    
-    <div id="cpBCDE" class="docsection">
-        <div>
-            <h2>
-                <a href="#cpBCDE">cpBCDE</a>
-            </h2>
-            
-            Compares DE to BC.
-            
-                <h3>Output</h3>
-                
-                    <p>Same as z80 CP instruction.</p>
-                
-            
-        </div>
-    </div>
-    
-    <div id="stringLength" class="docsection">
-        <div>
-            <h2>
-                <a href="#stringLength">stringLength</a>
-            </h2>
-            
-            Determines the length of a zero delimited string.
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>HL</dt>
-                        <dd><p>String pointer</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>BC</dt>
-                        <dd><p>String length</p></dt>
-                        
-                    </dl>
-                
-            
-        </div>
-    </div>
-    
-    <div id="getBatteryLevel" class="docsection">
-        <div>
-            <h2>
-                <a href="#getBatteryLevel">getBatteryLevel</a>
-            </h2>
-            
-            Determines the approximate battery level.
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>B</dt>
-                        <dd><p>Battery level</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Notes</h3>
-                
-                    <p>For 15MHz CPUs, B is a value from 0 to 4, where 0 is critical and 4 is full. For 6MHz CPUs, B is either 0 or 1, where 0 is critical and 1 is good.</p>
-                
-            
-        </div>
-    </div>
-    
     <div id="DEMulA" class="docsection">
         <div>
             <h2>
@@ -181,6 +14,17 @@ layout: documentation
             </h2>
             
             Performs `HL = DE * A`
+            
+        </div>
+    </div>
+    
+    <div id="add16To32" class="docsection">
+        <div>
+            <h2>
+                <a href="#add16To32">add16To32</a>
+            </h2>
+            
+            Performs `ACIX = ACIX + DE`
             
         </div>
     </div>
@@ -219,54 +63,49 @@ layout: documentation
         </div>
     </div>
     
-    <div id="stringCopy" class="docsection">
+    <div id="cpBCDE" class="docsection">
         <div>
             <h2>
-                <a href="#stringCopy">stringCopy</a>
+                <a href="#cpBCDE">cpBCDE</a>
             </h2>
             
-            Copies a string.
+            Compares DE to BC.
             
-                <h3>Inputs</h3>
+                <h3>Output</h3>
                 
-                    <dl>
-                        
-                        <dt>DE</dt>
-                        <dd><p>Destination</p></dt>
-                        
-                        <dt>HL</dt>
-                        <dd><p>String pointer</p></dt>
-                        
-                    </dl>
+                    <p>Same as z80 CP instruction.</p>
                 
             
         </div>
     </div>
     
-    <div id="sort" class="docsection">
+    <div id="cpHLBC" class="docsection">
         <div>
             <h2>
-                <a href="#sort">sort</a>
+                <a href="#cpHLBC">cpHLBC</a>
             </h2>
             
-            Sorts a specified array of numbers.
+            Compares HL to BC.
             
-                <h3>Inputs</h3>
+                <h3>Output</h3>
                 
-                    <dl>
-                        
-                        <dt>DE</dt>
-                        <dd><p>Last element in array</p></dt>
-                        
-                        <dt>HL</dt>
-                        <dd><p>first element in array</p></dt>
-                        
-                    </dl>
+                    <p>Same as z80 CP instruction.</p>
                 
             
-                <h3>Notes</h3>
+        </div>
+    </div>
+    
+    <div id="cpHLDE" class="docsection">
+        <div>
+            <h2>
+                <a href="#cpHLDE">cpHLDE</a>
+            </h2>
+            
+            Compares HL to DE.
+            
+                <h3>Output</h3>
                 
-                    <p>This routine is an in-place version of a radix sort, which has an O(k*n) runtime for k-bit numbers.  It also requires a smaller, fixed amount of stack space.</p>
+                    <p>Same as z80 CP instruction.</p>
                 
             
         </div>
@@ -299,24 +138,26 @@ layout: documentation
         </div>
     </div>
     
-    <div id="sub16From32" class="docsection">
+    <div id="divACByDE" class="docsection">
         <div>
             <h2>
-                <a href="#sub16From32">sub16From32</a>
+                <a href="#divACByDE">divACByDE</a>
             </h2>
             
-            Performs `ACIX = ACIX - DE`
+            Performs `AC = AC / DE`
             
-        </div>
-    </div>
-    
-    <div id="add16To32" class="docsection">
-        <div>
-            <h2>
-                <a href="#add16To32">add16To32</a>
-            </h2>
-            
-            Performs `ACIX = ACIX + DE`
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>As described above, and</dt>
+                        <dd></dt>
+                        
+                        <dt>HL</dt>
+                        <dd><p>Remainder</p></dt>
+                        
+                    </dl>
+                
             
         </div>
     </div>
@@ -345,25 +186,27 @@ layout: documentation
         </div>
     </div>
     
-    <div id="divACByDE" class="docsection">
+    <div id="getBatteryLevel" class="docsection">
         <div>
             <h2>
-                <a href="#divACByDE">divACByDE</a>
+                <a href="#getBatteryLevel">getBatteryLevel</a>
             </h2>
             
-            Performs `AC = AC / DE`
+            Determines the approximate battery level.
             
                 <h3>Outputs</h3>
                 
                     <dl>
                         
-                        <dt>As described above, and</dt>
-                        <dd></dt>
-                        
-                        <dt>HL</dt>
-                        <dd><p>Remainder</p></dt>
+                        <dt>B</dt>
+                        <dd><p>Battery level</p></dt>
                         
                     </dl>
+                
+            
+                <h3>Notes</h3>
+                
+                    <p>For 15MHz CPUs, B is a value from 0 to 4, where 0 is critical and 4 is full. For 6MHz CPUs, B is either 0 or 1, where 0 is critical and 1 is good.</p>
                 
             
         </div>
@@ -395,26 +238,20 @@ layout: documentation
         </div>
     </div>
     
-    <div id="rleCompress" class="docsection">
+    <div id="hexToA" class="docsection">
         <div>
             <h2>
-                <a href="#rleCompress">rleCompress</a>
+                <a href="#hexToA">hexToA</a>
             </h2>
             
-            Compresses data using a simple Run-Length-Encoding scheme. All bytes in a compressed block are treated as literal, except the two following a sentinel byte (selected because of its low occurance in z80 code), which specify the length of the run and the byte to run with, respectively.
+            Converts a hexadecimal string to a number.
             
                 <h3>Inputs</h3>
                 
                     <dl>
                         
-                        <dt>DE</dt>
-                        <dd><p>Destination, cannot (yet) be the same location as original data</p></dt>
-                        
                         <dt>HL</dt>
-                        <dd><p>Data to compress</p></dt>
-                        
-                        <dt>BC</dt>
-                        <dd><p>Size of uncompressed data</p></dt>
+                        <dd><p>String pointer</p></dt>
                         
                     </dl>
                 
@@ -423,11 +260,73 @@ layout: documentation
                 
                     <dl>
                         
-                        <dt>BC</dt>
-                        <dd><p>Size of compressed data</p></dt>
+                        <dt>A</dt>
+                        <dd><p>Value</p></dt>
                         
-                        <dt>AF</dt>
-                        <dd><p>Destroyed</p></dt>
+                    </dl>
+                
+            
+        </div>
+    </div>
+    
+    <div id="hexToHL" class="docsection">
+        <div>
+            <h2>
+                <a href="#hexToHL">hexToHL</a>
+            </h2>
+            
+            Converts a hexadecimal string to a number.
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>HL</dt>
+                        <dd><p>String pointer</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>HL</dt>
+                        <dd><p>Value</p></dt>
+                        
+                    </dl>
+                
+            
+        </div>
+    </div>
+    
+    <div id="randA" class="docsection">
+        <div>
+            <h2>
+                <a href="#randA">randA</a>
+            </h2>
+            
+            Returns a random byte in A.
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>A'</dt>
+                        <dd><p>seed</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>random byte</p></dt>
+                        
+                        <dt>A'</dt>
+                        <dd><p>reseeded</p></dt>
                         
                     </dl>
                 
@@ -452,6 +351,83 @@ layout: documentation
                         
                         <dt>BC</dt>
                         <dd><p>Size of decompressed data</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>BC</dt>
+                        <dd><p>Size of compressed data</p></dt>
+                        
+                        <dt>AF</dt>
+                        <dd><p>Destroyed</p></dt>
+                        
+                    </dl>
+                
+            
+        </div>
+    </div>
+    
+    <div id="rleCalculateDecompressedLength" class="docsection">
+        <div>
+            <h2>
+                <a href="#rleCalculateDecompressedLength">rleCalculateDecompressedLength</a>
+            </h2>
+            
+            Calculates the size of data resulting from a decompression, but does not actually decompress anything.
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>HL</dt>
+                        <dd><p>Data to decompress</p></dt>
+                        
+                        <dt>BC</dt>
+                        <dd><p>Size of compressed data</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>BC</dt>
+                        <dd><p>Size of decompressed data</p></dt>
+                        
+                        <dt>AF</dt>
+                        <dd><p>Destroyed</p></dt>
+                        
+                    </dl>
+                
+            
+        </div>
+    </div>
+    
+    <div id="rleCompress" class="docsection">
+        <div>
+            <h2>
+                <a href="#rleCompress">rleCompress</a>
+            </h2>
+            
+            Compresses data using a simple Run-Length-Encoding scheme. All bytes in a compressed block are treated as literal, except the two following a sentinel byte (selected because of its low occurance in z80 code), which specify the length of the run and the byte to run with, respectively.
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>DE</dt>
+                        <dd><p>Destination, cannot (yet) be the same location as original data</p></dt>
+                        
+                        <dt>HL</dt>
+                        <dd><p>Data to compress</p></dt>
+                        
+                        <dt>BC</dt>
+                        <dd><p>Size of uncompressed data</p></dt>
                         
                     </dl>
                 
@@ -512,36 +488,52 @@ layout: documentation
         </div>
     </div>
     
-    <div id="rleCalculateDecompressedLength" class="docsection">
+    <div id="sort" class="docsection">
         <div>
             <h2>
-                <a href="#rleCalculateDecompressedLength">rleCalculateDecompressedLength</a>
+                <a href="#sort">sort</a>
             </h2>
             
-            Calculates the size of data resulting from a decompression, but does not actually decompress anything.
+            Sorts a specified array of numbers.
             
                 <h3>Inputs</h3>
                 
                     <dl>
                         
-                        <dt>HL</dt>
-                        <dd><p>Data to decompress</p></dt>
+                        <dt>DE</dt>
+                        <dd><p>Last element in array</p></dt>
                         
-                        <dt>BC</dt>
-                        <dd><p>Size of compressed data</p></dt>
+                        <dt>HL</dt>
+                        <dd><p>first element in array</p></dt>
                         
                     </dl>
                 
             
-                <h3>Outputs</h3>
+                <h3>Notes</h3>
+                
+                    <p>This routine is an in-place version of a radix sort, which has an O(k*n) runtime for k-bit numbers.  It also requires a smaller, fixed amount of stack space.</p>
+                
+            
+        </div>
+    </div>
+    
+    <div id="stringCopy" class="docsection">
+        <div>
+            <h2>
+                <a href="#stringCopy">stringCopy</a>
+            </h2>
+            
+            Copies a string.
+            
+                <h3>Inputs</h3>
                 
                     <dl>
                         
-                        <dt>BC</dt>
-                        <dd><p>Size of decompressed data</p></dt>
+                        <dt>DE</dt>
+                        <dd><p>Destination</p></dt>
                         
-                        <dt>AF</dt>
-                        <dd><p>Destroyed</p></dt>
+                        <dt>HL</dt>
+                        <dd><p>String pointer</p></dt>
                         
                     </dl>
                 
@@ -549,20 +541,20 @@ layout: documentation
         </div>
     </div>
     
-    <div id="randA" class="docsection">
+    <div id="stringLength" class="docsection">
         <div>
             <h2>
-                <a href="#randA">randA</a>
+                <a href="#stringLength">stringLength</a>
             </h2>
             
-            Returns a random byte in A.
+            Determines the length of a zero delimited string.
             
                 <h3>Inputs</h3>
                 
                     <dl>
                         
-                        <dt>A'</dt>
-                        <dd><p>seed</p></dt>
+                        <dt>HL</dt>
+                        <dd><p>String pointer</p></dt>
                         
                     </dl>
                 
@@ -571,14 +563,22 @@ layout: documentation
                 
                     <dl>
                         
-                        <dt>A</dt>
-                        <dd><p>random byte</p></dt>
-                        
-                        <dt>A'</dt>
-                        <dd><p>reseeded</p></dt>
+                        <dt>BC</dt>
+                        <dd><p>String length</p></dt>
                         
                     </dl>
                 
+            
+        </div>
+    </div>
+    
+    <div id="sub16From32" class="docsection">
+        <div>
+            <h2>
+                <a href="#sub16From32">sub16From32</a>
+            </h2>
+            
+            Performs `ACIX = ACIX - DE`
             
         </div>
     </div>

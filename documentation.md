@@ -43,7 +43,7 @@ each kernel function. This documentation is split up into several categories:
 * [Miscellaneous](/docs/reference/miscellaneous.html): Various utility and helper functions
 * [System](/docs/reference/system.html): Core functions for interacting with the kernel
 * [Text](/docs/reference/text.html): Rendering and measuring text on monochrome display buffers
-* [Threads](/docs/reference/thread.html): Thread creation and management functions
+* [Threading](/docs/reference/threading.html): Thread creation and management functions
 
 ## Library Documentation
 

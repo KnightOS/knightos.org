@@ -7,20 +7,20 @@ layout: documentation
 
 <div class="docs">
     
-    <div id="openFileRead" class="docsection">
+    <div id="closeStream" class="docsection">
         <div>
             <h2>
-                <a href="#openFileRead">openFileRead</a>
+                <a href="#closeStream">closeStream</a>
             </h2>
             
-            Opens a file stream in read-only mode.
+            Closes an open stream.
             
                 <h3>Inputs</h3>
                 
                     <dl>
                         
-                        <dt>DE</dt>
-                        <dd><p>Path to file (string pointer)</p></dt>
+                        <dt>D</dt>
+                        <dd><p>Stream ID</p></dt>
                         
                     </dl>
                 
@@ -34,12 +34,6 @@ layout: documentation
                         
                         <dt>Z</dt>
                         <dd><p>Set on success, reset on failure</p></dt>
-                        
-                        <dt>E</dt>
-                        <dd><p>Garbage (on success)</p></dt>
-                        
-                        <dt>D</dt>
-                        <dd><p>File stream ID (on success)</p></dt>
                         
                     </dl>
                 
@@ -84,13 +78,13 @@ layout: documentation
         </div>
     </div>
     
-    <div id="closeStream" class="docsection">
+    <div id="getStreamInfo" class="docsection">
         <div>
             <h2>
-                <a href="#closeStream">closeStream</a>
+                <a href="#getStreamInfo">getStreamInfo</a>
             </h2>
             
-            Closes an open stream.
+            Gets the amount of space remaining in a file stream.
             
                 <h3>Inputs</h3>
                 
@@ -98,6 +92,32 @@ layout: documentation
                         
                         <dt>D</dt>
                         <dd><p>Stream ID</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Ouptuts</h3>
+                
+                    <p>Z: Set on success, reset on failure A: Error code (on failure) DBC: Remaining space in stream (on success)</p>
+                
+            
+        </div>
+    </div>
+    
+    <div id="openFileRead" class="docsection">
+        <div>
+            <h2>
+                <a href="#openFileRead">openFileRead</a>
+            </h2>
+            
+            Opens a file stream in read-only mode.
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>DE</dt>
+                        <dd><p>Path to file (string pointer)</p></dt>
                         
                     </dl>
                 
@@ -112,76 +132,11 @@ layout: documentation
                         <dt>Z</dt>
                         <dd><p>Set on success, reset on failure</p></dt>
                         
-                    </dl>
-                
-            
-        </div>
-    </div>
-    
-    <div id="streamReadByte" class="docsection">
-        <div>
-            <h2>
-                <a href="#streamReadByte">streamReadByte</a>
-            </h2>
-            
-            Reads a single byte from a file stream and advances the stream.
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
+                        <dt>E</dt>
+                        <dd><p>Garbage (on success)</p></dt>
                         
                         <dt>D</dt>
-                        <dd><p>Stream ID</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Data read (on success); Error code (on failure)</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set on success, reset on failure</p></dt>
-                        
-                    </dl>
-                
-            
-        </div>
-    </div>
-    
-    <div id="streamReadWord" class="docsection">
-        <div>
-            <h2>
-                <a href="#streamReadWord">streamReadWord</a>
-            </h2>
-            
-            Reads a 16-bit word from a file stream and advances the stream.
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>D</dt>
-                        <dd><p>Stream ID</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Error code (on failure)</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set on success, reset on failure</p></dt>
-                        
-                        <dt>HL</dt>
-                        <dd><p>Data read (on success)</p></dt>
+                        <dd><p>File stream ID (on success)</p></dt>
                         
                     </dl>
                 
@@ -234,13 +189,13 @@ layout: documentation
         </div>
     </div>
     
-    <div id="getStreamInfo" class="docsection">
+    <div id="streamReadByte" class="docsection">
         <div>
             <h2>
-                <a href="#getStreamInfo">getStreamInfo</a>
+                <a href="#streamReadByte">streamReadByte</a>
             </h2>
             
-            Gets the amount of space remaining in a file stream.
+            Reads a single byte from a file stream and advances the stream.
             
                 <h3>Inputs</h3>
                 
@@ -252,9 +207,17 @@ layout: documentation
                     </dl>
                 
             
-                <h3>Ouptuts</h3>
+                <h3>Outputs</h3>
                 
-                    <p>Z: Set on success, reset on failure A: Error code (on failure) DBC: Remaining space in stream (on success)</p>
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>Data read (on success); Error code (on failure)</p></dt>
+                        
+                        <dt>Z</dt>
+                        <dd><p>Set on success, reset on failure</p></dt>
+                        
+                    </dl>
                 
             
         </div>
@@ -290,6 +253,43 @@ layout: documentation
                         
                         <dt>Z</dt>
                         <dd><p>Set on success, reset on failure</p></dt>
+                        
+                    </dl>
+                
+            
+        </div>
+    </div>
+    
+    <div id="streamReadWord" class="docsection">
+        <div>
+            <h2>
+                <a href="#streamReadWord">streamReadWord</a>
+            </h2>
+            
+            Reads a 16-bit word from a file stream and advances the stream.
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>D</dt>
+                        <dd><p>Stream ID</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>Error code (on failure)</p></dt>
+                        
+                        <dt>Z</dt>
+                        <dd><p>Set on success, reset on failure</p></dt>
+                        
+                        <dt>HL</dt>
+                        <dd><p>Data read (on success)</p></dt>
                         
                     </dl>
                 
