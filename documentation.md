@@ -38,7 +38,7 @@ each kernel function. This documentation is split up into several categories:
 * [Color](/docs/reference/color.html): Color graphics for the TI-84+ CSE
 * [Cryptography](/docs/reference/crypto.html): Cryptographic hashing functions
 * [Display](/docs/reference/display.html): Functions for manipulating monochrome display buffers
-* [File Streams](/docs/reference/file_streams.html): File stream reading, writing, seeking, etc
+* [File Streams](/docs/reference/file_stream.html): File stream reading, writing, seeking, etc
 * [Filesystem](/docs/reference/filesystem.html): KnightOS filesystem driver
 * [Flash](/docs/reference/flash.html): Low-level Flash storage driver
 * [Hardware](/docs/reference/hardware.html): Hardware management and thread-safe sharing
