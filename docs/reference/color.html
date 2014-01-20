@@ -7,24 +7,126 @@ layout: documentation
 
 <div class="docs">
     
+    <div id="clearColorLcd" class="docsection">
+        <div>
+            <h2>
+                <a href="#clearColorLcd">clearColorLcd</a>
+            </h2>
+            
+            <p>Sets all pixels on the LCD to grey in color mode.</p>
+            
+        </div>
+    </div>
+    
+    <div id="colorLcdOff" class="docsection">
+        <div>
+            <h2>
+                <a href="#colorLcdOff">colorLcdOff</a>
+            </h2>
+            
+            <p>Turns off the color LCD and backlight.</p>
+            
+        </div>
+    </div>
+    
+    <div id="colorLcdOn" class="docsection">
+        <div>
+            <h2>
+                <a href="#colorLcdOn">colorLcdOn</a>
+            </h2>
+            
+            <p>Initializes and turns on the color LCD in color mode.</p>
+            
+        </div>
+    </div>
+    
+    <div id="readLcdRegister" class="docsection">
+        <div>
+            <h2>
+                <a href="#readLcdRegister">readLcdRegister</a>
+            </h2>
+            
+            <p>Reads a 16-bit value to a color LCD register</p>
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>Register</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Comments</h3>
+                
+                    <p>Destroys C</p>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>HL</dt>
+                        <dd><p>Value</p></dt>
+                        
+                    </dl>
+                
+            
+        </div>
+    </div>
+    
+    <div id="resetLegacyLcdMode" class="docsection">
+        <div>
+            <h2>
+                <a href="#resetLegacyLcdMode">resetLegacyLcdMode</a>
+            </h2>
+            
+            <p>Sets the LCD to color mode.</p>
+            
+        </div>
+    </div>
+    
     <div id="setLegacyLcdMode" class="docsection">
         <div>
             <h2>
                 <a href="#setLegacyLcdMode">setLegacyLcdMode</a>
             </h2>
             
-            <p>Sets up the LCD for use with the legacy <a href="display.html#fastCopy">fastCopy</a> function on color models.</p>
+            <p>Sets the LCD to legacy mode.</p>
             
                 <h3>Notes</h3>
                 
-                    <p>This function sets the display to use interlaced partial images, so</p>
+                    <p>Legacy mode simulates a 96x64 monochrome screen with the help of <a href="display.html#fastCopy">fastCopy</a>. Color graphics are not advised in legacy mode.</p>
                 
             
-                <h3>that each pixel written is two pixels wide (for the sake of speed).
-;; It also prepares the windowing and entry modes for fastCopy.
-setLegacyLcdMode</h3>
+        </div>
+    </div>
+    
+    <div id="writeLcdRegister" class="docsection">
+        <div>
+            <h2>
+                <a href="#writeLcdRegister">writeLcdRegister</a>
+            </h2>
+            
+            <p>Writes a 16-bit value to a color LCD register</p>
+            
+                <h3>Inputs</h3>
                 
-                    
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>Register</p></dt>
+                        
+                        <dt>HL</dt>
+                        <dd><p>Value</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Comments</h3>
+                
+                    <p>Destroys C</p>
                 
             
         </div>
