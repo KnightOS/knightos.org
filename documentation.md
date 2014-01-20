@@ -35,11 +35,14 @@ There are a number of articles documenting the system in prose.
 The kernel has automatically generated documentation based on comments in the source code that document
 each kernel function. This documentation is split up into several categories:
 
+* [Color](/docs/reference/color.html): Color graphics for the TI-84+ CSE
 * [Cryptography](/docs/reference/crypto.html): Cryptographic hashing functions
 * [Display](/docs/reference/display.html): Functions for manipulating monochrome display buffers
-* [File Streams](/docs/reference/file_stream.html): File stream reading, writing, seeking, etc
-* [Filesystem](/docs/reference/filesystem.html): Deleting, renaming, moving file and directories
+* [File Streams](/docs/reference/file_streams.html): File stream reading, writing, seeking, etc
+* [Filesystem](/docs/reference/filesystem.html): KnightOS filesystem driver
+* [Flash](/docs/reference/flash.html): Low-level Flash storage driver
 * [Hardware](/docs/reference/hardware.html): Hardware management and thread-safe sharing
+* [Input](/docs/reference/input.html): Keyboard input functions
 * [Miscellaneous](/docs/reference/miscellaneous.html): Various utility and helper functions
 * [System](/docs/reference/system.html): Core functions for interacting with the kernel
 * [Text](/docs/reference/text.html): Rendering and measuring text on monochrome display buffers

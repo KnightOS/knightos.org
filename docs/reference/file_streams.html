@@ -1,0 +1,52 @@
+---
+title: File Streams Documentation
+layout: documentation
+---
+
+<h1>File Streams</h1>
+
+<div class="docs">
+    
+    <div id="getStreamBuffer" class="docsection">
+        <div>
+            <h2>
+                <a href="#getStreamBuffer">getStreamBuffer</a>
+            </h2>
+            
+            <p>Gets the address of a stream's memory buffer.</p>
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>D</dt>
+                        <dd><p>Stream ID</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Notes</h3>
+                
+                    <p>For read-only streams, modifying this buffer could have unforseen consequences and it will not be copied back to the file. For writable streams, make sure you call flushStream if you modify this buffer and want to make the changes persist to the file.</p>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>Error code (on failure)</p></dt>
+                        
+                        <dt>IX</dt>
+                        <dd><p>Stream buffer (on success)</p></dt>
+                        
+                        <dt>Z</dt>
+                        <dd><p>Set on success, reset on failure</p></dt>
+                        
+                    </dl>
+                
+            
+        </div>
+    </div>
+    
+</div>

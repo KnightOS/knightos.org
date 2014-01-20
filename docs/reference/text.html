@@ -13,7 +13,7 @@ layout: documentation
                 <a href="#drawChar">drawChar</a>
             </h2>
             
-            Draws a character to the screen buffer using OR logic (turns pixels ON).
+            <p>Draws a character to the screen buffer using OR logic (turns pixels ON).</p>
             
                 <h3>Inputs</h3>
                 
@@ -58,7 +58,7 @@ layout: documentation
                 <a href="#drawCharAND">drawCharAND</a>
             </h2>
             
-            Draws a character to the screen buffer using AND logic (turns pixels OFF).
+            <p>Draws a character to the screen buffer using AND logic (turns pixels OFF).</p>
             
                 <h3>Inputs</h3>
                 
@@ -103,7 +103,7 @@ layout: documentation
                 <a href="#drawCharXOR">drawCharXOR</a>
             </h2>
             
-            Draws a character to the screen buffer using XOR logic (inverts pixels).
+            <p>Draws a character to the screen buffer using XOR logic (inverts pixels).</p>
             
                 <h3>Inputs</h3>
                 
@@ -148,7 +148,7 @@ layout: documentation
                 <a href="#drawHexA">drawHexA</a>
             </h2>
             
-            Draws the contents of A in hexadecimal to the screen buffer using OR logic (turns pixels ON).
+            <p>Draws the contents of A in hexadecimal to the screen buffer using OR logic (turns pixels ON).</p>
             
                 <h3>Inputs</h3>
                 
@@ -185,7 +185,7 @@ layout: documentation
                 <a href="#drawHexHL">drawHexHL</a>
             </h2>
             
-            Draws the contents of HL in hexadecimal to the screen buffer using OR logic (turns pixels ON).
+            <p>Draws the contents of HL in hexadecimal to the screen buffer using OR logic (turns pixels ON).</p>
             
                 <h3>Inputs</h3>
                 
@@ -222,7 +222,7 @@ layout: documentation
                 <a href="#drawStr">drawStr</a>
             </h2>
             
-            Draws a zero-delimited string to the screen buffer using OR logic (turns pixels ON).
+            <p>Draws a zero-delimited string to the screen buffer using OR logic (turns pixels ON).</p>
             
                 <h3>Inputs</h3>
                 
@@ -267,7 +267,7 @@ layout: documentation
                 <a href="#drawStrAND">drawStrAND</a>
             </h2>
             
-            Draws a zero-delimited string to the screen buffer using AND logic (turns pixels OFF).
+            <p>Draws a zero-delimited string to the screen buffer using AND logic (turns pixels OFF).</p>
             
                 <h3>Inputs</h3>
                 
@@ -312,7 +312,7 @@ layout: documentation
                 <a href="#drawStrFromStream">drawStrFromStream</a>
             </h2>
             
-            Draws a zero-delimited string to the screen buffer using OR logic (turns pixels ON).
+            <p>Draws a zero-delimited string to the screen buffer using OR logic (turns pixels ON).</p>
             
                 <h3>Inputs</h3>
                 
@@ -350,7 +350,7 @@ drawStrFromStream</dt>
                 <a href="#drawStrXOR">drawStrXOR</a>
             </h2>
             
-            Draws a zero-delimited string to the screen buffer using XOR logic (inverts pixels).
+            <p>Draws a zero-delimited string to the screen buffer using XOR logic (inverts pixels).</p>
             
                 <h3>Inputs</h3>
                 
@@ -395,7 +395,7 @@ drawStrFromStream</dt>
                 <a href="#measureChar">measureChar</a>
             </h2>
             
-            Measures the width of a character in pixels.
+            <p>Measures the width of a character in pixels.</p>
             
                 <h3>Inputs</h3>
                 
@@ -431,7 +431,7 @@ drawStrFromStream</dt>
                 <a href="#measureStr">measureStr</a>
             </h2>
             
-            Measures the width of a string in pixels.
+            <p>Measures the width of a string in pixels.</p>
             
                 <h3>Inputs</h3>
                 
@@ -454,6 +454,45 @@ drawStrFromStream</dt>
                         
                         <dt>A</dt>
                         <dd><p>Width of string</p></dt>
+                        
+                    </dl>
+                
+            
+        </div>
+    </div>
+    
+    <div id="newline" class="docsection">
+        <div>
+            <h2>
+                <a href="#newline">newline</a>
+            </h2>
+            
+            <p>Advances D, E to the next line of text</p>
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>D, E</dt>
+                        <dd><p>X, Y</p></dt>
+                        
+                        <dt>B</dt>
+                        <dd><p>Left margin</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Notes</h3>
+                
+                    <p>This is identical to (but faster than) calling drawChar with '\n'</p>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>D, E</dt>
+                        <dd><p>Moved down one line and to the left margin</p></dt>
                         
                     </dl>
                 

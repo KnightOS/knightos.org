@@ -13,7 +13,7 @@ layout: documentation
                 <a href="#closeStream">closeStream</a>
             </h2>
             
-            Closes an open stream.
+            <p>Closes an open stream.</p>
             
                 <h3>Inputs</h3>
                 
@@ -31,6 +31,48 @@ layout: documentation
                         
                         <dt>A</dt>
                         <dd><p>Error code (on failure)</p></dt>
+                        
+                        <dt>Z</dt>
+                        <dd><p>Set on success, reset on failure</p></dt>
+                        
+                    </dl>
+                
+            
+        </div>
+    </div>
+    
+    <div id="getStreamBuffer" class="docsection">
+        <div>
+            <h2>
+                <a href="#getStreamBuffer">getStreamBuffer</a>
+            </h2>
+            
+            <p>Gets the address of a stream's memory buffer.</p>
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>D</dt>
+                        <dd><p>Stream ID</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Notes</h3>
+                
+                    <p>For read-only streams, modifying this buffer could have unforseen consequences and it will not be copied back to the file. For writable streams, make sure you call flushStream if you modify this buffer and want to make the changes persist to the file.</p>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>Error code (on failure)</p></dt>
+                        
+                        <dt>IX</dt>
+                        <dd><p>Stream buffer (on success)</p></dt>
                         
                         <dt>Z</dt>
                         <dd><p>Set on success, reset on failure</p></dt>
@@ -47,7 +89,7 @@ layout: documentation
                 <a href="#getStreamEntry">getStreamEntry</a>
             </h2>
             
-            Gets the address of a stream entry in the kernel file stream table.
+            <p>Gets the address of a stream entry in the kernel file stream table.</p>
             
                 <h3>Inputs</h3>
                 
@@ -66,11 +108,11 @@ layout: documentation
                         <dt>A</dt>
                         <dd><p>Error code (on failure)</p></dt>
                         
+                        <dt>IX</dt>
+                        <dd><p>File stream entry poitner (on success)</p></dt>
+                        
                         <dt>Z</dt>
                         <dd><p>Set on success, reset on failure</p></dt>
-                        
-                        <dt>HL</dt>
-                        <dd><p>File stream entry poitner (on success)</p></dt>
                         
                     </dl>
                 
@@ -84,7 +126,7 @@ layout: documentation
                 <a href="#getStreamInfo">getStreamInfo</a>
             </h2>
             
-            Gets the amount of space remaining in a file stream.
+            <p>Gets the amount of space remaining in a file stream.</p>
             
                 <h3>Inputs</h3>
                 
@@ -98,7 +140,7 @@ layout: documentation
             
                 <h3>Ouptuts</h3>
                 
-                    <p>Z: Set on success, reset on failure A: Error code (on failure) DBC: Remaining space in stream (on success)</p>
+                    <p>Z: Set on success, reset on failure A: Error code (on failure) EBC: Remaining space in stream (on success)</p>
                 
             
         </div>
@@ -110,7 +152,7 @@ layout: documentation
                 <a href="#openFileRead">openFileRead</a>
             </h2>
             
-            Opens a file stream in read-only mode.
+            <p>Opens a file stream in read-only mode.</p>
             
                 <h3>Inputs</h3>
                 
@@ -150,7 +192,7 @@ layout: documentation
                 <a href="#streamReadBuffer">streamReadBuffer</a>
             </h2>
             
-            Reads a number of bytes from a file stream and advances the stream.
+            <p>Reads a number of bytes from a file stream and advances the stream.</p>
             
                 <h3>Inputs</h3>
                 
@@ -195,7 +237,7 @@ layout: documentation
                 <a href="#streamReadByte">streamReadByte</a>
             </h2>
             
-            Reads a single byte from a file stream and advances the stream.
+            <p>Reads a single byte from a file stream and advances the stream.</p>
             
                 <h3>Inputs</h3>
                 
@@ -229,7 +271,7 @@ layout: documentation
                 <a href="#streamReadToEnd">streamReadToEnd</a>
             </h2>
             
-            Reads the remainder of a file stream into memory.
+            <p>Reads the remainder of a file stream into memory.</p>
             
                 <h3>Inputs</h3>
                 
@@ -266,7 +308,7 @@ layout: documentation
                 <a href="#streamReadWord">streamReadWord</a>
             </h2>
             
-            Reads a 16-bit word from a file stream and advances the stream.
+            <p>Reads a 16-bit word from a file stream and advances the stream.</p>
             
                 <h3>Inputs</h3>
                 

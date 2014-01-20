@@ -13,7 +13,7 @@ layout: documentation
                 <a href="#DEMulA">DEMulA</a>
             </h2>
             
-            Performs `HL = DE * A`
+            <p>Performs <code>HL = DE * A</code></p>
             
         </div>
     </div>
@@ -24,7 +24,42 @@ layout: documentation
                 <a href="#add16To32">add16To32</a>
             </h2>
             
-            Performs `ACIX = ACIX + DE`
+            <p>Performs <code>ACIX = ACIX + DE</code></p>
+            
+        </div>
+    </div>
+    
+    <div id="callbackSort" class="docsection">
+        <div>
+            <h2>
+                <a href="#callbackSort">callbackSort</a>
+            </h2>
+            
+            <p>Sorts an array of arbitrarily-sized blocks using a callback function to perform comparisons.</p>
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>IX</dt>
+                        <dd><p>Pointer to comparison function.</p></dt>
+                        
+                        <dt>DE</dt>
+                        <dd><p>Last element in array</p></dt>
+                        
+                        <dt>HL</dt>
+                        <dd><p>First element in array</p></dt>
+                        
+                        <dt>BC</dt>
+                        <dd><p>Size of element in bytes</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Notes</h3>
+                
+                    <p>The comparison function must affect the carry flag like cp (hl), (de) would.  (That is, set the carry flag if (HL) &lt; (DE).)  All other registers must be preserved.  The algorithm (quicksort) uses an average of O(log n) stack space, with 8 bytes stack per recursion required.  Quicksort is in-place and is not a stable sort.</p>
+                
             
         </div>
     </div>
@@ -35,7 +70,7 @@ layout: documentation
                 <a href="#compareStrings">compareStrings</a>
             </h2>
             
-            Determines if two strings are equal.
+            <p>Determines if two strings are equal, and checks alphabetical sort order.</p>
             
                 <h3>Inputs</h3>
                 
@@ -54,6 +89,51 @@ layout: documentation
                 
                     <dl>
                         
+                        <dt>C</dt>
+                        <dd><p>Set if string HL is alphabetically earlier than string DE</p></dt>
+                        
+                        <dt>Z</dt>
+                        <dd><p>Set if equal, reset if not equal</p></dt>
+                        
+                    </dl>
+                
+            
+        </div>
+    </div>
+    
+    <div id="compareStrings_sort" class="docsection">
+        <div>
+            <h2>
+                <a href="#compareStrings_sort">compareStrings_sort</a>
+            </h2>
+            
+            <p>Compares strings at ((HL)) and ((DE)).  That is, calls indirect16HLDE, then calls compareStrings.</p>
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>DE</dt>
+                        <dd><p>Pointer to string pointer</p></dt>
+                        
+                        <dt>HL</dt>
+                        <dd><p>Pointer to string pointer</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Notes</h3>
+                
+                    <p>This routine is extremely useful as the callback for the callbackSort routine. It allows sorting a list of pointers to strings by the strings' sort order.</p>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>C</dt>
+                        <dd><p>Set if string (HL) is alphabetically earlier than string (DE)</p></dt>
+                        
                         <dt>Z</dt>
                         <dd><p>Set if equal, reset if not equal</p></dt>
                         
@@ -69,7 +149,7 @@ layout: documentation
                 <a href="#cpBCDE">cpBCDE</a>
             </h2>
             
-            Compares DE to BC.
+            <p>Compares DE to BC.</p>
             
                 <h3>Output</h3>
                 
@@ -85,7 +165,7 @@ layout: documentation
                 <a href="#cpHLBC">cpHLBC</a>
             </h2>
             
-            Compares HL to BC.
+            <p>Compares HL to BC.</p>
             
                 <h3>Output</h3>
                 
@@ -101,11 +181,51 @@ layout: documentation
                 <a href="#cpHLDE">cpHLDE</a>
             </h2>
             
-            Compares HL to DE.
+            <p>Compares HL to DE.</p>
             
                 <h3>Output</h3>
                 
                     <p>Same as z80 CP instruction.</p>
+                
+            
+        </div>
+    </div>
+    
+    <div id="cpHLDE_sort" class="docsection">
+        <div>
+            <h2>
+                <a href="#cpHLDE_sort">cpHLDE_sort</a>
+            </h2>
+            
+            <p>Compares 16-bit integers at (HL) and (DE).  That is, calls indirect16HLDE, then calls cpHLDE.</p>
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>DE</dt>
+                        <dd><p>Pointer to integer</p></dt>
+                        
+                        <dt>HL</dt>
+                        <dd><p>Pointer to integer</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>Same as z80 CP instruction.
+;; Notes</dt>
+                        <dd></dt>
+                        
+                        <dt>This routine is extremely useful as the callback for the callbackSort routine.
+;;  It allows sorting a list of 16-bit numbers.
+cpHLDE_sort</dt>
+                        <dd></dt>
+                        
+                    </dl>
                 
             
         </div>
@@ -117,7 +237,7 @@ layout: documentation
                 <a href="#div32By16">div32By16</a>
             </h2>
             
-            Performs `ACIX = ACIX / DE`
+            <p>Performs <code>ACIX = ACIX / DE</code></p>
             
                 <h3>Outputs</h3>
                 
@@ -144,7 +264,7 @@ layout: documentation
                 <a href="#divACByDE">divACByDE</a>
             </h2>
             
-            Performs `AC = AC / DE`
+            <p>Performs <code>AC = AC / DE</code></p>
             
                 <h3>Outputs</h3>
                 
@@ -168,7 +288,7 @@ layout: documentation
                 <a href="#divHLByC">divHLByC</a>
             </h2>
             
-            Performs `HL = HL / C`
+            <p>Performs <code>HL = HL / C</code></p>
             
                 <h3>Outputs</h3>
                 
@@ -192,7 +312,7 @@ layout: documentation
                 <a href="#getBatteryLevel">getBatteryLevel</a>
             </h2>
             
-            Determines the approximate battery level.
+            <p>Determines the approximate battery level.</p>
             
                 <h3>Outputs</h3>
                 
@@ -218,7 +338,7 @@ layout: documentation
                 <a href="#getBootCodeVersionString">getBootCodeVersionString</a>
             </h2>
             
-            Gets the version string from the device's boot code.
+            <p>Gets the version string from the device's boot code.</p>
             
                 <h3>Outputs</h3>
                 
@@ -244,7 +364,7 @@ layout: documentation
                 <a href="#hexToA">hexToA</a>
             </h2>
             
-            Converts a hexadecimal string to a number.
+            <p>Converts a hexadecimal string to a number.</p>
             
                 <h3>Inputs</h3>
                 
@@ -275,7 +395,7 @@ layout: documentation
                 <a href="#hexToHL">hexToHL</a>
             </h2>
             
-            Converts a hexadecimal string to a number.
+            <p>Converts a hexadecimal string to a number.</p>
             
                 <h3>Inputs</h3>
                 
@@ -300,13 +420,69 @@ layout: documentation
         </div>
     </div>
     
+    <div id="indirect16HL" class="docsection">
+        <div>
+            <h2>
+                <a href="#indirect16HL">indirect16HL</a>
+            </h2>
+            
+            <p>Performs HL = (HL)</p>
+            
+        </div>
+    </div>
+    
+    <div id="indirect16HLDE" class="docsection">
+        <div>
+            <h2>
+                <a href="#indirect16HLDE">indirect16HLDE</a>
+            </h2>
+            
+            <p>Performs HL = (HL) and DE = (DE).</p>
+            
+                <h3>Notes</h3>
+                
+                    <p>This routine is useful as part of a callback for the callbackSort routine.</p>
+                
+            
+        </div>
+    </div>
+    
+    <div id="integerSort" class="docsection">
+        <div>
+            <h2>
+                <a href="#integerSort">integerSort</a>
+            </h2>
+            
+            <p>Sorts a specified array of 8-bit numbers using a fast (time complexity O(n)) algorithm.</p>
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>DE</dt>
+                        <dd><p>Last element in array</p></dt>
+                        
+                        <dt>HL</dt>
+                        <dd><p>first element in array</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Notes</h3>
+                
+                    <p>This routine is an in-place version of a radix sort, which has an O(k*n) runtime for k-bit numbers.  It also requires a smaller, fixed amount of stack space.</p>
+                
+            
+        </div>
+    </div>
+    
     <div id="randA" class="docsection">
         <div>
             <h2>
                 <a href="#randA">randA</a>
             </h2>
             
-            Returns a random byte in A.
+            <p>Returns a random byte in A.</p>
             
                 <h3>Inputs</h3>
                 
@@ -340,7 +516,7 @@ layout: documentation
                 <a href="#rleCalculateCompressedLength">rleCalculateCompressedLength</a>
             </h2>
             
-            Calculates the size of data resulting from a compression, but does not actually compress anything.
+            <p>Calculates the size of data resulting from a compression, but does not actually compress anything.</p>
             
                 <h3>Inputs</h3>
                 
@@ -377,7 +553,7 @@ layout: documentation
                 <a href="#rleCalculateDecompressedLength">rleCalculateDecompressedLength</a>
             </h2>
             
-            Calculates the size of data resulting from a decompression, but does not actually decompress anything.
+            <p>Calculates the size of data resulting from a decompression, but does not actually decompress anything.</p>
             
                 <h3>Inputs</h3>
                 
@@ -414,7 +590,7 @@ layout: documentation
                 <a href="#rleCompress">rleCompress</a>
             </h2>
             
-            Compresses data using a simple Run-Length-Encoding scheme. All bytes in a compressed block are treated as literal, except the two following a sentinel byte (selected because of its low occurance in z80 code), which specify the length of the run and the byte to run with, respectively.
+            <p>Compresses data using a simple Run-Length-Encoding scheme. All bytes in a compressed block are treated as literal, except the two following a sentinel byte (selected because of its low occurance in z80 code), which specify the length of the run and the byte to run with, respectively.</p>
             
                 <h3>Inputs</h3>
                 
@@ -454,7 +630,7 @@ layout: documentation
                 <a href="#rleDecompress">rleDecompress</a>
             </h2>
             
-            Decompresses data compressed with the algorithm used by the kernel routine rleCompress.  See its documentation for algorithm details.
+            <p>Decompresses data compressed with the algorithm used by the kernel routine rleCompress.  See its documentation for algorithm details.</p>
             
                 <h3>Inputs</h3>
                 
@@ -488,42 +664,13 @@ layout: documentation
         </div>
     </div>
     
-    <div id="sort" class="docsection">
-        <div>
-            <h2>
-                <a href="#sort">sort</a>
-            </h2>
-            
-            Sorts a specified array of numbers.
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>DE</dt>
-                        <dd><p>Last element in array</p></dt>
-                        
-                        <dt>HL</dt>
-                        <dd><p>first element in array</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Notes</h3>
-                
-                    <p>This routine is an in-place version of a radix sort, which has an O(k*n) runtime for k-bit numbers.  It also requires a smaller, fixed amount of stack space.</p>
-                
-            
-        </div>
-    </div>
-    
     <div id="stringCopy" class="docsection">
         <div>
             <h2>
                 <a href="#stringCopy">stringCopy</a>
             </h2>
             
-            Copies a string.
+            <p>Copies a string.</p>
             
                 <h3>Inputs</h3>
                 
@@ -547,7 +694,7 @@ layout: documentation
                 <a href="#stringLength">stringLength</a>
             </h2>
             
-            Determines the length of a zero delimited string.
+            <p>Determines the length of a zero delimited string.</p>
             
                 <h3>Inputs</h3>
                 
@@ -578,7 +725,7 @@ layout: documentation
                 <a href="#sub16From32">sub16From32</a>
             </h2>
             
-            Performs `ACIX = ACIX - DE`
+            <p>Performs <code>ACIX = ACIX - DE</code></p>
             
         </div>
     </div>
