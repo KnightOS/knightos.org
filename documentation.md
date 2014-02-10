@@ -12,28 +12,10 @@ and the API is meant to be easy to use for those familiar with programming on th
 a number of additional considerations, however, that you should keep in mind when working with
 KnightOS.
 
-## Tutorials & Articles
-
-There are a number of articles documenting the system in prose.
-
-### KnightOS Articles
-
-* [Introductory Programming Tutorial](/docs/intro-programming-tutorial.html)
-* [Package management](#)
-* [Writing libraries for KnightOS](#)
-* [Designing graphical interfaces](#)
-* [unixcommon man pages](#)
-
-### Kernel Articles
-
-* [Using the kernel in your own OS](#)
-* [Kernel design documents](#)
-* [Source code design](#)
-
 ## Kernel Documentation
 
-The kernel has automatically generated documentation based on comments in the source code that document
-each kernel function. This documentation is split up into several categories:
+The following links document the kernel API, which is available for userspace programs and works
+on any KnightOS-based operating system. It is generated from comments in the kernel source code.
 
 * [Color](/docs/reference/color.html): Color graphics for the TI-84+ CSE
 * [Cryptography](/docs/reference/crypto.html): Cryptographic hashing functions
@@ -47,12 +29,3 @@ each kernel function. This documentation is split up into several categories:
 * [System](/docs/reference/system.html): Core functions for interacting with the kernel
 * [Text](/docs/reference/text.html): Rendering and measuring text on monochrome display buffers
 * [Threading](/docs/reference/threading.html): Thread creation and management functions
-
-## Library Documentation
-
-There are many libraries that ship with KnightOS that you may wish to become familiar with. Each of these
-also has automatically generated documentation, but also may have a number of articles documenting them in
-prose.
-
-* [applib](#): Functions and utilities that help integrate with the KnightOS enviornment
-* [stdio](#): For communicating between processes, similar to Unix pipes
