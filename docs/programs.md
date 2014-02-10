@@ -91,11 +91,9 @@ differences between the supported models are:
 * Filesystem size
   * Stick to the kernel filesytem API and handle errors correctly and you'll be fine
 * Color or monochrome screens
-  * Monochrome programs will run without modification on color calculators. The reverse is not true, you
-    will have to handle this yourself.
+  * Monochrome programs will run without modification on color calculators. The reverse is not true, you will have to handle this yourself.
 * Time and date
-  * Time and date arithmetic is supported on all calculators, but certain calculators return errUnsupported
-    for getting and setting the current time.
+  * Time and date arithmetic is supported on all calculators, but certain calculators return errUnsupported for getting and setting the current time.
 * USB
   * errUnsupported is returned on some calculators.
 
@@ -123,6 +121,7 @@ Here is a simple example program that will run on the KnightOS kernel:
         call clearBuffer
         kld(hl, message)
         ld de, 0
+        ld b, 0
         call drawStr
         call fastCopy
         call flushKeys ; Wait for all keys to be released
