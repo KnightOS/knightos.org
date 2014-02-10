@@ -45,6 +45,9 @@ in RAM to use the correct address without any overhead, after the first time it 
 k-macros are available in kernel.inc:
 
 * `kld(reg16, imm16)`
+* `kld((imm16), a)`
+* `kld(a, (imm16))`
+* `kld(reg16, imm16)`
 * `kcall(imm16)`
 * `kcall(cc, imm16)`
 * `kjp(imm16)`
