@@ -13,21 +13,31 @@ It is laid out as follows:
     <th>Address</th><th>Length</th><th>Description</th>
     <tr><td>0x0000</td><td>0x4000</td><td>Kernel</td></tr>
     <tr><td>0x4000</td><td>0x4000</td><td>Flash paging</td></tr>
-    <tr><td>0x8000</td><td>0x50</td><td>Thread table</td></tr>
-    <tr><td>0x8050</td><td>0x28</td><td>Library table</td></tr>
-    <tr><td>0x8078</td><td>0x14</td><td>Signal table</td></tr>
-    <tr><td>0x808C</td><td>0x28</td><td>File stream table</td></tr>
-    <tr><td>...</td><td>...</td><td>Kernel state</td></tr>
-    <tr><td>0x8100</td><td>0x100</td><td>Kernel garbage</td></tr>
-    <tr><td>0x8200</td><td>0x7E00</td><td>Userspace memory</td></tr>
+    <tr><td>0x8000</td><td>0x100</td><td>Thread table</td></tr>
+    <tr><td>0x8100</td><td>0x40</td><td>Library table</td></tr>
+    <tr><td>0x8140</td><td>0x40</td><td>Signal table</td></tr>
+    <tr><td>0x8180</td><td>0x20</td><td>File stream table</td></tr>
+    <tr><td>0x8200</td><td>0x100</td><td>Kernel state</td></tr>
+    <tr><td>0x8300</td><td>0x200</td><td>Kernel garbage</td></tr>
+    <tr><td>0x8500</td><td>0x7C00</td><td>Userspace memory</td></tr>
 </table>
 
-The details of this may change if you modify your kernel configuration.
+The actual address and length of these portions of memory may change depending on your kernel configuration - the
+defaults are shown here. Userspace programs should not have to depend on any of this, but should instead use
+kernel-provided routines for manipulating data here. Any correctly built userspace program should be able to run
+on any kernel configuration tuned to any particular situation (more threads and less userspace memory, less
+libraries and more userspace memory, etc).
 
-Kernel garbage is throwaway memory that the kernel uses for specific purposes for short periods of time. For example, it is used
-for garbage collection, and for writing to Flash, and as temporary storage during file lookups.
+Kernel state is not entirely used, but is reserved for future use. It currently holds a few dozen kernel state
+variables and isn't structured in any special fashion. See
+[kernelmem.inc](https://github.com/KnightOS/kernel/blob/master/inc/kernelmem.inc) for details.
 
-Userspace memory is where all memory allocated with `malloc` is allocated to. This is where all userspace programs run.
+Kernel garbage is only used while interrupts are disabled, and no guarantee is made about its contents. It is
+used, for example, to hold kernel Flash code that must run from RAM. It is also used to keep track of state when
+performing a garbage collection.
+
+Userspace memory is allocated with [malloc](http://www.knightos.org/docs/reference/system.html#malloc) and is
+available for userspace use. Programs run from here and the memory they allocate is assigned here.
 
 ## Data Structures
 
