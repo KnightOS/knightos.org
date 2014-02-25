@@ -13,18 +13,14 @@ It is laid out as follows:
     <th>Address</th><th>Length</th><th>Description</th>
     <tr><td>0x0000</td><td>0x4000</td><td>Kernel</td></tr>
     <tr><td>0x4000</td><td>0x4000</td><td>Flash paging</td></tr>
-    <tr><td>0x8000</td><td>0x50</td><td>Thread table**</td></tr>
-    <tr><td>0x8050</td><td>0x28</td><td>Library table**</td></tr>
-    <tr><td>0x8078</td><td>0x14</td><td>Signal table**</td></tr>
-    <tr><td>0x808C</td><td>0x28</td><td>File stream table**</td></tr>
-    <tr><td>...</td><td>...</td><td>Various kernel variables*</td></tr>
+    <tr><td>0x8000</td><td>0x50</td><td>Thread table</td></tr>
+    <tr><td>0x8050</td><td>0x28</td><td>Library table</td></tr>
+    <tr><td>0x8078</td><td>0x14</td><td>Signal table</td></tr>
+    <tr><td>0x808C</td><td>0x28</td><td>File stream table</td></tr>
+    <tr><td>...</td><td>...</td><td>Kernel state</td></tr>
     <tr><td>0x8100</td><td>0x100</td><td>Kernel garbage</td></tr>
     <tr><td>0x8200</td><td>0x7E00</td><td>Userspace memory</td></tr>
 </table>
-
-\* See [defines.inc](https://github.com/KnightSoft/KnightOS/blob/master/inc/defines.inc#L66) for details
-
-\*\* The size of this section could change if the maximum value is changed in [defines.inc](https://github.com/KnightSoft/KnightOS/blob/master/inc/defines.inc#L66")
 
 The details of this may change if you modify your kernel configuration.
 
