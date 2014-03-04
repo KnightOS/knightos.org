@@ -101,7 +101,8 @@ All active file streams are stored in this table.
     <tr><td>0006</td><td>1</td><td>Length of final block</td></tr>
     <tr><td>0007</td><td>1</td><td>File entry page</td></tr>
     <tr><td>0008</td><td>2</td><td>File entry address</td></tr>
-    <tr><td>000A</td><td>6</td><td>Reserved for future use</td></tr>
+    <tr><td>000A</td><td>3</td><td>Working file size</td></tr>
+    <tr><td>000D</td><td>3</td><td>Reserved for future use</td></tr>
 </table>
 
 Flags/owner is the following 8 bit format: FTExxxxx, where xxxxx is the thread ID of the owner. F is set if the stream is currently on the
