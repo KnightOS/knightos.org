@@ -60,8 +60,9 @@ Flags is a bitfield:
 
 <table class="table">
     <th>Bit</th><th>Description</th>
-    <tr><td>0</td><td>May be suspended</td></tr>
-    <tr><td>1</td><td>Is suspended</td></tr>
+    <tr><td>1</td><td>May be suspended</td></tr>
+    <tr><td>2</td><td>Is suspended</td></tr>
+    <tr><td>3</td><td>Color mode</td></tr>
 </table>
 
 ### Library Table
