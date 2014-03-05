@@ -7,6 +7,92 @@ layout: documentation
 
 <div class="docs">
     
+    <div id="createDirectoryEntry" class="docsection">
+        <div>
+            <h2>
+                <a href="#createDirectoryEntry">createDirectoryEntry</a>
+            </h2>
+            
+            <p>Creates a new directory entry in the FAT.</p>
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>DE</dt>
+                        <dd><p>Parent ID</p></dt>
+                        
+                        <dt>HL</dt>
+                        <dd><p>Directory name</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>New entry Flash page (on success); Error code (on failure)</p></dt>
+                        
+                        <dt>Z</dt>
+                        <dd><p>Set on success, reset on failure</p></dt>
+                        
+                        <dt>HL</dt>
+                        <dd><p>New entry address relative to 0x4000 (on success)</p></dt>
+                        
+                    </dl>
+                
+            
+        </div>
+    </div>
+    
+    <div id="createFileEntry" class="docsection">
+        <div>
+            <h2>
+                <a href="#createFileEntry">createFileEntry</a>
+            </h2>
+            
+            <p>Creates a new file entry in the FAT.</p>
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>IY</dt>
+                        <dd><p>Section ID</p></dt>
+                        
+                        <dt>DE</dt>
+                        <dd><p>Parent ID</p></dt>
+                        
+                        <dt>ABC</dt>
+                        <dd><p>Length</p></dt>
+                        
+                        <dt>HL</dt>
+                        <dd><p>File name</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>New entry Flash page (on success); Error code (on failure)</p></dt>
+                        
+                        <dt>Z</dt>
+                        <dd><p>Set on success, reset on failure</p></dt>
+                        
+                        <dt>HL</dt>
+                        <dd><p>New entry address relative to 0x4000 (on success)</p></dt>
+                        
+                    </dl>
+                
+            
+        </div>
+    </div>
+    
     <div id="deleteFile" class="docsection">
         <div>
             <h2>
@@ -38,6 +124,37 @@ layout: documentation
         </div>
     </div>
     
+    <div id="directoryExists" class="docsection">
+        <div>
+            <h2>
+                <a href="#directoryExists">directoryExists</a>
+            </h2>
+            
+            <p>Determines if a directory exists.</p>
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>DE</dt>
+                        <dd><p>Path to directory (string pointer)</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>Z</dt>
+                        <dd><p>Set if file exists, reset if not</p></dt>
+                        
+                    </dl>
+                
+            
+        </div>
+    </div>
+    
     <div id="fileExists" class="docsection">
         <div>
             <h2>
@@ -62,6 +179,48 @@ layout: documentation
                         
                         <dt>Z</dt>
                         <dd><p>Set if file exists, reset if not</p></dt>
+                        
+                    </dl>
+                
+            
+        </div>
+    </div>
+    
+    <div id="findDirectoryEntry" class="docsection">
+        <div>
+            <h2>
+                <a href="#findDirectoryEntry">findDirectoryEntry</a>
+            </h2>
+            
+            <p>Finds a directory entry in the FAT.</p>
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>DE</dt>
+                        <dd><p>Path to directory</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Notes</h3>
+                
+                    <p>This function returns HL=0 for the root directory. You should handle this special case yourself. The root directory has ID 0 and has no parent directory.</p>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>Flash page (on success); Error code (on failure)</p></dt>
+                        
+                        <dt>Z</dt>
+                        <dd><p>Set on success, reset on failure</p></dt>
+                        
+                        <dt>HL</dt>
+                        <dd><p>Address relative to 0x4000 (on success)</p></dt>
                         
                     </dl>
                 

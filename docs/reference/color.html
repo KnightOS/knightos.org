@@ -7,6 +7,17 @@ layout: documentation
 
 <div class="docs">
     
+    <div id="checkLegacyLcdMode" class="docsection">
+        <div>
+            <h2>
+                <a href="#checkLegacyLcdMode">checkLegacyLcdMode</a>
+            </h2>
+            
+            <p>Sets Z if the current thread is in color mode.</p>
+            
+        </div>
+    </div>
+    
     <div id="clearColorLcd" class="docsection">
         <div>
             <h2>
@@ -14,6 +25,16 @@ layout: documentation
             </h2>
             
             <p>Sets all pixels on the LCD to grey in color mode.</p>
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>IY</dt>
+                        <dd><p>Color in 0bRRRRRGGGGGGBBBBB format</p></dt>
+                        
+                    </dl>
+                
             
         </div>
     </div>
@@ -36,6 +57,30 @@ layout: documentation
             </h2>
             
             <p>Initializes and turns on the color LCD in color mode.</p>
+            
+        </div>
+    </div>
+    
+    <div id="colorSupported" class="docsection">
+        <div>
+            <h2>
+                <a href="#colorSupported">colorSupported</a>
+            </h2>
+            
+            <p>Sets Z if color is supported on this device.</p>
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>errUnsupported if color is unsupported</p></dt>
+                        
+                        <dt>Z</dt>
+                        <dd><p>Set if supported, reset if unsupported</p></dt>
+                        
+                    </dl>
+                
             
         </div>
     </div>
@@ -82,7 +127,7 @@ layout: documentation
                 <a href="#resetLegacyLcdMode">resetLegacyLcdMode</a>
             </h2>
             
-            <p>Sets the LCD to color mode.</p>
+            <p>Sets the LCD to color mode. Call this before you call <a href="hardware.html#getLcdLock">getLcdLock</a>.</p>
             
         </div>
     </div>

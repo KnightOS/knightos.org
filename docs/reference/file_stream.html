@@ -197,6 +197,46 @@ layout: documentation
         </div>
     </div>
     
+    <div id="openFileWrite" class="docsection">
+        <div>
+            <h2>
+                <a href="#openFileWrite">openFileWrite</a>
+            </h2>
+            
+            <p>Opens a file stream in write mode. If the file does not exist, it is created.</p>
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>DE</dt>
+                        <dd><p>Path to file (string pointer)</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>Error code (on failure)</p></dt>
+                        
+                        <dt>Z</dt>
+                        <dd><p>Set on success, reset on failure</p></dt>
+                        
+                        <dt>E</dt>
+                        <dd><p>Garbage (on success)</p></dt>
+                        
+                        <dt>D</dt>
+                        <dd><p>File stream ID (on success)</p></dt>
+                        
+                    </dl>
+                
+            
+        </div>
+    </div>
+    
     <div id="streamReadBuffer" class="docsection">
         <div>
             <h2>
