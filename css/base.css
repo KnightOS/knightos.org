@@ -1,5 +1,5 @@
 body {
-    padding-top: 45px;
+    padding-top: 70px;
 }
 
 .documentation .docsection {
@@ -85,4 +85,12 @@ body {
     to {
         background-color: transparent;
     }
+}
+
+.recording {
+    padding: 5px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    margin: 0 auto;
+    display: block;
 }

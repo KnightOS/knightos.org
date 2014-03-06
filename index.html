@@ -2,46 +2,53 @@
 title: KnightOS
 layout: base
 ---
-
 <div class="page-header">
     <h1>KnightOS <small>An open source OS for TI calculators</small></h1>
 </div>
-<p>KnightOS is a replacement for the stock OS on several Texas Instruments calculators. It
-provides a Unix-like enviornment that makes it great for students and programmers alike. With advanced
-features like a tree-based filesystem, multitasking, and more, KnightOS is the perfect operating system
-for your calculator's needs. <span class="text-error">Note: KnightOS is not yet complete, and it is not
-ready for general use</span>. The kernel is nearing completion, though.</p>
-<ul class="thumbnails">
-    <li class="span3">
-        <div class="thumbnail">
-            <img src="/img/castle.gif" alt="KnightOS Multitasking" />
-            <h3>Multitasking</h3>
-            <p>Run up to 32 concurrent programs, and switch between them with ease.</p>
-        </div>
-    </li>
-    <li class="span3">
-        <div class="thumbnail">
-            <img src="/img/terminal.gif" alt="KnightOS Terminal" />
-            <h3>Terminal</h3>
-            <p>A built-in bash-like terminal gives more flexibility to power users and programmers.</p>
-        </div>
-    </li>
-    <li class="span3">
-        <div class="thumbnail">
-            <img src="/img/crash.gif" alt="KnightOS Crash Recovery" />
-            <h3>Crash Recovery</h3>
-            <p>Forget the days of clearing your RAM and losing data. KnightOS crashes are non-destructive.</p>
-        </div>
-    </li>
-    <li class="span3">
-        <div class="thumbnail">
-            <img src="/img/gui.gif" alt="KnightOS GUI" />
-            <h3>GUI</h3>
-            <p>Integrated GUI libraries allow programs to easily design complex interfaces.</p>
-        </div>
-    </li>
-</ul>
-
-<p>In addition to the KnightOS userspace, the project includes a seperate kernel that powers all the impressive
-bits of technology in play here - the filesystem, multitasking, etc, all handled by this kernel. It's not tied to
-KnightOS at all, and you're free to build your own OSes with this powerful base.</p>
+<p>KnightOS is an open-source operating system for TI calculators. It completely replaces
+the stock TI-OS, and offers loads of great features for programmers and users alike:</p>
+<div class="row">
+    <div class="col-md-6">
+        <dl>
+            <dt>Multitasking</dt>
+            <dd>Run up to 32 programs simultaneously</dd>
+            <dt>Cross Platform</dt>
+            <dd>Run your programs on 9 different calculators - including the new Color Silver Edition</dd>
+            <dt>Storage Space</dt>
+            <dd>KnightOS is compact, leaving plenty of space for your files</dd>
+        </dl>
+        <img class="recording" src="/img/multitasking.gif" />
+        <p class="text-center text-muted"><em>Demonstrating multitasking</em></p>
+    </div>
+    <div class="col-md-6">
+        <dl>
+            <dt>More Memory</dt>
+            <dd>KnightOS programs may use 31K of RAM. TI-OS offers 24K under ideal conditions</dd>
+            <dt>Memory Safe</dt>
+            <dd>No more panicked RAM resets. Crashes do not affect user data.</dd>
+            <dt>Open Source</dt>
+            <dd>You're freely able to browse, change, and improve the <a href="https://github.com/KnightOS/kernel">source code</a></dd>
+        </dl>
+        <img class="recording" src="/img/gui.gif" />
+        <p class="text-center text-muted"><em>Easy-to-use graphical interface</em></p>
+    </div>
+</div>
+<p>KnightOS supports the TI-73, TI-83+, TI-83+ Silver Edition, TI-84+, TI-84+ Silver Edition, 
+TI-84+ Color Silver Edition, and the French variations on these devices.</p>
+<h2>KnightOS for Users</h2>
+<p>Sorry! KnightOS isn't quite ready for everyone. Currently, only technically proficient users
+will realistically be able to use the system. You can still
+<a href="http://webchat.freenode.net/?channels=knightos&uio=d4">join us on IRC</a> to keep an eye
+on our progress and share your ideas.</p>
+<h2>KnightOS for Programmers</h2>
+<p>KnightOS will feel like a welcome change for programmers used to TI-OS. Coding for KnightOS
+feels like coding for Unix. You've got full blown memory management, a tree-based filesytem (one
+that follows the Filesystem Hierarchy Standard), and more "Safe RAM" than you can shake a stick at.
+KnightOS is also completely open source, which means that you can get involved in the development.
+The source code is availble <a href="https://github.com/KnightOS">online</a> and you're encouraged
+to play around with it. If you see something you'd rather be different, or features you want, you
+can join us <a href="http://webchat.freenode.net/?channels=knightos&uio=d4">on IRC</a> and help
+build it yourself!</p>
+<p>KnightOS is also <a href="/docs/reference/color.html">painstakingly documented</a>, so you'll
+always know how it works. To get started writing programs for KnightOS,
+<a href="/docs/programs.html">go here</a>.</p>
