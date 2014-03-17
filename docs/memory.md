@@ -103,11 +103,14 @@ All active file streams are stored in this table.
     <tr><td>0007</td><td>1</td><td>File entry page</td></tr>
     <tr><td>0008</td><td>2</td><td>File entry address</td></tr>
     <tr><td>000A</td><td>3</td><td>Working file size</td></tr>
-    <tr><td>000D</td><td>3</td><td>Reserved for future use</td></tr>
+    <tr><td>000D</td><td>1</td><td>Writable stream flags</td></tr>
+    <tr><td>000E</td><td>3</td><td>Reserved for future use</td></tr>
 </table>
 
 Flags/owner is the following 8 bit format: FTExxxxx, where xxxxx is the thread ID of the owner. F is set if the stream is currently on the
 final block of the file. T is set if thread is writable. E is set if the stream pointer is past the end of the file.
+
+Writable stream flags are xxxxxxF, where F is if the stream has been flushed to disk.
 
 The buffer address is the location of the buffer in memory (the first byte). This 256-byte buffer contains the contents of the current DAT
 block. The stream pointer is the offset within this buffer that the stream is currently poitned to. When this offset overflows or underflows,
