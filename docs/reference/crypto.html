@@ -4,7 +4,6 @@ layout: documentation
 ---
 
 <h1>Crypto</h1>
-
 <div class="docs">
     
     <div id="crc16" class="docsection">
@@ -14,6 +13,8 @@ layout: documentation
             </h2>
             
             <p>Performs a Cyclic Redundancy Check on data.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -38,6 +39,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -48,6 +50,8 @@ layout: documentation
             </h2>
             
             <p>Adds a single byte to the SHA1 hash input stream. Call this function once for each byte in the input stream, then call <a href="crypto.html#sha1Pad">sha1Pad</a>.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -62,6 +66,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -72,6 +77,8 @@ layout: documentation
             </h2>
             
             <p>Adds a range of bytes to a SHA1 hash.  This routine is equivalent to, but faster than, calling <a href="crypto.html#sha1AddByte">sha1AddByte</a> many times.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -89,6 +96,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -99,6 +107,8 @@ layout: documentation
             </h2>
             
             <p>Safely deallocates a SHA1 state block allocated by sha1Init.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -110,6 +120,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -120,6 +131,8 @@ layout: documentation
             </h2>
             
             <p>Allocates a memory block to keep the state and result of a SHA1 hash operation.  The result is kept in the first 20 bytes of the allocated block.  You must use <a href="crypto.html#sha1Clean">sha1Clean</a> to deallocate the block; simply using <a href="system.html#free">free</a> will result in a memory leak!</p>
+
+            <div class="details">
             
                 <h3>Outputs</h3>
                 
@@ -137,6 +150,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -147,6 +161,8 @@ layout: documentation
             </h2>
             
             <p>Finishes the SHA1 computation by appending the required bits to the input.  Call this routine once after calling <a href="crypto.html#sha1AddByte">sha1AddByte</a> for each input byte.  After this routine, the 8 bytes pointed to by IX will contain the big-endian SHA1 hash.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -158,6 +174,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     

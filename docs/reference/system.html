@@ -4,7 +4,6 @@ layout: documentation
 ---
 
 <h1>System</h1>
-
 <div class="docs">
     
     <div id="calloc" class="docsection">
@@ -14,6 +13,8 @@ layout: documentation
             </h2>
             
             <p>Allocates memory for a given number of elements of a given size (that is, BC * A bytes total), then fills it with zeros.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -44,6 +45,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -54,7 +56,10 @@ layout: documentation
             </h2>
             
             <p>Triggers a context switch early.</p>
+
+            <div class="details">
             
+            </div>
         </div>
     </div>
     
@@ -65,12 +70,15 @@ layout: documentation
             </h2>
             
             <p>Formats memory in preparation for memory allocation.</p>
+
+            <div class="details">
             
                 <h3>Notes</h3>
                 
                     <p>This function will deallocate <strong>all allocated memory</strong>.</p>
                 
             
+            </div>
         </div>
     </div>
     
@@ -81,6 +89,8 @@ layout: documentation
             </h2>
             
             <p>Frees a previously allocated section of memory</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -92,6 +102,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -102,6 +113,8 @@ layout: documentation
             </h2>
             
             <p>Allocates the specified amount of memory.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -129,6 +142,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -139,6 +153,8 @@ layout: documentation
             </h2>
             
             <p>Move IX to the end of the memory section it points to.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -160,6 +176,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -170,6 +187,8 @@ layout: documentation
             </h2>
             
             <p>Move IX to the beginning of the memory section it points to.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -191,6 +210,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -201,6 +221,8 @@ layout: documentation
             </h2>
             
             <p>Sets the value of an entire allocated section of memory.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -215,6 +237,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -225,6 +248,8 @@ layout: documentation
             </h2>
             
             <p>Reassigns a given block of memory to the specified thread ID.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -239,6 +264,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -249,12 +275,10 @@ layout: documentation
             </h2>
             
             <p>Restarts the device.</p>
+
+            <div class="details">
             
-                <h3>Notes</h3>
-                
-                    <p>This will never return. Call it with <code>jp reboot</code></p>
-                
-            
+            </div>
         </div>
     </div>
     
@@ -265,12 +289,10 @@ layout: documentation
             </h2>
             
             <p>Shuts off the device.</p>
+
+            <div class="details">
             
-                <h3>Notes</h3>
-                
-                    <p>This will never return. Call it with <code>jp shutdown</code></p>
-                
-            
+            </div>
         </div>
     </div>
     
@@ -281,7 +303,10 @@ layout: documentation
             </h2>
             
             <p>Turns off the screen, enters low power mode, and halts system operation until the ON key is pressed.</p>
+
+            <div class="details">
             
+            </div>
         </div>
     </div>
     

@@ -4,7 +4,6 @@ layout: documentation
 ---
 
 <h1>File Stream</h1>
-
 <div class="docs">
     
     <div id="closeStream" class="docsection">
@@ -14,6 +13,8 @@ layout: documentation
             </h2>
             
             <p>Closes an open stream.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -38,16 +39,19 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
-    <div id="getStreamBuffer" class="docsection">
+    <div id="flush" class="docsection">
         <div>
             <h2>
-                <a href="#getStreamBuffer">getStreamBuffer</a>
+                <a href="#flush">flush</a>
             </h2>
             
-            <p>Gets the address of a stream's memory buffer.</p>
+            <p>Flushes pending writes to disk.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -61,7 +65,49 @@ layout: documentation
             
                 <h3>Notes</h3>
                 
-                    <p>For read-only streams, modifying this buffer could have unforseen consequences and it will not be copied back to the file. For writable streams, make sure you call flushStream if you modify this buffer and want to make the changes persist to the file.</p>
+                    <p>This happens periodically as you write to the stream, and happens automatically on closeStream. Try not to use it unless you have to.</p>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>Preserved on success; error code on error</p></dt>
+                        
+                        <dt>Z</dt>
+                        <dd><p>Set on success, reset on error</p></dt>
+                        
+                    </dl>
+                
+            
+            </div>
+        </div>
+    </div>
+    
+    <div id="getStreamBuffer" class="docsection">
+        <div>
+            <h2>
+                <a href="#getStreamBuffer">getStreamBuffer</a>
+            </h2>
+            
+            <p>Gets the address of a stream's memory buffer.</p>
+
+            <div class="details">
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>D</dt>
+                        <dd><p>Stream ID</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Notes</h3>
+                
+                    <p>For read-only streams, modifying this buffer could have unforseen consequences and it will not be copied back to the file. For writable streams, make sure you call flush if you modify this buffer and want to make the changes persist to the file.</p>
                 
             
                 <h3>Outputs</h3>
@@ -80,6 +126,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -90,6 +137,8 @@ layout: documentation
             </h2>
             
             <p>Gets the address of a stream entry in the kernel file stream table.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -117,6 +166,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -127,6 +177,8 @@ layout: documentation
             </h2>
             
             <p>Gets the amount of space remaining in a file stream.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -154,6 +206,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -164,6 +217,8 @@ layout: documentation
             </h2>
             
             <p>Opens a file stream in read-only mode.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -194,6 +249,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -204,6 +260,8 @@ layout: documentation
             </h2>
             
             <p>Opens a file stream in write mode. If the file does not exist, it is created.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -234,6 +292,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -244,6 +303,8 @@ layout: documentation
             </h2>
             
             <p>Reads a number of bytes from a file stream and advances the stream.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -279,6 +340,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -289,6 +351,8 @@ layout: documentation
             </h2>
             
             <p>Reads a single byte from a file stream and advances the stream.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -313,6 +377,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -323,6 +388,8 @@ layout: documentation
             </h2>
             
             <p>Reads the remainder of a file stream into memory.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -350,6 +417,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -360,6 +428,8 @@ layout: documentation
             </h2>
             
             <p>Reads a 16-bit word from a file stream and advances the stream.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -387,6 +457,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     

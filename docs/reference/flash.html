@@ -4,7 +4,6 @@ layout: documentation
 ---
 
 <h1>Flash</h1>
-
 <div class="docs">
     
     <div id="copyFlashPage" class="docsection">
@@ -14,6 +13,8 @@ layout: documentation
             </h2>
             
             <p>Copies one page of Flash to another.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -33,6 +34,7 @@ layout: documentation
                     <p>Flash must be unlocked and the desination page must be cleared.</p>
                 
             
+            </div>
         </div>
     </div>
     
@@ -43,6 +45,8 @@ layout: documentation
             </h2>
             
             <p>Copies a single sector of Flash to the swap sector.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -59,6 +63,7 @@ layout: documentation
                     <p>Flash must be unlocked.</p>
                 
             
+            </div>
         </div>
     </div>
     
@@ -69,6 +74,8 @@ layout: documentation
             </h2>
             
             <p>Erases a single page of Flash.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -85,6 +92,7 @@ layout: documentation
                     <p>Flash must be unlocked. This is a very costly operation, and you may want to consider handling this logic yourself if you have to erase more than one page in a single sector</p>
                 
             
+            </div>
         </div>
     </div>
     
@@ -95,6 +103,8 @@ layout: documentation
             </h2>
             
             <p>Erases one sector of Flash (generally 4 pages of Flash, or 64K) by setting each byte to 0xFF.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -111,6 +121,7 @@ layout: documentation
                     <p>Flash must be unlocked.</p>
                 
             
+            </div>
         </div>
     </div>
     
@@ -121,12 +132,15 @@ layout: documentation
             </h2>
             
             <p>Erases the swap sector.</p>
+
+            <div class="details">
             
                 <h3>Notes</h3>
                 
                     <p>Flash must be unlocked.</p>
                 
             
+            </div>
         </div>
     </div>
     
@@ -137,7 +151,10 @@ layout: documentation
             </h2>
             
             <p>Locks Flash and locks protected ports</p>
+
+            <div class="details">
             
+            </div>
         </div>
     </div>
     
@@ -148,12 +165,15 @@ layout: documentation
             </h2>
             
             <p>Unlocks Flash and unlocks protected ports</p>
+
+            <div class="details">
             
                 <h3>Notes</h3>
                 
                     <p><strong>Do not use this unless you know what you're doing.</strong> Please call <a href="flash.html#lockFlash">lockFlash</a> when you finish what you're doing and don't spend too much time with Flash unlocked. Disabled interrupts while Flash is unlocked.</p>
                 
             
+            </div>
         </div>
     </div>
     
@@ -164,6 +184,8 @@ layout: documentation
             </h2>
             
             <p>Writes several bytes of memory to Flash</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -186,6 +208,7 @@ layout: documentation
                     <p>Flash must be unlocked. Do not attempt to read your source data from Flash, you must load any data to be written into RAM. This can only <em>reset</em> bits of Flash.</p>
                 
             
+            </div>
         </div>
     </div>
     
@@ -196,6 +219,8 @@ layout: documentation
             </h2>
             
             <p>Writes a single byte to Flash</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -215,6 +240,7 @@ layout: documentation
                     <p>Flash must be unlocked. This can only <em>reset</em> bits of Flash.</p>
                 
             
+            </div>
         </div>
     </div>
     

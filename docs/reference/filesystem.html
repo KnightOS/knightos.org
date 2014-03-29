@@ -4,8 +4,47 @@ layout: documentation
 ---
 
 <h1>Filesystem</h1>
-
 <div class="docs">
+    
+    <div id="createDirectory" class="docsection">
+        <div>
+            <h2>
+                <a href="#createDirectory">createDirectory</a>
+            </h2>
+            
+            <p>Creates a new directory in the filesystem and returns information about the new filesystem entry.</p>
+
+            <div class="details">
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>DE</dt>
+                        <dd><p>Path to new directory</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>Flash page (on success); Error code (on failure)</p></dt>
+                        
+                        <dt>Z</dt>
+                        <dd><p>Set on success, reset on failure</p></dt>
+                        
+                        <dt>HL</dt>
+                        <dd><p>Address relative to 0x4000 (on success)</p></dt>
+                        
+                    </dl>
+                
+            
+            </div>
+        </div>
+    </div>
     
     <div id="createDirectoryEntry" class="docsection">
         <div>
@@ -14,6 +53,8 @@ layout: documentation
             </h2>
             
             <p>Creates a new directory entry in the FAT.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -44,6 +85,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -54,6 +96,8 @@ layout: documentation
             </h2>
             
             <p>Creates a new file entry in the FAT.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -90,6 +134,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -100,6 +145,8 @@ layout: documentation
             </h2>
             
             <p>Deletes a file.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -121,6 +168,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -131,6 +179,8 @@ layout: documentation
             </h2>
             
             <p>Determines if a directory exists.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -152,6 +202,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -162,6 +213,8 @@ layout: documentation
             </h2>
             
             <p>Determines if a file exists.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -183,6 +236,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -193,6 +247,8 @@ layout: documentation
             </h2>
             
             <p>Finds a directory entry in the FAT.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -225,6 +281,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -235,6 +292,8 @@ layout: documentation
             </h2>
             
             <p>Finds a file entry in the FAT.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -262,6 +321,71 @@ layout: documentation
                     </dl>
                 
             
+            </div>
+        </div>
+    </div>
+    
+    <div id="formatUnusedPages" class="docsection">
+        <div>
+            <h2>
+                <a href="#formatUnusedPages">formatUnusedPages</a>
+            </h2>
+            
+            <p>If /bin/init is called with A set to 0xFF, this function should be called. It may be appropriate to show the user some sort of UI while this is processing, as it will take some time to run.</p>
+
+            <div class="details">
+            
+                <h3>Notes</h3>
+                
+                    <p>This function is only relevant to system-level programmers. Most programmers do not have to concern themselves with it.</p>
+                
+            
+            </div>
+        </div>
+    </div>
+    
+    <div id="listDirectory" class="docsection">
+        <div>
+            <h2>
+                <a href="#listDirectory">listDirectory</a>
+            </h2>
+            
+            <p>Lists the contents of a directory on the filesystem.</p>
+
+            <div class="details">
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>DE</dt>
+                        <dd><p>Path to directory</p></dt>
+                        
+                        <dt>HL</dt>
+                        <dd><p>Callback</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Notes</h3>
+                
+                    <p>This function will call your callback every time it encounters a relevant entry on the filesystem. You are free to use IX, IY, and the shadow registers in this callback, but must preserve all other registers. Your function will be called with the following state: - HL: Address of entry - BC: Length of entry - A: Type of entry - kernelGarbage: Name of entry - Correct page swapped into bank A - Interrupts disabled (do not enable them) You must leave these registers intact.</p>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>Error code on failure, preserved on success</p></dt>
+                        
+                        <dt>Z</dt>
+                        <dd><p>Set on success, reset on failure</p></dt>
+                        
+                    </dl>
+                
+            
+            </div>
         </div>
     </div>
     

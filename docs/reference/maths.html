@@ -1,0 +1,387 @@
+---
+title: Maths Documentation
+layout: documentation
+---
+
+<h1>Maths</h1>
+<div class="docs">
+    
+    <div id="DEMulA" class="docsection">
+        <div>
+            <h2>
+                <a href="#DEMulA">DEMulA</a>
+            </h2>
+            
+            <p>Performs <code>HL = DE * A</code></p>
+
+            <div class="details">
+            
+            </div>
+        </div>
+    </div>
+    
+    <div id="DEMulBC" class="docsection">
+        <div>
+            <h2>
+                <a href="#DEMulBC">DEMulBC</a>
+            </h2>
+            
+            <p>Performs <code>HL = DE * BC</code></p>
+
+            <div class="details">
+            
+            </div>
+        </div>
+    </div>
+    
+    <div id="add16To32" class="docsection">
+        <div>
+            <h2>
+                <a href="#add16To32">add16To32</a>
+            </h2>
+            
+            <p>Performs <code>ACIX = ACIX + DE</code></p>
+
+            <div class="details">
+            
+            </div>
+        </div>
+    </div>
+    
+    <div id="cpBCDE" class="docsection">
+        <div>
+            <h2>
+                <a href="#cpBCDE">cpBCDE</a>
+            </h2>
+            
+            <p>Compares DE to BC.</p>
+
+            <div class="details">
+            
+                <h3>Output</h3>
+                
+                    <p>Same as z80 CP instruction.</p>
+                
+            
+            </div>
+        </div>
+    </div>
+    
+    <div id="cpHLBC" class="docsection">
+        <div>
+            <h2>
+                <a href="#cpHLBC">cpHLBC</a>
+            </h2>
+            
+            <p>Compares HL to BC.</p>
+
+            <div class="details">
+            
+                <h3>Output</h3>
+                
+                    <p>Same as z80 CP instruction.</p>
+                
+            
+            </div>
+        </div>
+    </div>
+    
+    <div id="cpHLDE" class="docsection">
+        <div>
+            <h2>
+                <a href="#cpHLDE">cpHLDE</a>
+            </h2>
+            
+            <p>Compares HL to DE.</p>
+
+            <div class="details">
+            
+                <h3>Output</h3>
+                
+                    <p>Same as z80 CP instruction.</p>
+                
+            
+            </div>
+        </div>
+    </div>
+    
+    <div id="div32By16" class="docsection">
+        <div>
+            <h2>
+                <a href="#div32By16">div32By16</a>
+            </h2>
+            
+            <p>Performs <code>ACIX = ACIX / DE</code></p>
+
+            <div class="details">
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>As described above, and</dt>
+                        <dd></dt>
+                        
+                        <dt>B</dt>
+                        <dd><p>0</p></dt>
+                        
+                        <dt>HL</dt>
+                        <dd><p>Remainder</p></dt>
+                        
+                    </dl>
+                
+            
+            </div>
+        </div>
+    </div>
+    
+    <div id="divHLByC" class="docsection">
+        <div>
+            <h2>
+                <a href="#divHLByC">divHLByC</a>
+            </h2>
+            
+            <p>Performs <code>HL = HL / C</code></p>
+
+            <div class="details">
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>Remainder</p></dt>
+                        
+                        <dt>As described above, and</dt>
+                        <dd></dt>
+                        
+                    </dl>
+                
+            
+            </div>
+        </div>
+    </div>
+    
+    <div id="icos" class="docsection">
+        <div>
+            <h2>
+                <a href="#icos">icos</a>
+            </h2>
+            
+            <p>Returns the cosine of the given angle.</p>
+
+            <div class="details">
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>angle</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Notes</h3>
+                
+                    <p>To fit assembly, both the input and output have an uncommon format : the input angle has a period of 256, and the outputted value will be in the range [-63, 63] instead of [-1,1].</p>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>sine of the angle, scaled to 64</p></dt>
+                        
+                    </dl>
+                
+            
+            </div>
+        </div>
+    </div>
+    
+    <div id="isin" class="docsection">
+        <div>
+            <h2>
+                <a href="#isin">isin</a>
+            </h2>
+            
+            <p>Returns the sine of the given angle.</p>
+
+            <div class="details">
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>angle</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Notes</h3>
+                
+                    <p>To fit assembly, both the input and output have an uncommon format : the input angle has a period of 256, and the outputted value will be in the range [-64, 64] instead of [-1,1].</p>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>A</dt>
+                        <dd><p>sine of the angle, scaled to 64</p></dt>
+                        
+                    </dl>
+                
+            
+            </div>
+        </div>
+    </div>
+    
+    <div id="sDEMulA" class="docsection">
+        <div>
+            <h2>
+                <a href="#sDEMulA">sDEMulA</a>
+            </h2>
+            
+            
+
+            <div class="details">
+            
+                <h3>Performs `HL = DE * A`. The operation is signed.
+sDEMulA</h3>
+                
+                    
+                
+            
+            </div>
+        </div>
+    </div>
+    
+    <div id="sdivACbyDE" class="docsection">
+        <div>
+            <h2>
+                <a href="#sdivACbyDE">sdivACbyDE</a>
+            </h2>
+            
+            <p>Performs <code>AC = AC / DE</code>. The operation is signed.</p>
+
+            <div class="details">
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>As described above, and
+;;  HL</dt>
+                        <dd><p>remainder</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Notes</h3>
+                
+                    <p>B is destroyed</p>
+                
+            
+            </div>
+        </div>
+    </div>
+    
+    <div id="smax" class="docsection">
+        <div>
+            <h2>
+                <a href="#smax">smax</a>
+            </h2>
+            
+            <p>Returns the largest between HL and DE. The operation is signed.</p>
+
+            <div class="details">
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>DE</dt>
+                        <dd><p>integer</p></dt>
+                        
+                        <dt>HL</dt>
+                        <dd><p>integer</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>DE</dt>
+                        <dd><p>the smallest of the previous HL and DE</p></dt>
+                        
+                        <dt>HL</dt>
+                        <dd><p>the largest of the previous HL and DE</p></dt>
+                        
+                    </dl>
+                
+            
+            </div>
+        </div>
+    </div>
+    
+    <div id="smin" class="docsection">
+        <div>
+            <h2>
+                <a href="#smin">smin</a>
+            </h2>
+            
+            <p>Returns the smallest between HL and DE. The operation is signed.</p>
+
+            <div class="details">
+            
+                <h3>Inputs</h3>
+                
+                    <dl>
+                        
+                        <dt>DE</dt>
+                        <dd><p>integer</p></dt>
+                        
+                        <dt>HL</dt>
+                        <dd><p>integer</p></dt>
+                        
+                    </dl>
+                
+            
+                <h3>Outputs</h3>
+                
+                    <dl>
+                        
+                        <dt>DE</dt>
+                        <dd><p>the largest of the previous HL and DE</p></dt>
+                        
+                        <dt>HL</dt>
+                        <dd><p>the smallest of the previous HL and DE</p></dt>
+                        
+                    </dl>
+                
+            
+            </div>
+        </div>
+    </div>
+    
+    <div id="sub16From32" class="docsection">
+        <div>
+            <h2>
+                <a href="#sub16From32">sub16From32</a>
+            </h2>
+            
+            <p>Performs <code>ACIX = ACIX - DE</code></p>
+
+            <div class="details">
+            
+            </div>
+        </div>
+    </div>
+    
+</div>

@@ -34,6 +34,9 @@ body {
     opacity: 0;
     transition: opacity linear 0.2s;
     cursor: pointer;
+    width: 20px;
+    height: 20px;
+    top: -8px;
 }
 
 .documentation h2 a:hover:before {
@@ -51,7 +54,9 @@ body {
 
 .documentation h3 {
     font-size: 14pt;
-    margin: 0;
+    margin: 5px 0;
+    border-bottom: 1px solid #ccc;
+    max-width: 300px;
 }
 
 .documentation dl, .documentation p {
@@ -93,4 +98,12 @@ body {
     border-radius: 3px;
     margin: 0 auto;
     display: block;
+}
+
+.documentation .docsection .details {
+    margin-left: 10px;
+}
+
+dd {
+    margin-left: 5px;
 }

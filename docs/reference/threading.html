@@ -4,7 +4,6 @@ layout: documentation
 ---
 
 <h1>Threading</h1>
-
 <div class="docs">
     
     <div id="exitThread" class="docsection">
@@ -14,12 +13,15 @@ layout: documentation
             </h2>
             
             <p>Immediately terminates the running thread. This function will never return; call it with <code>jp exitThread</code>.</p>
+
+            <div class="details">
             
                 <h3>Notes</h3>
                 
                     <p>This is preferred to <a href="threading.html#killThread">killThread</a>, since it will go through the caller-set exit function. This is often <a href="threading.html#killThread">killThread</a> anyway, but it may be set to a custom value by the code that intitialized the thread.</p>
                 
             
+            </div>
         </div>
     </div>
     
@@ -30,6 +32,8 @@ layout: documentation
             </h2>
             
             <p>Gets the ID of the currently executing thread.</p>
+
+            <div class="details">
             
                 <h3>Outputs</h3>
                 
@@ -41,6 +45,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -51,6 +56,8 @@ layout: documentation
             </h2>
             
             <p>Gets a pointer to the specified thread's entry in the thread table.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -77,6 +84,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -87,12 +95,15 @@ layout: documentation
             </h2>
             
             <p>Kills the currently executing thread.</p>
+
+            <div class="details">
             
                 <h3>Notes</h3>
                 
-                    <p>In most cases, it is preferrable to call <a href="threading.html#exitThread">exitThread</a>, which will use the exit function specified by the caller. This function cleans up all resources owned by that thread, including allocated memory, loaded libraries, file handles, etc. This function will never return; invoke it with <code>jp killCurrentThread</code>.</p>
+                    <p>In most cases, it is preferrable to call <a href="threading.html#exitThread">exitThread</a>, which will use the exit function specified by the caller. This function cleans up all resources owned by that thread, including allocated memory, loaded libraries, file handles, etc.</p>
                 
             
+            </div>
         </div>
     </div>
     
@@ -103,6 +114,8 @@ layout: documentation
             </h2>
             
             <p>Kills the specified thread.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -132,6 +145,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -142,6 +156,8 @@ layout: documentation
             </h2>
             
             <p>Loads the specified file into memory as a program and starts a new thread for it.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -166,6 +182,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -176,6 +193,8 @@ layout: documentation
             </h2>
             
             <p>Resumes the specified thread.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -187,6 +206,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -197,6 +217,8 @@ layout: documentation
             </h2>
             
             <p>Sets the initial value of the A register for the specified thread.</p>
+
+            <div class="details">
             
                 <h3>Note</h3>
                 
@@ -229,6 +251,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -239,6 +262,8 @@ layout: documentation
             </h2>
             
             <p>Sets the initial value of the BC register for the specified thread.</p>
+
+            <div class="details">
             
                 <h3>Note</h3>
                 
@@ -271,6 +296,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -281,6 +307,8 @@ layout: documentation
             </h2>
             
             <p>Sets the initial value of the DE register for the specified thread.</p>
+
+            <div class="details">
             
                 <h3>Note</h3>
                 
@@ -313,6 +341,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -323,6 +352,8 @@ layout: documentation
             </h2>
             
             <p>Sets the initial value of the HL register for the specified thread.</p>
+
+            <div class="details">
             
                 <h3>Note</h3>
                 
@@ -355,6 +386,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -365,6 +397,8 @@ layout: documentation
             </h2>
             
             <p>Sets the initial value of the IX register for the specified thread.</p>
+
+            <div class="details">
             
                 <h3>Note</h3>
                 
@@ -397,6 +431,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -407,6 +442,8 @@ layout: documentation
             </h2>
             
             <p>Sets the initial value of the IY register for the specified thread.</p>
+
+            <div class="details">
             
                 <h3>Note</h3>
                 
@@ -439,6 +476,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -449,6 +487,8 @@ layout: documentation
             </h2>
             
             <p>Sets the return point for the specified thread. This is set to <a href="threading.html#killThread">killThread</a> by default.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -476,6 +516,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -486,6 +527,8 @@ layout: documentation
             </h2>
             
             <p>Starts a new thread.</p>
+
+            <div class="details">
             
                 <h3>Inputs</h3>
                 
@@ -521,6 +564,7 @@ layout: documentation
                     </dl>
                 
             
+            </div>
         </div>
     </div>
     
@@ -531,12 +575,15 @@ layout: documentation
             </h2>
             
             <p>Suspends the currently executing thread.</p>
+
+            <div class="details">
             
                 <h3>Notes</h3>
                 
                     <p>This function will not return until a second thread resumes the current thread.</p>
                 
             
+            </div>
         </div>
     </div>
     
