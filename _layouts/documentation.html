@@ -1,15 +1,39 @@
----
-layout: base
----
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>{{ page.title }}</title>
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="/css/base.css" />
+        <link rel="icon" type="image/vnd.microsoft.icon" href="this space intentionally left blank" />
+        <script type="text/javascript" src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/js/typeahead.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.2/handlebars.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            {% include nav-search.html %}
+            <div class="documentation">
+                {{ content }}
+            </div>
+            <script type="text/javascript">
+                if (window.location.hash && window.location.hash != '') {
+                    var item = document.getElementById(window.location.hash.substr(1));
+                    if (item) {
+                        item.classList.add('linked');
+                    }
+                }
+            </script>
+            {% raw %}
+            <script type="text/x-template" id="template-empty"><span class="text-muted no-results">No results</span></script>
+            <script type="text/x-template" id="template-suggestion">
+                <h4>{{name}}</h4>
+                <div class="text-muted">{{description}}</div>
+            </script>
+            {% endraw %}
+            <script type="text/javascript" src="/js/documentation.js"></script>
+        </div>
+    </body>
+</html>
 
-<div class="documentation">
-    {{ content }}
-</div>
-<script type="text/javascript">
-    if (window.location.hash && window.location.hash != '') {
-        var item = document.getElementById(window.location.hash.substr(1));
-        if (item) {
-            item.classList.add('linked');
-        }
-    }
-</script>
