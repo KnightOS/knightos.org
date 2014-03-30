@@ -25,10 +25,10 @@ layout: documentation
                             <dl>
                                 
                                 <dt>A</dt>
-                                <dd><p>Size of element</p></dt>
+                                <dd><p>Size of element</p></dd>
                                 
                                 <dt>BC</dt>
-                                <dd><p>Number of elements</p></dt>
+                                <dd><p>Number of elements</p></dd>
                                 
                             </dl>
                         
@@ -38,13 +38,13 @@ layout: documentation
                             <dl>
                                 
                                 <dt>A</dt>
-                                <dd><p>Error code (on failure)</p></dt>
+                                <dd><p>Error code (on failure)</p></dd>
                                 
                                 <dt>IX</dt>
-                                <dd><p>First byte of allocated and zeroed memory (on success)</p></dt>
+                                <dd><p>First byte of allocated and zeroed memory (on success)</p></dd>
                                 
                                 <dt>Z</dt>
-                                <dd><p>Set on success, reset on failure</p></dt>
+                                <dd><p>Set on success, reset on failure</p></dd>
                                 
                             </dl>
                         
@@ -101,7 +101,7 @@ layout: documentation
                             <dl>
                                 
                                 <dt>IX</dt>
-                                <dd><p>Pointer to first byte of section</p></dt>
+                                <dd><p>Pointer to first byte of section</p></dd>
                                 
                             </dl>
                         
@@ -125,10 +125,10 @@ layout: documentation
                             <dl>
                                 
                                 <dt>Z</dt>
-                                <dd><p>Set on success, reset on failure</p></dt>
+                                <dd><p>Set on success, reset on failure</p></dd>
                                 
                                 <dt>DE</dt>
-                                <dd><p>Pointer to full path of library</p></dt>
+                                <dd><p>Pointer to full path of library</p></dd>
                                 
                             </dl>
                         
@@ -152,7 +152,7 @@ layout: documentation
                             <dl>
                                 
                                 <dt>BC</dt>
-                                <dd><p>Length of requested section, in bytes</p></dt>
+                                <dd><p>Length of requested section, in bytes</p></dd>
                                 
                             </dl>
                         
@@ -162,13 +162,13 @@ layout: documentation
                             <dl>
                                 
                                 <dt>A</dt>
-                                <dd><p>Error code (on failure)</p></dt>
+                                <dd><p>Error code (on failure)</p></dd>
                                 
                                 <dt>IX</dt>
-                                <dd><p>First byte of allocated memory (on success)</p></dt>
+                                <dd><p>First byte of allocated memory (on success)</p></dd>
                                 
                                 <dt>Z</dt>
-                                <dd><p>Set on success, reset on failure</p></dt>
+                                <dd><p>Set on success, reset on failure</p></dd>
                                 
                             </dl>
                         
@@ -192,7 +192,7 @@ layout: documentation
                             <dl>
                                 
                                 <dt>IX</dt>
-                                <dd><p>Pointer to anywhere in a section of allocated memory</p></dt>
+                                <dd><p>Pointer to anywhere in a section of allocated memory</p></dd>
                                 
                             </dl>
                         
@@ -202,7 +202,7 @@ layout: documentation
                             <dl>
                                 
                                 <dt>IX</dt>
-                                <dd><p>Pointer to last byte of section</p></dt>
+                                <dd><p>Pointer to last byte of section</p></dd>
                                 
                             </dl>
                         
@@ -226,7 +226,7 @@ layout: documentation
                             <dl>
                                 
                                 <dt>IX</dt>
-                                <dd><p>Pointer to anywhere in a section of allocated memory</p></dt>
+                                <dd><p>Pointer to anywhere in a section of allocated memory</p></dd>
                                 
                             </dl>
                         
@@ -236,7 +236,7 @@ layout: documentation
                             <dl>
                                 
                                 <dt>IX</dt>
-                                <dd><p>Pointer to first byte of section</p></dt>
+                                <dd><p>Pointer to first byte of section</p></dd>
                                 
                             </dl>
                         
@@ -260,10 +260,10 @@ layout: documentation
                             <dl>
                                 
                                 <dt>A</dt>
-                                <dd><p>Value to set</p></dt>
+                                <dd><p>Value to set</p></dd>
                                 
                                 <dt>IX</dt>
-                                <dd><p>Pointer to anywhere in allocated section</p></dt>
+                                <dd><p>Pointer to anywhere in allocated section</p></dd>
                                 
                             </dl>
                         
@@ -287,10 +287,10 @@ layout: documentation
                             <dl>
                                 
                                 <dt>A</dt>
-                                <dd><p>Thread ID for new owner</p></dt>
+                                <dd><p>Thread ID for new owner</p></dd>
                                 
                                 <dt>IX</dt>
-                                <dd><p>Pointer to any location within the target block.</p></dt>
+                                <dd><p>Pointer to any location within the target block.</p></dd>
                                 
                             </dl>
                         
@@ -344,64 +344,137 @@ layout: documentation
         </div>
     </div>
     <div class="col-md-4">
-        <div data-spy="affix">
-            <h2>System Functions</h2>
-            <ul class="nav doc-nav" data-offset-top="60" data-offset-bottom="200">
-                
-                <li>
-                    <a href="#calloc">calloc</a>
-                </li>
-                
-                <li>
-                    <a href="#contextSwitch">contextSwitch</a>
-                </li>
-                
-                <li>
-                    <a href="#formatMem">formatMem</a>
-                </li>
-                
-                <li>
-                    <a href="#free">free</a>
-                </li>
-                
-                <li>
-                    <a href="#loadLibrary">loadLibrary</a>
-                </li>
-                
-                <li>
-                    <a href="#malloc">malloc</a>
-                </li>
-                
-                <li>
-                    <a href="#memSeekToEnd">memSeekToEnd</a>
-                </li>
-                
-                <li>
-                    <a href="#memSeekToStart">memSeekToStart</a>
-                </li>
-                
-                <li>
-                    <a href="#memset">memset</a>
-                </li>
-                
-                <li>
-                    <a href="#reassignMemory">reassignMemory</a>
-                </li>
-                
-                <li>
-                    <a href="#reboot">reboot</a>
-                </li>
-                
-                <li>
-                    <a href="#shutdown">shutdown</a>
-                </li>
-                
-                <li>
-                    <a href="#suspendDevice">suspendDevice</a>
-                </li>
-                
-            </ul>
-        </div>
+        <h4>Function Reference</h4>
+        <ul class="nav doc-nav">
+            
+            
+            <li><a href="/documentation/reference/color.html">Color</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/cryptography.html">Cryptography</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/display.html">Display</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/filestreams.html">Filestreams</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/filesystem.html">Filesystem</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/flash.html">Flash</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/hardware.html">Hardware</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/input.html">Input</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/maths.html">Maths</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/miscellaneous.html">Miscellaneous</a></li>
+            
+            </li>
+            
+            
+            <li class="active">
+                <a href="/documentation/reference/system.html" class="text-bold">System</a>
+                <ul class="nav doc-nav">
+                    
+                    <li>
+                        <a href="#calloc" class="text-muted">calloc</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#contextSwitch" class="text-muted">contextSwitch</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#formatMem" class="text-muted">formatMem</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#free" class="text-muted">free</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#loadLibrary" class="text-muted">loadLibrary</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#malloc" class="text-muted">malloc</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#memSeekToEnd" class="text-muted">memSeekToEnd</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#memSeekToStart" class="text-muted">memSeekToStart</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#memset" class="text-muted">memset</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#reassignMemory" class="text-muted">reassignMemory</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#reboot" class="text-muted">reboot</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#shutdown" class="text-muted">shutdown</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#suspendDevice" class="text-muted">suspendDevice</a>
+                    </li>
+                    
+                </ul>
+            </li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/text.html">Text</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/threading.html">Threading</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/time.html">Time</a></li>
+            
+            </li>
+            
+        </ul>
     </div>
 </div>
 <script type="text/javascript">

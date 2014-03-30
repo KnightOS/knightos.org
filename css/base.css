@@ -112,8 +112,13 @@ dd {
     padding: 2px 15px;
 }
 
-.doc-nav li.active a {
+.doc-nav li.active > a {
     border-left: 1px solid #000;
+    font-weight: bold;
+}
+
+.doc-nav ul {
+    margin-left: 20px;
 }
 
 .tt-dropdown-menu {

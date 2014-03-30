@@ -44,7 +44,7 @@ The kernel supports both monochrome and color display modes on the same calculat
                             <dl>
                                 
                                 <dt>IY</dt>
-                                <dd><p>Color in 0bRRRRRGGGGGGBBBBB format</p></dt>
+                                <dd><p>Color in 0bRRRRRGGGGGGBBBBB format</p></dd>
                                 
                             </dl>
                         
@@ -73,19 +73,19 @@ The kernel supports both monochrome and color display modes on the same calculat
                             <dl>
                                 
                                 <dt>IY</dt>
-                                <dd><p>color of the rectangle in R5G6B5 format</p></dt>
+                                <dd><p>color of the rectangle in R5G6B5 format</p></dd>
                                 
                                 <dt>C</dt>
-                                <dd><p>height of the rectangle in pixels</p></dt>
+                                <dd><p>height of the rectangle in pixels</p></dd>
                                 
                                 <dt>B</dt>
-                                <dd><p>Y coordinate in pixels</p></dt>
+                                <dd><p>Y coordinate in pixels</p></dd>
                                 
                                 <dt>DE</dt>
-                                <dd><p>width of the rectangle in pixels</p></dt>
+                                <dd><p>width of the rectangle in pixels</p></dd>
                                 
                                 <dt>HL</dt>
-                                <dd><p>X coordinate in pixels</p></dt>
+                                <dd><p>X coordinate in pixels</p></dd>
                                 
                             </dl>
                         
@@ -142,10 +142,10 @@ The kernel supports both monochrome and color display modes on the same calculat
                             <dl>
                                 
                                 <dt>A</dt>
-                                <dd><p>errUnsupported if color is unsupported</p></dt>
+                                <dd><p>errUnsupported if color is unsupported</p></dd>
                                 
                                 <dt>Z</dt>
-                                <dd><p>Set if supported, reset if unsupported</p></dt>
+                                <dd><p>Set if supported, reset if unsupported</p></dd>
                                 
                             </dl>
                         
@@ -183,7 +183,7 @@ The kernel supports both monochrome and color display modes on the same calculat
                             <dl>
                                 
                                 <dt>A</dt>
-                                <dd><p>Register</p></dt>
+                                <dd><p>Register</p></dd>
                                 
                             </dl>
                         
@@ -198,7 +198,7 @@ The kernel supports both monochrome and color display modes on the same calculat
                             <dl>
                                 
                                 <dt>HL</dt>
-                                <dd><p>Value</p></dt>
+                                <dd><p>Value</p></dd>
                                 
                             </dl>
                         
@@ -236,16 +236,16 @@ The kernel supports both monochrome and color display modes on the same calculat
                             <dl>
                                 
                                 <dt>B</dt>
-                                <dd><p>top border</p></dt>
+                                <dd><p>top border</p></dd>
                                 
                                 <dt>DE</dt>
-                                <dd><p>right border</p></dt>
+                                <dd><p>right border</p></dd>
                                 
                                 <dt>C</dt>
-                                <dd><p>bottom border </p></dt>
+                                <dd><p>bottom border </p></dd>
                                 
                                 <dt>HL</dt>
-                                <dd><p>left border</p></dt>
+                                <dd><p>left border</p></dd>
                                 
                             </dl>
                         
@@ -293,10 +293,10 @@ The kernel supports both monochrome and color display modes on the same calculat
                             <dl>
                                 
                                 <dt>A</dt>
-                                <dd><p>Register</p></dt>
+                                <dd><p>Register</p></dd>
                                 
                                 <dt>HL</dt>
-                                <dd><p>Value</p></dt>
+                                <dd><p>Value</p></dd>
                                 
                             </dl>
                         
@@ -313,60 +313,133 @@ The kernel supports both monochrome and color display modes on the same calculat
         </div>
     </div>
     <div class="col-md-4">
-        <div data-spy="affix">
-            <h2>Color Functions</h2>
-            <ul class="nav doc-nav" data-offset-top="60" data-offset-bottom="200">
-                
-                <li>
-                    <a href="#checkLegacyLcdMode">checkLegacyLcdMode</a>
-                </li>
-                
-                <li>
-                    <a href="#clearColorLcd">clearColorLcd</a>
-                </li>
-                
-                <li>
-                    <a href="#clipColorRectangle">clipColorRectangle</a>
-                </li>
-                
-                <li>
-                    <a href="#colorLcdOff">colorLcdOff</a>
-                </li>
-                
-                <li>
-                    <a href="#colorLcdOn">colorLcdOn</a>
-                </li>
-                
-                <li>
-                    <a href="#colorSupported">colorSupported</a>
-                </li>
-                
-                <li>
-                    <a href="#fullScreenWindow">fullScreenWindow</a>
-                </li>
-                
-                <li>
-                    <a href="#readLcdRegister">readLcdRegister</a>
-                </li>
-                
-                <li>
-                    <a href="#resetLegacyLcdMode">resetLegacyLcdMode</a>
-                </li>
-                
-                <li>
-                    <a href="#setLcdWindow">setLcdWindow</a>
-                </li>
-                
-                <li>
-                    <a href="#setLegacyLcdMode">setLegacyLcdMode</a>
-                </li>
-                
-                <li>
-                    <a href="#writeLcdRegister">writeLcdRegister</a>
-                </li>
-                
-            </ul>
-        </div>
+        <h4>Function Reference</h4>
+        <ul class="nav doc-nav">
+            
+            
+            <li class="active">
+                <a href="/documentation/reference/color.html" class="text-bold">Color</a>
+                <ul class="nav doc-nav">
+                    
+                    <li>
+                        <a href="#checkLegacyLcdMode" class="text-muted">checkLegacyLcdMode</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#clearColorLcd" class="text-muted">clearColorLcd</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#clipColorRectangle" class="text-muted">clipColorRectangle</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#colorLcdOff" class="text-muted">colorLcdOff</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#colorLcdOn" class="text-muted">colorLcdOn</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#colorSupported" class="text-muted">colorSupported</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#fullScreenWindow" class="text-muted">fullScreenWindow</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#readLcdRegister" class="text-muted">readLcdRegister</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#resetLegacyLcdMode" class="text-muted">resetLegacyLcdMode</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#setLcdWindow" class="text-muted">setLcdWindow</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#setLegacyLcdMode" class="text-muted">setLegacyLcdMode</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#writeLcdRegister" class="text-muted">writeLcdRegister</a>
+                    </li>
+                    
+                </ul>
+            </li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/cryptography.html">Cryptography</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/display.html">Display</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/filestreams.html">Filestreams</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/filesystem.html">Filesystem</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/flash.html">Flash</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/hardware.html">Hardware</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/input.html">Input</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/maths.html">Maths</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/miscellaneous.html">Miscellaneous</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/system.html">System</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/text.html">Text</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/threading.html">Threading</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/time.html">Time</a></li>
+            
+            </li>
+            
+        </ul>
     </div>
 </div>
 <script type="text/javascript">

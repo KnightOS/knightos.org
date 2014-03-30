@@ -27,10 +27,10 @@ layout: documentation
                             <dl>
                                 
                                 <dt>A</dt>
-                                <dd><p>Destination page</p></dt>
+                                <dd><p>Destination page</p></dd>
                                 
                                 <dt>B</dt>
-                                <dd><p>Source page</p></dt>
+                                <dd><p>Source page</p></dd>
                                 
                             </dl>
                         
@@ -59,7 +59,7 @@ layout: documentation
                             <dl>
                                 
                                 <dt>A</dt>
-                                <dd><p>Any page within the sector to be copied</p></dt>
+                                <dd><p>Any page within the sector to be copied</p></dd>
                                 
                             </dl>
                         
@@ -88,7 +88,7 @@ layout: documentation
                             <dl>
                                 
                                 <dt>A</dt>
-                                <dd><p>Target page</p></dt>
+                                <dd><p>Target page</p></dd>
                                 
                             </dl>
                         
@@ -117,7 +117,7 @@ layout: documentation
                             <dl>
                                 
                                 <dt>A</dt>
-                                <dd><p>Any page within the target sector</p></dt>
+                                <dd><p>Any page within the target sector</p></dd>
                                 
                             </dl>
                         
@@ -198,13 +198,13 @@ layout: documentation
                             <dl>
                                 
                                 <dt>DE</dt>
-                                <dd><p>Address to write to</p></dt>
+                                <dd><p>Address to write to</p></dd>
                                 
                                 <dt>HL</dt>
-                                <dd><p>Address to read from (in RAM)</p></dt>
+                                <dd><p>Address to read from (in RAM)</p></dd>
                                 
                                 <dt>BC</dt>
-                                <dd><p>Length of data to write</p></dt>
+                                <dd><p>Length of data to write</p></dd>
                                 
                             </dl>
                         
@@ -233,10 +233,10 @@ layout: documentation
                             <dl>
                                 
                                 <dt>A</dt>
-                                <dd><p>Value</p></dt>
+                                <dd><p>Value</p></dd>
                                 
                                 <dt>HL</dt>
-                                <dd><p>Destination</p></dt>
+                                <dd><p>Destination</p></dd>
                                 
                             </dl>
                         
@@ -253,48 +253,121 @@ layout: documentation
         </div>
     </div>
     <div class="col-md-4">
-        <div data-spy="affix">
-            <h2>Flash Functions</h2>
-            <ul class="nav doc-nav" data-offset-top="60" data-offset-bottom="200">
-                
-                <li>
-                    <a href="#copyFlashPage">copyFlashPage</a>
-                </li>
-                
-                <li>
-                    <a href="#copySectorToSwap">copySectorToSwap</a>
-                </li>
-                
-                <li>
-                    <a href="#eraseFlashPage">eraseFlashPage</a>
-                </li>
-                
-                <li>
-                    <a href="#eraseFlashSector">eraseFlashSector</a>
-                </li>
-                
-                <li>
-                    <a href="#eraseSwapSector">eraseSwapSector</a>
-                </li>
-                
-                <li>
-                    <a href="#lockFlash">lockFlash</a>
-                </li>
-                
-                <li>
-                    <a href="#unlockFlash">unlockFlash</a>
-                </li>
-                
-                <li>
-                    <a href="#writeFlashBuffer">writeFlashBuffer</a>
-                </li>
-                
-                <li>
-                    <a href="#writeFlashByte">writeFlashByte</a>
-                </li>
-                
-            </ul>
-        </div>
+        <h4>Function Reference</h4>
+        <ul class="nav doc-nav">
+            
+            
+            <li><a href="/documentation/reference/color.html">Color</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/cryptography.html">Cryptography</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/display.html">Display</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/filestreams.html">Filestreams</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/filesystem.html">Filesystem</a></li>
+            
+            </li>
+            
+            
+            <li class="active">
+                <a href="/documentation/reference/flash.html" class="text-bold">Flash</a>
+                <ul class="nav doc-nav">
+                    
+                    <li>
+                        <a href="#copyFlashPage" class="text-muted">copyFlashPage</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#copySectorToSwap" class="text-muted">copySectorToSwap</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#eraseFlashPage" class="text-muted">eraseFlashPage</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#eraseFlashSector" class="text-muted">eraseFlashSector</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#eraseSwapSector" class="text-muted">eraseSwapSector</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#lockFlash" class="text-muted">lockFlash</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#unlockFlash" class="text-muted">unlockFlash</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#writeFlashBuffer" class="text-muted">writeFlashBuffer</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#writeFlashByte" class="text-muted">writeFlashByte</a>
+                    </li>
+                    
+                </ul>
+            </li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/hardware.html">Hardware</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/input.html">Input</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/maths.html">Maths</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/miscellaneous.html">Miscellaneous</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/system.html">System</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/text.html">Text</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/threading.html">Threading</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/time.html">Time</a></li>
+            
+            </li>
+            
+        </ul>
     </div>
 </div>
 <script type="text/javascript">

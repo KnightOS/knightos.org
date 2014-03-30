@@ -27,10 +27,10 @@ layout: documentation
                             <dl>
                                 
                                 <dt>HL</dt>
-                                <dd><p>Pointer to data</p></dt>
+                                <dd><p>Pointer to data</p></dd>
                                 
                                 <dt>BC</dt>
-                                <dd><p>Size of data</p></dt>
+                                <dd><p>Size of data</p></dd>
                                 
                             </dl>
                         
@@ -40,7 +40,7 @@ layout: documentation
                             <dl>
                                 
                                 <dt>DE</dt>
-                                <dd><p>CRC of data</p></dt>
+                                <dd><p>CRC of data</p></dd>
                                 
                             </dl>
                         
@@ -64,10 +64,10 @@ layout: documentation
                             <dl>
                                 
                                 <dt>A</dt>
-                                <dd><p>Byte to add</p></dt>
+                                <dd><p>Byte to add</p></dd>
                                 
                                 <dt>IX</dt>
-                                <dd><p>location of SHA1 state block</p></dt>
+                                <dd><p>location of SHA1 state block</p></dd>
                                 
                             </dl>
                         
@@ -91,13 +91,13 @@ layout: documentation
                             <dl>
                                 
                                 <dt>IX</dt>
-                                <dd><p>location of SHA1 state block</p></dt>
+                                <dd><p>location of SHA1 state block</p></dd>
                                 
                                 <dt>HL</dt>
-                                <dd><p>location of range to add</p></dt>
+                                <dd><p>location of range to add</p></dd>
                                 
                                 <dt>BC</dt>
-                                <dd><p>number of bytes to add</p></dt>
+                                <dd><p>number of bytes to add</p></dd>
                                 
                             </dl>
                         
@@ -121,7 +121,7 @@ layout: documentation
                             <dl>
                                 
                                 <dt>IX</dt>
-                                <dd><p>location of allocated block</p></dt>
+                                <dd><p>location of allocated block</p></dd>
                                 
                             </dl>
                         
@@ -145,13 +145,13 @@ layout: documentation
                             <dl>
                                 
                                 <dt>A</dt>
-                                <dd><p>Error code (on failure)</p></dt>
+                                <dd><p>Error code (on failure)</p></dd>
                                 
                                 <dt>IX</dt>
-                                <dd><p>location of allocated block (on success)</p></dt>
+                                <dd><p>location of allocated block (on success)</p></dd>
                                 
                                 <dt>Z</dt>
-                                <dd><p>Set on success, reset on failure</p></dt>
+                                <dd><p>Set on success, reset on failure</p></dd>
                                 
                             </dl>
                         
@@ -175,7 +175,7 @@ layout: documentation
                             <dl>
                                 
                                 <dt>IX</dt>
-                                <dd><p>location of SHA1 state block</p></dt>
+                                <dd><p>location of SHA1 state block</p></dd>
                                 
                             </dl>
                         
@@ -187,36 +187,109 @@ layout: documentation
         </div>
     </div>
     <div class="col-md-4">
-        <div data-spy="affix">
-            <h2>Cryptography Functions</h2>
-            <ul class="nav doc-nav" data-offset-top="60" data-offset-bottom="200">
-                
-                <li>
-                    <a href="#crc16">crc16</a>
-                </li>
-                
-                <li>
-                    <a href="#sha1AddByte">sha1AddByte</a>
-                </li>
-                
-                <li>
-                    <a href="#sha1AddRange">sha1AddRange</a>
-                </li>
-                
-                <li>
-                    <a href="#sha1Clean">sha1Clean</a>
-                </li>
-                
-                <li>
-                    <a href="#sha1Init">sha1Init</a>
-                </li>
-                
-                <li>
-                    <a href="#sha1Pad">sha1Pad</a>
-                </li>
-                
-            </ul>
-        </div>
+        <h4>Function Reference</h4>
+        <ul class="nav doc-nav">
+            
+            
+            <li><a href="/documentation/reference/color.html">Color</a></li>
+            
+            </li>
+            
+            
+            <li class="active">
+                <a href="/documentation/reference/cryptography.html" class="text-bold">Cryptography</a>
+                <ul class="nav doc-nav">
+                    
+                    <li>
+                        <a href="#crc16" class="text-muted">crc16</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#sha1AddByte" class="text-muted">sha1AddByte</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#sha1AddRange" class="text-muted">sha1AddRange</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#sha1Clean" class="text-muted">sha1Clean</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#sha1Init" class="text-muted">sha1Init</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#sha1Pad" class="text-muted">sha1Pad</a>
+                    </li>
+                    
+                </ul>
+            </li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/display.html">Display</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/filestreams.html">Filestreams</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/filesystem.html">Filesystem</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/flash.html">Flash</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/hardware.html">Hardware</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/input.html">Input</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/maths.html">Maths</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/miscellaneous.html">Miscellaneous</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/system.html">System</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/text.html">Text</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/threading.html">Threading</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/time.html">Time</a></li>
+            
+            </li>
+            
+        </ul>
     </div>
 </div>
 <script type="text/javascript">
