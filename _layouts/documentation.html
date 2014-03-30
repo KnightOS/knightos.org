@@ -18,12 +18,17 @@
                 {{ content }}
             </div>
             <script type="text/javascript">
-                if (window.location.hash && window.location.hash != '') {
-                    var item = document.getElementById(window.location.hash.substr(1));
-                    if (item) {
-                        item.classList.add('linked');
+                function updateHash() {
+                    if (window.location.hash && window.location.hash != '') {
+                        var item = document.getElementById(window.location.hash.substr(1));
+                        if (item) {
+                            item.classList.add('linked');
+                            setTimeout(function() { item.classList.remove('linked'); }, 3000);
+                        }
                     }
                 }
+                window.addEventListener('hashchange', updateHash);
+                updateHash();
             </script>
             {% raw %}
             <script type="text/x-template" id="template-empty"><span class="text-muted no-results">No results</span></script>
