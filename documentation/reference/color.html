@@ -4,10 +4,10 @@ layout: documentation
 ---
 
 
-Summary: KnightOS supports the TI-84+ Color Silver Edition. This calculator uses a [ILI9335 display](http://www.displayfuture.com/Display/datasheet/controller/ILI9335.pdf), which has a resolution of 320x240. KnightOS uses 16-bit colors, in the format 0bRRRRRGGGGGGBBBBB.
+<p>KnightOS supports the TI-84+ Color Silver Edition. This calculator uses a <a href="http://www.displayfuture.com/Display/datasheet/controller/ILI9335.pdf">ILI9335 display</a>, which has a resolution of 320x240. KnightOS uses 16-bit colors, in the format 0bRRRRRGGGGGGBBBBB.
 Due to the size of the screen, and the speed requirements for driving it, KnightOS programs do not use an in-memory buffer. An uncompressed image the full size of the screen takes up more than all addressable memory on the device. Instead, we've provided functions for drawing directly to the LCD.
 Generally speaking, the color you wish to draw with is provided in the IY register (which is used for the monochrome buffer in non-color applications).
-The kernel supports both monochrome and color display modes on the same calculator, and even running at the same time. We refer to monochrome mode as "legacy mode", and color mode as "color mode". Your program should tell the kernel which mode you'd like to use, and the kernel will handle the switching semantics to help you coorperate with the rest of the enviornment.
+The kernel supports both monochrome and color display modes on the same calculator, and even running at the same time. We refer to monochrome mode as "legacy mode", and color mode as "color mode". Your program should tell the kernel which mode you'd like to use, and the kernel will handle the switching semantics to help you coorperate with the rest of the enviornment.</p>
 
 
 <div class="row">
