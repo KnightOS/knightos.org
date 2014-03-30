@@ -17,8 +17,7 @@ layout: documentation
                         <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/02/sort.asm#L54">View Source</a></small>
                     </h2>
                     
-                    <p>Sorts an array of arbitrarily-sized blocks using a callback function
-to perform comparisons.</p>
+                    <p>Sorts an array of arbitrarily-sized blocks using a callback function to perform comparisons.</p>
 
                     <div class="details">
                     
@@ -45,11 +44,11 @@ to perform comparisons.</p>
                     
                         <h3>Notes</h3>
                         
-                            <p>The comparison function must affect the carry flag like cp (hl), (de)
-would.  (That is, set the carry flag if (HL) &lt; (DE).)  All other registers
-must be preserved.  The algorithm (quicksort) uses an average of O(log n)
-stack space, with 8 bytes stack per recursion required.  Quicksort is
-in-place and is not a stable sort.</p>
+                            <p>The comparison function must affect the carry flag like cp (hl), (de) 
+ would.  (That is, set the carry flag if (HL) &lt; (DE).)  All other registers 
+ must be preserved.  The algorithm (quicksort) uses an average of O(log n) 
+ stack space, with 8 bytes stack per recursion required.  Quicksort is 
+ in-place and is not a stable sort.</p>
                         
                     
                     </div>
@@ -106,8 +105,7 @@ in-place and is not a stable sort.</p>
                         <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/util.asm#L355">View Source</a></small>
                     </h2>
                     
-                    <p>Compares strings at ((HL)) and ((DE)).  That is, calls indirect16HLDE,
-then calls compareStrings.</p>
+                    <p>Compares strings at ((HL)) and ((DE)).  That is, calls indirect16HLDE, then calls compareStrings.</p>
 
                     <div class="details">
                     
@@ -142,8 +140,8 @@ then calls compareStrings.</p>
                     
                         <h3>Notes</h3>
                         
-                            <p>This routine is extremely useful as the callback for the <a href="miscellaneous.html#callbackSort">callbackSort</a> routine.
-It allows sorting a list of pointers to strings by the strings' sort order.</p>
+                            <p>This routine is extremely useful as the callback for the <a href="miscellaneous.html#callbackSort">callbackSort</a> routine. 
+ It allows sorting a list of pointers to strings by the strings' sort order.</p>
                         
                     
                     </div>
@@ -157,8 +155,7 @@ It allows sorting a list of pointers to strings by the strings' sort order.</p>
                         <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/util.asm#L376">View Source</a></small>
                     </h2>
                     
-                    <p>Compares 16-bit integers at (HL) and (DE).  That is, calls indirect16HLDE,
-then calls cpHLDE.</p>
+                    <p>Compares 16-bit integers at (HL) and (DE).  That is, calls indirect16HLDE, then calls cpHLDE.</p>
 
                     <div class="details">
                     
@@ -251,8 +248,8 @@ cpHLDE_sort</dt>
                     
                         <h3>Notes</h3>
                         
-                            <p>For 15MHz CPUs, B is a value from 0 to 4, where 0 is critical and 4 is full.
-For 6MHz CPUs, B is either 0 or 1, where 0 is critical and 1 is good.</p>
+                            <p>For 15MHz CPUs, B is a value from 0 to 4, where 0 is critical and 4 is full. 
+ For 6MHz CPUs, B is either 0 or 1, where 0 is critical and 1 is good.</p>
                         
                     
                     </div>
@@ -408,8 +405,7 @@ For 6MHz CPUs, B is either 0 or 1, where 0 is critical and 1 is good.</p>
                         <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/02/sort.asm#L1">View Source</a></small>
                     </h2>
                     
-                    <p>Sorts a specified array of 8-bit numbers using a fast (time complexity
-O(n)) algorithm.</p>
+                    <p>Sorts a specified array of 8-bit numbers using a fast (time complexity O(n)) algorithm.</p>
 
                     <div class="details">
                     
@@ -430,9 +426,9 @@ O(n)) algorithm.</p>
                     
                         <h3>Notes</h3>
                         
-                            <p>This routine is an in-place version of a radix sort, which has an O(k*n)
-runtime for k-bit numbers.  It also requires a smaller, fixed amount of
-stack space.</p>
+                            <p>This routine is an in-place version of a radix sort, which has an O(k*n) 
+ runtime for k-bit numbers.  It also requires a smaller, fixed amount of 
+ stack space.</p>
                         
                     
                     </div>
@@ -486,8 +482,7 @@ stack space.</p>
                         <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/02/compression.asm#L90">View Source</a></small>
                     </h2>
                     
-                    <p>Calculates the size of data resulting from a compression, but
-does not actually compress anything.</p>
+                    <p>Calculates the size of data resulting from a compression, but does not actually compress anything.</p>
 
                     <div class="details">
                     
@@ -530,8 +525,7 @@ does not actually compress anything.</p>
                         <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/02/compression.asm#L213">View Source</a></small>
                     </h2>
                     
-                    <p>Calculates the size of data resulting from a decompression, but
-does not actually decompress anything.</p>
+                    <p>Calculates the size of data resulting from a decompression, but does not actually decompress anything.</p>
 
                     <div class="details">
                     
@@ -574,11 +568,7 @@ does not actually decompress anything.</p>
                         <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/02/compression.asm#L4">View Source</a></small>
                     </h2>
                     
-                    <p>Compresses data using a simple Run-Length-Encoding scheme.
-All bytes in a compressed block are treated as literal,
-except the two following a sentinel byte (selected because of
-its low occurance in z80 code), which specify the length of
-the run and the byte to run with, respectively.</p>
+                    <p>Compresses data using a simple Run-Length-Encoding scheme. All bytes in a compressed block are treated as literal, except the two following a sentinel byte (selected because of its low occurance in z80 code), which specify the length of the run and the byte to run with, respectively.</p>
 
                     <div class="details">
                     
@@ -624,8 +614,7 @@ the run and the byte to run with, respectively.</p>
                         <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/02/compression.asm#L157">View Source</a></small>
                     </h2>
                     
-                    <p>Decompresses data compressed with the algorithm used by the kernel
-routine rleCompress.  See its documentation for algorithm details.</p>
+                    <p>Decompresses data compressed with the algorithm used by the kernel routine rleCompress.  See its documentation for algorithm details.</p>
 
                     <div class="details">
                     

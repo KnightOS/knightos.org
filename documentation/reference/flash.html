@@ -104,9 +104,9 @@ layout: documentation
                     
                         <h3>Notes</h3>
                         
-                            <p>Flash must be unlocked. This is a very costly operation, and you
-may want to consider handling this logic yourself if you have to
-erase more than one page in a single sector</p>
+                            <p>Flash must be unlocked. This is a very costly operation, and you 
+ may want to consider handling this logic yourself if you have to 
+ erase more than one page in a single sector</p>
                         
                     
                     </div>
@@ -120,8 +120,7 @@ erase more than one page in a single sector</p>
                         <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/flash.asm#L192">View Source</a></small>
                     </h2>
                     
-                    <p>Erases one sector of Flash (generally 4 pages of Flash, or 64K)
-by setting each byte to 0xFF.</p>
+                    <p>Erases one sector of Flash (generally 4 pages of Flash, or 64K) by setting each byte to 0xFF.</p>
 
                     <div class="details">
                     
@@ -196,9 +195,9 @@ by setting each byte to 0xFF.</p>
                     
                         <h3>Notes</h3>
                         
-                            <p><strong>Do not use this unless you know what you're doing.</strong>
-Please call <a href="flash.html#lockFlash">lockFlash</a> when you finish what you're doing and don't spend too
-much time with Flash unlocked. Disable interrupts while Flash is unlocked.</p>
+                            <p><strong>Do not use this unless you know what you're doing.</strong> </p>
+<p>Please call <a href="flash.html#lockFlash">lockFlash</a> when you finish what you're doing and don't spend too 
+ much time with Flash unlocked. Disable interrupts while Flash is unlocked.</p>
                         
                     
                     </div>
@@ -236,9 +235,9 @@ much time with Flash unlocked. Disable interrupts while Flash is unlocked.</p>
                     
                         <h3>Notes</h3>
                         
-                            <p>Flash must be unlocked. Do not attempt to read your source data
-from Flash, you must load any data to be written into RAM. This
-will only <em>reset</em> bits of Flash.</p>
+                            <p>Flash must be unlocked. Do not attempt to read your source data 
+ from Flash, you must load any data to be written into RAM. This 
+ will only <em>reset</em> bits of Flash.</p>
                         
                     
                     </div>
