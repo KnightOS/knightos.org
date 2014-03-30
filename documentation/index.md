@@ -22,59 +22,59 @@ the kernel).
 
 
 
-* [Cryptography](/documentation/reference/Cryptography.html): Cryptographic hashing functions
+* [Cryptography](/documentation/reference/cryptography.html): Cryptographic hashing functions
 
 
 
-* [Color](/documentation/reference/Color.html): Color graphics and display driver
+* [Color](/documentation/reference/color.html): Color graphics and display driver
 
 
 
-* [Text](/documentation/reference/Text.html): Text graphics
+* [Text](/documentation/reference/text.html): Text graphics
 
 
 
-* [Filesystem](/documentation/reference/Filesystem.html): Low-level filesystem driver
+* [Filesystem](/documentation/reference/filesystem.html): Low-level filesystem driver
 
 
 
-* [Flash](/documentation/reference/Flash.html): Low-level Flash storage driver
+* [Flash](/documentation/reference/flash.html): Low-level Flash storage driver
 
 
 
-* [Miscellaneous](/documentation/reference/Miscellaneous.html)
+* [Miscellaneous](/documentation/reference/miscellaneous.html)
 
 
 
-* [System](/documentation/reference/System.html): Interaction with basic system functionality
+* [System](/documentation/reference/system.html): Interaction with basic system functionality
 
 
 
-* [Hardware](/documentation/reference/Hardware.html): Concurrent hardware management
+* [Hardware](/documentation/reference/hardware.html): Concurrent hardware management
 
 
 
-* [Threading](/documentation/reference/Threading.html): Thread creation and management
+* [Threading](/documentation/reference/threading.html): Thread creation and management
 
 
 
-* [Time](/documentation/reference/Time.html): Time and date mathematics and hardware driver
+* [Time](/documentation/reference/time.html): Time and date mathematics and hardware driver
 
 
 
-* [Maths](/documentation/reference/Maths.html): Common mathematical utility functions
+* [Maths](/documentation/reference/maths.html): Common mathematical utility functions
 
 
 
-* [Input](/documentation/reference/Input.html): Keyboard driver
+* [Input](/documentation/reference/input.html): Keyboard driver
 
 
 
-* [Display](/documentation/reference/Display.html): Monochrome graphics and display driver
+* [Display](/documentation/reference/display.html): Monochrome graphics and display driver
 
 
 
-* [Filestreams](/documentation/reference/Filestreams.html): File stream manipulation
+* [Filestreams](/documentation/reference/filestreams.html): File stream manipulation
 
 
 
