@@ -263,7 +263,7 @@ layout: documentation
                     
                         <h3>Notes</h3>
                         
-                            <p>The left margin is only required if your string contains newlines.</p>
+                            <p>The left margin is only required if your string contains newlines or carriage returns.</p>
                         
                     
                         <h3>Outputs</h3>
@@ -311,7 +311,7 @@ layout: documentation
                     
                         <h3>Notes</h3>
                         
-                            <p>The left margin is only required if your string contains newlines.</p>
+                            <p>The left margin is only required if your string contains newlines or carriage returns.</p>
                         
                     
                         <h3>Outputs</h3>
@@ -320,47 +320,6 @@ layout: documentation
                                 
                                 <dt>D, E</dt>
                                 <dd><p>Advanced to position of the end of the string</p></dt>
-                                
-                            </dl>
-                        
-                    
-                    </div>
-                </div>
-            </div>
-            
-            <div id="drawStrFromStream" class="docsection">
-                <div>
-                    <h2>
-                        <a href="#drawStrFromStream">drawStrFromStream</a>
-                    </h2>
-                    
-                    <p>Draws a zero-delimited string to the screen buffer using OR logic (turns pixels ON).</p>
-
-                    <div class="details">
-                    
-                        <h3>Inputs</h3>
-                        
-                            <dl>
-                                
-                                <dt>IY</dt>
-                                <dd><p>Screen buffer</p></dt>
-                                
-                                <dt>D, E</dt>
-                                <dd><p>X, Y</p></dt>
-                                
-                                <dt>B</dt>
-                                <dd><p>Stream ID</p></dt>
-                                
-                            </dl>
-                        
-                    
-                        <h3>Outputs</h3>
-                        
-                            <dl>
-                                
-                                <dt>Stream is advanced to byte after 0.
-drawStrFromStream</dt>
-                                <dd></dt>
                                 
                             </dl>
                         
@@ -400,7 +359,7 @@ drawStrFromStream</dt>
                     
                         <h3>Notes</h3>
                         
-                            <p>The left margin is only required if your string contains newlines.</p>
+                            <p>The left margin is only required if your string contains newlines or carriage returns.</p>
                         
                     
                         <h3>Outputs</h3>
@@ -570,10 +529,6 @@ drawStrFromStream</dt>
                 
                 <li>
                     <a href="#drawStrAND">drawStrAND</a>
-                </li>
-                
-                <li>
-                    <a href="#drawStrFromStream">drawStrFromStream</a>
                 </li>
                 
                 <li>

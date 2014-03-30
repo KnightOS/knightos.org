@@ -57,7 +57,7 @@ layout: documentation
                         <a href="#contextSwitch">contextSwitch</a>
                     </h2>
                     
-                    <p>Triggers a context switch early.</p>
+                    <p>Triggers a context switch early. This will transfer control from your thread to another and eventaully return to yours with interrupts enabled.</p>
 
                     <div class="details">
                     
@@ -100,6 +100,33 @@ layout: documentation
                                 
                                 <dt>IX</dt>
                                 <dd><p>Pointer to first byte of section</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="loadLibrary" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#loadLibrary">loadLibrary</a>
+                    </h2>
+                    
+                    <p>Loads a library into memory, or references one that may already be loaded.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on failure</p></dt>
+                                
+                                <dt>DE</dt>
+                                <dd><p>Pointer to full path of library</p></dt>
                                 
                             </dl>
                         
@@ -333,6 +360,10 @@ layout: documentation
                 
                 <li>
                     <a href="#free">free</a>
+                </li>
+                
+                <li>
+                    <a href="#loadLibrary">loadLibrary</a>
                 </li>
                 
                 <li>

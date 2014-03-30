@@ -8,19 +8,54 @@ layout: documentation
         <h1>Threading</h1>
         <div class="docs">
             
+            <div id="createSignal" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#createSignal">createSignal</a>
+                    </h2>
+                    
+                    <p>Signals another thread with a simple message.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Target thread ID</p></dt>
+                                
+                                <dt>B</dt>
+                                <dd><p>Message type</p></dt>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Message payload</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>The receiving thread may use <a href="threading.html#readSignal">readSignal</a> to consume this message.</p>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
             <div id="exitThread" class="docsection">
                 <div>
                     <h2>
                         <a href="#exitThread">exitThread</a>
                     </h2>
                     
-                    <p>Immediately terminates the running thread. This function will never return; call it with <code>jp exitThread</code>.</p>
+                    <p>Immediately terminates the running thread.</p>
 
                     <div class="details">
                     
                         <h3>Notes</h3>
                         
-                            <p>This is preferred to <a href="threading.html#killThread">killThread</a>, since it will go through the caller-set exit function. This is often <a href="threading.html#killThread">killThread</a> anyway, but it may be set to a custom value by the code that intitialized the thread.</p>
+                            <p>This is preferred to <a href="threading.html#killCurrentThread">killCurrentThread</a>, since it will go through the caller-set exit function. This is often <a href="threading.html#killCurrentThread">killCurrentThread</a> anyway, but it may be set to a custom value by the code that intitialized the thread.</p>
                         
                     
                     </div>
@@ -73,7 +108,7 @@ layout: documentation
                     
                         <h3>Notes</h3>
                         
-                            <p>You must disable interrupts while manipulating the thread table to guarantee that it will not change while you do so.</p>
+                            <p>You must disable interrupts while manipulating the thread table to guarantee that it will not change while you do so. Programs that manipulate the thread table directly should force a specific major kernel version, as this is liable to change between versions.</p>
                         
                     
                         <h3>Outputs</h3>
@@ -180,6 +215,36 @@ layout: documentation
                                 
                                 <dt>Z</dt>
                                 <dd><p>Set if successful, reset otherwise</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="readSignal" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#readSignal">readSignal</a>
+                    </h2>
+                    
+                    <p>Reads the next pending signal from this thread's signal queue.</p>
+
+                    <div class="details">
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>B</dt>
+                                <dd><p>Message type</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set if a signal was read, reset if there are no pending signals</p></dt>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Message payload</p></dt>
                                 
                             </dl>
                         
@@ -597,6 +662,10 @@ layout: documentation
             <ul class="nav doc-nav" data-offset-top="60" data-offset-bottom="200">
                 
                 <li>
+                    <a href="#createSignal">createSignal</a>
+                </li>
+                
+                <li>
                     <a href="#exitThread">exitThread</a>
                 </li>
                 
@@ -618,6 +687,10 @@ layout: documentation
                 
                 <li>
                     <a href="#launchProgram">launchProgram</a>
+                </li>
+                
+                <li>
+                    <a href="#readSignal">readSignal</a>
                 </li>
                 
                 <li>
