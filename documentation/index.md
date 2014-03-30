@@ -22,15 +22,19 @@ the kernel).
 
 
 
-* [Cryptography](/documentation/reference/cryptography.html): Cryptographic hashing functions
-
-
-
 * [Color](/documentation/reference/color.html): Color graphics and display driver
 
 
 
-* [Text](/documentation/reference/text.html): Text graphics
+* [Cryptography](/documentation/reference/cryptography.html): Cryptographic hashing functions
+
+
+
+* [Display](/documentation/reference/display.html): Monochrome graphics and display driver
+
+
+
+* [Filestreams](/documentation/reference/filestreams.html): File stream manipulation
 
 
 
@@ -42,6 +46,18 @@ the kernel).
 
 
 
+* [Hardware](/documentation/reference/hardware.html): Concurrent hardware management
+
+
+
+* [Input](/documentation/reference/input.html): Keyboard driver
+
+
+
+* [Maths](/documentation/reference/maths.html): Common mathematical utility functions
+
+
+
 * [Miscellaneous](/documentation/reference/miscellaneous.html)
 
 
@@ -50,7 +66,7 @@ the kernel).
 
 
 
-* [Hardware](/documentation/reference/hardware.html): Concurrent hardware management
+* [Text](/documentation/reference/text.html): Text graphics
 
 
 
@@ -59,22 +75,6 @@ the kernel).
 
 
 * [Time](/documentation/reference/time.html): Time and date mathematics and hardware driver
-
-
-
-* [Maths](/documentation/reference/maths.html): Common mathematical utility functions
-
-
-
-* [Input](/documentation/reference/input.html): Keyboard driver
-
-
-
-* [Display](/documentation/reference/display.html): Monochrome graphics and display driver
-
-
-
-* [Filestreams](/documentation/reference/filestreams.html): File stream manipulation
 
 
 
