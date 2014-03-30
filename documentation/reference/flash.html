@@ -14,13 +14,15 @@ layout: documentation
             
             <div id="copyFlashPage" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#copyFlashPage">copyFlashPage</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/flash.asm#L476">View Source</a></small>
                     </h2>
                     
                     <p>Copies one page of Flash to another.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -35,6 +37,7 @@ layout: documentation
                             </dl>
                         
                     
+                    
                         <h3>Notes</h3>
                         
                             <p>Flash must be unlocked and the desination page must be cleared.</p>
@@ -46,13 +49,15 @@ layout: documentation
             
             <div id="copySectorToSwap" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#copySectorToSwap">copySectorToSwap</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/flash.asm#L302">View Source</a></small>
                     </h2>
                     
                     <p>Copies a single sector of Flash to the swap sector.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -63,6 +68,7 @@ layout: documentation
                                 
                             </dl>
                         
+                    
                     
                         <h3>Notes</h3>
                         
@@ -75,13 +81,15 @@ layout: documentation
             
             <div id="eraseFlashPage" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#eraseFlashPage">eraseFlashPage</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/flash.asm#L260">View Source</a></small>
                     </h2>
                     
                     <p>Erases a single page of Flash.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -93,9 +101,12 @@ layout: documentation
                             </dl>
                         
                     
+                    
                         <h3>Notes</h3>
                         
-                            <p>Flash must be unlocked. This is a very costly operation, and you may want to consider handling this logic yourself if you have to erase more than one page in a single sector</p>
+                            <p>Flash must be unlocked. This is a very costly operation, and you
+may want to consider handling this logic yourself if you have to
+erase more than one page in a single sector</p>
                         
                     
                     </div>
@@ -104,13 +115,16 @@ layout: documentation
             
             <div id="eraseFlashSector" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#eraseFlashSector">eraseFlashSector</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/flash.asm#L192">View Source</a></small>
                     </h2>
                     
-                    <p>Erases one sector of Flash (generally 4 pages of Flash, or 64K) by setting each byte to 0xFF.</p>
+                    <p>Erases one sector of Flash (generally 4 pages of Flash, or 64K)
+by setting each byte to 0xFF.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -121,6 +135,7 @@ layout: documentation
                                 
                             </dl>
                         
+                    
                     
                         <h3>Notes</h3>
                         
@@ -133,13 +148,15 @@ layout: documentation
             
             <div id="eraseSwapSector" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#eraseSwapSector">eraseSwapSector</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/flash.asm#L183">View Source</a></small>
                     </h2>
                     
                     <p>Erases the swap sector.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Notes</h3>
                         
@@ -152,8 +169,9 @@ layout: documentation
             
             <div id="lockFlash" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#lockFlash">lockFlash</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/flash.asm#L26">View Source</a></small>
                     </h2>
                     
                     <p>Locks Flash and locks protected ports.</p>
@@ -166,17 +184,21 @@ layout: documentation
             
             <div id="unlockFlash" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#unlockFlash">unlockFlash</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/flash.asm#L4">View Source</a></small>
                     </h2>
                     
                     <p>Unlocks Flash and unlocks protected ports.</p>
 
                     <div class="details">
                     
+                    
                         <h3>Notes</h3>
                         
-                            <p><strong>Do not use this unless you know what you're doing.</strong> Please call <a href="flash.html#lockFlash">lockFlash</a> when you finish what you're doing and don't spend too much time with Flash unlocked. Disable interrupts while Flash is unlocked.</p>
+                            <p><strong>Do not use this unless you know what you're doing.</strong>
+Please call <a href="flash.html#lockFlash">lockFlash</a> when you finish what you're doing and don't spend too
+much time with Flash unlocked. Disable interrupts while Flash is unlocked.</p>
                         
                     
                     </div>
@@ -185,13 +207,15 @@ layout: documentation
             
             <div id="writeFlashBuffer" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#writeFlashBuffer">writeFlashBuffer</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/flash.asm#L109">View Source</a></small>
                     </h2>
                     
                     <p>Writes several bytes of memory to Flash</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -209,9 +233,12 @@ layout: documentation
                             </dl>
                         
                     
+                    
                         <h3>Notes</h3>
                         
-                            <p>Flash must be unlocked. Do not attempt to read your source data from Flash, you must load any data to be written into RAM. This will only <em>reset</em> bits of Flash.</p>
+                            <p>Flash must be unlocked. Do not attempt to read your source data
+from Flash, you must load any data to be written into RAM. This
+will only <em>reset</em> bits of Flash.</p>
                         
                     
                     </div>
@@ -220,13 +247,15 @@ layout: documentation
             
             <div id="writeFlashByte" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#writeFlashByte">writeFlashByte</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/flash.asm#L43">View Source</a></small>
                     </h2>
                     
                     <p>Writes a single byte to Flash.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -240,6 +269,7 @@ layout: documentation
                                 
                             </dl>
                         
+                    
                     
                         <h3>Notes</h3>
                         

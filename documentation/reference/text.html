@@ -12,13 +12,15 @@ layout: documentation
             
             <div id="drawChar" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#drawChar">drawChar</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/01/text.asm#L21">View Source</a></small>
                     </h2>
                     
                     <p>Draws a character to the screen buffer using OR logic (turns pixels ON).</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -39,10 +41,6 @@ layout: documentation
                             </dl>
                         
                     
-                        <h3>Notes</h3>
-                        
-                            <p>The left margin is only required if your string contains newlines or carriage returns.</p>
-                        
                     
                         <h3>Outputs</h3>
                         
@@ -52,6 +50,12 @@ layout: documentation
                                 <dd><p>Moved to next character position</p></dd>
                                 
                             </dl>
+                        
+                    
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>The left margin is only required if your string contains newlines or carriage returns.</p>
                         
                     
                     </div>
@@ -60,13 +64,15 @@ layout: documentation
             
             <div id="drawCharAND" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#drawCharAND">drawCharAND</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/01/text.asm#L39">View Source</a></small>
                     </h2>
                     
                     <p>Draws a character to the screen buffer using AND logic (turns pixels OFF).</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -87,10 +93,6 @@ layout: documentation
                             </dl>
                         
                     
-                        <h3>Notes</h3>
-                        
-                            <p>The left margin is only required if your string contains newlines or carriage returns.</p>
-                        
                     
                         <h3>Outputs</h3>
                         
@@ -100,6 +102,12 @@ layout: documentation
                                 <dd><p>Moved to next character position</p></dd>
                                 
                             </dl>
+                        
+                    
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>The left margin is only required if your string contains newlines or carriage returns.</p>
                         
                     
                     </div>
@@ -108,13 +116,15 @@ layout: documentation
             
             <div id="drawCharXOR" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#drawCharXOR">drawCharXOR</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/01/text.asm#L57">View Source</a></small>
                     </h2>
                     
                     <p>Draws a character to the screen buffer using XOR logic (inverts pixels).</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -135,10 +145,6 @@ layout: documentation
                             </dl>
                         
                     
-                        <h3>Notes</h3>
-                        
-                            <p>The left margin is only required if your string contains newlines or carriage returns.</p>
-                        
                     
                         <h3>Outputs</h3>
                         
@@ -150,19 +156,27 @@ layout: documentation
                             </dl>
                         
                     
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>The left margin is only required if your string contains newlines or carriage returns.</p>
+                        
+                    
                     </div>
                 </div>
             </div>
             
             <div id="drawHexA" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#drawHexA">drawHexA</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/01/text.asm#L191">View Source</a></small>
                     </h2>
                     
                     <p>Draws the contents of A in hexadecimal to the screen buffer using OR logic (turns pixels ON).</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -179,6 +193,7 @@ layout: documentation
                                 
                             </dl>
                         
+                    
                     
                         <h3>Outputs</h3>
                         
@@ -196,13 +211,15 @@ layout: documentation
             
             <div id="drawHexHL" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#drawHexHL">drawHexHL</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/01/text.asm#L219">View Source</a></small>
                     </h2>
                     
                     <p>Draws the contents of HL in hexadecimal to the screen buffer using OR logic (turns pixels ON).</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -220,6 +237,7 @@ layout: documentation
                             </dl>
                         
                     
+                    
                         <h3>Outputs</h3>
                         
                             <dl>
@@ -236,13 +254,15 @@ layout: documentation
             
             <div id="drawStr" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#drawStr">drawStr</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/01/text.asm#L119">View Source</a></small>
                     </h2>
                     
                     <p>Draws a zero-delimited string to the screen buffer using OR logic (turns pixels ON).</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -263,10 +283,6 @@ layout: documentation
                             </dl>
                         
                     
-                        <h3>Notes</h3>
-                        
-                            <p>The left margin is only required if your string contains newlines or carriage returns.</p>
-                        
                     
                         <h3>Outputs</h3>
                         
@@ -276,6 +292,12 @@ layout: documentation
                                 <dd><p>Advanced to position of the end of the string</p></dd>
                                 
                             </dl>
+                        
+                    
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>The left margin is only required if your string contains newlines or carriage returns.</p>
                         
                     
                     </div>
@@ -284,13 +306,15 @@ layout: documentation
             
             <div id="drawStrAND" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#drawStrAND">drawStrAND</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/01/text.asm#L143">View Source</a></small>
                     </h2>
                     
                     <p>Draws a zero-delimited string to the screen buffer using AND logic (turns pixels OFF).</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -311,10 +335,6 @@ layout: documentation
                             </dl>
                         
                     
-                        <h3>Notes</h3>
-                        
-                            <p>The left margin is only required if your string contains newlines or carriage returns.</p>
-                        
                     
                         <h3>Outputs</h3>
                         
@@ -324,6 +344,12 @@ layout: documentation
                                 <dd><p>Advanced to position of the end of the string</p></dd>
                                 
                             </dl>
+                        
+                    
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>The left margin is only required if your string contains newlines or carriage returns.</p>
                         
                     
                     </div>
@@ -332,13 +358,15 @@ layout: documentation
             
             <div id="drawStrXOR" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#drawStrXOR">drawStrXOR</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/01/text.asm#L167">View Source</a></small>
                     </h2>
                     
                     <p>Draws a zero-delimited string to the screen buffer using XOR logic (inverts pixels).</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -359,10 +387,6 @@ layout: documentation
                             </dl>
                         
                     
-                        <h3>Notes</h3>
-                        
-                            <p>The left margin is only required if your string contains newlines or carriage returns.</p>
-                        
                     
                         <h3>Outputs</h3>
                         
@@ -374,19 +398,27 @@ layout: documentation
                             </dl>
                         
                     
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>The left margin is only required if your string contains newlines or carriage returns.</p>
+                        
+                    
                     </div>
                 </div>
             </div>
             
             <div id="measureChar" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#measureChar">measureChar</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/01/text.asm#L236">View Source</a></small>
                     </h2>
                     
                     <p>Measures the width of a character in pixels.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -398,10 +430,6 @@ layout: documentation
                             </dl>
                         
                     
-                        <h3>Notes</h3>
-                        
-                            <p>The height of each character is always 5 pixels. The width also often includes a column of empty pixels on the right (exceptions include '_').</p>
-                        
                     
                         <h3>Outputs</h3>
                         
@@ -413,19 +441,27 @@ layout: documentation
                             </dl>
                         
                     
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>The height of each character is always 5 pixels. The width also often includes a column of empty pixels on the right (exceptions include '_').</p>
+                        
+                    
                     </div>
                 </div>
             </div>
             
             <div id="measureStr" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#measureStr">measureStr</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/01/text.asm#L260">View Source</a></small>
                     </h2>
                     
                     <p>Measures the width of a string in pixels.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -437,10 +473,6 @@ layout: documentation
                             </dl>
                         
                     
-                        <h3>Notes</h3>
-                        
-                            <p>The height of any string is always 5 pixels. This function does not support newlines.</p>
-                        
                     
                         <h3>Outputs</h3>
                         
@@ -452,19 +484,27 @@ layout: documentation
                             </dl>
                         
                     
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>The height of any string is always 5 pixels. This function does not support newlines.</p>
+                        
+                    
                     </div>
                 </div>
             </div>
             
             <div id="newline" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#newline">newline</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/01/text.asm#L3">View Source</a></small>
                     </h2>
                     
                     <p>Advances D, E to the next line of text</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -479,10 +519,6 @@ layout: documentation
                             </dl>
                         
                     
-                        <h3>Notes</h3>
-                        
-                            <p>This is identical to (but faster than) calling drawChar with '\n'</p>
-                        
                     
                         <h3>Outputs</h3>
                         
@@ -492,6 +528,12 @@ layout: documentation
                                 <dd><p>Moved down one line and to the left margin</p></dd>
                                 
                             </dl>
+                        
+                    
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>This is identical to (but faster than) calling drawChar with '\n'</p>
                         
                     
                     </div>

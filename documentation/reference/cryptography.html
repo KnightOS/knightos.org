@@ -14,13 +14,15 @@ layout: documentation
             
             <div id="crc16" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#crc16">crc16</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/02/crypto.asm#L1">View Source</a></small>
                     </h2>
                     
                     <p>Performs a Cyclic Redundancy Check on data.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -34,6 +36,7 @@ layout: documentation
                                 
                             </dl>
                         
+                    
                     
                         <h3>Outputs</h3>
                         
@@ -51,13 +54,17 @@ layout: documentation
             
             <div id="sha1AddByte" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#sha1AddByte">sha1AddByte</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/02/crypto.asm#L163">View Source</a></small>
                     </h2>
                     
-                    <p>Adds a single byte to the SHA1 hash input stream. Call this function once for each byte in the input stream, then call <a href="cryptography.html#sha1Pad">sha1Pad</a>.</p>
+                    <p>Adds a single byte to the SHA1 hash input stream.
+Call this function once for each byte in the input
+stream, then call <a href="cryptography.html#sha1Pad">sha1Pad</a>.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -78,13 +85,17 @@ layout: documentation
             
             <div id="sha1AddRange" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#sha1AddRange">sha1AddRange</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/02/crypto.asm#L454">View Source</a></small>
                     </h2>
                     
-                    <p>Adds a range of bytes to a SHA1 hash.  This routine is equivalent to, but faster than, calling <a href="cryptography.html#sha1AddByte">sha1AddByte</a> many times.</p>
+                    <p>Adds a range of bytes to a SHA1 hash.  This
+routine is equivalent to, but faster than, calling
+<a href="cryptography.html#sha1AddByte">sha1AddByte</a> many times.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -108,13 +119,16 @@ layout: documentation
             
             <div id="sha1Clean" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#sha1Clean">sha1Clean</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/02/crypto.asm#L109">View Source</a></small>
                     </h2>
                     
-                    <p>Safely deallocates a SHA1 state block allocated by sha1Init.</p>
+                    <p>Safely deallocates a SHA1 state block allocated by
+sha1Init.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -132,13 +146,18 @@ layout: documentation
             
             <div id="sha1Init" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#sha1Init">sha1Init</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/02/crypto.asm#L36">View Source</a></small>
                     </h2>
                     
-                    <p>Allocates a memory block to keep the state and result of a SHA1 hash operation.  The result is kept in the first 20 bytes of the allocated block.  You must use <a href="cryptography.html#sha1Clean">sha1Clean</a> to deallocate the block; simply using <a href="system.html#free">free</a> will result in a memory leak!</p>
+                    <p>Allocates a memory block to keep the state and result of
+a SHA1 hash operation.  The result is kept in the first 20 bytes
+of the allocated block.  You must use <a href="cryptography.html#sha1Clean">sha1Clean</a> to deallocate
+the block; simply using <a href="system.html#free">free</a> will result in a memory leak!</p>
 
                     <div class="details">
+                    
                     
                         <h3>Outputs</h3>
                         
@@ -162,13 +181,19 @@ layout: documentation
             
             <div id="sha1Pad" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#sha1Pad">sha1Pad</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/02/crypto.asm#L126">View Source</a></small>
                     </h2>
                     
-                    <p>Finishes the SHA1 computation by appending the required bits to the input.  Call this routine once after calling <a href="cryptography.html#sha1AddByte">sha1AddByte</a> for each input byte.  After this routine, the 8 bytes pointed to by IX will contain the big-endian SHA1 hash.</p>
+                    <p>Finishes the SHA1 computation by appending the
+required bits to the input.  Call this routine once after
+calling <a href="cryptography.html#sha1AddByte">sha1AddByte</a> for each input byte.  After this routine,
+the 8 bytes pointed to by IX will contain the big-endian
+SHA1 hash.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         

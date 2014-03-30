@@ -14,13 +14,15 @@ layout: documentation
             
             <div id="createSignal" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#createSignal">createSignal</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/signals.asm#L8">View Source</a></small>
                     </h2>
                     
                     <p>Signals another thread with a simple message.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -38,9 +40,11 @@ layout: documentation
                             </dl>
                         
                     
+                    
                         <h3>Notes</h3>
                         
-                            <p>The receiving thread may use <a href="threading.html#readSignal">readSignal</a> to consume this message.</p>
+                            <p>The receiving thread may use <a href="threading.html#readSignal">readSignal</a> to consume this
+message.</p>
                         
                     
                     </div>
@@ -49,17 +53,21 @@ layout: documentation
             
             <div id="exitThread" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#exitThread">exitThread</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/thread.asm#L380">View Source</a></small>
                     </h2>
                     
                     <p>Immediately terminates the running thread.</p>
 
                     <div class="details">
                     
+                    
                         <h3>Notes</h3>
                         
-                            <p>This is preferred to <a href="threading.html#killCurrentThread">killCurrentThread</a>, since it will go through the caller-set exit function. This is often <a href="threading.html#killCurrentThread">killCurrentThread</a> anyway, but it may be set to a custom value by the code that intitialized the thread.</p>
+                            <p>This is preferred to <a href="threading.html#killCurrentThread">killCurrentThread</a>, since it will go through the caller-set
+exit function. This is often <a href="threading.html#killCurrentThread">killCurrentThread</a> anyway, but it may be set to a
+custom value by the code that intitialized the thread.</p>
                         
                     
                     </div>
@@ -68,13 +76,15 @@ layout: documentation
             
             <div id="getCurrentThreadID" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#getCurrentThreadID">getCurrentThreadID</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/thread.asm#L16">View Source</a></small>
                     </h2>
                     
                     <p>Gets the ID of the currently executing thread.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Outputs</h3>
                         
@@ -92,13 +102,15 @@ layout: documentation
             
             <div id="getThreadEntry" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#getThreadEntry">getThreadEntry</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/thread.asm#L403">View Source</a></small>
                     </h2>
                     
                     <p>Gets a pointer to the specified thread's entry in the thread table.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -110,10 +122,6 @@ layout: documentation
                             </dl>
                         
                     
-                        <h3>Notes</h3>
-                        
-                            <p>You must disable interrupts while manipulating the thread table to guarantee that it will not change while you do so. Programs that manipulate the thread table directly should force a specific major kernel version, as this is liable to change between versions.</p>
-                        
                     
                         <h3>Outputs</h3>
                         
@@ -125,23 +133,38 @@ layout: documentation
                             </dl>
                         
                     
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>You must disable interrupts while manipulating the thread table to
+guarantee that it will not change while you do so.</p>
+<p>Programs that manipulate the thread table directly should force a
+specific major kernel version, as this is liable to change between
+versions.</p>
+                        
+                    
                     </div>
                 </div>
             </div>
             
             <div id="killCurrentThread" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#killCurrentThread">killCurrentThread</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/thread.asm#L122">View Source</a></small>
                     </h2>
                     
                     <p>Kills the currently executing thread.</p>
 
                     <div class="details">
                     
+                    
                         <h3>Notes</h3>
                         
-                            <p>In most cases, it is preferrable to call <a href="threading.html#exitThread">exitThread</a>, which will use the exit function specified by the caller. This function cleans up all resources owned by that thread, including allocated memory, loaded libraries, file handles, etc.</p>
+                            <p>In most cases, it is preferrable to call <a href="threading.html#exitThread">exitThread</a>, which will use
+the exit function specified by the caller.</p>
+<p>This function cleans up all resources owned by that thread, including
+allocated memory, loaded libraries, file handles, etc.</p>
                         
                     
                     </div>
@@ -150,13 +173,15 @@ layout: documentation
             
             <div id="killThread" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#killThread">killThread</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/thread.asm#L198">View Source</a></small>
                     </h2>
                     
                     <p>Kills the specified thread.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -168,10 +193,6 @@ layout: documentation
                             </dl>
                         
                     
-                        <h3>Notes</h3>
-                        
-                            <p>This function cleans up all resources owned by that thread, including allocated memory, loaded libraries, file handles, etc.</p>
-                        
                     
                         <h3>Outputs</h3>
                         
@@ -186,19 +207,29 @@ layout: documentation
                             </dl>
                         
                     
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>This function cleans up all resources owned by that thread, including
+allocated memory, loaded libraries, file handles, etc.</p>
+                        
+                    
                     </div>
                 </div>
             </div>
             
             <div id="launchProgram" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#launchProgram">launchProgram</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/thread.asm#L310">View Source</a></small>
                     </h2>
                     
-                    <p>Loads the specified file into memory as a program and starts a new thread for it.</p>
+                    <p>Loads the specified file into memory as a program and starts a
+new thread for it.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -209,6 +240,7 @@ layout: documentation
                                 
                             </dl>
                         
+                    
                     
                         <h3>Outputs</h3>
                         
@@ -229,13 +261,15 @@ layout: documentation
             
             <div id="readSignal" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#readSignal">readSignal</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/signals.asm#L65">View Source</a></small>
                     </h2>
                     
                     <p>Reads the next pending signal from this thread's signal queue.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Outputs</h3>
                         
@@ -259,13 +293,15 @@ layout: documentation
             
             <div id="resumeThread" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#resumeThread">resumeThread</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/thread.asm#L646">View Source</a></small>
                     </h2>
                     
                     <p>Resumes the specified thread.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -283,18 +319,15 @@ layout: documentation
             
             <div id="setInitialA" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#setInitialA">setInitialA</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/thread.asm#L535">View Source</a></small>
                     </h2>
                     
                     <p>Sets the initial value of the A register for the specified thread.</p>
 
                     <div class="details">
                     
-                        <h3>Note</h3>
-                        
-                            <p>Do <strong>not</strong> call this function on a thread that has already been started. You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and leave them disabled until after you have finished setting the initial state.</p>
-                        
                     
                         <h3>Inputs</h3>
                         
@@ -309,6 +342,7 @@ layout: documentation
                             </dl>
                         
                     
+                    
                         <h3>Outputs</h3>
                         
                             <dl>
@@ -322,24 +356,30 @@ layout: documentation
                             </dl>
                         
                     
+                    
+                        <h3>Note</h3>
+                        
+                            <p>Do <strong>not</strong> call this function on a thread that has already been started.
+You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and
+leave them disabled until after you have finished setting the initial
+state.</p>
+                        
+                    
                     </div>
                 </div>
             </div>
             
             <div id="setInitialBC" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#setInitialBC">setInitialBC</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/thread.asm#L457">View Source</a></small>
                     </h2>
                     
                     <p>Sets the initial value of the BC register for the specified thread.</p>
 
                     <div class="details">
                     
-                        <h3>Note</h3>
-                        
-                            <p>Do <strong>not</strong> call this function on a thread that has already been started. You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and leave them disabled until after you have finished setting the initial state.</p>
-                        
                     
                         <h3>Inputs</h3>
                         
@@ -354,6 +394,7 @@ layout: documentation
                             </dl>
                         
                     
+                    
                         <h3>Outputs</h3>
                         
                             <dl>
@@ -367,24 +408,30 @@ layout: documentation
                             </dl>
                         
                     
+                    
+                        <h3>Note</h3>
+                        
+                            <p>Do <strong>not</strong> call this function on a thread that has already been started.
+You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and
+leave them disabled until after you have finished setting the initial
+state.</p>
+                        
+                    
                     </div>
                 </div>
             </div>
             
             <div id="setInitialDE" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#setInitialDE">setInitialDE</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/thread.asm#L483">View Source</a></small>
                     </h2>
                     
                     <p>Sets the initial value of the DE register for the specified thread.</p>
 
                     <div class="details">
                     
-                        <h3>Note</h3>
-                        
-                            <p>Do <strong>not</strong> call this function on a thread that has already been started. You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and leave them disabled until after you have finished setting the initial state.</p>
-                        
                     
                         <h3>Inputs</h3>
                         
@@ -399,6 +446,7 @@ layout: documentation
                             </dl>
                         
                     
+                    
                         <h3>Outputs</h3>
                         
                             <dl>
@@ -412,24 +460,30 @@ layout: documentation
                             </dl>
                         
                     
+                    
+                        <h3>Note</h3>
+                        
+                            <p>Do <strong>not</strong> call this function on a thread that has already been started.
+You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and
+leave them disabled until after you have finished setting the initial
+state.</p>
+                        
+                    
                     </div>
                 </div>
             </div>
             
             <div id="setInitialHL" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#setInitialHL">setInitialHL</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/thread.asm#L509">View Source</a></small>
                     </h2>
                     
                     <p>Sets the initial value of the HL register for the specified thread.</p>
 
                     <div class="details">
                     
-                        <h3>Note</h3>
-                        
-                            <p>Do <strong>not</strong> call this function on a thread that has already been started. You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and leave them disabled until after you have finished setting the initial state.</p>
-                        
                     
                         <h3>Inputs</h3>
                         
@@ -444,6 +498,7 @@ layout: documentation
                             </dl>
                         
                     
+                    
                         <h3>Outputs</h3>
                         
                             <dl>
@@ -457,24 +512,30 @@ layout: documentation
                             </dl>
                         
                     
+                    
+                        <h3>Note</h3>
+                        
+                            <p>Do <strong>not</strong> call this function on a thread that has already been started.
+You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and
+leave them disabled until after you have finished setting the initial
+state.</p>
+                        
+                    
                     </div>
                 </div>
             </div>
             
             <div id="setInitialIX" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#setInitialIX">setInitialIX</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/thread.asm#L561">View Source</a></small>
                     </h2>
                     
                     <p>Sets the initial value of the IX register for the specified thread.</p>
 
                     <div class="details">
                     
-                        <h3>Note</h3>
-                        
-                            <p>Do <strong>not</strong> call this function on a thread that has already been started. You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and leave them disabled until after you have finished setting the initial state.</p>
-                        
                     
                         <h3>Inputs</h3>
                         
@@ -489,6 +550,7 @@ layout: documentation
                             </dl>
                         
                     
+                    
                         <h3>Outputs</h3>
                         
                             <dl>
@@ -502,24 +564,30 @@ layout: documentation
                             </dl>
                         
                     
+                    
+                        <h3>Note</h3>
+                        
+                            <p>Do <strong>not</strong> call this function on a thread that has already been started.
+You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and
+leave them disabled until after you have finished setting the initial
+state.</p>
+                        
+                    
                     </div>
                 </div>
             </div>
             
             <div id="setInitialIY" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#setInitialIY">setInitialIY</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/thread.asm#L587">View Source</a></small>
                     </h2>
                     
                     <p>Sets the initial value of the IY register for the specified thread.</p>
 
                     <div class="details">
                     
-                        <h3>Note</h3>
-                        
-                            <p>Do <strong>not</strong> call this function on a thread that has already been started. You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and leave them disabled until after you have finished setting the initial state.</p>
-                        
                     
                         <h3>Inputs</h3>
                         
@@ -534,6 +602,7 @@ layout: documentation
                             </dl>
                         
                     
+                    
                         <h3>Outputs</h3>
                         
                             <dl>
@@ -547,19 +616,31 @@ layout: documentation
                             </dl>
                         
                     
+                    
+                        <h3>Note</h3>
+                        
+                            <p>Do <strong>not</strong> call this function on a thread that has already been started.
+You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and
+leave them disabled until after you have finished setting the initial
+state.</p>
+                        
+                    
                     </div>
                 </div>
             </div>
             
             <div id="setReturnPoint" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#setReturnPoint">setReturnPoint</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/thread.asm#L435">View Source</a></small>
                     </h2>
                     
-                    <p>Sets the return point for the specified thread. This is set to <a href="threading.html#killThread">killThread</a> by default.</p>
+                    <p>Sets the return point for the specified thread. This is set to
+<a href="threading.html#killThread">killThread</a> by default.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -573,6 +654,7 @@ layout: documentation
                                 
                             </dl>
                         
+                    
                     
                         <h3>Outputs</h3>
                         
@@ -593,13 +675,15 @@ layout: documentation
             
             <div id="startThread" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#startThread">startThread</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/thread.asm#L32">View Source</a></small>
                     </h2>
                     
                     <p>Starts a new thread.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -617,10 +701,6 @@ layout: documentation
                             </dl>
                         
                     
-                        <h3>Notes</h3>
-                        
-                            <p>If you wish to manipulate this thread before it executes (to set the initial value of the registers, for instance), disable interrupts before calling startThread, and re-enable them when you're ready to start the thread. If you want to postpone starting the thread for an extended period of time, call <span class="deadlink">suspendThread</span> before re-enabling interrupts, and <a href="threading.html#resumeThread">resumeThread</a> when you're ready to start it.</p>
-                        
                     
                         <h3>Outputs</h3>
                         
@@ -635,19 +715,31 @@ layout: documentation
                             </dl>
                         
                     
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>If you wish to manipulate this thread before it executes (to set the initial value
+of the registers, for instance), disable interrupts before calling startThread, and
+re-enable them when you're ready to start the thread. If you want to postpone
+starting the thread for an extended period of time, call <span class="deadlink">suspendThread</span> before
+re-enabling interrupts, and <a href="threading.html#resumeThread">resumeThread</a> when you're ready to start it.</p>
+                        
+                    
                     </div>
                 </div>
             </div>
             
             <div id="suspendCurrentThread" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#suspendCurrentThread">suspendCurrentThread</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/thread.asm#L628">View Source</a></small>
                     </h2>
                     
                     <p>Suspends the currently executing thread.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Notes</h3>
                         

@@ -15,13 +15,15 @@ This page documents monochrome functions. For the color display, see <a href="/d
             
             <div id="allocScreenBuffer" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#allocScreenBuffer">allocScreenBuffer</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/memory.asm#L14">View Source</a></small>
                     </h2>
                     
                     <p>Allocates a 768-byte screen buffer.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Outputs</h3>
                         
@@ -39,13 +41,15 @@ This page documents monochrome functions. For the color display, see <a href="/d
             
             <div id="clearBuffer" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#clearBuffer">clearBuffer</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/display.asm#L1">View Source</a></small>
                     </h2>
                     
                     <p>Turns off all pixels on a screen buffer.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -63,13 +67,15 @@ This page documents monochrome functions. For the color display, see <a href="/d
             
             <div id="drawLine" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#drawLine">drawLine</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/display.asm#L868">View Source</a></small>
                     </h2>
                     
                     <p>Draws a line on the screen buffer using OR (turns pixels ON) logic.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -87,6 +93,7 @@ This page documents monochrome functions. For the color display, see <a href="/d
                             </dl>
                         
                     
+                    
                         <h3>Notes</h3>
                         
                             <p>This function does not clip lines to the screen boundaries.</p>
@@ -98,13 +105,15 @@ This page documents monochrome functions. For the color display, see <a href="/d
             
             <div id="fastCopy" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#fastCopy">fastCopy</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/display.asm#L22">View Source</a></small>
                     </h2>
                     
                     <p>Copies the screen buffer to the LCD.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -116,9 +125,13 @@ This page documents monochrome functions. For the color display, see <a href="/d
                             </dl>
                         
                     
+                    
                         <h3>Notes</h3>
                         
-                            <p>This routine will return immediately without drawing to the LCD if the calling thead does not have an LCD lock. Acquire one with <a href="hardware.html#getLcdLock">getLcdLock</a>. On a TI-84+ CSE, this routine will draw the 96x64 monochrome buffer (the "legacy" buffer) to the LCD. The LCD should be set to legacy mode (see <a href="color.html#setLegacyLcdMode">setLegacyLcdMode</a>).</p>
+                            <p>This routine will return immediately without drawing to the LCD if the calling thead does not have an
+LCD lock. Acquire one with <a href="hardware.html#getLcdLock">getLcdLock</a>.
+On a TI-84+ CSE, this routine will draw the 96x64 monochrome buffer (the "legacy" buffer) to the LCD.
+The LCD should be set to legacy mode (see <a href="color.html#setLegacyLcdMode">setLegacyLcdMode</a>).</p>
                         
                     
                     </div>
@@ -127,13 +140,15 @@ This page documents monochrome functions. For the color display, see <a href="/d
             
             <div id="getPixel" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#getPixel">getPixel</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/02/graphics.asm#L1">View Source</a></small>
                     </h2>
                     
                     <p>Finds the address of and mask for a pixel on the screen buffer.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -148,10 +163,6 @@ This page documents monochrome functions. For the color display, see <a href="/d
                             </dl>
                         
                     
-                        <h3>Notes</h3>
-                        
-                            <p>If the pixel is on, HL &amp; A is nonzero.</p>
-                        
                     
                         <h3>Outputs</h3>
                         
@@ -166,19 +177,27 @@ This page documents monochrome functions. For the color display, see <a href="/d
                             </dl>
                         
                     
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>If the pixel is on, HL &amp; A is nonzero.</p>
+                        
+                    
                     </div>
                 </div>
             </div>
             
             <div id="invertPixel" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#invertPixel">invertPixel</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/02/graphics.asm#L84">View Source</a></small>
                     </h2>
                     
                     <p>Inverts a pixel on the screen buffer.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -199,13 +218,15 @@ This page documents monochrome functions. For the color display, see <a href="/d
             
             <div id="putSprite16AND" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#putSprite16AND">putSprite16AND</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/display.asm#L771">View Source</a></small>
                     </h2>
                     
                     <p>Draws a 16xB sprite on the screen buffer using AND (turns pixels OFF) logic.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -225,6 +246,7 @@ This page documents monochrome functions. For the color display, see <a href="/d
                                 
                             </dl>
                         
+                    
                     
                         <h3>Notes</h3>
                         
@@ -237,13 +259,15 @@ This page documents monochrome functions. For the color display, see <a href="/d
             
             <div id="putSprite16OR" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#putSprite16OR">putSprite16OR</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/display.asm#L678">View Source</a></small>
                     </h2>
                     
                     <p>Draws a 16xB sprite on the screen buffer using OR (turns pixels ON) logic.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -263,6 +287,7 @@ This page documents monochrome functions. For the color display, see <a href="/d
                                 
                             </dl>
                         
+                    
                     
                         <h3>Notes</h3>
                         
@@ -275,13 +300,15 @@ This page documents monochrome functions. For the color display, see <a href="/d
             
             <div id="putSprite16XOR" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#putSprite16XOR">putSprite16XOR</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/display.asm#L585">View Source</a></small>
                     </h2>
                     
                     <p>Draws a 16xB sprite on the screen buffer using XOR (invert) logic.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -302,6 +329,7 @@ This page documents monochrome functions. For the color display, see <a href="/d
                             </dl>
                         
                     
+                    
                         <h3>Notes</h3>
                         
                             <p>Each 16-wide group of pixels is represented by two adjacent octets.</p>
@@ -313,13 +341,15 @@ This page documents monochrome functions. For the color display, see <a href="/d
             
             <div id="putSpriteAND" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#putSpriteAND">putSpriteAND</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/display.asm#L246">View Source</a></small>
                     </h2>
                     
                     <p>Draws an 8xB sprite on the screen buffer using AND (turns pixels OFF) logic.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -346,13 +376,15 @@ This page documents monochrome functions. For the color display, see <a href="/d
             
             <div id="putSpriteOR" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#putSpriteOR">putSpriteOR</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/display.asm#L417">View Source</a></small>
                     </h2>
                     
                     <p>Draws an 8xB sprite on the screen buffer using OR (turns pixels ON) logic.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -379,13 +411,15 @@ This page documents monochrome functions. For the color display, see <a href="/d
             
             <div id="putSpriteXOR" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#putSpriteXOR">putSpriteXOR</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/display.asm#L85">View Source</a></small>
                     </h2>
                     
                     <p>Draws an 8xB sprite on the screen buffer using XOR (invert) logic.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -412,13 +446,15 @@ This page documents monochrome functions. For the color display, see <a href="/d
             
             <div id="rectAND" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#rectAND">rectAND</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/02/graphics.asm#L207">View Source</a></small>
                     </h2>
                     
                     <p>Draws a filled rectangle on the screen buffer using AND (turns pixels OFF) logic.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -442,13 +478,15 @@ This page documents monochrome functions. For the color display, see <a href="/d
             
             <div id="rectOR" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#rectOR">rectOR</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/display.asm#L1138">View Source</a></small>
                     </h2>
                     
                     <p>Draws a filled rectangle on the screen buffer using OR (turns pixels ON) logic.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -472,13 +510,15 @@ This page documents monochrome functions. For the color display, see <a href="/d
             
             <div id="rectXOR" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#rectXOR">rectXOR</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/02/graphics.asm#L99">View Source</a></small>
                     </h2>
                     
                     <p>Draws a filled rectangle on the screen buffer using XOR (invert) logic.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -502,13 +542,15 @@ This page documents monochrome functions. For the color display, see <a href="/d
             
             <div id="resetPixel" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#resetPixel">resetPixel</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/02/graphics.asm#L68">View Source</a></small>
                     </h2>
                     
                     <p>Sets (turns on) a pixel on the screen buffer.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -529,13 +571,15 @@ This page documents monochrome functions. For the color display, see <a href="/d
             
             <div id="setPixel" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#setPixel">setPixel</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/02/graphics.asm#L53">View Source</a></small>
                     </h2>
                     
                     <p>Sets (turns on) a pixel on the screen buffer.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         

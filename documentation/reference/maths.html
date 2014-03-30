@@ -12,8 +12,9 @@ layout: documentation
             
             <div id="DEMulA" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#DEMulA">DEMulA</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/math.asm#L49">View Source</a></small>
                     </h2>
                     
                     <p>Performs <code>HL = DE * A</code></p>
@@ -26,8 +27,9 @@ layout: documentation
             
             <div id="DEMulBC" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#DEMulBC">DEMulBC</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/math.asm#L32">View Source</a></small>
                     </h2>
                     
                     <p>Performs <code>HL = DE * BC</code></p>
@@ -40,8 +42,9 @@ layout: documentation
             
             <div id="add16To32" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#add16To32">add16To32</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/math.asm#L133">View Source</a></small>
                     </h2>
                     
                     <p>Performs <code>ACIX = ACIX + DE</code></p>
@@ -54,13 +57,15 @@ layout: documentation
             
             <div id="cpBCDE" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#cpBCDE">cpBCDE</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/math.asm#L19">View Source</a></small>
                     </h2>
                     
                     <p>Compares DE to BC.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Output</h3>
                         
@@ -73,13 +78,15 @@ layout: documentation
             
             <div id="cpHLBC" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#cpHLBC">cpHLBC</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/math.asm#L10">View Source</a></small>
                     </h2>
                     
                     <p>Compares HL to BC.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Output</h3>
                         
@@ -92,13 +99,15 @@ layout: documentation
             
             <div id="cpHLDE" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#cpHLDE">cpHLDE</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/math.asm#L1">View Source</a></small>
                     </h2>
                     
                     <p>Compares HL to DE.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Output</h3>
                         
@@ -111,13 +120,15 @@ layout: documentation
             
             <div id="div32By16" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#div32By16">div32By16</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/math.asm#L82">View Source</a></small>
                     </h2>
                     
                     <p>Performs <code>ACIX = ACIX / DE</code></p>
 
                     <div class="details">
+                    
                     
                         <h3>Outputs</h3>
                         
@@ -141,13 +152,15 @@ layout: documentation
             
             <div id="divHLByC" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#divHLByC">divHLByC</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/math.asm#L152">View Source</a></small>
                     </h2>
                     
                     <p>Performs <code>HL = HL / C</code></p>
 
                     <div class="details">
+                    
                     
                         <h3>Outputs</h3>
                         
@@ -168,13 +181,15 @@ layout: documentation
             
             <div id="icos" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#icos">icos</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/math.asm#L385">View Source</a></small>
                     </h2>
                     
                     <p>Returns the cosine of the given angle.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -186,10 +201,6 @@ layout: documentation
                             </dl>
                         
                     
-                        <h3>Notes</h3>
-                        
-                            <p>To fit assembly, both the input and output have an uncommon format : the input angle has a period of 256, and the outputted value will be in the range [-63, 63] instead of [-1,1].</p>
-                        
                     
                         <h3>Outputs</h3>
                         
@@ -199,6 +210,14 @@ layout: documentation
                                 <dd><p>sine of the angle, scaled to 64</p></dd>
                                 
                             </dl>
+                        
+                    
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>To fit assembly, both the input and output have an uncommon format :
+the input angle has a period of 256, and the outputted value will
+be in the range [-63, 63] instead of [-1,1].</p>
                         
                     
                     </div>
@@ -207,13 +226,15 @@ layout: documentation
             
             <div id="isin" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#isin">isin</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/math.asm#L371">View Source</a></small>
                     </h2>
                     
                     <p>Returns the sine of the given angle.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -225,10 +246,6 @@ layout: documentation
                             </dl>
                         
                     
-                        <h3>Notes</h3>
-                        
-                            <p>To fit assembly, both the input and output have an uncommon format : the input angle has a period of 256, and the outputted value will be in the range [-64, 64] instead of [-1,1].</p>
-                        
                     
                         <h3>Outputs</h3>
                         
@@ -240,19 +257,29 @@ layout: documentation
                             </dl>
                         
                     
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>To fit assembly, both the input and output have an uncommon format :
+the input angle has a period of 256, and the outputted value will
+be in the range [-64, 64] instead of [-1,1].</p>
+                        
+                    
                     </div>
                 </div>
             </div>
             
             <div id="sDEMulA" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#sDEMulA">sDEMulA</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/math.asm#L64">View Source</a></small>
                     </h2>
                     
                     
 
                     <div class="details">
+                    
                     
                         <h3>Performs `HL = DE * A`. The operation is signed.
 sDEMulA</h3>
@@ -266,13 +293,15 @@ sDEMulA</h3>
             
             <div id="sdivACbyDE" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#sdivACbyDE">sdivACbyDE</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/math.asm#L290">View Source</a></small>
                     </h2>
                     
                     <p>Performs <code>AC = AC / DE</code>. The operation is signed.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Outputs</h3>
                         
@@ -285,6 +314,7 @@ sDEMulA</h3>
                             </dl>
                         
                     
+                    
                         <h3>Notes</h3>
                         
                             <p>B is destroyed</p>
@@ -296,13 +326,15 @@ sDEMulA</h3>
             
             <div id="smax" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#smax">smax</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/math.asm#L351">View Source</a></small>
                     </h2>
                     
                     <p>Returns the largest between HL and DE. The operation is signed.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -316,6 +348,7 @@ sDEMulA</h3>
                                 
                             </dl>
                         
+                    
                     
                         <h3>Outputs</h3>
                         
@@ -336,13 +369,15 @@ sDEMulA</h3>
             
             <div id="smin" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#smin">smin</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/math.asm#L331">View Source</a></small>
                     </h2>
                     
                     <p>Returns the smallest between HL and DE. The operation is signed.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -356,6 +391,7 @@ sDEMulA</h3>
                                 
                             </dl>
                         
+                    
                     
                         <h3>Outputs</h3>
                         
@@ -376,8 +412,9 @@ sDEMulA</h3>
             
             <div id="sub16From32" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#sub16From32">sub16From32</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/math.asm#L110">View Source</a></small>
                     </h2>
                     
                     <p>Performs <code>ACIX = ACIX - DE</code></p>

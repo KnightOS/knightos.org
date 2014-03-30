@@ -12,13 +12,17 @@ layout: documentation
             
             <div id="calloc" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#calloc">calloc</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/memory.asm#L41">View Source</a></small>
                     </h2>
                     
-                    <p>Allocates memory for a given number of elements of a given size (that is, BC * A bytes total), then fills it with zeros.</p>
+                    <p>Allocates memory for a given number of elements
+of a given size (that is, BC * A bytes total),
+then fills it with zeros.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -32,6 +36,7 @@ layout: documentation
                                 
                             </dl>
                         
+                    
                     
                         <h3>Outputs</h3>
                         
@@ -55,11 +60,13 @@ layout: documentation
             
             <div id="contextSwitch" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#contextSwitch">contextSwitch</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/interrupt.asm#L1">View Source</a></small>
                     </h2>
                     
-                    <p>Triggers a context switch early. This will transfer control from your thread to another and eventaully return to yours with interrupts enabled.</p>
+                    <p>Triggers a context switch early. This will transfer control from your thread to
+another and eventaully return to yours with interrupts enabled.</p>
 
                     <div class="details">
                     
@@ -69,13 +76,15 @@ layout: documentation
             
             <div id="formatMem" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#formatMem">formatMem</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/memory.asm#L1">View Source</a></small>
                     </h2>
                     
                     <p>Formats memory in preparation for memory allocation.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Notes</h3>
                         
@@ -88,13 +97,15 @@ layout: documentation
             
             <div id="free" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#free">free</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/memory.asm#L315">View Source</a></small>
                     </h2>
                     
                     <p>Frees a previously allocated section of memory</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -112,13 +123,15 @@ layout: documentation
             
             <div id="loadLibrary" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#loadLibrary">loadLibrary</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/libraries.asm#L6">View Source</a></small>
                     </h2>
                     
                     <p>Loads a library into memory, or references one that may already be loaded.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -139,13 +152,15 @@ layout: documentation
             
             <div id="malloc" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#malloc">malloc</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/memory.asm#L152">View Source</a></small>
                     </h2>
                     
                     <p>Allocates the specified amount of memory.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -156,6 +171,7 @@ layout: documentation
                                 
                             </dl>
                         
+                    
                     
                         <h3>Outputs</h3>
                         
@@ -179,13 +195,15 @@ layout: documentation
             
             <div id="memSeekToEnd" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#memSeekToEnd">memSeekToEnd</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/memory.asm#L133">View Source</a></small>
                     </h2>
                     
                     <p>Move IX to the end of the memory section it points to.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -196,6 +214,7 @@ layout: documentation
                                 
                             </dl>
                         
+                    
                     
                         <h3>Outputs</h3>
                         
@@ -213,13 +232,15 @@ layout: documentation
             
             <div id="memSeekToStart" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#memSeekToStart">memSeekToStart</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/memory.asm#L100">View Source</a></small>
                     </h2>
                     
                     <p>Move IX to the beginning of the memory section it points to.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -230,6 +251,7 @@ layout: documentation
                                 
                             </dl>
                         
+                    
                     
                         <h3>Outputs</h3>
                         
@@ -247,13 +269,15 @@ layout: documentation
             
             <div id="memset" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#memset">memset</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/memory.asm#L77">View Source</a></small>
                     </h2>
                     
                     <p>Sets the value of an entire allocated section of memory.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -274,13 +298,15 @@ layout: documentation
             
             <div id="reassignMemory" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#reassignMemory">reassignMemory</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/memory.asm#L28">View Source</a></small>
                     </h2>
                     
                     <p>Reassigns a given block of memory to the specified thread ID.</p>
 
                     <div class="details">
+                    
                     
                         <h3>Inputs</h3>
                         
@@ -301,8 +327,9 @@ layout: documentation
             
             <div id="reboot" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#reboot">reboot</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/boot.asm#L43">View Source</a></small>
                     </h2>
                     
                     <p>Restarts the device.</p>
@@ -315,8 +342,9 @@ layout: documentation
             
             <div id="shutdown" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#shutdown">shutdown</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/boot.asm#L5">View Source</a></small>
                     </h2>
                     
                     <p>Shuts off the device.</p>
@@ -329,8 +357,9 @@ layout: documentation
             
             <div id="suspendDevice" class="docsection">
                 <div>
-                    <h2>
+                    <h2 class="doc-title">
                         <a href="#suspendDevice">suspendDevice</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cee7d31db64659077e75517d8a63be0adc03347c/src/00/util.asm#L1">View Source</a></small>
                     </h2>
                     
                     <p>Turns off the screen, enters low power mode, and halts system operation until the ON key is pressed.</p>
