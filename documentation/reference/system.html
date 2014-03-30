@@ -3,311 +3,374 @@ title: System Documentation
 layout: documentation
 ---
 
-<h1>System</h1>
-<div class="docs">
-    
-    <div id="calloc" class="docsection">
-        <div>
-            <h2>
-                <a href="#calloc">calloc</a>
-            </h2>
+<div class="row">
+    <div class="col-md-8">
+        <h1>System</h1>
+        <div class="docs">
             
-            <p>Allocates memory for a given number of elements of a given size (that is, BC * A bytes total), then fills it with zeros.</p>
+            <div id="calloc" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#calloc">calloc</a>
+                    </h2>
+                    
+                    <p>Allocates memory for a given number of elements of a given size (that is, BC * A bytes total), then fills it with zeros.</p>
 
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
                         
-                        <dt>A</dt>
-                        <dd><p>Size of element</p></dt>
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Size of element</p></dt>
+                                
+                                <dt>BC</dt>
+                                <dd><p>Number of elements</p></dt>
+                                
+                            </dl>
                         
-                        <dt>BC</dt>
-                        <dd><p>Number of elements</p></dt>
+                    
+                        <h3>Outputs</h3>
                         
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dt>
+                                
+                                <dt>IX</dt>
+                                <dd><p>First byte of allocated and zeroed memory (on success)</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on failure</p></dt>
+                                
+                            </dl>
                         
-                        <dt>A</dt>
-                        <dd><p>Error code (on failure)</p></dt>
-                        
-                        <dt>IX</dt>
-                        <dd><p>First byte of allocated and zeroed memory (on success)</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set on success, reset on failure</p></dt>
-                        
-                    </dl>
-                
-            
+                    
+                    </div>
+                </div>
             </div>
+            
+            <div id="contextSwitch" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#contextSwitch">contextSwitch</a>
+                    </h2>
+                    
+                    <p>Triggers a context switch early.</p>
+
+                    <div class="details">
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="formatMem" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#formatMem">formatMem</a>
+                    </h2>
+                    
+                    <p>Formats memory in preparation for memory allocation.</p>
+
+                    <div class="details">
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>This function will deallocate <strong>all allocated memory</strong>.</p>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="free" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#free">free</a>
+                    </h2>
+                    
+                    <p>Frees a previously allocated section of memory</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Pointer to first byte of section</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="malloc" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#malloc">malloc</a>
+                    </h2>
+                    
+                    <p>Allocates the specified amount of memory.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>BC</dt>
+                                <dd><p>Length of requested section, in bytes</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dt>
+                                
+                                <dt>IX</dt>
+                                <dd><p>First byte of allocated memory (on success)</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on failure</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="memSeekToEnd" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#memSeekToEnd">memSeekToEnd</a>
+                    </h2>
+                    
+                    <p>Move IX to the end of the memory section it points to.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Pointer to anywhere in a section of allocated memory</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Pointer to last byte of section</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="memSeekToStart" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#memSeekToStart">memSeekToStart</a>
+                    </h2>
+                    
+                    <p>Move IX to the beginning of the memory section it points to.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Pointer to anywhere in a section of allocated memory</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Pointer to first byte of section</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="memset" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#memset">memset</a>
+                    </h2>
+                    
+                    <p>Sets the value of an entire allocated section of memory.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Value to set</p></dt>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Pointer to anywhere in allocated section</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="reassignMemory" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#reassignMemory">reassignMemory</a>
+                    </h2>
+                    
+                    <p>Reassigns a given block of memory to the specified thread ID.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Thread ID for new owner</p></dt>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Pointer to any location within the target block.</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="reboot" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#reboot">reboot</a>
+                    </h2>
+                    
+                    <p>Restarts the device.</p>
+
+                    <div class="details">
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="shutdown" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#shutdown">shutdown</a>
+                    </h2>
+                    
+                    <p>Shuts off the device.</p>
+
+                    <div class="details">
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="suspendDevice" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#suspendDevice">suspendDevice</a>
+                    </h2>
+                    
+                    <p>Turns off the screen, enters low power mode, and halts system operation until the ON key is pressed.</p>
+
+                    <div class="details">
+                    
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
-    
-    <div id="contextSwitch" class="docsection">
-        <div>
-            <h2>
-                <a href="#contextSwitch">contextSwitch</a>
-            </h2>
-            
-            <p>Triggers a context switch early.</p>
-
-            <div class="details">
-            
-            </div>
+    <div class="col-md-4">
+        <div data-spy="affix">
+            <h2>System Functions</h2>
+            <ul class="nav doc-nav" data-offset-top="60" data-offset-bottom="200">
+                
+                <li>
+                    <a href="#calloc">calloc</a>
+                </li>
+                
+                <li>
+                    <a href="#contextSwitch">contextSwitch</a>
+                </li>
+                
+                <li>
+                    <a href="#formatMem">formatMem</a>
+                </li>
+                
+                <li>
+                    <a href="#free">free</a>
+                </li>
+                
+                <li>
+                    <a href="#malloc">malloc</a>
+                </li>
+                
+                <li>
+                    <a href="#memSeekToEnd">memSeekToEnd</a>
+                </li>
+                
+                <li>
+                    <a href="#memSeekToStart">memSeekToStart</a>
+                </li>
+                
+                <li>
+                    <a href="#memset">memset</a>
+                </li>
+                
+                <li>
+                    <a href="#reassignMemory">reassignMemory</a>
+                </li>
+                
+                <li>
+                    <a href="#reboot">reboot</a>
+                </li>
+                
+                <li>
+                    <a href="#shutdown">shutdown</a>
+                </li>
+                
+                <li>
+                    <a href="#suspendDevice">suspendDevice</a>
+                </li>
+                
+            </ul>
         </div>
     </div>
-    
-    <div id="formatMem" class="docsection">
-        <div>
-            <h2>
-                <a href="#formatMem">formatMem</a>
-            </h2>
-            
-            <p>Formats memory in preparation for memory allocation.</p>
-
-            <div class="details">
-            
-                <h3>Notes</h3>
-                
-                    <p>This function will deallocate <strong>all allocated memory</strong>.</p>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="free" class="docsection">
-        <div>
-            <h2>
-                <a href="#free">free</a>
-            </h2>
-            
-            <p>Frees a previously allocated section of memory</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>IX</dt>
-                        <dd><p>Pointer to first byte of section</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="malloc" class="docsection">
-        <div>
-            <h2>
-                <a href="#malloc">malloc</a>
-            </h2>
-            
-            <p>Allocates the specified amount of memory.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>BC</dt>
-                        <dd><p>Length of requested section, in bytes</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Error code (on failure)</p></dt>
-                        
-                        <dt>IX</dt>
-                        <dd><p>First byte of allocated memory (on success)</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set on success, reset on failure</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="memSeekToEnd" class="docsection">
-        <div>
-            <h2>
-                <a href="#memSeekToEnd">memSeekToEnd</a>
-            </h2>
-            
-            <p>Move IX to the end of the memory section it points to.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>IX</dt>
-                        <dd><p>Pointer to anywhere in a section of allocated memory</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>IX</dt>
-                        <dd><p>Pointer to last byte of section</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="memSeekToStart" class="docsection">
-        <div>
-            <h2>
-                <a href="#memSeekToStart">memSeekToStart</a>
-            </h2>
-            
-            <p>Move IX to the beginning of the memory section it points to.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>IX</dt>
-                        <dd><p>Pointer to anywhere in a section of allocated memory</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>IX</dt>
-                        <dd><p>Pointer to first byte of section</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="memset" class="docsection">
-        <div>
-            <h2>
-                <a href="#memset">memset</a>
-            </h2>
-            
-            <p>Sets the value of an entire allocated section of memory.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Value to set</p></dt>
-                        
-                        <dt>IX</dt>
-                        <dd><p>Pointer to anywhere in allocated section</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="reassignMemory" class="docsection">
-        <div>
-            <h2>
-                <a href="#reassignMemory">reassignMemory</a>
-            </h2>
-            
-            <p>Reassigns a given block of memory to the specified thread ID.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Thread ID for new owner</p></dt>
-                        
-                        <dt>IX</dt>
-                        <dd><p>Pointer to any location within the target block.</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="reboot" class="docsection">
-        <div>
-            <h2>
-                <a href="#reboot">reboot</a>
-            </h2>
-            
-            <p>Restarts the device.</p>
-
-            <div class="details">
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="shutdown" class="docsection">
-        <div>
-            <h2>
-                <a href="#shutdown">shutdown</a>
-            </h2>
-            
-            <p>Shuts off the device.</p>
-
-            <div class="details">
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="suspendDevice" class="docsection">
-        <div>
-            <h2>
-                <a href="#suspendDevice">suspendDevice</a>
-            </h2>
-            
-            <p>Turns off the screen, enters low power mode, and halts system operation until the ON key is pressed.</p>
-
-            <div class="details">
-            
-            </div>
-        </div>
-    </div>
-    
 </div>
+<script type="text/javascript">
+
+</script>

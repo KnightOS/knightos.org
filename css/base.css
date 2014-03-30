@@ -30,13 +30,13 @@ body {
 .documentation h2 a:before {
     content: url('/img/link.png');
     position: absolute;
-    left: -40px;
+    left: -25px;
     opacity: 0;
     transition: opacity linear 0.2s;
     cursor: pointer;
-    width: 20px;
-    height: 20px;
-    top: -8px;
+    width: 10px;
+    height: 10px;
+    top: 5px;
 }
 
 .documentation h2 a:hover:before {
@@ -106,4 +106,12 @@ body {
 
 dd {
     margin-left: 5px;
+}
+
+.doc-nav li a {
+    padding: 2px 15px;
+}
+
+.doc-nav li.active a {
+    border-left: 1px solid #000;
 }

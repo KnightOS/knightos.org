@@ -3,302 +3,365 @@ title: Color Documentation
 layout: documentation
 ---
 
-<h1>Color</h1>
-<div class="docs">
-    
-    <div id="checkLegacyLcdMode" class="docsection">
-        <div>
-            <h2>
-                <a href="#checkLegacyLcdMode">checkLegacyLcdMode</a>
-            </h2>
+<div class="row">
+    <div class="col-md-8">
+        <h1>Color</h1>
+        <div class="docs">
             
-            <p>Sets Z if the current thread is in legacy mode.</p>
+            <div id="checkLegacyLcdMode" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#checkLegacyLcdMode">checkLegacyLcdMode</a>
+                    </h2>
+                    
+                    <p>Sets Z if the current thread is in legacy mode.</p>
 
-            <div class="details">
-            
+                    <div class="details">
+                    
+                    </div>
+                </div>
             </div>
+            
+            <div id="clearColorLcd" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#clearColorLcd">clearColorLcd</a>
+                    </h2>
+                    
+                    <p>Sets all pixels on the LCD to a specified color in color mode.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>IY</dt>
+                                <dd><p>Color in 0bRRRRRGGGGGGBBBBB format</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>Overwrites the current clipping window.</p>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="clipColorRectangle" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#clipColorRectangle">clipColorRectangle</a>
+                    </h2>
+                    
+                    <p>Draws a clipped rectangle of the specified size with the specified color in color mode.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>DE </dt>
+                                <dd><p>width of the rectangle in pixels</p></dt>
+                                
+                                <dt>C </dt>
+                                <dd><p>height of the rectangle in pixels</p></dt>
+                                
+                                <dt>B </dt>
+                                <dd><p>Y coordinate in pixels</p></dt>
+                                
+                                <dt>IY </dt>
+                                <dd><p>color of the rectangle in R5G6B5 format</p></dt>
+                                
+                                <dt>HL </dt>
+                                <dd><p>X coordinate in pixels</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>The rectangle will be clipped to any LCD window already in place, and restore it afterwards.</p>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="colorLcdOff" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#colorLcdOff">colorLcdOff</a>
+                    </h2>
+                    
+                    <p>Turns off the color LCD and backlight.</p>
+
+                    <div class="details">
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="colorLcdOn" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#colorLcdOn">colorLcdOn</a>
+                    </h2>
+                    
+                    <p>Initializes and turns on the color LCD in color mode.</p>
+
+                    <div class="details">
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="colorSupported" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#colorSupported">colorSupported</a>
+                    </h2>
+                    
+                    <p>Sets Z if color is supported on this device.</p>
+
+                    <div class="details">
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>errUnsupported if color is unsupported</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set if supported, reset if unsupported</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="fullScreenWindow" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#fullScreenWindow">fullScreenWindow</a>
+                    </h2>
+                    
+                    <p>Sets the clipping window to fit the LCD screen in color mode.</p>
+
+                    <div class="details">
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="readLcdRegister" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#readLcdRegister">readLcdRegister</a>
+                    </h2>
+                    
+                    <p>Reads a 16-bit value from a color LCD register</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Register</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Comments</h3>
+                        
+                            <p>Destroys C</p>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Value</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="resetLegacyLcdMode" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#resetLegacyLcdMode">resetLegacyLcdMode</a>
+                    </h2>
+                    
+                    <p>Sets the LCD to color mode. Call this before you call <a href="hardware.html#getLcdLock">getLcdLock</a>.</p>
+
+                    <div class="details">
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="setLcdWindow" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#setLcdWindow">setLcdWindow</a>
+                    </h2>
+                    
+                    <p>Sets the LCD's clipping window. Values are inclusive.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>B</dt>
+                                <dd><p>top border</p></dt>
+                                
+                                <dt>DE</dt>
+                                <dd><p>right border</p></dt>
+                                
+                                <dt>C</dt>
+                                <dd><p>bottom border </p></dt>
+                                
+                                <dt>HL</dt>
+                                <dd><p>left border</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>Destroys C</p>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="setLegacyLcdMode" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#setLegacyLcdMode">setLegacyLcdMode</a>
+                    </h2>
+                    
+                    <p>Sets the LCD to legacy mode.</p>
+
+                    <div class="details">
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>Legacy mode simulates a 96x64 monochrome screen with the help of <a href="display.html#fastCopy">fastCopy</a>. Color graphics are not advised in legacy mode.</p>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="writeLcdRegister" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#writeLcdRegister">writeLcdRegister</a>
+                    </h2>
+                    
+                    <p>Writes a 16-bit value to a color LCD register</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Register</p></dt>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Value</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Comments</h3>
+                        
+                            <p>Destroys C</p>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
-    
-    <div id="clearColorLcd" class="docsection">
-        <div>
-            <h2>
-                <a href="#clearColorLcd">clearColorLcd</a>
-            </h2>
-            
-            <p>Sets all pixels on the LCD to a specified color in color mode.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
+    <div class="col-md-4">
+        <div data-spy="affix">
+            <h2>Color Functions</h2>
+            <ul class="nav doc-nav" data-offset-top="60" data-offset-bottom="200">
                 
-                    <dl>
-                        
-                        <dt>IY</dt>
-                        <dd><p>Color in 0bRRRRRGGGGGGBBBBB format</p></dt>
-                        
-                    </dl>
+                <li>
+                    <a href="#checkLegacyLcdMode">checkLegacyLcdMode</a>
+                </li>
                 
-            
-                <h3>Notes</h3>
+                <li>
+                    <a href="#clearColorLcd">clearColorLcd</a>
+                </li>
                 
-                    <p>Overwrites the current clipping window.</p>
+                <li>
+                    <a href="#clipColorRectangle">clipColorRectangle</a>
+                </li>
                 
-            
-            </div>
+                <li>
+                    <a href="#colorLcdOff">colorLcdOff</a>
+                </li>
+                
+                <li>
+                    <a href="#colorLcdOn">colorLcdOn</a>
+                </li>
+                
+                <li>
+                    <a href="#colorSupported">colorSupported</a>
+                </li>
+                
+                <li>
+                    <a href="#fullScreenWindow">fullScreenWindow</a>
+                </li>
+                
+                <li>
+                    <a href="#readLcdRegister">readLcdRegister</a>
+                </li>
+                
+                <li>
+                    <a href="#resetLegacyLcdMode">resetLegacyLcdMode</a>
+                </li>
+                
+                <li>
+                    <a href="#setLcdWindow">setLcdWindow</a>
+                </li>
+                
+                <li>
+                    <a href="#setLegacyLcdMode">setLegacyLcdMode</a>
+                </li>
+                
+                <li>
+                    <a href="#writeLcdRegister">writeLcdRegister</a>
+                </li>
+                
+            </ul>
         </div>
     </div>
-    
-    <div id="clipColorRectangle" class="docsection">
-        <div>
-            <h2>
-                <a href="#clipColorRectangle">clipColorRectangle</a>
-            </h2>
-            
-            <p>Draws a clipped rectangle of the specified size with the specified color in color mode.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>DE </dt>
-                        <dd><p>width of the rectangle in pixels</p></dt>
-                        
-                        <dt>C </dt>
-                        <dd><p>height of the rectangle in pixels</p></dt>
-                        
-                        <dt>B </dt>
-                        <dd><p>Y coordinate in pixels</p></dt>
-                        
-                        <dt>IY </dt>
-                        <dd><p>color of the rectangle in R5G6B5 format</p></dt>
-                        
-                        <dt>HL </dt>
-                        <dd><p>X coordinate in pixels</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Notes</h3>
-                
-                    <p>The rectangle will be clipped to any LCD window already in place, and restore it afterwards.</p>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="colorLcdOff" class="docsection">
-        <div>
-            <h2>
-                <a href="#colorLcdOff">colorLcdOff</a>
-            </h2>
-            
-            <p>Turns off the color LCD and backlight.</p>
-
-            <div class="details">
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="colorLcdOn" class="docsection">
-        <div>
-            <h2>
-                <a href="#colorLcdOn">colorLcdOn</a>
-            </h2>
-            
-            <p>Initializes and turns on the color LCD in color mode.</p>
-
-            <div class="details">
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="colorSupported" class="docsection">
-        <div>
-            <h2>
-                <a href="#colorSupported">colorSupported</a>
-            </h2>
-            
-            <p>Sets Z if color is supported on this device.</p>
-
-            <div class="details">
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>errUnsupported if color is unsupported</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set if supported, reset if unsupported</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="fullScreenWindow" class="docsection">
-        <div>
-            <h2>
-                <a href="#fullScreenWindow">fullScreenWindow</a>
-            </h2>
-            
-            <p>Sets the clipping window to fit the LCD screen in color mode.</p>
-
-            <div class="details">
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="readLcdRegister" class="docsection">
-        <div>
-            <h2>
-                <a href="#readLcdRegister">readLcdRegister</a>
-            </h2>
-            
-            <p>Reads a 16-bit value from a color LCD register</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Register</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Comments</h3>
-                
-                    <p>Destroys C</p>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>HL</dt>
-                        <dd><p>Value</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="resetLegacyLcdMode" class="docsection">
-        <div>
-            <h2>
-                <a href="#resetLegacyLcdMode">resetLegacyLcdMode</a>
-            </h2>
-            
-            <p>Sets the LCD to color mode. Call this before you call <a href="hardware.html#getLcdLock">getLcdLock</a>.</p>
-
-            <div class="details">
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="setLcdWindow" class="docsection">
-        <div>
-            <h2>
-                <a href="#setLcdWindow">setLcdWindow</a>
-            </h2>
-            
-            <p>Sets the LCD's clipping window. Values are inclusive.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>B</dt>
-                        <dd><p>top border</p></dt>
-                        
-                        <dt>DE</dt>
-                        <dd><p>right border</p></dt>
-                        
-                        <dt>C</dt>
-                        <dd><p>bottom border </p></dt>
-                        
-                        <dt>HL</dt>
-                        <dd><p>left border</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Notes</h3>
-                
-                    <p>Destroys C</p>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="setLegacyLcdMode" class="docsection">
-        <div>
-            <h2>
-                <a href="#setLegacyLcdMode">setLegacyLcdMode</a>
-            </h2>
-            
-            <p>Sets the LCD to legacy mode.</p>
-
-            <div class="details">
-            
-                <h3>Notes</h3>
-                
-                    <p>Legacy mode simulates a 96x64 monochrome screen with the help of <a href="display.html#fastCopy">fastCopy</a>. Color graphics are not advised in legacy mode.</p>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="writeLcdRegister" class="docsection">
-        <div>
-            <h2>
-                <a href="#writeLcdRegister">writeLcdRegister</a>
-            </h2>
-            
-            <p>Writes a 16-bit value to a color LCD register</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Register</p></dt>
-                        
-                        <dt>HL</dt>
-                        <dd><p>Value</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Comments</h3>
-                
-                    <p>Destroys C</p>
-                
-            
-            </div>
-        </div>
-    </div>
-    
 </div>
+<script type="text/javascript">
+
+</script>

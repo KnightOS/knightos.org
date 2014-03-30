@@ -3,588 +3,667 @@ title: Threading Documentation
 layout: documentation
 ---
 
-<h1>Threading</h1>
-<div class="docs">
-    
-    <div id="exitThread" class="docsection">
-        <div>
-            <h2>
-                <a href="#exitThread">exitThread</a>
-            </h2>
+<div class="row">
+    <div class="col-md-8">
+        <h1>Threading</h1>
+        <div class="docs">
             
-            <p>Immediately terminates the running thread. This function will never return; call it with <code>jp exitThread</code>.</p>
+            <div id="exitThread" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#exitThread">exitThread</a>
+                    </h2>
+                    
+                    <p>Immediately terminates the running thread. This function will never return; call it with <code>jp exitThread</code>.</p>
 
-            <div class="details">
-            
-                <h3>Notes</h3>
-                
-                    <p>This is preferred to <a href="threading.html#killThread">killThread</a>, since it will go through the caller-set exit function. This is often <a href="threading.html#killThread">killThread</a> anyway, but it may be set to a custom value by the code that intitialized the thread.</p>
-                
-            
+                    <div class="details">
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>This is preferred to <a href="threading.html#killThread">killThread</a>, since it will go through the caller-set exit function. This is often <a href="threading.html#killThread">killThread</a> anyway, but it may be set to a custom value by the code that intitialized the thread.</p>
+                        
+                    
+                    </div>
+                </div>
             </div>
+            
+            <div id="getCurrentThreadID" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#getCurrentThreadID">getCurrentThreadID</a>
+                    </h2>
+                    
+                    <p>Gets the ID of the currently executing thread.</p>
+
+                    <div class="details">
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Thread ID</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="getThreadEntry" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#getThreadEntry">getThreadEntry</a>
+                    </h2>
+                    
+                    <p>Gets a pointer to the specified thread's entry in the thread table.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Thread ID</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>You must disable interrupts while manipulating the thread table to guarantee that it will not change while you do so.</p>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Thread entry</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="killCurrentThread" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#killCurrentThread">killCurrentThread</a>
+                    </h2>
+                    
+                    <p>Kills the currently executing thread.</p>
+
+                    <div class="details">
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>In most cases, it is preferrable to call <a href="threading.html#exitThread">exitThread</a>, which will use the exit function specified by the caller. This function cleans up all resources owned by that thread, including allocated memory, loaded libraries, file handles, etc.</p>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="killThread" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#killThread">killThread</a>
+                    </h2>
+                    
+                    <p>Kills the specified thread.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Thread ID</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>This function cleans up all resources owned by that thread, including allocated memory, loaded libraries, file handles, etc.</p>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set if successful, reset otherwise</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="launchProgram" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#launchProgram">launchProgram</a>
+                    </h2>
+                    
+                    <p>Loads the specified file into memory as a program and starts a new thread for it.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>DE</dt>
+                                <dd><p>Path to executable file</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Thread ID (on success), error code (on failure)</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set if successful, reset otherwise</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="resumeThread" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#resumeThread">resumeThread</a>
+                    </h2>
+                    
+                    <p>Resumes the specified thread.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Thread ID</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="setInitialA" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#setInitialA">setInitialA</a>
+                    </h2>
+                    
+                    <p>Sets the initial value of the A register for the specified thread.</p>
+
+                    <div class="details">
+                    
+                        <h3>Note</h3>
+                        
+                            <p>Do <strong>not</strong> call this function on a thread that has already been started. You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and leave them disabled until after you have finished setting the initial state.</p>
+                        
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Thread ID</p></dt>
+                                
+                                <dt>H</dt>
+                                <dd><p>Initial value of A</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set if successful, reset otherwise</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="setInitialBC" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#setInitialBC">setInitialBC</a>
+                    </h2>
+                    
+                    <p>Sets the initial value of the BC register for the specified thread.</p>
+
+                    <div class="details">
+                    
+                        <h3>Note</h3>
+                        
+                            <p>Do <strong>not</strong> call this function on a thread that has already been started. You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and leave them disabled until after you have finished setting the initial state.</p>
+                        
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Thread ID</p></dt>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Initial value of BC</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set if successful, reset otherwise</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="setInitialDE" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#setInitialDE">setInitialDE</a>
+                    </h2>
+                    
+                    <p>Sets the initial value of the DE register for the specified thread.</p>
+
+                    <div class="details">
+                    
+                        <h3>Note</h3>
+                        
+                            <p>Do <strong>not</strong> call this function on a thread that has already been started. You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and leave them disabled until after you have finished setting the initial state.</p>
+                        
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Thread ID</p></dt>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Initial value of DE</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set if successful, reset otherwise</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="setInitialHL" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#setInitialHL">setInitialHL</a>
+                    </h2>
+                    
+                    <p>Sets the initial value of the HL register for the specified thread.</p>
+
+                    <div class="details">
+                    
+                        <h3>Note</h3>
+                        
+                            <p>Do <strong>not</strong> call this function on a thread that has already been started. You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and leave them disabled until after you have finished setting the initial state.</p>
+                        
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Thread ID</p></dt>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Initial value of HL</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set if successful, reset otherwise</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="setInitialIX" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#setInitialIX">setInitialIX</a>
+                    </h2>
+                    
+                    <p>Sets the initial value of the IX register for the specified thread.</p>
+
+                    <div class="details">
+                    
+                        <h3>Note</h3>
+                        
+                            <p>Do <strong>not</strong> call this function on a thread that has already been started. You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and leave them disabled until after you have finished setting the initial state.</p>
+                        
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Thread ID</p></dt>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Initial value of IX</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set if successful, reset otherwise</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="setInitialIY" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#setInitialIY">setInitialIY</a>
+                    </h2>
+                    
+                    <p>Sets the initial value of the IY register for the specified thread.</p>
+
+                    <div class="details">
+                    
+                        <h3>Note</h3>
+                        
+                            <p>Do <strong>not</strong> call this function on a thread that has already been started. You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and leave them disabled until after you have finished setting the initial state.</p>
+                        
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Thread ID</p></dt>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Initial value of IY</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set if successful, reset otherwise</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="setReturnPoint" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#setReturnPoint">setReturnPoint</a>
+                    </h2>
+                    
+                    <p>Sets the return point for the specified thread. This is set to <a href="threading.html#killThread">killThread</a> by default.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Thread ID</p></dt>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Return point</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set if successful, reset otherwise</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="startThread" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#startThread">startThread</a>
+                    </h2>
+                    
+                    <p>Starts a new thread.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Thread flags</p></dt>
+                                
+                                <dt>B</dt>
+                                <dd><p>Desired stack size / 2</p></dt>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Pointer to thread executable</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>If you wish to manipulate this thread before it executes (to set the initial value of the registers, for instance), disable interrupts before calling startThread, and re-enable them when you're ready to start the thread. If you want to postpone starting the thread for an extended period of time, call <span class="deadlink">suspendThread</span> before re-enabling interrupts, and <a href="threading.html#resumeThread">resumeThread</a> when you're ready to start it.</p>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>ID of new thread (on success); Error code (on failure)</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set if successful, reset otherwise</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="suspendCurrentThread" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#suspendCurrentThread">suspendCurrentThread</a>
+                    </h2>
+                    
+                    <p>Suspends the currently executing thread.</p>
+
+                    <div class="details">
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>This function will not return until a second thread resumes the current thread.</p>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
-    
-    <div id="getCurrentThreadID" class="docsection">
-        <div>
-            <h2>
-                <a href="#getCurrentThreadID">getCurrentThreadID</a>
-            </h2>
-            
-            <p>Gets the ID of the currently executing thread.</p>
-
-            <div class="details">
-            
-                <h3>Outputs</h3>
+    <div class="col-md-4">
+        <div data-spy="affix">
+            <h2>Threading Functions</h2>
+            <ul class="nav doc-nav" data-offset-top="60" data-offset-bottom="200">
                 
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Thread ID</p></dt>
-                        
-                    </dl>
+                <li>
+                    <a href="#exitThread">exitThread</a>
+                </li>
                 
-            
-            </div>
+                <li>
+                    <a href="#getCurrentThreadID">getCurrentThreadID</a>
+                </li>
+                
+                <li>
+                    <a href="#getThreadEntry">getThreadEntry</a>
+                </li>
+                
+                <li>
+                    <a href="#killCurrentThread">killCurrentThread</a>
+                </li>
+                
+                <li>
+                    <a href="#killThread">killThread</a>
+                </li>
+                
+                <li>
+                    <a href="#launchProgram">launchProgram</a>
+                </li>
+                
+                <li>
+                    <a href="#resumeThread">resumeThread</a>
+                </li>
+                
+                <li>
+                    <a href="#setInitialA">setInitialA</a>
+                </li>
+                
+                <li>
+                    <a href="#setInitialBC">setInitialBC</a>
+                </li>
+                
+                <li>
+                    <a href="#setInitialDE">setInitialDE</a>
+                </li>
+                
+                <li>
+                    <a href="#setInitialHL">setInitialHL</a>
+                </li>
+                
+                <li>
+                    <a href="#setInitialIX">setInitialIX</a>
+                </li>
+                
+                <li>
+                    <a href="#setInitialIY">setInitialIY</a>
+                </li>
+                
+                <li>
+                    <a href="#setReturnPoint">setReturnPoint</a>
+                </li>
+                
+                <li>
+                    <a href="#startThread">startThread</a>
+                </li>
+                
+                <li>
+                    <a href="#suspendCurrentThread">suspendCurrentThread</a>
+                </li>
+                
+            </ul>
         </div>
     </div>
-    
-    <div id="getThreadEntry" class="docsection">
-        <div>
-            <h2>
-                <a href="#getThreadEntry">getThreadEntry</a>
-            </h2>
-            
-            <p>Gets a pointer to the specified thread's entry in the thread table.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Thread ID</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Notes</h3>
-                
-                    <p>You must disable interrupts while manipulating the thread table to guarantee that it will not change while you do so.</p>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>HL</dt>
-                        <dd><p>Thread entry</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="killCurrentThread" class="docsection">
-        <div>
-            <h2>
-                <a href="#killCurrentThread">killCurrentThread</a>
-            </h2>
-            
-            <p>Kills the currently executing thread.</p>
-
-            <div class="details">
-            
-                <h3>Notes</h3>
-                
-                    <p>In most cases, it is preferrable to call <a href="threading.html#exitThread">exitThread</a>, which will use the exit function specified by the caller. This function cleans up all resources owned by that thread, including allocated memory, loaded libraries, file handles, etc.</p>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="killThread" class="docsection">
-        <div>
-            <h2>
-                <a href="#killThread">killThread</a>
-            </h2>
-            
-            <p>Kills the specified thread.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Thread ID</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Notes</h3>
-                
-                    <p>This function cleans up all resources owned by that thread, including allocated memory, loaded libraries, file handles, etc.</p>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Error code (on failure)</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set if successful, reset otherwise</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="launchProgram" class="docsection">
-        <div>
-            <h2>
-                <a href="#launchProgram">launchProgram</a>
-            </h2>
-            
-            <p>Loads the specified file into memory as a program and starts a new thread for it.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>DE</dt>
-                        <dd><p>Path to executable file</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Thread ID (on success), error code (on failure)</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set if successful, reset otherwise</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="resumeThread" class="docsection">
-        <div>
-            <h2>
-                <a href="#resumeThread">resumeThread</a>
-            </h2>
-            
-            <p>Resumes the specified thread.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Thread ID</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="setInitialA" class="docsection">
-        <div>
-            <h2>
-                <a href="#setInitialA">setInitialA</a>
-            </h2>
-            
-            <p>Sets the initial value of the A register for the specified thread.</p>
-
-            <div class="details">
-            
-                <h3>Note</h3>
-                
-                    <p>Do <strong>not</strong> call this function on a thread that has already been started. You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and leave them disabled until after you have finished setting the initial state.</p>
-                
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Thread ID</p></dt>
-                        
-                        <dt>H</dt>
-                        <dd><p>Initial value of A</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Error code (on failure)</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set if successful, reset otherwise</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="setInitialBC" class="docsection">
-        <div>
-            <h2>
-                <a href="#setInitialBC">setInitialBC</a>
-            </h2>
-            
-            <p>Sets the initial value of the BC register for the specified thread.</p>
-
-            <div class="details">
-            
-                <h3>Note</h3>
-                
-                    <p>Do <strong>not</strong> call this function on a thread that has already been started. You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and leave them disabled until after you have finished setting the initial state.</p>
-                
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Thread ID</p></dt>
-                        
-                        <dt>HL</dt>
-                        <dd><p>Initial value of BC</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Error code (on failure)</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set if successful, reset otherwise</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="setInitialDE" class="docsection">
-        <div>
-            <h2>
-                <a href="#setInitialDE">setInitialDE</a>
-            </h2>
-            
-            <p>Sets the initial value of the DE register for the specified thread.</p>
-
-            <div class="details">
-            
-                <h3>Note</h3>
-                
-                    <p>Do <strong>not</strong> call this function on a thread that has already been started. You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and leave them disabled until after you have finished setting the initial state.</p>
-                
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Thread ID</p></dt>
-                        
-                        <dt>HL</dt>
-                        <dd><p>Initial value of DE</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Error code (on failure)</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set if successful, reset otherwise</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="setInitialHL" class="docsection">
-        <div>
-            <h2>
-                <a href="#setInitialHL">setInitialHL</a>
-            </h2>
-            
-            <p>Sets the initial value of the HL register for the specified thread.</p>
-
-            <div class="details">
-            
-                <h3>Note</h3>
-                
-                    <p>Do <strong>not</strong> call this function on a thread that has already been started. You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and leave them disabled until after you have finished setting the initial state.</p>
-                
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Thread ID</p></dt>
-                        
-                        <dt>HL</dt>
-                        <dd><p>Initial value of HL</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Error code (on failure)</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set if successful, reset otherwise</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="setInitialIX" class="docsection">
-        <div>
-            <h2>
-                <a href="#setInitialIX">setInitialIX</a>
-            </h2>
-            
-            <p>Sets the initial value of the IX register for the specified thread.</p>
-
-            <div class="details">
-            
-                <h3>Note</h3>
-                
-                    <p>Do <strong>not</strong> call this function on a thread that has already been started. You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and leave them disabled until after you have finished setting the initial state.</p>
-                
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Thread ID</p></dt>
-                        
-                        <dt>HL</dt>
-                        <dd><p>Initial value of IX</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Error code (on failure)</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set if successful, reset otherwise</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="setInitialIY" class="docsection">
-        <div>
-            <h2>
-                <a href="#setInitialIY">setInitialIY</a>
-            </h2>
-            
-            <p>Sets the initial value of the IY register for the specified thread.</p>
-
-            <div class="details">
-            
-                <h3>Note</h3>
-                
-                    <p>Do <strong>not</strong> call this function on a thread that has already been started. You must have interrupts disabled when you call <a href="threading.html#startThread">startThread</a>, and leave them disabled until after you have finished setting the initial state.</p>
-                
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Thread ID</p></dt>
-                        
-                        <dt>HL</dt>
-                        <dd><p>Initial value of IY</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Error code (on failure)</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set if successful, reset otherwise</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="setReturnPoint" class="docsection">
-        <div>
-            <h2>
-                <a href="#setReturnPoint">setReturnPoint</a>
-            </h2>
-            
-            <p>Sets the return point for the specified thread. This is set to <a href="threading.html#killThread">killThread</a> by default.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Thread ID</p></dt>
-                        
-                        <dt>HL</dt>
-                        <dd><p>Return point</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Error code (on failure)</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set if successful, reset otherwise</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="startThread" class="docsection">
-        <div>
-            <h2>
-                <a href="#startThread">startThread</a>
-            </h2>
-            
-            <p>Starts a new thread.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Thread flags</p></dt>
-                        
-                        <dt>B</dt>
-                        <dd><p>Desired stack size / 2</p></dt>
-                        
-                        <dt>HL</dt>
-                        <dd><p>Pointer to thread executable</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Notes</h3>
-                
-                    <p>If you wish to manipulate this thread before it executes (to set the initial value of the registers, for instance), disable interrupts before calling startThread, and re-enable them when you're ready to start the thread. If you want to postpone starting the thread for an extended period of time, call <span class="deadlink">suspendThread</span> before re-enabling interrupts, and <a href="threading.html#resumeThread">resumeThread</a> when you're ready to start it.</p>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>ID of new thread (on success); Error code (on failure)</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set if successful, reset otherwise</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="suspendCurrentThread" class="docsection">
-        <div>
-            <h2>
-                <a href="#suspendCurrentThread">suspendCurrentThread</a>
-            </h2>
-            
-            <p>Suspends the currently executing thread.</p>
-
-            <div class="details">
-            
-                <h3>Notes</h3>
-                
-                    <p>This function will not return until a second thread resumes the current thread.</p>
-                
-            
-            </div>
-        </div>
-    </div>
-    
 </div>
+<script type="text/javascript">
+
+</script>

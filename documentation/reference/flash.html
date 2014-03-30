@@ -3,245 +3,296 @@ title: Flash Documentation
 layout: documentation
 ---
 
-<h1>Flash</h1>
-<div class="docs">
-    
-    <div id="copyFlashPage" class="docsection">
-        <div>
-            <h2>
-                <a href="#copyFlashPage">copyFlashPage</a>
-            </h2>
+<div class="row">
+    <div class="col-md-8">
+        <h1>Flash</h1>
+        <div class="docs">
             
-            <p>Copies one page of Flash to another.</p>
+            <div id="copyFlashPage" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#copyFlashPage">copyFlashPage</a>
+                    </h2>
+                    
+                    <p>Copies one page of Flash to another.</p>
 
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
                         
-                        <dt>A</dt>
-                        <dd><p>Destination page</p></dt>
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Destination page</p></dt>
+                                
+                                <dt>B</dt>
+                                <dd><p>Source page</p></dt>
+                                
+                            </dl>
                         
-                        <dt>B</dt>
-                        <dd><p>Source page</p></dt>
+                    
+                        <h3>Notes</h3>
                         
-                    </dl>
-                
-            
-                <h3>Notes</h3>
-                
-                    <p>Flash must be unlocked and the desination page must be cleared.</p>
-                
-            
+                            <p>Flash must be unlocked and the desination page must be cleared.</p>
+                        
+                    
+                    </div>
+                </div>
             </div>
+            
+            <div id="copySectorToSwap" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#copySectorToSwap">copySectorToSwap</a>
+                    </h2>
+                    
+                    <p>Copies a single sector of Flash to the swap sector.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Any page within the sector to be copied</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>Flash must be unlocked.</p>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="eraseFlashPage" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#eraseFlashPage">eraseFlashPage</a>
+                    </h2>
+                    
+                    <p>Erases a single page of Flash.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Target page</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>Flash must be unlocked. This is a very costly operation, and you may want to consider handling this logic yourself if you have to erase more than one page in a single sector</p>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="eraseFlashSector" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#eraseFlashSector">eraseFlashSector</a>
+                    </h2>
+                    
+                    <p>Erases one sector of Flash (generally 4 pages of Flash, or 64K) by setting each byte to 0xFF.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Any page within the target sector</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>Flash must be unlocked.</p>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="eraseSwapSector" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#eraseSwapSector">eraseSwapSector</a>
+                    </h2>
+                    
+                    <p>Erases the swap sector.</p>
+
+                    <div class="details">
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>Flash must be unlocked.</p>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="lockFlash" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#lockFlash">lockFlash</a>
+                    </h2>
+                    
+                    <p>Locks Flash and locks protected ports</p>
+
+                    <div class="details">
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="unlockFlash" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#unlockFlash">unlockFlash</a>
+                    </h2>
+                    
+                    <p>Unlocks Flash and unlocks protected ports</p>
+
+                    <div class="details">
+                    
+                        <h3>Notes</h3>
+                        
+                            <p><strong>Do not use this unless you know what you're doing.</strong> Please call <a href="flash.html#lockFlash">lockFlash</a> when you finish what you're doing and don't spend too much time with Flash unlocked. Disabled interrupts while Flash is unlocked.</p>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="writeFlashBuffer" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#writeFlashBuffer">writeFlashBuffer</a>
+                    </h2>
+                    
+                    <p>Writes several bytes of memory to Flash</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>DE</dt>
+                                <dd><p>Address to write to</p></dt>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Address to read from (in RAM)</p></dt>
+                                
+                                <dt>BC</dt>
+                                <dd><p>Length of data to write</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>Flash must be unlocked. Do not attempt to read your source data from Flash, you must load any data to be written into RAM. This can only <em>reset</em> bits of Flash.</p>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="writeFlashByte" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#writeFlashByte">writeFlashByte</a>
+                    </h2>
+                    
+                    <p>Writes a single byte to Flash</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Value</p></dt>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Destination</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>Flash must be unlocked. This can only <em>reset</em> bits of Flash.</p>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
-    
-    <div id="copySectorToSwap" class="docsection">
-        <div>
-            <h2>
-                <a href="#copySectorToSwap">copySectorToSwap</a>
-            </h2>
-            
-            <p>Copies a single sector of Flash to the swap sector.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
+    <div class="col-md-4">
+        <div data-spy="affix">
+            <h2>Flash Functions</h2>
+            <ul class="nav doc-nav" data-offset-top="60" data-offset-bottom="200">
                 
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Any page within the sector to be copied</p></dt>
-                        
-                    </dl>
+                <li>
+                    <a href="#copyFlashPage">copyFlashPage</a>
+                </li>
                 
-            
-                <h3>Notes</h3>
+                <li>
+                    <a href="#copySectorToSwap">copySectorToSwap</a>
+                </li>
                 
-                    <p>Flash must be unlocked.</p>
+                <li>
+                    <a href="#eraseFlashPage">eraseFlashPage</a>
+                </li>
                 
-            
-            </div>
+                <li>
+                    <a href="#eraseFlashSector">eraseFlashSector</a>
+                </li>
+                
+                <li>
+                    <a href="#eraseSwapSector">eraseSwapSector</a>
+                </li>
+                
+                <li>
+                    <a href="#lockFlash">lockFlash</a>
+                </li>
+                
+                <li>
+                    <a href="#unlockFlash">unlockFlash</a>
+                </li>
+                
+                <li>
+                    <a href="#writeFlashBuffer">writeFlashBuffer</a>
+                </li>
+                
+                <li>
+                    <a href="#writeFlashByte">writeFlashByte</a>
+                </li>
+                
+            </ul>
         </div>
     </div>
-    
-    <div id="eraseFlashPage" class="docsection">
-        <div>
-            <h2>
-                <a href="#eraseFlashPage">eraseFlashPage</a>
-            </h2>
-            
-            <p>Erases a single page of Flash.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Target page</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Notes</h3>
-                
-                    <p>Flash must be unlocked. This is a very costly operation, and you may want to consider handling this logic yourself if you have to erase more than one page in a single sector</p>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="eraseFlashSector" class="docsection">
-        <div>
-            <h2>
-                <a href="#eraseFlashSector">eraseFlashSector</a>
-            </h2>
-            
-            <p>Erases one sector of Flash (generally 4 pages of Flash, or 64K) by setting each byte to 0xFF.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Any page within the target sector</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Notes</h3>
-                
-                    <p>Flash must be unlocked.</p>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="eraseSwapSector" class="docsection">
-        <div>
-            <h2>
-                <a href="#eraseSwapSector">eraseSwapSector</a>
-            </h2>
-            
-            <p>Erases the swap sector.</p>
-
-            <div class="details">
-            
-                <h3>Notes</h3>
-                
-                    <p>Flash must be unlocked.</p>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="lockFlash" class="docsection">
-        <div>
-            <h2>
-                <a href="#lockFlash">lockFlash</a>
-            </h2>
-            
-            <p>Locks Flash and locks protected ports</p>
-
-            <div class="details">
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="unlockFlash" class="docsection">
-        <div>
-            <h2>
-                <a href="#unlockFlash">unlockFlash</a>
-            </h2>
-            
-            <p>Unlocks Flash and unlocks protected ports</p>
-
-            <div class="details">
-            
-                <h3>Notes</h3>
-                
-                    <p><strong>Do not use this unless you know what you're doing.</strong> Please call <a href="flash.html#lockFlash">lockFlash</a> when you finish what you're doing and don't spend too much time with Flash unlocked. Disabled interrupts while Flash is unlocked.</p>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="writeFlashBuffer" class="docsection">
-        <div>
-            <h2>
-                <a href="#writeFlashBuffer">writeFlashBuffer</a>
-            </h2>
-            
-            <p>Writes several bytes of memory to Flash</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>DE</dt>
-                        <dd><p>Address to write to</p></dt>
-                        
-                        <dt>HL</dt>
-                        <dd><p>Address to read from (in RAM)</p></dt>
-                        
-                        <dt>BC</dt>
-                        <dd><p>Length of data to write</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Notes</h3>
-                
-                    <p>Flash must be unlocked. Do not attempt to read your source data from Flash, you must load any data to be written into RAM. This can only <em>reset</em> bits of Flash.</p>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="writeFlashByte" class="docsection">
-        <div>
-            <h2>
-                <a href="#writeFlashByte">writeFlashByte</a>
-            </h2>
-            
-            <p>Writes a single byte to Flash</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Value</p></dt>
-                        
-                        <dt>HL</dt>
-                        <dd><p>Destination</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Notes</h3>
-                
-                    <p>Flash must be unlocked. This can only <em>reset</em> bits of Flash.</p>
-                
-            
-            </div>
-        </div>
-    </div>
-    
 </div>
+<script type="text/javascript">
+
+</script>

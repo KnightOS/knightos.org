@@ -3,142 +3,169 @@ title: Time Documentation
 layout: documentation
 ---
 
-<h1>Time</h1>
-<div class="docs">
-    
-    <div id="convertTimeFromTicks" class="docsection">
-        <div>
-            <h2>
-                <a href="#convertTimeFromTicks">convertTimeFromTicks</a>
-            </h2>
+<div class="row">
+    <div class="col-md-8">
+        <h1>Time</h1>
+        <div class="docs">
             
-            <p>Convert from ticks in seconds to time Epoch is January 1st, 1997 (Wednesday)</p>
+            <div id="convertTimeFromTicks" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#convertTimeFromTicks">convertTimeFromTicks</a>
+                    </h2>
+                    
+                    <p>Convert from ticks in seconds to time Epoch is January 1st, 1997 (Wednesday)</p>
 
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
                         
-                        <dt>DE</dt>
-                        <dd><p>Upper word of tick value</p></dt>
+                            <dl>
+                                
+                                <dt>DE</dt>
+                                <dd><p>Upper word of tick value</p></dt>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Lower word of tick value</p></dt>
+                                
+                            </dl>
                         
-                        <dt>HL</dt>
-                        <dd><p>Lower word of tick value</p></dt>
+                    
+                        <h3>Outputs</h3>
                         
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Day of the week, from 0-6 with 0 being sunday</p></dt>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Current year</p></dt>
+                                
+                                <dt>C</dt>
+                                <dd><p>Current minute, from 0-59</p></dt>
+                                
+                                <dt>B</dt>
+                                <dd><p>Current hour, from 0-23</p></dt>
+                                
+                                <dt>E</dt>
+                                <dd><p>Garbage</p></dt>
+                                
+                                <dt>D</dt>
+                                <dd><p>Current second, from 0-59</p></dt>
+                                
+                                <dt>H</dt>
+                                <dd><p>Current day, from 0-30</p></dt>
+                                
+                                <dt>L</dt>
+                                <dd><p>Current month, from 0-11</p></dt>
+                                
+                            </dl>
                         
-                        <dt>A</dt>
-                        <dd><p>Day of the week, from 0-6 with 0 being sunday</p></dt>
-                        
-                        <dt>IX</dt>
-                        <dd><p>Current year</p></dt>
-                        
-                        <dt>C</dt>
-                        <dd><p>Current minute, from 0-59</p></dt>
-                        
-                        <dt>B</dt>
-                        <dd><p>Current hour, from 0-23</p></dt>
-                        
-                        <dt>E</dt>
-                        <dd><p>Garbage</p></dt>
-                        
-                        <dt>D</dt>
-                        <dd><p>Current second, from 0-59</p></dt>
-                        
-                        <dt>H</dt>
-                        <dd><p>Current day, from 0-30</p></dt>
-                        
-                        <dt>L</dt>
-                        <dd><p>Current month, from 0-11</p></dt>
-                        
-                    </dl>
-                
-            
+                    
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    
-    <div id="getClock" class="docsection">
-        <div>
-            <h2>
-                <a href="#getClock">getClock</a>
-            </h2>
             
-            <p>Sets the internal clock.</p>
+            <div id="getClock" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#getClock">getClock</a>
+                    </h2>
+                    
+                    <p>Sets the internal clock.</p>
 
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
                         
-                        <dt>A</dt>
-                        <dd><p>Preserved on success, error code on failure</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set on success, reset on failure</p></dt>
-                        
-                        <dt>DE</dt>
-                        <dd><p>Upper word of the 32-bit tick value</p></dt>
-                        
-                        <dt>HL</dt>
-                        <dd><p>Lower word of the 32-bit tick value</p></dt>
-                        
-                        <dt>None
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Preserved on success, error code on failure</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on failure</p></dt>
+                                
+                                <dt>DE</dt>
+                                <dd><p>Upper word of the 32-bit tick value</p></dt>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Lower word of the 32-bit tick value</p></dt>
+                                
+                                <dt>None
 ;; Outputs</dt>
-                        <dd></dt>
+                                <dd></dt>
+                                
+                            </dl>
                         
-                    </dl>
-                
-            
+                    
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    
-    <div id="setClock" class="docsection">
-        <div>
-            <h2>
-                <a href="#setClock">setClock</a>
-            </h2>
             
-            <p>Sets the internal clock.</p>
+            <div id="setClock" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#setClock">setClock</a>
+                    </h2>
+                    
+                    <p>Sets the internal clock.</p>
 
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
                         
-                        <dt>DE</dt>
-                        <dd><p>Upper word of a 32-bit tick value</p></dt>
+                            <dl>
+                                
+                                <dt>DE</dt>
+                                <dd><p>Upper word of a 32-bit tick value</p></dt>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Lower word of a 32-bit tick value</p></dt>
+                                
+                            </dl>
                         
-                        <dt>HL</dt>
-                        <dd><p>Lower word of a 32-bit tick value</p></dt>
+                    
+                        <h3>Outputs</h3>
                         
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Preserved on success, error code on failure</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on failure</p></dt>
+                                
+                            </dl>
                         
-                        <dt>A</dt>
-                        <dd><p>Preserved on success, error code on failure</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set on success, reset on failure</p></dt>
-                        
-                    </dl>
-                
-            
+                    
+                    </div>
+                </div>
             </div>
+            
         </div>
     </div>
-    
+    <div class="col-md-4">
+        <div data-spy="affix">
+            <h2>Time Functions</h2>
+            <ul class="nav doc-nav" data-offset-top="60" data-offset-bottom="200">
+                
+                <li>
+                    <a href="#convertTimeFromTicks">convertTimeFromTicks</a>
+                </li>
+                
+                <li>
+                    <a href="#getClock">getClock</a>
+                </li>
+                
+                <li>
+                    <a href="#setClock">setClock</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
 </div>
+<script type="text/javascript">
+
+</script>

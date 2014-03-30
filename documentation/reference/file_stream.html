@@ -3,462 +3,521 @@ title: File Stream Documentation
 layout: documentation
 ---
 
-<h1>File Stream</h1>
-<div class="docs">
-    
-    <div id="closeStream" class="docsection">
-        <div>
-            <h2>
-                <a href="#closeStream">closeStream</a>
-            </h2>
+<div class="row">
+    <div class="col-md-8">
+        <h1>File Stream</h1>
+        <div class="docs">
             
-            <p>Closes an open stream.</p>
+            <div id="closeStream" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#closeStream">closeStream</a>
+                    </h2>
+                    
+                    <p>Closes an open stream.</p>
 
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
                         
-                        <dt>D</dt>
-                        <dd><p>Stream ID</p></dt>
+                            <dl>
+                                
+                                <dt>D</dt>
+                                <dd><p>Stream ID</p></dt>
+                                
+                            </dl>
                         
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
+                    
+                        <h3>Outputs</h3>
                         
-                        <dt>A</dt>
-                        <dd><p>Error code (on failure)</p></dt>
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on failure</p></dt>
+                                
+                            </dl>
                         
-                        <dt>Z</dt>
-                        <dd><p>Set on success, reset on failure</p></dt>
-                        
-                    </dl>
-                
-            
+                    
+                    </div>
+                </div>
             </div>
+            
+            <div id="flush" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#flush">flush</a>
+                    </h2>
+                    
+                    <p>Flushes pending writes to disk.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>D</dt>
+                                <dd><p>Stream ID</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>This happens periodically as you write to the stream, and happens automatically on closeStream. Try not to use it unless you have to.</p>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Preserved on success; error code on error</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on error</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="getStreamBuffer" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#getStreamBuffer">getStreamBuffer</a>
+                    </h2>
+                    
+                    <p>Gets the address of a stream's memory buffer.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>D</dt>
+                                <dd><p>Stream ID</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>For read-only streams, modifying this buffer could have unforseen consequences and it will not be copied back to the file. For writable streams, make sure you call flush if you modify this buffer and want to make the changes persist to the file.</p>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dt>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Stream buffer (on success)</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on failure</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="getStreamEntry" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#getStreamEntry">getStreamEntry</a>
+                    </h2>
+                    
+                    <p>Gets the address of a stream entry in the kernel file stream table.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>D</dt>
+                                <dd><p>Stream ID</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dt>
+                                
+                                <dt>IX</dt>
+                                <dd><p>File stream entry poitner (on success)</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on failure</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="getStreamInfo" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#getStreamInfo">getStreamInfo</a>
+                    </h2>
+                    
+                    <p>Gets the amount of space remaining in a file stream.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>D</dt>
+                                <dd><p>Stream ID</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on failure</p></dt>
+                                
+                                <dt>EBC</dt>
+                                <dd><p>Remaining space in stream (on success)</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="openFileRead" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#openFileRead">openFileRead</a>
+                    </h2>
+                    
+                    <p>Opens a file stream in read-only mode.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>DE</dt>
+                                <dd><p>Path to file (string pointer)</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on failure</p></dt>
+                                
+                                <dt>E</dt>
+                                <dd><p>Garbage (on success)</p></dt>
+                                
+                                <dt>D</dt>
+                                <dd><p>File stream ID (on success)</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="openFileWrite" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#openFileWrite">openFileWrite</a>
+                    </h2>
+                    
+                    <p>Opens a file stream in write mode. If the file does not exist, it is created.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>DE</dt>
+                                <dd><p>Path to file (string pointer)</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on failure</p></dt>
+                                
+                                <dt>E</dt>
+                                <dd><p>Garbage (on success)</p></dt>
+                                
+                                <dt>D</dt>
+                                <dd><p>File stream ID (on success)</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="streamReadBuffer" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#streamReadBuffer">streamReadBuffer</a>
+                    </h2>
+                    
+                    <p>Reads a number of bytes from a file stream and advances the stream.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Destination address</p></dt>
+                                
+                                <dt>D</dt>
+                                <dd><p>Stream ID</p></dt>
+                                
+                                <dt>BC</dt>
+                                <dd><p>Length</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>If BC is greater than the remaining space in the stream, the stream will be advanced to the end before returning an error.</p>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on failure</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="streamReadByte" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#streamReadByte">streamReadByte</a>
+                    </h2>
+                    
+                    <p>Reads a single byte from a file stream and advances the stream.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>D</dt>
+                                <dd><p>Stream ID</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Data read (on success); Error code (on failure)</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on failure</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="streamReadToEnd" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#streamReadToEnd">streamReadToEnd</a>
+                    </h2>
+                    
+                    <p>Reads the remainder of a file stream into memory.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Destination address</p></dt>
+                                
+                                <dt>D</dt>
+                                <dd><p>Stream ID</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on failure</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="streamReadWord" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#streamReadWord">streamReadWord</a>
+                    </h2>
+                    
+                    <p>Reads a 16-bit word from a file stream and advances the stream.</p>
+
+                    <div class="details">
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>D</dt>
+                                <dd><p>Stream ID</p></dt>
+                                
+                            </dl>
+                        
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dt>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on failure</p></dt>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Data read (on success)</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
-    
-    <div id="flush" class="docsection">
-        <div>
-            <h2>
-                <a href="#flush">flush</a>
-            </h2>
-            
-            <p>Flushes pending writes to disk.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
+    <div class="col-md-4">
+        <div data-spy="affix">
+            <h2>File Stream Functions</h2>
+            <ul class="nav doc-nav" data-offset-top="60" data-offset-bottom="200">
                 
-                    <dl>
-                        
-                        <dt>D</dt>
-                        <dd><p>Stream ID</p></dt>
-                        
-                    </dl>
+                <li>
+                    <a href="#closeStream">closeStream</a>
+                </li>
                 
-            
-                <h3>Notes</h3>
+                <li>
+                    <a href="#flush">flush</a>
+                </li>
                 
-                    <p>This happens periodically as you write to the stream, and happens automatically on closeStream. Try not to use it unless you have to.</p>
+                <li>
+                    <a href="#getStreamBuffer">getStreamBuffer</a>
+                </li>
                 
-            
-                <h3>Outputs</h3>
+                <li>
+                    <a href="#getStreamEntry">getStreamEntry</a>
+                </li>
                 
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Preserved on success; error code on error</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set on success, reset on error</p></dt>
-                        
-                    </dl>
+                <li>
+                    <a href="#getStreamInfo">getStreamInfo</a>
+                </li>
                 
-            
-            </div>
+                <li>
+                    <a href="#openFileRead">openFileRead</a>
+                </li>
+                
+                <li>
+                    <a href="#openFileWrite">openFileWrite</a>
+                </li>
+                
+                <li>
+                    <a href="#streamReadBuffer">streamReadBuffer</a>
+                </li>
+                
+                <li>
+                    <a href="#streamReadByte">streamReadByte</a>
+                </li>
+                
+                <li>
+                    <a href="#streamReadToEnd">streamReadToEnd</a>
+                </li>
+                
+                <li>
+                    <a href="#streamReadWord">streamReadWord</a>
+                </li>
+                
+            </ul>
         </div>
     </div>
-    
-    <div id="getStreamBuffer" class="docsection">
-        <div>
-            <h2>
-                <a href="#getStreamBuffer">getStreamBuffer</a>
-            </h2>
-            
-            <p>Gets the address of a stream's memory buffer.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>D</dt>
-                        <dd><p>Stream ID</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Notes</h3>
-                
-                    <p>For read-only streams, modifying this buffer could have unforseen consequences and it will not be copied back to the file. For writable streams, make sure you call flush if you modify this buffer and want to make the changes persist to the file.</p>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Error code (on failure)</p></dt>
-                        
-                        <dt>IX</dt>
-                        <dd><p>Stream buffer (on success)</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set on success, reset on failure</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="getStreamEntry" class="docsection">
-        <div>
-            <h2>
-                <a href="#getStreamEntry">getStreamEntry</a>
-            </h2>
-            
-            <p>Gets the address of a stream entry in the kernel file stream table.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>D</dt>
-                        <dd><p>Stream ID</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Error code (on failure)</p></dt>
-                        
-                        <dt>IX</dt>
-                        <dd><p>File stream entry poitner (on success)</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set on success, reset on failure</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="getStreamInfo" class="docsection">
-        <div>
-            <h2>
-                <a href="#getStreamInfo">getStreamInfo</a>
-            </h2>
-            
-            <p>Gets the amount of space remaining in a file stream.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>D</dt>
-                        <dd><p>Stream ID</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Error code (on failure)</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set on success, reset on failure</p></dt>
-                        
-                        <dt>EBC</dt>
-                        <dd><p>Remaining space in stream (on success)</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="openFileRead" class="docsection">
-        <div>
-            <h2>
-                <a href="#openFileRead">openFileRead</a>
-            </h2>
-            
-            <p>Opens a file stream in read-only mode.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>DE</dt>
-                        <dd><p>Path to file (string pointer)</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Error code (on failure)</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set on success, reset on failure</p></dt>
-                        
-                        <dt>E</dt>
-                        <dd><p>Garbage (on success)</p></dt>
-                        
-                        <dt>D</dt>
-                        <dd><p>File stream ID (on success)</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="openFileWrite" class="docsection">
-        <div>
-            <h2>
-                <a href="#openFileWrite">openFileWrite</a>
-            </h2>
-            
-            <p>Opens a file stream in write mode. If the file does not exist, it is created.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>DE</dt>
-                        <dd><p>Path to file (string pointer)</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Error code (on failure)</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set on success, reset on failure</p></dt>
-                        
-                        <dt>E</dt>
-                        <dd><p>Garbage (on success)</p></dt>
-                        
-                        <dt>D</dt>
-                        <dd><p>File stream ID (on success)</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="streamReadBuffer" class="docsection">
-        <div>
-            <h2>
-                <a href="#streamReadBuffer">streamReadBuffer</a>
-            </h2>
-            
-            <p>Reads a number of bytes from a file stream and advances the stream.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>IX</dt>
-                        <dd><p>Destination address</p></dt>
-                        
-                        <dt>D</dt>
-                        <dd><p>Stream ID</p></dt>
-                        
-                        <dt>BC</dt>
-                        <dd><p>Length</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Notes</h3>
-                
-                    <p>If BC is greater than the remaining space in the stream, the stream will be advanced to the end before returning an error.</p>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Error code (on failure)</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set on success, reset on failure</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="streamReadByte" class="docsection">
-        <div>
-            <h2>
-                <a href="#streamReadByte">streamReadByte</a>
-            </h2>
-            
-            <p>Reads a single byte from a file stream and advances the stream.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>D</dt>
-                        <dd><p>Stream ID</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Data read (on success); Error code (on failure)</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set on success, reset on failure</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="streamReadToEnd" class="docsection">
-        <div>
-            <h2>
-                <a href="#streamReadToEnd">streamReadToEnd</a>
-            </h2>
-            
-            <p>Reads the remainder of a file stream into memory.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>IX</dt>
-                        <dd><p>Destination address</p></dt>
-                        
-                        <dt>D</dt>
-                        <dd><p>Stream ID</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Error code (on failure)</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set on success, reset on failure</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
-    <div id="streamReadWord" class="docsection">
-        <div>
-            <h2>
-                <a href="#streamReadWord">streamReadWord</a>
-            </h2>
-            
-            <p>Reads a 16-bit word from a file stream and advances the stream.</p>
-
-            <div class="details">
-            
-                <h3>Inputs</h3>
-                
-                    <dl>
-                        
-                        <dt>D</dt>
-                        <dd><p>Stream ID</p></dt>
-                        
-                    </dl>
-                
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Error code (on failure)</p></dt>
-                        
-                        <dt>Z</dt>
-                        <dd><p>Set on success, reset on failure</p></dt>
-                        
-                        <dt>HL</dt>
-                        <dd><p>Data read (on success)</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
 </div>
+<script type="text/javascript">
+
+</script>

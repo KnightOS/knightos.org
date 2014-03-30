@@ -3,69 +3,96 @@ title: Input Documentation
 layout: documentation
 ---
 
-<h1>Input</h1>
-<div class="docs">
-    
-    <div id="flushKeys" class="docsection">
-        <div>
-            <h2>
-                <a href="#flushKeys">flushKeys</a>
-            </h2>
+<div class="row">
+    <div class="col-md-8">
+        <h1>Input</h1>
+        <div class="docs">
             
-            <p>Blocks until all keys are released.</p>
+            <div id="flushKeys" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#flushKeys">flushKeys</a>
+                    </h2>
+                    
+                    <p>Blocks until all keys are released.</p>
 
-            <div class="details">
-            
+                    <div class="details">
+                    
+                    </div>
+                </div>
             </div>
+            
+            <div id="getKey" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#getKey">getKey</a>
+                    </h2>
+                    
+                    <p>Returns the currently pressed key code, or zero if no keys are pressed.</p>
+
+                    <div class="details">
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Key code</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="waitKey" class="docsection">
+                <div>
+                    <h2>
+                        <a href="#waitKey">waitKey</a>
+                    </h2>
+                    
+                    <p>Blocks until a key is pressed, then returns that key code.</p>
+
+                    <div class="details">
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Key code</p></dt>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
-    
-    <div id="getKey" class="docsection">
-        <div>
-            <h2>
-                <a href="#getKey">getKey</a>
-            </h2>
-            
-            <p>Returns the currently pressed key code, or zero if no keys are pressed.</p>
-
-            <div class="details">
-            
-                <h3>Outputs</h3>
+    <div class="col-md-4">
+        <div data-spy="affix">
+            <h2>Input Functions</h2>
+            <ul class="nav doc-nav" data-offset-top="60" data-offset-bottom="200">
                 
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Key code</p></dt>
-                        
-                    </dl>
+                <li>
+                    <a href="#flushKeys">flushKeys</a>
+                </li>
                 
-            
-            </div>
+                <li>
+                    <a href="#getKey">getKey</a>
+                </li>
+                
+                <li>
+                    <a href="#waitKey">waitKey</a>
+                </li>
+                
+            </ul>
         </div>
     </div>
-    
-    <div id="waitKey" class="docsection">
-        <div>
-            <h2>
-                <a href="#waitKey">waitKey</a>
-            </h2>
-            
-            <p>Blocks until a key is pressed, then returns that key code.</p>
-
-            <div class="details">
-            
-                <h3>Outputs</h3>
-                
-                    <dl>
-                        
-                        <dt>A</dt>
-                        <dd><p>Key code</p></dt>
-                        
-                    </dl>
-                
-            
-            </div>
-        </div>
-    </div>
-    
 </div>
+<script type="text/javascript">
+
+</script>
