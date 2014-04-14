@@ -120,13 +120,18 @@ may contain all or part of the contents of one file. Each flash page has 63 of t
 of each Flash page is a simple table, which represents which section follows each from within the page.
 
 Starting at address 0, on each page, the header consists of 64 four-byte entries, each representing one section of
-the page's sections. There is one entry (the first entry) that is always 0xFFFFFFFF, and is not used. Each entry is
-set to 0xFFFFFFFF if that entry is not used, otherwise, it is further split into two 16-bit numbers. The first is
-the preceeding section, or 0xFFFF if this is the first section of that file. The second is the next section, or
-0xFFFF if this is the last section of the file.
+the page's sections. Each entry is formed of two 16-bit numbers - the first is the preceeding section, and the
+second is the next section. 0xFFFF is used on each end of the file. That is, the first section of a file has the
+preceeding section set to 0xFFFF.
 
 For instance, say you have a file that starts on section 7, continues on 3, and ends on 12. The header for section
 7 would be 0xFFFF, 0x0003. The section 3 header is 0x0007, 0x000C. The section 12 header is 0x0003, 0xFFFF.
+
+The first entry of the header on each page is special. The first byte is a magic number, and should be set to K if
+this page is formatted. The second byte is reserved for future use. The third and fourth bytes are a mapping of
+which sections on that page are in use. The low bit refers to section 0, and the high bit to section 15. The low
+bit is always reset - it represents the header block. Each other bit is set if that section is free, and reset if
+in use.
 
 The data allocation section may become severely fragmented over time. Defragmentation is not necessary.
 
