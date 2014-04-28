@@ -1,133 +1,283 @@
 ---
-title: Userland programs
+# vim: tw=82
+title: Userspace Programs
 layout: base
 ---
 
 # Userland Programs
 
-The kernel provides multitasking and runs all userland programs from RAM. The address these programs
-run from is not known at compile-time, and you must design them with relocation in mind. Depending on
-your kernel configuration, up to 32 threads can run concurrently.
+Userspace programs for KnightOS are very different from programs you may be used
+to writing. However, they are very flexible. It should also be possible to port
+programs from one OS (such as TIOS) to KnightOS with little effort.
 
-## Kernel Header
+Userspace programs have access and may take advantage of kernel functions, as well
+as userspace libraries installed on the system. They can also spawn and
+communicate with additional threads, dynamically allocate memory, and do plenty of
+other interesting things.
 
-The first two bytes of a program is the header. The first byte is the required thread flags (0 is a
-suitable default), and the second byte is the stack size. The stack size is notated in words, so a
-stack size of 5 will allocate 10 bytes of space. All programs should originate at address 0, and will
-be relocated at runtime.
+## A note about KnightOS's system design
 
-    ; Example program
-    .nolist
-    #include "kernel.inc"
-    .list
-        .db 0  ; Thread flags
-        .db 20 ; Stack size
-    .org 0
-    start:
-        ; ...
-        ret
+KnightOS is a very special sort of operating system. It is extremely different
+from TIOS. It is divided into two parts: the kernel, and userspace. The kernel is
+the basis of the system. It exists on pages 0-3 (inclusive). The first page is
+always mapped to bank 0, and is therefore accessible at 0x0000-0x3FFF (inclsive)
+in memory. This part of the system is responsible for all the core functionality -
+booting, memory management, hardware drivers, filesystem access, and so on. The
+kernel very rarely interacts with the user.
 
-## Relocation
+The stuff you actually interact with when using KnightOS is the userspace. The
+castle is in userspace, as well as the application switcher, the math app, the
+settings app, and so on. These are implemented as userspace programs, the same
+ones that this document describes. If you are curious about how any of these
+programs work, or if you want to modify or improve them yourself, you can browse
+their [source code](https://github.com/KnightOS/KnightOS) online.
 
-Unlike TI-OS, KnightOS programs do not always run from 0x9D95. Programs should use `.org 0` and use
-relative references to refer to internal code and data. The k-macros can be used to relocate common
-instructions at runtime. For example:
+Some of the things commonly handled by each are covered here:
 
-        ; Wrong:
-        ld hl, message
-        ; Right:
-        kld(hl, message)
-    .message:
-        .db "Hello, world!", 0
+* The kernel handles...
+  * Booting up the system
+  * Multitasking
+  * Filesystem access
+  * Memory management
+  * Device drivers (the screen, keypad, etc)
+  * Text rendering
+  * Graphics
+* Userspace handles...
+  * Graphical User Interface (the look and feel)
+  * Package management
+  * Applications like Math and Settings
+  * Libraries like fx3d and corelib
 
-At runtime, this will be adjusted to use the appropriate address. The kernel will modify the code
-in RAM to use the correct address without any overhead, after the first time it runs. The following
-k-macros are available in kernel.inc:
+## Executable format
 
-* `kld(reg16, imm16)`
-* `kld((imm16), a)`
-* `kld(a, (imm16))`
-* `kcall(imm16)`
-* `kcall(cc, imm16)`
-* `kjp(imm16)`
-* `kjp(cc, imm16)`
+Your programs must use a certain format for the kernel to agree to load them. A
+simple template is provided here, and you may read [additional docs](#) later to
+learn more about it.
 
-Where `imm16` is a 16-bit immediate value, `reg16` is a 16-bit register, and `cc` is a flag conditional.
+{% highlight nasm %}
+#include "kernel.inc"
+    .db "KEXC"
+    .db KEXC_ENTRY_POINT
+    .dw start
+    .db KEXC_STACK_SIZE
+    .dw 50
+    .db KEXC_KERNEL_VER
+    .db 0, 6
+    .db KEXC_NAME
+    .dw name
+    .db KEXC_DESCRIPTION
+    .dw name
+    .db KEXC_HEADER_END
+name:
+    .db "The short name of your application", 0
+description:
+    .db "A longer description of your application. You should target this one"
+    .db "to 3 or 4 sentences", 0
+start:
+    ; Your code here
+{% endhighlight %}
 
-Note that some z80 instructions, like `jr` and `djnz`, are already relative and do not need to be
-relocated.
+Here is a version of this template with comments explaining each choice:
 
-## Memory Management
+{% highlight nasm %}
+#include "kernel.inc"
+; If you would like to use any other libraries, include them here (i.e.  "corelib.inc")
+    .db "KEXC" ; You must include this, and you cannot change it
+    .db KEXC_ENTRY_POINT
+    .dw start  ; This is the starting point of your program.
+    .db KEXC_STACK_SIZE
+    .dw 50     ; This is the amount of stack you need, times two. Optional.
+    .db KEXC_KERNEL_VER
+    .db 0, 6   ; The minimum kernel version your code can run on. Optional.
+    .db KEXC_NAME
+    .dw name   ; The name of your program. Optional.
+    .db KEXC_DESCRIPTION
+    .dw name   ; The description of your program. Optional.
+    .db KEXC_HEADER_END
+name:
+    .db "The short name of your application", 0
+description:
+    .db "A longer description of your application. You should target this one"
+    .db "to 3 or 4 sentences", 0
+start:
+    ; Your code here
+{% endhighlight %}
 
-In KnightOS, nearly all 32K of memory is availble to you (the exact amount changes based on your kernel
-configuration). In contrast to TI-OS, there is no "safe RAM", instead, you specify how much memory you
-need and are assigned some. This is accomplished with [malloc](/docs/reference/system.html#malloc).
-You need to be careful not to overwrite memory that doesn't belong to you - all programs share the same
-memory and there is no memory protection.
+You may assemble this with any assembler you please.
 
-## Hardware Locking
+## Relocation and multitasking
 
-To use the LCD, keyboard, I/O, or USB port, you must acquire a lock to avoid interfering with other
-programs. The relevant functions are documented [here](/docs/reference/hardware.html).
+The first and most important thing to understand about KnightOS programs is that
+they do not run from a consistent location. On TIOS, you can always be confident
+that your code will run at 0x9D95 (and you often start your programs with
+`.org 0x9D95` as a result). This is not the case on KnightOS. Instead, your
+program, as well as many other programs, are given space all over memory. The
+exact location is determined at runtime and changes frequently.
 
-## Kernel API
+To deal with this, KnightOS programs must be relocatable. Luckily, this is not
+very difficult. The kernel provides some mechanisms with which you are able to
+run your programs from arbituary addresses.
 
-Most kernel functions accept registers as input, and will preserve all registers that are not used to
-return some information. Additionally, there are some consistent ideas in use. Generally speaking,
+There are a number of macros included in kernel.inc to assist with relocation.
+They are:
 
-* HL is used for addresses and the source address of an operation
-* DE is used for destinations, or the second argument of a function requiring two addresses
-* BC is used for length
-* Z is set on success, and reset on error. When reset, A contains an error code.
-* IY is used for monochrome display buffers
-* IX is used for allocated memory
-* Shadow registers are free for userspace use
+* `kcall([cc,] address)`
+* `kjp([cc,] address)`
+* `kld(register, address)`
 
-Kernel functions are documented [here](/documentation.html).
+These function exactly like the z80 instructions `call`, `jp`, and `ld`,
+respectively. You must use these when referring to addresses within your own
+executable. For example:
 
-## Writing for multiple platforms
+{% highlight nasm %}
+    ld hl, message   ; BAD
+    kld(hl, message) ; GOOD
+    ld hl, 1234      ; This is okay, it's not a reference
 
-KnightOS and its kernel run on 9 different calculator models, and your code can, too. The most remarkable
-differences between the supported models are:
+    call foobar      ; BAD
+    kcall(foobar)    ; GOOD
 
-* Filesystem size
-  * Stick to the kernel filesytem API and handle errors correctly and you'll be fine
-* Color or monochrome screens
-  * Monochrome programs will run without modification on color calculators. The reverse is not true, you will have to handle this yourself.
-* Time and date
-  * Time and date arithmetic is supported on all calculators, but certain calculators return errUnsupported for getting and setting the current time.
-* USB
-  * errUnsupported is returned on some calculators.
+message:
+    .db "Hello world!"
+{% endhighlight %}
 
-There are a few other differences, but you should be fine if you handle errUnsupported correctly.
+At runtime, the actual address will be resolved by the kernel. The first time you
+run this, it will take longer to run as it calculates the address. However, on
+subsequent attempts, it will take the original duration of the instruction, plus
+one NOP. This is a trivial slowdown for nearly all applications.
 
-## Text Encoding
+The benefit gained by going through all this extra effort is enormous: the ability
+to run several programs *at once*. In addition to that, your own programs can run
+several of their own threads, which each run simultaneously. There are a number of
+advanced topics surrounding this that will be discussed later.
 
-The kernel uses ASCII for text. There are loose plans to eventually move to UTF-8.
+## Interacting with the kernel
 
-## Example Program
+The kernel provides a large number of useful functions that you will likely want
+to take advantage of. You may do so by using `pcall`. This is similar to TIOS's
+bcalls. You can use them like so:
 
-Here is a simple example program that will run on the KnightOS kernel:
+{% highlight nasm %}
+pcall(name_of_function)
+{% endhighlight %}
 
-    ; Example program
-    .nolist
-    #include "kernel.inc"
-    .list
-        .db 0  ; Thread flags
-        .db 20 ; Stack size
-    .org 0
-    start:
-        call getLcdLock
-        call getKeypadLock
-        call allocScreenBuffer ; Allocates a 768-byte screen buffer to IY
-        call clearBuffer
-        kld(hl, message)
-        ld de, 0
-        ld b, 0
-        call drawStr
-        call fastCopy
-        call flushKeys ; Wait for all keys to be released
-        call waitKey ; Wait for a key to be pressed
-        ret
-    message:
-        .db "Hello, world!\nPress any key to exit.", 0
+For example, to use [drawStr](/documentation/reference/text.html#drawStr):
+
+{% highlight nasm %}
+kld(hl, message)
+ld de, 0
+ld b, 0
+pcall(drawStr)
+{% endhighlight %}
+
+All kernel functions [are documented online](/documentation).
+
+## Interacting with hardware
+
+If you wish to interact with the screen, keyboard, or other devices, you need to
+play nice with other programs. Only one program may use these devices at a time.
+You must use the [relevant kernel
+functions](/documentation/reference/hardware.html) to claim these devices.
+
+## Allocating Memory
+
+There is no "safe RAM" on KnightOS. Instead, you allocate memory as you need it.
+There are two acceptable means of setting aside memory:
+
+* Set it aside in your program (useful for fixed amounts of memory)
+* Allocate it with [malloc](/documentation/reference/system.html#malloc) (useful
+  for dynamic amounts of memory)
+
+You should free memory with [free](/documentation/reference/system.html#free) when
+you are done with it. The kernel automatically frees all assigned memory when your
+program exits, but you should free things that you aren't using to keep more
+memory available for other programs.
+
+## A full example
+
+Here is an example userspace program that says "hello world", waits for the user
+to press a key, and exits.
+
+{% highlight nasm %}
+#include "kernel.inc"
+    .db "KEXC"
+    .db KEXC_ENTRY_POINT
+    .dw start
+    .db KEXC_STACK_SIZE
+    .dw 50
+    .db KEXC_KERNEL_VER
+    .db 0, 6
+    .db KEXC_NAME
+    .dw name
+    .db KEXC_DESCRIPTION
+    .dw name
+    .db KEXC_HEADER_END
+name:
+    .db "Hello world", 0
+description:
+    .db "Displays hello world on the screen, waits for a key press, then exits", 0
+start:
+    ; Acquire a lock on the devices we intend to use
+    pcall(getLcdLock)
+    pcall(getKeypadLock)
+
+    ; Allocate some memory to store the screen contents in
+    pcall(allocScreenBuffer)
+
+    ; Draw text on the screen
+    kld(hl, message)
+    ld de, 0
+    ld b, 0
+    pcall(drawStr)
+
+    ; Draw the buffer to the screen
+    pcall(fastCopy)
+
+    ; Wait for the user to release all keys...
+    pcall(flushKeys)
+    ; Then wait for them to press one.
+    pcall(waitKey)
+
+    ; Then, exit.
+    ; The screen buffer you allocated earlier will be automatically freed.
+    ret
+
+message:
+    .db "Hello, world!", 0
+{% endhighlight %}
+
+You may find it useful to read the documentation for each of the kernel functions
+in use here:
+
+* [getLcdLock](/documentation/reference/hardware.html#getLcdLock)
+* [getKeypadLock](documentation/reference/hardware.html#getKeypadLock)
+* [allocScreenBuffer](/documentation/reference/display.html#allocScreenBuffer)
+* [drawStr](/documentation/reference/text.html#drawStr)
+* [fastCopy](/documentation/reference/display.html#fastCopy)
+* [flushKeys](/documentation/reference/input.html#flushKeys)
+* [waitKey](/documentation/reference/input.html#waitKey)
+
+## Using libraries
+
+KnightOS provides a number of libraries that you are able to use to interact with
+the system in a more natural way. Users can also build their own libraries that
+you can take advantage of. To use a library, you should `#include` that library's
+include file, and then use the appropriate macros to interact with it. You must
+also inform the kernel that you wish to use a particular library. Here is an
+example of how you might use [corelib](#):
+
+{% highlight nasm %}
+#include "corelib.inc"
+; ...the rest of your header
+start:
+    kld(hl, corelibPath)
+    pcall(loadLibrary) ; Load corelib
+    ; ...
+    corelib(appGetKey) ; Use corelib
+    ; ...
+corelibPath:
+    .db "/lib/core", 0
+{% endhighlight %}
+
+Libraries are generally installed into `/lib`. Consult each library's
+documentation for more information on how to use that particular library.
