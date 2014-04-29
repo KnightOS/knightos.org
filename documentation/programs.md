@@ -4,7 +4,7 @@ title: Userspace Programs
 layout: base
 ---
 
-# Userland Programs
+# Userspace Programs
 
 KnightOS is a very special sort of operating system. It is radically different
 from TIOS. It is divided into two parts: the kernel, and userspace. The kernel is
@@ -40,8 +40,8 @@ Some of the things commonly handled by each are covered here:
 ## Executable format
 
 Your programs must use a certain format for the kernel to agree to load them. A
-simple template is provided here, and you may read [additional docs](#) later to
-learn more about it.
+simple template is provided here, and you may read [additional
+docs](/documentation/kexc.html) later to learn more about it.
 
 {% highlight nasm %}
 #include "kernel.inc"
