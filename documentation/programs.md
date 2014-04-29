@@ -128,6 +128,8 @@ executable. For example:
 
 message:
     .db "Hello world!"
+foobar:
+    ; Some subroutine
 {% endhighlight %}
 
 At runtime, the actual address will be resolved by the kernel. The first time you
@@ -212,6 +214,8 @@ start:
 
     ; Allocate some memory to store the screen contents in
     pcall(allocScreenBuffer)
+    ; Clear it - it will be garbage by default
+    pcall(clearBuffer)
 
     ; Draw text on the screen
     kld(hl, message)
@@ -241,6 +245,7 @@ in use here:
 * [getLcdLock](/documentation/reference/hardware.html#getLcdLock)
 * [getKeypadLock](documentation/reference/hardware.html#getKeypadLock)
 * [allocScreenBuffer](/documentation/reference/display.html#allocScreenBuffer)
+* [clearBuffer](/documentation/reference/display.html#clearBuffer)
 * [drawStr](/documentation/reference/text.html#drawStr)
 * [fastCopy](/documentation/reference/display.html#fastCopy)
 * [flushKeys](/documentation/reference/input.html#flushKeys)
