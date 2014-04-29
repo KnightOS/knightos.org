@@ -75,7 +75,7 @@ Here is a version of this template with comments explaining each choice:
     .db KEXC_ENTRY_POINT
     .dw start  ; This is the starting point of your program.
     .db KEXC_STACK_SIZE
-    .dw 50     ; This is the amount of stack you need, times two. Optional.
+    .dw 50     ; This is the amount of stack you need, divided by two. Optional.
     .db KEXC_KERNEL_VER
     .db 0, 6   ; The minimum kernel version your code can run on. Optional.
     .db KEXC_NAME
