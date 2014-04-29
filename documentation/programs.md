@@ -6,18 +6,7 @@ layout: base
 
 # Userland Programs
 
-Userspace programs for KnightOS are very different from programs you may be used
-to writing. However, they are very flexible. It should also be possible to port
-programs from one OS (such as TIOS) to KnightOS with little effort.
-
-Userspace programs have access and may take advantage of kernel functions, as well
-as userspace libraries installed on the system. They can also spawn and
-communicate with additional threads, dynamically allocate memory, and do plenty of
-other interesting things.
-
-## A note about KnightOS's system design
-
-KnightOS is a very special sort of operating system. It is extremely different
+KnightOS is a very special sort of operating system. It is radically different
 from TIOS. It is divided into two parts: the kernel, and userspace. The kernel is
 the basis of the system. It exists on pages 0-3 (inclusive). The first page is
 always mapped to bank 0, and is therefore accessible at 0x0000-0x3FFF (inclsive)
@@ -263,7 +252,8 @@ KnightOS provides a number of libraries that you are able to use to interact wit
 the system in a more natural way. Users can also build their own libraries that
 you can take advantage of. To use a library, you should `#include` that library's
 include file, and then use the appropriate macros to interact with it. You must
-also inform the kernel that you wish to use a particular library. Here is an
+also inform the kernel that you wish to use a particular library, via
+[loadLibrary](/documentation/reference/system.html#loadLibrary). Here is an
 example of how you might use [corelib](#):
 
 {% highlight nasm %}
