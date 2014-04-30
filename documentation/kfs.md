@@ -121,17 +121,19 @@ of each Flash page is a simple table, which represents which section follows eac
 
 Starting at address 0, on each page, the header consists of 64 four-byte entries, each representing one section of
 the page's sections. Each entry is formed of two 16-bit numbers - the first is the preceeding section, and the
-second is the next section. 0xFFFF is used on each end of the file. That is, the first section of a file has the
-preceeding section set to 0xFFFF.
+second is the next section. 0x7FFF is used on each end of the file. That is, the first section of a file has the
+preceeding section set to 0x7FFE. The most significant bit of the section ID is always reset for sections that are
+in use.
+
+Unused sections are indicated with 0xFFFF, 0xFFFF. A file with only one section would be 0x7FFF, 0x7FFF. This
+allows you to quickly discover sections that are available for use.
 
 For instance, say you have a file that starts on section 7, continues on 3, and ends on 12. The header for section
-7 would be 0xFFFF, 0x0003. The section 3 header is 0x0007, 0x000C. The section 12 header is 0x0003, 0xFFFF.
+7 would be 0x7FFF, 0x0003. The section 3 header is 0x0007, 0x000C. The section 12 header is 0x0003, 0x7FFF.
 
-The first entry of the header on each page is special. The first byte is a magic number, and should be set to K if
-this page is formatted. The second byte is reserved for future use. The third and fourth bytes are a mapping of
-which sections on that page are in use. The low bit refers to section 0, and the high bit to section 15. The low
-bit is always reset - it represents the header block. Each other bit is set if that section is free, and reset if
-in use.
+The first header is special. Under normal conditions, it would refer to the section map, which is not appropraite.
+Instead, it includes a magic number and some metadata. The first three bytes are the literal ASCII string "KFS".
+The fourth byte is metadata, which is currently not used for anything. It should be set to 0xFF.
 
 The data allocation section may become severely fragmented over time. Defragmentation is not necessary.
 
