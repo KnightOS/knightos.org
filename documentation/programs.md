@@ -201,7 +201,7 @@ to press a key, and exits.
     .db KEXC_NAME
     .dw name
     .db KEXC_DESCRIPTION
-    .dw name
+    .dw description
     .db KEXC_HEADER_END
 name:
     .db "Hello world", 0
