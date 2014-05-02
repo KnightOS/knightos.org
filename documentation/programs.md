@@ -55,7 +55,7 @@ docs](/documentation/kexc.html) later to learn more about it.
     .db KEXC_NAME
     .dw name
     .db KEXC_DESCRIPTION
-    .dw name
+    .dw description
     .db KEXC_HEADER_END
 name:
     .db "The short name of your application", 0
@@ -71,17 +71,17 @@ Here is a version of this template with comments explaining each choice:
 {% highlight nasm %}
 #include "kernel.inc"
 ; If you would like to use any other libraries, include them here (i.e.  "corelib.inc")
-    .db "KEXC" ; You must include this, and you cannot change it
+    .db "KEXC"      ; You must include this, and you cannot change it
     .db KEXC_ENTRY_POINT
-    .dw start  ; This is the starting point of your program.
+    .dw start       ; This is the starting point of your program.
     .db KEXC_STACK_SIZE
-    .dw 50     ; This is the amount of stack you need, divided by two. Optional.
+    .dw 50          ; This is the amount of stack you need, divided by two. Optional.
     .db KEXC_KERNEL_VER
-    .db 0, 6   ; The minimum kernel version your code can run on. Optional.
+    .db 0, 6        ; The minimum kernel version your code can run on. Optional.
     .db KEXC_NAME
-    .dw name   ; The name of your program. Optional.
+    .dw name        ; The name of your program. Optional.
     .db KEXC_DESCRIPTION
-    .dw name   ; The description of your program. Optional.
+    .dw description ; The description of your program. Optional.
     .db KEXC_HEADER_END
 name:
     .db "The short name of your application", 0
