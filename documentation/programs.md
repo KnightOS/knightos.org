@@ -9,7 +9,7 @@ layout: base
 KnightOS is a very special sort of operating system. It is radically different
 from TIOS. It is divided into two parts: the kernel, and userspace. The kernel is
 the basis of the system. It exists on pages 0-3 (inclusive). The first page is
-always mapped to bank 0, and is therefore accessible at 0x0000-0x3FFF (inclsive)
+always mapped to bank 0, and is therefore accessible at 0x0000-0x3FFF (inclusive)
 in memory. This part of the system is responsible for all the core functionality -
 booting, memory management, hardware drivers, filesystem access, and so on. The
 kernel very rarely interacts with the user.
