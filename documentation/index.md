@@ -86,3 +86,4 @@ There are additional articles that document the kernel in more detail:
 * [Userland programs](/documentation/programs.html)
 * [Memory layout](/documentation/memory.html)
 * [KnightOS Executable Format](/documentation/kexc.html)
+* [KnightOS image formats](/documentation/kimg.html)
