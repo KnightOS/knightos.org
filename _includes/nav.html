@@ -10,5 +10,12 @@
             <li><a href="/documentation">Documentation</a></li>
             <li><a href="http://webchat.freenode.net/?channels=knightos&uio=d4" target="_blank">IRC</a></li>
         </ul>
+        {% if include.search %}
+        <div class="navbar-form navbar-right">
+            <div class="form-group">
+                <input type="text" class="form-control" id="search" placeholder="Search docs..." autocomplete=off />
+            </div>
+        </div>
+        {% endif %}
     </div>
 </div>
