@@ -1,10 +1,10 @@
 ---
 # vim: tw=82
-title: Userspace Programs
+title: Writing Userspace Programs
 layout: base
 ---
 
-# Userspace Programs
+# Writing Userspace Programs
 
 KnightOS is a very special sort of operating system. It is radically different
 from TIOS. It is divided into two parts: the kernel, and userspace. The kernel is
