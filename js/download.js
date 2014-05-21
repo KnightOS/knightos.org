@@ -10,7 +10,7 @@ xhr.onload = function() {
     var version = name.substr(9, name.length - 13);
     document.getElementById('current-version').textContent = "Version " + version;
     document.getElementById('download-link').href = "http://builds.knightos.org/job/KnightOS/7/artifact/" + name;
-    document.getElementById('download-link').classList.remove('hidden');
+    document.getElementById('download-link').removeAttribute('disabled');
   };
   xhr.send();
 };
