@@ -113,6 +113,5 @@ KnightOS and everything will work great.
 ## Further Reading
 
 At this point, you can probably dive into programming on KnightOS. You will probably
-want to start with the [userspace programming
-guide](http://localhost:4000/documentation/programs.html). If you have any
-questions, please feel free to visit us on IRC.
+want to start with the [userspace programming guide](/documentation/programs.html).
+If you have any questions, please feel free to visit us on IRC.
