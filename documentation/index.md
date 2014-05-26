@@ -22,7 +22,7 @@ of this page.
 
 ## Reference Documentation
 
-This website publishes [reference documentation](/documentation/reference) for the kernel
+This website publishes [reference documentation](/documentation/reference/) for the kernel
 API and important userspace libraries.
 
 ## Articles
