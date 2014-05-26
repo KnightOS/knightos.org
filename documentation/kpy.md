@@ -90,3 +90,10 @@ keyboard(this)
 {% endhighlight %}
 
 This would be similar to the JavaScript way of doing such things.
+
+The interactive shell would execute `/var/kpy/shell.kpy` on startup, which would
+just be a simple bootstrap. By default, it might simply look like this:
+
+{% highlight python %}
+import math
+{% endhighlight %}
