@@ -1,21 +1,37 @@
-<div class="navbar navbar-fixed-top navbar-default navbar-inverse">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">KnightOS</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li><a href="/download">Download</a></li>
-            <li><a href="https://github.com/KnightSoft/KnightOS">Source Code</a></li>
-            <li><a href="/todo.html">Manual</a></li>
-            <li><a href="/documentation">Documentation</a></li>
-            <li><a href="http://webchat.freenode.net/?channels=knightos&uio=d4" target="_blank">Chat</a></li>
-        </ul>
-        {% if include.search %}
-        <div class="navbar-form navbar-right">
-            <div class="form-group">
-                <input type="text" class="form-control" id="search" placeholder="Search docs..." autocomplete=off />
-            </div>
-        </div>
-        {% endif %}
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">KnightOS</a>
     </div>
-</div>
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/download">Download</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Source Code <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="https://github.com/KnightOS/KnightOS">KnightOS</a></li>
+            <li><a href="https://github.com/KnightOS/kernel">Kernel</a></li>
+          </ul>
+        </li>
+        <li><a href="/todo.html">Manual</a></li>
+        <li><a href="/documentation">Documentation</a></li>
+        <li><a href="http://webchat.freenode.net/?channels=knightos&uio=d4" target="_blank">Chat</a></li>
+      </ul>
+      {% if include.search %}
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" id="search" placeholder="Search docs..." autocomplete=off>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      {% endif %}
+    </div>
+  </div>
+</nav>

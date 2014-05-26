@@ -10,10 +10,11 @@
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/js/typeahead.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.2/handlebars.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     </head>
     <body>
+        {% include nav.html search=true %}
         <div class="container">
-            {% include nav.html search=true %}
             <div class="documentation">
                 {{ content }}
             </div>

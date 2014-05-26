@@ -1,6 +1,6 @@
 ---
 title: KnightOS Documentation
-layout: base
+layout: documentation
 ---
 
 # Documentation
