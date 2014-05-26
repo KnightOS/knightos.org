@@ -78,6 +78,8 @@ browse through them with the categories below.
     <tr>
         <th><a href="/documentation/reference/miscellaneous.html">Miscellaneous</a></th>
         
+        <td>Various helpful functions that fit nowhere else</td>
+        
     </tr>
 
     <tr>
