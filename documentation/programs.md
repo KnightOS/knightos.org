@@ -92,7 +92,18 @@ start:
     ; Your code here
 {% endhighlight %}
 
-You may assemble this with any assembler you please.
+You may assemble this with any assembler you please. In addition to using KEXC
+(the format described here, for native code), you may use shebangs for
+interpreted programs. For example: 
+
+{% highlight python %}
+#!/bin/bfi
+++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.
+{% endhighlight %}
+
+The `#!/bin/bfi` indicates that the path to the file being run should be set into
+HL and the program `/bin/bfi` should be launched to handle it. Of course, you need
+to have bfi installed on your system for this to work.
 
 ## Relocation and multitasking
 
