@@ -25,6 +25,8 @@ of this page.
 This website publishes [reference documentation](/documentation/reference/) for the kernel
 API and important userspace libraries.
 
+Please note that prior to version 1.0.0, API compatability is not guaranteed.
+
 ## Articles
 
 There are additional articles that document the kernel in more detail:
