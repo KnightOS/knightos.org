@@ -14,7 +14,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#drawChar">drawChar</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd042657f3060a8c64b48cd1bfd2273bb2c4ff40/src/01/text.asm#L21">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/a46e68e07f93845709a6d5ddedeb5e4ccc09895e/src/01/text.asm#L42">View Source</a></small>
                     </h2>
                     
                     <p>Draws a character to the screen buffer using OR logic (turns pixels ON).</p>
@@ -66,7 +66,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#drawCharAND">drawCharAND</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd042657f3060a8c64b48cd1bfd2273bb2c4ff40/src/01/text.asm#L39">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/a46e68e07f93845709a6d5ddedeb5e4ccc09895e/src/01/text.asm#L60">View Source</a></small>
                     </h2>
                     
                     <p>Draws a character to the screen buffer using AND logic (turns pixels OFF).</p>
@@ -118,7 +118,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#drawCharXOR">drawCharXOR</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd042657f3060a8c64b48cd1bfd2273bb2c4ff40/src/01/text.asm#L57">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/a46e68e07f93845709a6d5ddedeb5e4ccc09895e/src/01/text.asm#L78">View Source</a></small>
                     </h2>
                     
                     <p>Draws a character to the screen buffer using XOR logic (inverts pixels).</p>
@@ -170,7 +170,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#drawHexA">drawHexA</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd042657f3060a8c64b48cd1bfd2273bb2c4ff40/src/01/text.asm#L303">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/a46e68e07f93845709a6d5ddedeb5e4ccc09895e/src/01/text.asm#L363">View Source</a></small>
                     </h2>
                     
                     <p>Draws the contents of A in hexadecimal to the screen buffer using OR logic (turns pixels ON).</p>
@@ -213,7 +213,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#drawHexHL">drawHexHL</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd042657f3060a8c64b48cd1bfd2273bb2c4ff40/src/01/text.asm#L331">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/a46e68e07f93845709a6d5ddedeb5e4ccc09895e/src/01/text.asm#L391">View Source</a></small>
                     </h2>
                     
                     <p>Draws the contents of HL in hexadecimal to the screen buffer using OR logic (turns pixels ON).</p>
@@ -256,7 +256,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#drawStr">drawStr</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd042657f3060a8c64b48cd1bfd2273bb2c4ff40/src/01/text.asm#L141">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/a46e68e07f93845709a6d5ddedeb5e4ccc09895e/src/01/text.asm#L214">View Source</a></small>
                     </h2>
                     
                     <p>Draws a zero-delimited string to the screen buffer using OR logic (turns pixels ON).</p>
@@ -291,9 +291,6 @@ layout: documentation
                                 <dt>D, E</dt>
                                 <dd><p>Advanced to position of the end of the string</p></dd>
                                 
-                                <dt>HL</dt>
-                                <dd><p>Advanced to the null terminator</p></dd>
-                                
                             </dl>
                         
                     
@@ -311,7 +308,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#drawStrAND">drawStrAND</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd042657f3060a8c64b48cd1bfd2273bb2c4ff40/src/01/text.asm#L160">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/a46e68e07f93845709a6d5ddedeb5e4ccc09895e/src/01/text.asm#L238">View Source</a></small>
                     </h2>
                     
                     <p>Draws a zero-delimited string to the screen buffer using AND logic (turns pixels OFF).</p>
@@ -346,8 +343,57 @@ layout: documentation
                                 <dt>D, E</dt>
                                 <dd><p>Advanced to position of the end of the string</p></dd>
                                 
+                            </dl>
+                        
+                    
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>The left margin is only required if your string contains newlines or carriage returns.</p>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="drawStrAND" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#drawStrAND">drawStrAND</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/a46e68e07f93845709a6d5ddedeb5e4ccc09895e/src/01/text.asm#L313">View Source</a></small>
+                    </h2>
+                    
+                    <p>Draws a zero-delimited string to the screen buffer using AND logic (turns pixels OFF), and wraps it around the screen with character breaks.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>IY</dt>
+                                <dd><p>Screen buffer</p></dd>
+                                
+                                <dt>D, E</dt>
+                                <dd><p>X, Y</p></dd>
+                                
+                                <dt>B</dt>
+                                <dd><p>Left margin</p></dd>
+                                
                                 <dt>HL</dt>
-                                <dd><p>Advanced to the null terminator</p></dd>
+                                <dd><p>String</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>D, E</dt>
+                                <dd><p>Advanced to position of the end of the string</p></dd>
                                 
                             </dl>
                         
@@ -366,7 +412,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#drawStrXOR">drawStrXOR</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd042657f3060a8c64b48cd1bfd2273bb2c4ff40/src/01/text.asm#L179">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/a46e68e07f93845709a6d5ddedeb5e4ccc09895e/src/01/text.asm#L262">View Source</a></small>
                     </h2>
                     
                     <p>Draws a zero-delimited string to the screen buffer using XOR logic (inverts pixels).</p>
@@ -401,8 +447,57 @@ layout: documentation
                                 <dt>D, E</dt>
                                 <dd><p>Advanced to position of the end of the string</p></dd>
                                 
+                            </dl>
+                        
+                    
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>The left margin is only required if your string contains newlines or carriage returns.</p>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="drawStrXOR" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#drawStrXOR">drawStrXOR</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/a46e68e07f93845709a6d5ddedeb5e4ccc09895e/src/01/text.asm#L338">View Source</a></small>
+                    </h2>
+                    
+                    <p>Draws a zero-delimited string to the screen buffer using XOR logic (inverts pixels), and wraps it around the screen with character breaks.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>IY</dt>
+                                <dd><p>Screen buffer</p></dd>
+                                
+                                <dt>D, E</dt>
+                                <dd><p>X, Y</p></dd>
+                                
+                                <dt>B</dt>
+                                <dd><p>Left margin</p></dd>
+                                
                                 <dt>HL</dt>
-                                <dd><p>Advanced to the null terminator</p></dd>
+                                <dd><p>String</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>D, E</dt>
+                                <dd><p>Advanced to position of the end of the string</p></dd>
                                 
                             </dl>
                         
@@ -421,7 +516,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#measureChar">measureChar</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd042657f3060a8c64b48cd1bfd2273bb2c4ff40/src/01/text.asm#L348">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/a46e68e07f93845709a6d5ddedeb5e4ccc09895e/src/01/text.asm#L408">View Source</a></small>
                     </h2>
                     
                     <p>Measures the width of a character in pixels.</p>
@@ -464,7 +559,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#measureStr">measureStr</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd042657f3060a8c64b48cd1bfd2273bb2c4ff40/src/01/text.asm#L372">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/a46e68e07f93845709a6d5ddedeb5e4ccc09895e/src/01/text.asm#L432">View Source</a></small>
                     </h2>
                     
                     <p>Measures the width of a string in pixels.</p>
@@ -507,7 +602,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#newline">newline</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd042657f3060a8c64b48cd1bfd2273bb2c4ff40/src/01/text.asm#L3">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/a46e68e07f93845709a6d5ddedeb5e4ccc09895e/src/01/text.asm#L3">View Source</a></small>
                     </h2>
                     
                     <p>Advances D, E to the next line of text</p>
@@ -553,7 +648,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#wrapStr">wrapStr</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd042657f3060a8c64b48cd1bfd2273bb2c4ff40/src/01/text.asm#L209">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/a46e68e07f93845709a6d5ddedeb5e4ccc09895e/src/01/text.asm#L286">View Source</a></small>
                     </h2>
                     
                     <p>Draws a zero-delimited string to the screen buffer using OR logic (turns pixels ON), and wraps it around the screen with character breaks.</p>
@@ -589,117 +684,7 @@ layout: documentation
                                 <dd><p>Advanced to position of the end of the string</p></dd>
                                 
                                 <dt>HL</dt>
-                                <dd><p>Advanced to the null terminator or to the next character that would have been drawn if the string hadn't run off-screen.</p></dd>
-                                
-                            </dl>
-                        
-                    
-                    
-                        <h3>Notes</h3>
-                        
-                            <p>The left margin is only required if your string contains newlines or carriage returns.</p>
-                        
-                    
-                    </div>
-                </div>
-            </div>
-            
-            <div id="wrapStrAND" class="docsection">
-                <div>
-                    <h2 class="doc-title">
-                        <a href="#wrapStrAND">wrapStrAND</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd042657f3060a8c64b48cd1bfd2273bb2c4ff40/src/01/text.asm#L229">View Source</a></small>
-                    </h2>
-                    
-                    <p>Draws a zero-delimited string to the screen buffer using AND logic (turns pixels OFF), and wraps it around the screen with character breaks.</p>
-
-                    <div class="details">
-                    
-                    
-                        <h3>Inputs</h3>
-                        
-                            <dl>
-                                
-                                <dt>IY</dt>
-                                <dd><p>Screen buffer</p></dd>
-                                
-                                <dt>D, E</dt>
-                                <dd><p>X, Y</p></dd>
-                                
-                                <dt>B</dt>
-                                <dd><p>Left margin</p></dd>
-                                
-                                <dt>HL</dt>
-                                <dd><p>String</p></dd>
-                                
-                            </dl>
-                        
-                    
-                    
-                        <h3>Outputs</h3>
-                        
-                            <dl>
-                                
-                                <dt>D, E</dt>
-                                <dd><p>Advanced to position of the end of the string</p></dd>
-                                
-                                <dt>HL</dt>
-                                <dd><p>Advanced to the null terminator or to the next character that would have been drawn if the string hadn't run off-screen.</p></dd>
-                                
-                            </dl>
-                        
-                    
-                    
-                        <h3>Notes</h3>
-                        
-                            <p>The left margin is only required if your string contains newlines or carriage returns.</p>
-                        
-                    
-                    </div>
-                </div>
-            </div>
-            
-            <div id="wrapStrXOR" class="docsection">
-                <div>
-                    <h2 class="doc-title">
-                        <a href="#wrapStrXOR">wrapStrXOR</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd042657f3060a8c64b48cd1bfd2273bb2c4ff40/src/01/text.asm#L249">View Source</a></small>
-                    </h2>
-                    
-                    <p>Draws a zero-delimited string to the screen buffer using XOR logic (inverts pixels), and wraps it around the screen with character breaks.</p>
-
-                    <div class="details">
-                    
-                    
-                        <h3>Inputs</h3>
-                        
-                            <dl>
-                                
-                                <dt>IY</dt>
-                                <dd><p>Screen buffer</p></dd>
-                                
-                                <dt>D, E</dt>
-                                <dd><p>X, Y</p></dd>
-                                
-                                <dt>B</dt>
-                                <dd><p>Left margin</p></dd>
-                                
-                                <dt>HL</dt>
-                                <dd><p>String</p></dd>
-                                
-                            </dl>
-                        
-                    
-                    
-                        <h3>Outputs</h3>
-                        
-                            <dl>
-                                
-                                <dt>D, E</dt>
-                                <dd><p>Advanced to position of the end of the string</p></dd>
-                                
-                                <dt>HL</dt>
-                                <dd><p>Advanced to the null terminator or to the next character that would have been drawn if the string hadn't run off-screen.</p></dd>
+                                <dd><p>The next character that would have been drawn if the string hadn't run off-screen.</p></dd>
                                 
                             </dl>
                         
@@ -809,6 +794,14 @@ layout: documentation
                     </li>
                     
                     <li>
+                        <a href="#drawStrAND" class="text-muted">drawStrAND</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#drawStrXOR" class="text-muted">drawStrXOR</a>
+                    </li>
+                    
+                    <li>
                         <a href="#drawStrXOR" class="text-muted">drawStrXOR</a>
                     </li>
                     
@@ -826,14 +819,6 @@ layout: documentation
                     
                     <li>
                         <a href="#wrapStr" class="text-muted">wrapStr</a>
-                    </li>
-                    
-                    <li>
-                        <a href="#wrapStrAND" class="text-muted">wrapStrAND</a>
-                    </li>
-                    
-                    <li>
-                        <a href="#wrapStrXOR" class="text-muted">wrapStrXOR</a>
                     </li>
                     
                 </ul>
