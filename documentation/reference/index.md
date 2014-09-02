@@ -83,6 +83,13 @@ browse through them with the categories below.
     </tr>
 
     <tr>
+        <th><a href="/documentation/reference/strings.html">Strings</a></th>
+        
+        <td>Useful routines to work with strings</td>
+        
+    </tr>
+
+    <tr>
         <th><a href="/documentation/reference/system.html">System</a></th>
         
         <td>Interaction with basic system functionality</td>
