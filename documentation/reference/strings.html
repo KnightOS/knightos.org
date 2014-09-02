@@ -10,104 +10,11 @@ layout: documentation
         <h1>Strings</h1>
         <div class="docs">
             
-            <div id="compareStrings" class="docsection">
-                <div>
-                    <h2 class="doc-title">
-                        <a href="#compareStrings">compareStrings</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/0b6ae7e6eba0b42a921c1930d72f247e971e62b3/src/00/strings.asm#L21">View Source</a></small>
-                    </h2>
-                    
-                    <p>Determines if two strings are equal, and checks alphabetical sort order.</p>
-
-                    <div class="details">
-                    
-                    
-                        <h3>Inputs</h3>
-                        
-                            <dl>
-                                
-                                <dt>DE</dt>
-                                <dd><p>String pointer</p></dd>
-                                
-                                <dt>HL</dt>
-                                <dd><p>String pointer</p></dd>
-                                
-                            </dl>
-                        
-                    
-                    
-                        <h3>Outputs</h3>
-                        
-                            <dl>
-                                
-                                <dt>C</dt>
-                                <dd><p>Set if string HL is alphabetically earlier than string DE</p></dd>
-                                
-                                <dt>Z</dt>
-                                <dd><p>Set if equal, reset if not equal</p></dd>
-                                
-                            </dl>
-                        
-                    
-                    </div>
-                </div>
-            </div>
-            
-            <div id="compareStrings_sort" class="docsection">
-                <div>
-                    <h2 class="doc-title">
-                        <a href="#compareStrings_sort">compareStrings_sort</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/0b6ae7e6eba0b42a921c1930d72f247e971e62b3/src/00/strings.asm#L45">View Source</a></small>
-                    </h2>
-                    
-                    <p>Compares strings at ((HL)) and ((DE)).  That is, calls indirect16HLDE, then calls compareStrings.</p>
-
-                    <div class="details">
-                    
-                    
-                        <h3>Inputs</h3>
-                        
-                            <dl>
-                                
-                                <dt>DE</dt>
-                                <dd><p>Pointer to string pointer</p></dd>
-                                
-                                <dt>HL</dt>
-                                <dd><p>Pointer to string pointer</p></dd>
-                                
-                            </dl>
-                        
-                    
-                    
-                        <h3>Outputs</h3>
-                        
-                            <dl>
-                                
-                                <dt>C</dt>
-                                <dd><p>Set if string (HL) is alphabetically earlier than string (DE)</p></dd>
-                                
-                                <dt>Z</dt>
-                                <dd><p>Set if equal, reset if not equal</p></dd>
-                                
-                            </dl>
-                        
-                    
-                    
-                        <h3>Notes</h3>
-                        
-                            <p>This routine is extremely useful as the callback for the <a href="miscellaneous.html#callbackSort">callbackSort</a> routine. 
- It allows sorting a list of pointers to strings by the strings' sort order.</p>
-                        
-                    
-                    </div>
-                </div>
-            </div>
-            
             <div id="strchr" class="docsection">
                 <div>
                     <h2 class="doc-title">
                         <a href="#strchr">strchr</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/0b6ae7e6eba0b42a921c1930d72f247e971e62b3/src/00/strings.asm#L85">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/76d724553aef37f91a0cbdac4875e3087b1baa7c/src/00/strings.asm#L85">View Source</a></small>
                     </h2>
                     
                     <p>Returns a pointer on the first occurence of a character in a string.</p>
@@ -152,11 +59,104 @@ layout: documentation
                 </div>
             </div>
             
-            <div id="stringCopy" class="docsection">
+            <div id="strcmp" class="docsection">
                 <div>
                     <h2 class="doc-title">
-                        <a href="#stringCopy">stringCopy</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/0b6ae7e6eba0b42a921c1930d72f247e971e62b3/src/00/strings.asm#L66">View Source</a></small>
+                        <a href="#strcmp">strcmp</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/76d724553aef37f91a0cbdac4875e3087b1baa7c/src/00/strings.asm#L21">View Source</a></small>
+                    </h2>
+                    
+                    <p>Determines if two strings are equal, and checks alphabetical sort order.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>DE</dt>
+                                <dd><p>String pointer</p></dd>
+                                
+                                <dt>HL</dt>
+                                <dd><p>String pointer</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>C</dt>
+                                <dd><p>Set if string HL is alphabetically earlier than string DE</p></dd>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set if equal, reset if not equal</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="strcmp_sort" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#strcmp_sort">strcmp_sort</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/76d724553aef37f91a0cbdac4875e3087b1baa7c/src/00/strings.asm#L45">View Source</a></small>
+                    </h2>
+                    
+                    <p>Compares strings at ((HL)) and ((DE)).  That is, calls indirect16HLDE, then calls strcmp.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>DE</dt>
+                                <dd><p>Pointer to string pointer</p></dd>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Pointer to string pointer</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>C</dt>
+                                <dd><p>Set if string (HL) is alphabetically earlier than string (DE)</p></dd>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set if equal, reset if not equal</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>This routine is extremely useful as the callback for the <a href="miscellaneous.html#callbackSort">callbackSort</a> routine. 
+ It allows sorting a list of pointers to strings by the strings' sort order.</p>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="strcpy" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#strcpy">strcpy</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/76d724553aef37f91a0cbdac4875e3087b1baa7c/src/00/strings.asm#L66">View Source</a></small>
                     </h2>
                     
                     <p>Copies a string.</p>
@@ -181,11 +181,11 @@ layout: documentation
                 </div>
             </div>
             
-            <div id="stringLength" class="docsection">
+            <div id="strlen" class="docsection">
                 <div>
                     <h2 class="doc-title">
-                        <a href="#stringLength">stringLength</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/0b6ae7e6eba0b42a921c1930d72f247e971e62b3/src/00/strings.asm#L1">View Source</a></small>
+                        <a href="#strlen">strlen</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/76d724553aef37f91a0cbdac4875e3087b1baa7c/src/00/strings.asm#L1">View Source</a></small>
                     </h2>
                     
                     <p>Determines the length of a zero delimited string.</p>
@@ -222,7 +222,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#strtoi">strtoi</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/0b6ae7e6eba0b42a921c1930d72f247e971e62b3/src/00/strings.asm#L108">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/76d724553aef37f91a0cbdac4875e3087b1baa7c/src/00/strings.asm#L108">View Source</a></small>
                     </h2>
                     
                     <p>Converts an ASCII-encoded unsigned decimal into a word.</p>
