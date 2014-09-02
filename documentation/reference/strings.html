@@ -14,7 +14,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#strchr">strchr</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/76d724553aef37f91a0cbdac4875e3087b1baa7c/src/00/strings.asm#L85">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/32916f5107216723d29de87f687294b0af474e25/src/00/strings.asm#L85">View Source</a></small>
                     </h2>
                     
                     <p>Returns a pointer on the first occurence of a character in a string.</p>
@@ -63,7 +63,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#strcmp">strcmp</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/76d724553aef37f91a0cbdac4875e3087b1baa7c/src/00/strings.asm#L21">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/32916f5107216723d29de87f687294b0af474e25/src/00/strings.asm#L21">View Source</a></small>
                     </h2>
                     
                     <p>Determines if two strings are equal, and checks alphabetical sort order.</p>
@@ -106,7 +106,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#strcmp_sort">strcmp_sort</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/76d724553aef37f91a0cbdac4875e3087b1baa7c/src/00/strings.asm#L45">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/32916f5107216723d29de87f687294b0af474e25/src/00/strings.asm#L45">View Source</a></small>
                     </h2>
                     
                     <p>Compares strings at ((HL)) and ((DE)).  That is, calls indirect16HLDE, then calls strcmp.</p>
@@ -156,7 +156,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#strcpy">strcpy</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/76d724553aef37f91a0cbdac4875e3087b1baa7c/src/00/strings.asm#L66">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/32916f5107216723d29de87f687294b0af474e25/src/00/strings.asm#L66">View Source</a></small>
                     </h2>
                     
                     <p>Copies a string.</p>
@@ -185,7 +185,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#strlen">strlen</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/76d724553aef37f91a0cbdac4875e3087b1baa7c/src/00/strings.asm#L1">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/32916f5107216723d29de87f687294b0af474e25/src/00/strings.asm#L1">View Source</a></small>
                     </h2>
                     
                     <p>Determines the length of a zero delimited string.</p>
@@ -222,10 +222,10 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#strtoi">strtoi</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/76d724553aef37f91a0cbdac4875e3087b1baa7c/src/00/strings.asm#L108">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/32916f5107216723d29de87f687294b0af474e25/src/00/strings.asm#L108">View Source</a></small>
                     </h2>
                     
-                    <p>Converts an ASCII-encoded unsigned decimal into a word.</p>
+                    <p>Converts an ASCII-encoded unsigned decimal into a word of variable size.</p>
 
                     <div class="details">
                     
@@ -233,6 +233,9 @@ layout: documentation
                         <h3>Inputs</h3>
                         
                             <dl>
+                                
+                                <dt>B</dt>
+                                <dd><p>maximum number of digits to convert</p></dd>
                                 
                                 <dt>HL</dt>
                                 <dd><p>pointer on ASCII-encoded decimal</p></dd>
@@ -245,11 +248,11 @@ layout: documentation
                         
                             <dl>
                                 
+                                <dt>DEHL</dt>
+                                <dd><p>converted word</p></dd>
+                                
                                 <dt>Z</dt>
                                 <dd><p>set on success</p></dd>
-                                
-                                <dt>DE</dt>
-                                <dd><p>converted byte</p></dd>
                                 
                             </dl>
                         
@@ -257,14 +260,11 @@ layout: documentation
                     
                         <h3>Notes</h3>
                         
-                            <p>The routine will scan 5-digits numbers that are over 65535 </p>
-                        
-                    
-                    
-                        <h3>as valid numbers, even if HL cannot contain said numbers.
-strtoi</h3>
-                        
-                            
+                            <p>The routine will ignore leading zeroes to produce a number composed by a<br />
+ maximum of 10 digits, the maximal value being 4,294,967,295. If a 10-digits 
+ number with a greater value is encountered, no error will be thrown but the 
+ number won't be converted as expected. 
+ Destroys BC', DE' and HL'.</p>
                         
                     
                     </div>
