@@ -3,63 +3,17 @@ title: KnightOS
 layout: base
 ---
 
+<div class="calculator">
+    <canvas width="385" height="256" id="screen"></canvas>
+</div>
 <div class="page-header">
     <h1>KnightOS <small>An open source OS for TI calculators</small></h1>
 </div>
-<p>KnightOS is an open-source operating system for TI calculators. It completely replaces
-the stock TI-OS, and offers loads of great features for programmers and users alike:</p>
-<div class="row">
-    <div class="col-md-6">
-        <dl>
-            <dt>Multitasking</dt>
-            <dd>Run up to 32 programs simultaneously</dd>
-            <dt>Cross Platform</dt>
-            <dd>Run your programs on 9 different calculators - including the new Color Silver Edition</dd>
-            <dt>Memory Safe</dt>
-            <dd>No more panicked RAM resets. Crashes do not affect user data.</dd>
-        </dl>
-    </div>
-    <div class="col-md-6">
-        <dl>
-            <dt>More Memory</dt>
-            <dd>KnightOS programs may use 31K of RAM. TI-OS offers 24K under ideal conditions</dd>
-            <dt>Storage Space</dt>
-            <dd>KnightOS is compact, leaving plenty of space for your files</dd>
-            <dt>Open Source</dt>
-            <dd>You're freely able to browse, change, and improve the <a href="https://github.com/KnightOS/kernel">source code</a></dd>
-        </dl>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-4">
-        <img class="recording" src="/img/fileman.gif" />
-        <p class="text-center text-muted"><em>Easy-to-use graphical interface</em></p>
-    </div>
-    <div class="col-md-4">
-        <img class="recording" src="/img/multitasking.gif" />
-        <p class="text-center text-muted"><em>Runs several programs at once</em></p>
-    </div>
-    <div class="col-md-4">
-        <img class="recording" src="/img/fx3dlib.gif" />
-        <p class="text-center text-muted"><em>Extensible with third party libraries</em></p>
-    </div>
-</div>
-<p>KnightOS supports the TI-73, TI-83+, TI-83+ Silver Edition, TI-84+, TI-84+ Silver Edition, 
-TI-84+ Color Silver Edition, and the French variations on these devices.</p>
-<h2>How can I help?</h2>
-<p>KnightOS could always use some help from programmers and non-programmers alike. If you're
-a coder, you'll love working with the codebase and building neat things. If
-you aren't, you can still help out by helping us write documentation, spreading the word, or
-by simply hanging out with us to offer your thoughts on what you want KnightOS to be. Come
-<a href="http://webchat.freenode.net/?channels=knightos&uio=d4">join us on IRC</a> to get to
-know us and share your thoughts. We do have to sleep sometimes, so be patient. We may not
-be around when you arrive, so say "hello" and sit tight for a while.</p>
-<p>We're also interested in calculator donations. If you can spare one, please get in touch
-on IRC and we'll work it out.</p>
-<h2>How do I get started?</h2>
-<p>If you're a user, you may want to wait. KnightOS is not done yet, and isn't ready for
-general use. However, if you're a programmer, you can dive in and start hacking on it right
-now. The same does apply to you, though: it's not done, so expect a little difficulty. To get
-started writing code for KnightOS, head over to the <a href="/documentation">documentation</a>.
-You are strongly encouraged to hang out in the IRC channel, where your questions can be
-answered and you can learn more about the project.</p>
+
+<script>
+    var Module = {
+        memoryInitializerPrefixURL: "OpenTI/webui/js/lib/"
+    };
+</script>
+<script src="OpenTI/webui/js/lib/z80e.js"></script>
+<script data-main="js/index.js" src="OpenTI/webui/js/lib/require.js"></script>

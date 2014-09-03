@@ -2,6 +2,26 @@ body {
     text-align: justify;
 }
 
+.page-header {
+  margin-top: 0;
+  border-bottom: none;
+  border-top: 1px solid #999;
+}
+
+.calculator {
+  background: url('/img/calculator.png');
+  width: 645px;
+  height: 422px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.calculator canvas {
+  position: absolute;
+  left: 122px;
+  top: 130px;
+}
+
 table {
     border-collapse: collapse !important;
 }
