@@ -4,11 +4,45 @@ layout: base
 ---
 
 <div class="calculator">
+    <div class="alert alert-danger call-to-action text-center">
+        This is a real calculator running the latest version of KnightOS! You can use your arrow keys,
+        Enter, Escape, and your function keys (F1-F5) to try it out.<br />
+        <a data-dismiss="alert" class="btn btn-danger btn-sm" style="margin-top: 10px;" href="#">Dismiss This</a>
+        <a data-dismiss="alert" class="btn btn-default btn-sm" style="margin-top: 10px;" href="#">Guided Tour</a>
+    </div>
     <canvas width="385" height="256" id="screen"></canvas>
 </div>
 <div class="page-header">
     <h1>KnightOS <small>An open source OS for TI calculators</small></h1>
 </div>
+<div class="row">
+    <div class="col-md-6">
+        <dl>
+            <dt>Multitasking</dt>
+            <dd>Run up to 32 programs simultaneously</dd>
+            <dt>Cross Platform</dt>
+            <dd>Run your programs on 9 different calculators - including the new Color Silver Edition</dd>
+            <dt>Memory Safe</dt>
+            <dd>No more panicked RAM resets. Crashes do not affect user data.</dd>
+        </dl>
+    </div>
+    <div class="col-md-6">
+        <dl>
+            <dt>More Memory</dt>
+            <dd>KnightOS programs may use 31K of RAM. TI-OS offers 24K under ideal conditions</dd>
+            <dt>Storage Space</dt>
+            <dd>KnightOS is compact, leaving plenty of space for your files</dd>
+            <dt>Open Source</dt>
+            <dd>You're freely able to browse, change, and improve the <a href="https://github.com/KnightOS/kernel">source code</a></dd>
+        </dl>
+    </div>
+</div>
+<p>KnightOS is the first open-source operating system for Texas Instruments calculators. It aims to be a Unix-like system
+that runs the average z80 calculator, with multitasking and a proper filesystem and other features familiar to users of
+conventional PC operating systems. The end goal is to also provide a great operating system suitable for use in the classroom.</p>
+<p>Programmers, head over to the <a href="/documentation">documentation</a>. Users, hang in there while we work on fleshing out
+the system for you. If you'd like, you can come <a href="http://webchat.freenode.net/?channels=knightos&uio=d4">join us on IRC</a>
+to chat about the project and make sure you like where it's going. We need your direction!</p>
 
 <script>
     var Module = {

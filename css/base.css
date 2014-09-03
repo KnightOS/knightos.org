@@ -22,6 +22,12 @@ body {
   top: 130px;
 }
 
+.calculator .call-to-action {
+  width: 250px;
+  position: absolute;
+  right: -150px;
+}
+
 table {
     border-collapse: collapse !important;
 }

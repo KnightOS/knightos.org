@@ -87,14 +87,20 @@ require(["../OpenTI/webui/js/OpenTI/OpenTI"], function(oti) {
 
             openti_log.print("KnightOS "+Pointer_stringify(pointer + 0x64)+" loaded!\n");
 
-            setTimeout(function() { 
-              exec("turn_on");
-            }, 500);
+            exec("run 1000");
+            exec("turn_on");
 
             setTimeout(function tick() {
                 if (!asic.stopped || asic.cpu.interrupt) {
-                    asic.runloop.tick(asic.clock_rate / 60);
+                    asic.runloop.tick(asic.clock_rate / 20);
                 }
+                if (update_lcd) {
+                    print_lcd(update_lcd);
+                }
+                setTimeout(tick, 0);
+            }, 1000 / 60);
+
+            setTimeout(function tick() {
                 if (update_lcd) {
                     print_lcd(update_lcd);
                 }
