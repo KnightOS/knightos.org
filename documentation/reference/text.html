@@ -14,7 +14,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#drawChar">drawChar</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/62b3f9e89b9e8f6a5de2a39f54671284b5b28fcd/src/01/text.asm#L42">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/90d06e84df41a4e10a99ce2d23af7de937abbfa6/src/01/text.asm#L42">View Source</a></small>
                     </h2>
                     
                     <p>Draws a character to the screen buffer using OR logic (turns pixels ON).</p>
@@ -66,7 +66,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#drawCharAND">drawCharAND</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/62b3f9e89b9e8f6a5de2a39f54671284b5b28fcd/src/01/text.asm#L60">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/90d06e84df41a4e10a99ce2d23af7de937abbfa6/src/01/text.asm#L60">View Source</a></small>
                     </h2>
                     
                     <p>Draws a character to the screen buffer using AND logic (turns pixels OFF).</p>
@@ -118,7 +118,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#drawCharXOR">drawCharXOR</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/62b3f9e89b9e8f6a5de2a39f54671284b5b28fcd/src/01/text.asm#L78">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/90d06e84df41a4e10a99ce2d23af7de937abbfa6/src/01/text.asm#L78">View Source</a></small>
                     </h2>
                     
                     <p>Draws a character to the screen buffer using XOR logic (inverts pixels).</p>
@@ -166,11 +166,97 @@ layout: documentation
                 </div>
             </div>
             
+            <div id="drawDecA" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#drawDecA">drawDecA</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/90d06e84df41a4e10a99ce2d23af7de937abbfa6/src/01/text.asm#L431">View Source</a></small>
+                    </h2>
+                    
+                    <p>Draws the contents of A in decimal to the screen buffer using OR logic (turns pixels ON).</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>IY</dt>
+                                <dd><p>Screen buffer</p></dd>
+                                
+                                <dt>D, E</dt>
+                                <dd><p>X, Y</p></dd>
+                                
+                                <dt>A</dt>
+                                <dd><p>Value</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>D, E</dt>
+                                <dd><p>Advanced to position of next character</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="drawDecHL" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#drawDecHL">drawDecHL</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/90d06e84df41a4e10a99ce2d23af7de937abbfa6/src/01/text.asm#L521">View Source</a></small>
+                    </h2>
+                    
+                    <p>Draws the contents of HL in decimal to the screen buffer using OR logic (turns pixels ON).</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>IY</dt>
+                                <dd><p>Screen buffer</p></dd>
+                                
+                                <dt>D, E</dt>
+                                <dd><p>X, Y</p></dd>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Value</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>D, E</dt>
+                                <dd><p>Advanced to position of next character</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
             <div id="drawHexA" class="docsection">
                 <div>
                     <h2 class="doc-title">
                         <a href="#drawHexA">drawHexA</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/62b3f9e89b9e8f6a5de2a39f54671284b5b28fcd/src/01/text.asm#L403">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/90d06e84df41a4e10a99ce2d23af7de937abbfa6/src/01/text.asm#L403">View Source</a></small>
                     </h2>
                     
                     <p>Draws the contents of A in hexadecimal to the screen buffer using OR logic (turns pixels ON).</p>
@@ -213,7 +299,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#drawHexHL">drawHexHL</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/62b3f9e89b9e8f6a5de2a39f54671284b5b28fcd/src/01/text.asm#L431">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/90d06e84df41a4e10a99ce2d23af7de937abbfa6/src/01/text.asm#L504">View Source</a></small>
                     </h2>
                     
                     <p>Draws the contents of HL in hexadecimal to the screen buffer using OR logic (turns pixels ON).</p>
@@ -256,7 +342,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#drawStr">drawStr</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/62b3f9e89b9e8f6a5de2a39f54671284b5b28fcd/src/01/text.asm#L251">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/90d06e84df41a4e10a99ce2d23af7de937abbfa6/src/01/text.asm#L251">View Source</a></small>
                     </h2>
                     
                     <p>Draws a zero-delimited string to the screen buffer using OR logic (turns pixels ON).</p>
@@ -308,7 +394,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#drawStrAND">drawStrAND</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/62b3f9e89b9e8f6a5de2a39f54671284b5b28fcd/src/01/text.asm#L269">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/90d06e84df41a4e10a99ce2d23af7de937abbfa6/src/01/text.asm#L269">View Source</a></small>
                     </h2>
                     
                     <p>Draws a zero-delimited string to the screen buffer using AND logic (turns pixels OFF).</p>
@@ -360,7 +446,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#drawStrXOR">drawStrXOR</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/62b3f9e89b9e8f6a5de2a39f54671284b5b28fcd/src/01/text.asm#L287">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/90d06e84df41a4e10a99ce2d23af7de937abbfa6/src/01/text.asm#L287">View Source</a></small>
                     </h2>
                     
                     <p>Draws a zero-delimited string to the screen buffer using XOR logic (inverts pixels).</p>
@@ -412,7 +498,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#measureChar">measureChar</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/62b3f9e89b9e8f6a5de2a39f54671284b5b28fcd/src/01/text.asm#L448">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/90d06e84df41a4e10a99ce2d23af7de937abbfa6/src/01/text.asm#L533">View Source</a></small>
                     </h2>
                     
                     <p>Measures the width of a character in pixels.</p>
@@ -455,7 +541,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#measureStr">measureStr</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/62b3f9e89b9e8f6a5de2a39f54671284b5b28fcd/src/01/text.asm#L475">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/90d06e84df41a4e10a99ce2d23af7de937abbfa6/src/01/text.asm#L560">View Source</a></small>
                     </h2>
                     
                     <p>Measures the width of a string in pixels.</p>
@@ -498,7 +584,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#newline">newline</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/62b3f9e89b9e8f6a5de2a39f54671284b5b28fcd/src/01/text.asm#L3">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/90d06e84df41a4e10a99ce2d23af7de937abbfa6/src/01/text.asm#L3">View Source</a></small>
                     </h2>
                     
                     <p>Advances D, E to the next line of text</p>
@@ -544,7 +630,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#wrapStr">wrapStr</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/62b3f9e89b9e8f6a5de2a39f54671284b5b28fcd/src/01/text.asm#L318">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/90d06e84df41a4e10a99ce2d23af7de937abbfa6/src/01/text.asm#L318">View Source</a></small>
                     </h2>
                     
                     <p>Draws a zero-delimited string to the screen buffer using OR logic (turns pixels ON), and wraps it inside a rectangle, with character breaks.</p>
@@ -602,7 +688,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#wrapStrAND">wrapStrAND</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/62b3f9e89b9e8f6a5de2a39f54671284b5b28fcd/src/01/text.asm#L340">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/90d06e84df41a4e10a99ce2d23af7de937abbfa6/src/01/text.asm#L340">View Source</a></small>
                     </h2>
                     
                     <p>Draws a zero-delimited string to the screen buffer using AND logic (turns pixels OFF), and wraps it inside a rectangle, with character breaks.</p>
@@ -660,7 +746,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#wrapStrXOR">wrapStrXOR</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/62b3f9e89b9e8f6a5de2a39f54671284b5b28fcd/src/01/text.asm#L362">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/90d06e84df41a4e10a99ce2d23af7de937abbfa6/src/01/text.asm#L362">View Source</a></small>
                     </h2>
                     
                     <p>Draws a zero-delimited string to the screen buffer using XOR logic (inverts pixels), and wraps it inside a rectangle, with character breaks.</p>
@@ -795,6 +881,14 @@ layout: documentation
                     
                     <li>
                         <a href="#drawCharXOR" class="text-muted">drawCharXOR</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#drawDecA" class="text-muted">drawDecA</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#drawDecHL" class="text-muted">drawDecHL</a>
                     </li>
                     
                     <li>
