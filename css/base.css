@@ -28,6 +28,12 @@ body {
   right: -150px;
 }
 
+.calculator .temporary {
+  width: 250px;
+  position: absolute;
+  left: -150px;
+}
+
 table {
     border-collapse: collapse !important;
 }
