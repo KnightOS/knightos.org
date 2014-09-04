@@ -44,11 +44,21 @@ key_mappings[38] = 0x03; // Up
 key_mappings[16] = 0x65; // 2nd / Shift
 key_mappings[13] = 0x10; // Enter
 key_mappings[27] = 0x60; // MODE / Esc
-key_mappings[112] = 0x64; // F1 / 1
-key_mappings[113] = 0x63; // F2 / 2
-key_mappings[114] = 0x62; // F3 / 3
-key_mappings[115] = 0x61; // F4 / 4
-key_mappings[116] = 0x60; // F5 / 5
+key_mappings[112] = 0x64; // F1
+key_mappings[113] = 0x63; // F2
+key_mappings[114] = 0x62; // F3
+key_mappings[115] = 0x61; // F4
+key_mappings[116] = 0x60; // F5
+key_mappings[48] = 0x40; // 0
+key_mappings[49] = 0x41; // 1
+key_mappings[50] = 0x31; // 2
+key_mappings[51] = 0x21; // 3
+key_mappings[52] = 0x42; // 4
+key_mappings[53] = 0x32; // 5
+key_mappings[54] = 0x22; // 6
+key_mappings[55] = 0x43; // 7
+key_mappings[56] = 0x33; // 8
+key_mappings[57] = 0x23; // 9
 
 var lcd_ctx;
 $(function() {
