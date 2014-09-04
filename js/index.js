@@ -41,6 +41,7 @@ key_mappings[40] = 0x00; // Down
 key_mappings[37] = 0x01; // Left
 key_mappings[39] = 0x02; // Right
 key_mappings[38] = 0x03; // Up
+key_mappings[16] = 0x65; // 2nd / Shift
 key_mappings[13] = 0x10; // Enter
 key_mappings[27] = 0x60; // MODE / Esc
 key_mappings[112] = 0x64; // F1 / 1
