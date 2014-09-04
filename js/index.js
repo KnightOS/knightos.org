@@ -112,8 +112,8 @@ require(["../OpenTI/webui/js/OpenTI/OpenTI"], function(oti) {
 
             openti_log.print("KnightOS "+Pointer_stringify(pointer + 0x64)+" loaded!\n");
 
-            exec("run 1000");
-            exec("turn_on");
+            exec("run 10000");
+            exec("unhalt");
 
             setTimeout(function tick() {
                 if (!asic.stopped || asic.cpu.interrupt) {
