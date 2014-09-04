@@ -36,9 +36,34 @@ function print_lcd(lcd) {
     update_lcd = null;
 }
 
+var key_mappings = Array.apply(null, new Array(100)).map(Number.prototype.valueOf, -1);
+key_mappings[40] = 0x00; // Down
+key_mappings[37] = 0x01; // Left
+key_mappings[39] = 0x02; // Right
+key_mappings[38] = 0x03; // Up
+key_mappings[13] = 0x10; // Enter
+key_mappings[27] = 0x60; // MODE / Esc
+key_mappings[49] = 0x64; // F1 / 1
+key_mappings[50] = 0x63; // F2 / 2
+key_mappings[51] = 0x62; // F3 / 3
+key_mappings[52] = 0x61; // F4 / 4
+key_mappings[53] = 0x60; // F5 / 5
+
 var lcd_ctx;
 $(function() {
     lcd_ctx = document.getElementById("screen").getContext("2d");
+    window.addEventListener('keydown', function(e) {
+        if (e.keyCode <= key_mappings.length && key_mappings[e.keyCode] !== -1) {
+            e.preventDefault();
+            OpenTI.current_asic.hardware.Keyboard.press(key_mappings[e.keyCode]);
+        }
+    });
+    window.addEventListener('keyup', function(e) {
+        if (e.keyCode <= key_mappings.length && key_mappings[e.keyCode] !== -1) {
+            e.preventDefault();
+            OpenTI.current_asic.hardware.Keyboard.release(key_mappings[e.keyCode]);
+        }
+    });
 });
 
 var exec;
