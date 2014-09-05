@@ -22,17 +22,42 @@ function do_update_lcd(lcd) {
     update_lcd = lcd;
 }
 
-function print_lcd(lcd) {
-    lcd_ctx.fillStyle = "#99B199";
-    lcd_ctx.fillRect(0, 0, 120 * 4, 64 * 4);
-    lcd_ctx.fillStyle = "black";
-    for (var x = 0; x < 120; x++) {
-        for (var y = 0; y < 64; y++) {
-            if (lcd.readScreen(x, y)) {
-                lcd_ctx.fillRect(x * 4, y * 4, 4, 4);
+var lcd_data = [];
+var lcd_colors = [[0x99, 0xB1, 0x99], [0x00, 0x00, 0x00]];
+function gen_pixeldata() {
+    for (var i = 0; i <= 0xff; i++) {
+        var arr = new Uint8Array(8 * 4 * 4);
+        for (var j = 0; j < 8; j++) {
+            var set = (i & (1 << j)) ? 1 : 0;
+            for (var k = 0; k < 4; k++) {
+                var view = (j * 16) + k * 4;
+                arr[view + 0] = lcd_colors[set][0];
+                arr[view + 1] = lcd_colors[set][1];
+                arr[view + 2] = lcd_colors[set][2];
+                arr[view + 3] = 0xFF;
             }
         }
+        lcd_data.push(arr);
     }
+}
+gen_pixeldata();
+
+function print_lcd(lcd) {
+    var data = lcd_ctx.getImageData(0, 0, 384, 256);
+    var ram = lcd.ram;
+    for (var x = 0; x < (120 * 64) / 8; x++) {
+        var octet = x % 15;
+        if (octet > 11) {
+            continue;
+        }
+        var line = Math.floor(x / 15) * 4;
+        var tocopy = lcd_data[ram[x]];
+        data.data.set(tocopy, ((line++) * 12 + octet) * (4 * 8 * 4));
+        data.data.set(tocopy, ((line++) * 12 + octet) * (4 * 8 * 4));
+        data.data.set(tocopy, ((line++) * 12 + octet) * (4 * 8 * 4));
+        data.data.set(tocopy, ((line++) * 12 + octet) * (4 * 8 * 4));
+    }
+    lcd_ctx.putImageData(data, 0, 0);
     update_lcd = null;
 }
 
