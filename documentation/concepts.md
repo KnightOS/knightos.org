@@ -67,7 +67,7 @@ More on this subject is discussed in later articles.
 Unix has a filesystem standard called the [Filesystem Hierarchy
 Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard). KnightOS
 is a single-user operating system, so it does not follow this exactly.
-However, it does draw a lot of inspiration from this stanard. On KnightOS,
+However, it does draw a lot of inspiration from this standard. On KnightOS,
 programs are found in `/bin`, and variable data is in `/var`. Libraries go in
 `/lib`, and configuration files in `/etc`, and so on.
 
