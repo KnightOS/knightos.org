@@ -1,3 +1,5 @@
+$('[data-toggle="tooltip"]').tooltip();
+
 var OpenTI;
 
 var openti_log = {
