@@ -22,7 +22,7 @@ browse through them with the categories below.
     <tr>
         <th><a href="/documentation/reference/concurrency.html">Concurrency</a></th>
         
-        <td>Implementations of concurrency patterns</td>
+        <td>Implementations of concurrent patterns</td>
         
     </tr>
 
