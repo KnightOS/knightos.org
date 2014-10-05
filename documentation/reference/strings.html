@@ -14,7 +14,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#strchr">strchr</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/9fcb6f0a0bbbd8cb6715b29d67e45555cf5715d9/src/00/strings.asm#L85">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/strings.asm#L85">View Source</a></small>
                     </h2>
                     
                     <p>Returns a pointer on the first occurence of a character in a string.</p>
@@ -63,7 +63,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#strcmp">strcmp</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/9fcb6f0a0bbbd8cb6715b29d67e45555cf5715d9/src/00/strings.asm#L21">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/strings.asm#L21">View Source</a></small>
                     </h2>
                     
                     <p>Determines if two strings are equal, and checks alphabetical sort order.</p>
@@ -106,7 +106,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#strcmp_sort">strcmp_sort</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/9fcb6f0a0bbbd8cb6715b29d67e45555cf5715d9/src/00/strings.asm#L45">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/strings.asm#L45">View Source</a></small>
                     </h2>
                     
                     <p>Compares strings at ((HL)) and ((DE)).  That is, calls indirect16HLDE, then calls strcmp.</p>
@@ -156,7 +156,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#strcpy">strcpy</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/9fcb6f0a0bbbd8cb6715b29d67e45555cf5715d9/src/00/strings.asm#L66">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/strings.asm#L66">View Source</a></small>
                     </h2>
                     
                     <p>Copies a string.</p>
@@ -185,7 +185,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#strlen">strlen</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/9fcb6f0a0bbbd8cb6715b29d67e45555cf5715d9/src/00/strings.asm#L1">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/strings.asm#L1">View Source</a></small>
                     </h2>
                     
                     <p>Determines the length of a zero delimited string.</p>
@@ -222,7 +222,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#strtoi">strtoi</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/9fcb6f0a0bbbd8cb6715b29d67e45555cf5715d9/src/00/strings.asm#L108">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/strings.asm#L108">View Source</a></small>
                     </h2>
                     
                     <p>Converts an ASCII-encoded signed decimal into a word of variable size.</p>
@@ -273,6 +273,80 @@ layout: documentation
                 </div>
             </div>
             
+            <div id="toLower" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#toLower">toLower</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/strings.asm#L255">View Source</a></small>
+                    </h2>
+                    
+                    <p>Converts every alpha character of a string to lowercase.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>HL</dt>
+                                <dd><p>pointer to string</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>HL</dt>
+                                <dd><p>string modified</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="toUpper" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#toUpper">toUpper</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/strings.asm#L279">View Source</a></small>
+                    </h2>
+                    
+                    <p>Converts every alpha character of a string to uppercase.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>HL</dt>
+                                <dd><p>pointer to string</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>HL</dt>
+                                <dd><p>string modified</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
     <div class="col-md-4">
@@ -281,6 +355,11 @@ layout: documentation
             
             
             <li><a href="/documentation/reference/color.html">Color</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/concurrency.html">Concurrency</a></li>
             
             </li>
             
@@ -356,6 +435,14 @@ layout: documentation
                     
                     <li>
                         <a href="#strtoi" class="text-muted">strtoi</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#toLower" class="text-muted">toLower</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#toUpper" class="text-muted">toUpper</a>
                     </li>
                     
                 </ul>
