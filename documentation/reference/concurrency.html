@@ -1,0 +1,342 @@
+---
+title: Concurrency Documentation
+layout: documentation
+---
+
+
+
+<div class="row">
+    <div class="col-md-8">
+        <h1>Concurrency</h1>
+        <div class="docs">
+            
+            <div id="condInit" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#condInit">condInit</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/concurrency.asm#L60">View Source</a></small>
+                    </h2>
+                    
+                    <p>Returns a pointer to a newly allocated condition variable. The application must <a href="system.html#free">free</a> this variable when no threads are using it any longer.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dd>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Pointer to condition variable (on success)</p></dd>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on failure</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="condNotifyAll" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#condNotifyAll">condNotifyAll</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/concurrency.asm#L115">View Source</a></small>
+                    </h2>
+                    
+                    <p>Awakens all threads waiting on a condition variable. The threads should check to see if the condition that they were waiting for (perhaps if a queue has data) is still true! To avoid corner-case race conditions, the calling thread must lock the associated mutex before invoking this routine (and release it when done).</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Pointer to condition variable</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="condNotifyOne" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#condNotifyOne">condNotifyOne</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/concurrency.asm#L139">View Source</a></small>
+                    </h2>
+                    
+                    <p>Awakens the thread that has been waiting the longest on a condition variable. The threads should check to see if the condition that they were waiting for (perhaps if a queue has data) is still true! To avoid corner-case race conditions, the calling thread must lock the associated mutex before invoking this routine (and release it when done).</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Pointer to condition variable</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="condWait" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#condWait">condWait</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/concurrency.asm#L86">View Source</a></small>
+                    </h2>
+                    
+                    <p>Blocks execution of the current thread until another thread notifies the condition variable.  A thread that intends to wait on a condition variable must first acquire a mutex and pass it to this routine.  The wait operation will atomically release the mutex and suspend the thread.  When the condition variable is notified, the thread is reawakened and the mutex is reacquired.  Interrupts will be enabled by this routine.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Pointer to condition variable</p></dd>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Pointer to locked mutex</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="mutexInit" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#mutexInit">mutexInit</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/concurrency.asm#L50">View Source</a></small>
+                    </h2>
+                    
+                    <p>Initializes a byte at (HL) to be used with lockMutex and unlockMutex.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Pointer to mutex byte</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="mutexLock" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#mutexLock">mutexLock</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/concurrency.asm#L1">View Source</a></small>
+                    </h2>
+                    
+                    <p>Atomically locks a mutex byte.  The application should initialize the byte with <span class="deadlink">initMutex</span>. This routine blocks until the mutex is locked. Interrupts will be enabled to perform a context switch (if needed) and restored to their former state when done.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Pointer to mutex byte</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="mutexUnlock" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#mutexUnlock">mutexUnlock</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/concurrency.asm#L30">View Source</a></small>
+                    </h2>
+                    
+                    <p>Atomically unlocks a mutex byte.  If the mutex is not locked already by this thread, an error will be returned.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Pointer to mutex byte</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dd>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on failure</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h4>Function Reference</h4>
+        <ul class="nav doc-nav">
+            
+            
+            <li><a href="/documentation/reference/color.html">Color</a></li>
+            
+            </li>
+            
+            
+            <li class="active">
+                <a href="/documentation/reference/concurrency.html" class="text-bold">Concurrency</a>
+                <ul class="nav doc-nav">
+                    
+                    <li>
+                        <a href="#condInit" class="text-muted">condInit</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#condNotifyAll" class="text-muted">condNotifyAll</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#condNotifyOne" class="text-muted">condNotifyOne</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#condWait" class="text-muted">condWait</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#mutexInit" class="text-muted">mutexInit</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#mutexLock" class="text-muted">mutexLock</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#mutexUnlock" class="text-muted">mutexUnlock</a>
+                    </li>
+                    
+                </ul>
+            </li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/cryptography.html">Cryptography</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/display.html">Display</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/filestreams.html">Filestreams</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/filesystem.html">Filesystem</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/flash.html">Flash</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/hardware.html">Hardware</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/input.html">Input</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/maths.html">Maths</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/miscellaneous.html">Miscellaneous</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/strings.html">Strings</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/system.html">System</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/text.html">Text</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/threading.html">Threading</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/time.html">Time</a></li>
+            
+            </li>
+            
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+
+</script>

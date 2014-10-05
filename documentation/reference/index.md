@@ -20,6 +20,13 @@ browse through them with the categories below.
     </tr>
 
     <tr>
+        <th><a href="/documentation/reference/concurrency.html">Concurrency</a></th>
+        
+        <td>Implementations of concurrency patterns</td>
+        
+    </tr>
+
+    <tr>
         <th><a href="/documentation/reference/cryptography.html">Cryptography</a></th>
         
         <td>Cryptographic hashing functions</td>
