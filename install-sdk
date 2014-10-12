@@ -87,35 +87,6 @@ pip() { # cygwin only
     quiet /usr/bin/easy_install-3.2 pip
 }
 
-sdl() { # cygwin only
-    # Check for xorg headers
-    if [[ ! -d /usr/include/X11/ ]]; then
-        echo "Error: can't find X11 headers for SDL. Do you have libx11-devel installed from cygwin?"
-        exit 1
-    fi
-    info Downloading SDL...
-    quiet wget http://www.libsdl.org/release/SDL-1.2.14.tar.gz
-    info Extracting SDL...
-    quiet tar xf SDL-1.2.14.tar.gz
-    cd SDL-1.2.14
-    info "Patching for cygwin..."
-    quiet wget -O 1.2.14-autoconf.patch http://www.knightos.org/1.2.14-autoconf.patch
-    quiet wget -O 1.2.14-cygwin.patch http://www.knightos.org/1.2.14-cygwin.patch
-    quiet patch -p0 < 1.2.14-autoconf.patch
-    quiet patch -p0 < 1.2.14-cygwin.patch
-    quiet ./autogen.sh
-    info "Compiling SDL (this is going to take a while)..."
-    quiet ./configure --enable-pthreads --enable-pthread-sem --enable-sdl-dlopen --disable-arts --disable-esd \
-        --enable-nas --enable-oss --enable-pulseaudio --disable-dga --disable-video-aalib --disable-video-caca \
-        --disable-video-dga --enable-video-dummy --disable-video-ggi --enable-video-opengl --enable-video-x11 \
-        --disable-video-x11-dgamouse --disable-video-x11-vm --enable-video-x11-xinerama --disable-video-x11-xme \
-        --enable-video-x11-xrandr --disable-video-x11-xv --disable-arts-shared --disable-esd-shared \
-        --enable-nas-shared --enable-pulseaudio-shared --enable-x11-shared
-    quiet make
-    info Installing SDL...
-    asroot make install
-}
-
 sdk() {
     info Downloading SDK...
     quiet git clone git://github.com/KnightOS/sdk.git
@@ -132,7 +103,6 @@ force_all() {
     install kpack
     install sass
     if cygwin; then
-        install sdl
         install pip
     fi
     install sdk
@@ -162,10 +132,6 @@ else
             ;;
         sdk)
             install sdk
-            shift 1
-            ;;
-        sdl)
-            install sdl
             shift 1
             ;;
         pip)
