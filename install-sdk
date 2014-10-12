@@ -122,13 +122,66 @@ sdk() {
     asroot make install
 }
 
+force_all() {
+    install genkfs
+    install kpack
+    install sass
+    if cygwin; then
+        install sdl
+        install pip
+    fi
+    install sdk
+    info KnightOS SDK installed!
+}
+
+install_all() {
+    hash genkfs 2>/dev/null || install genkfs
+    hash kpack 2>/dev/null || install kpack
+    hash sass 2>/dev/null || install sass
+    if cygwin; then
+        hash sdl-config 2>/dev/null || install sdl
+        hash pip3 2>/dev/null || install pip
+    fi
+    hash knightos 2>/dev/null || install sdk
+    info KnightOS SDK installed!
+}
+
 prereqs
-info Installing KnightOS SDK
-install genkfs
-install kpack
-install sass
-if cygwin; then
-    hash sdl-config 2>/dev/null || install sdl
-    hash pip3 2>/dev/null || install pip
+if [[ $# -eq 0 ]]; then
+    install_all
+else
+    case "$1" in
+        genkfs)
+            install genkfs
+            shift 1
+            ;;
+        kpack)
+            install kpack
+            shift 1
+            ;;
+        sass)
+            install sass
+            shift 1
+            ;;
+        sdk)
+            install sdk
+            shift 1
+            ;;
+        sdl)
+            install sdl
+            shift 1
+            ;;
+        pip)
+            install pip
+            shift 1
+            ;;
+        all)
+            force_all
+            shift 1
+            ;;
+        *)
+            echo "Error: $1 is not a valid option."
+            exit 1
+            ;;
+    esac
 fi
-install sdk
