@@ -149,6 +149,10 @@ install_all() {
 prereqs
 if [[ $# -eq 0 ]]; then
     install_all
+    echo "Thanks for installing the KnightOS SDK!"
+    echo "You can run 'knightos --help' to find out how to use it."
+    echo "Resources are available online at http://www.knightos.org/documentation"
+    echo "Have fun!"
 else
     case "$1" in
         genkfs)
