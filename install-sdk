@@ -84,8 +84,8 @@ sdl() {
     info Downloading SDL...
     quiet wget http://www.libsdl.org/release/SDL-1.2.14.tar.gz
     info Extracting SDL...
-    quiet tar xf SDL2-1.2.14.tar.gz
-    cd SDL2-1.2.14.tar.gz
+    quiet tar xf SDL-1.2.14.tar.gz
+    cd SDL-1.2.14.tar.gz
     info "Patching for cygwin..."
     quiet wget -O 1.2.14-autoconf.patch http://www.knightos.org/1.2.14-autoconf.patch
     quiet wget -O 1.2.14-cygwin.patch http://www.knightos.org/1.2.14-cygwin.patch
