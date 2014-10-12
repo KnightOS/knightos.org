@@ -1,9 +1,9 @@
 diff -r 6f013dd0add1 -r e1264a758d50 src/video/x11/SDL_x11dyn.c
---- a/src/video/x11/SDL_x11dyn.c    Mon Jan 16 14:27:47 2012 -0500
-+++ b/src/video/x11/SDL_x11dyn.c    Wed Jan 18 03:03:23 2012 -0500
-@@ -112,6 +112,21 @@
+--- a/src/video/x11/SDL_x11dyn.c        2014-10-12 14:53:46.618923200 -0700
++++ b/src/video/x11/SDL_x11dyn.c        2014-10-12 14:55:11.761352000 -0700
+@@ -108,6 +108,21 @@
+ #undef SDL_X11_MODULE
  #undef SDL_X11_SYM
-
 
 +static void *SDL_XGetRequest_workaround(Display* dpy, CARD8 type, size_t len)
 +{
@@ -20,25 +20,26 @@ diff -r 6f013dd0add1 -r e1264a758d50 src/video/x11/SDL_x11dyn.c
 +   return req;
 +}
 +
+
  static int x11_load_refcount = 0;
 
- void SDL_X11_UnloadSymbols(void)
-@@ -174,6 +189,15 @@
-                                                         &SDL_X11_HAVE_UTF8);
-        #endif
+@@ -168,6 +183,16 @@
+                X11_GetSym("XGetICValues",&SDL_X11_HAVE_UTF8,(void **)&pXGetICValues);
+                #endif
 
-+       /*
-+        * In case we're built with newer Xlib headers, we need to make sure
-+        *  that _XGetRequest() is available, even on older systems.
-+        *  Otherwise, various Xlib macros we use will call a NULL pointer.
-+        */
-+       if (!SDL_X11_HAVE_XGETREQUEST) {
-+           p_XGetRequest = SDL_XGetRequest_workaround;
-+       }
++               /*
++               * In case we're built with newer Xlib headers, we need to make sure
++               *  that _XGetRequest() is available, even on older systems.
++               *  Otherwise, various Xlib macros we use will call a NULL pointer.
++               */
++               if (!SDL_X11_HAVE_XGETREQUEST) {
++                       p_XGetRequest = SDL_XGetRequest_workaround;
++               }
 +
-        if (SDL_X11_HAVE_BASEXLIB) {  /* all required symbols loaded. */
-            SDL_ClearError();
-        } else {
++
+                if (SDL_X11_HAVE_BASEXLIB) {  /* all required symbols loaded. */
+                        SDL_ClearError();
+                } else {
 diff -r 6f013dd0add1 -r e1264a758d50 src/video/x11/SDL_x11sym.h
 --- a/src/video/x11/SDL_x11sym.h    Mon Jan 16 14:27:47 2012 -0500
 +++ b/src/video/x11/SDL_x11sym.h    Wed Jan 18 03:03:23 2012 -0500
