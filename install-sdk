@@ -128,7 +128,7 @@ install genkfs
 install kpack
 install sass
 if cygwin; then
-    hash sdl-config 2>/dev/null || sdl
-    hash pip3 2>/dev/null || pip
+    hash sdl-config 2>/dev/null || install sdl
+    hash pip3 2>/dev/null || install pip
 fi
 install sdk
