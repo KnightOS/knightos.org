@@ -14,8 +14,8 @@ prereqs() {
     hash python3 2>/dev/null || { echo >&2 "Please install Python 3, which is availble through your package manager or https://www.python.org/"; exit 1; }
     hash pip 2>/dev/null || { echo >&2 "Please install pip, which is availble through your package manager or https://pip.pypa.io/en/latest/installing.html"; exit 1; }
     if cygwin; then
-        hash msbuild 2>/dev/null || { echo >&2 "Please install Microsoft.NET and add it to your %PATH%, which is availble from http://www.microsoft.com/net"; exit 1; }
-        xbuild=msbuild
+        hash msbuild.exe 2>/dev/null || { echo >&2 "Please install Microsoft.NET and add it to your %PATH%, which is availble from http://www.microsoft.com/net"; exit 1; }
+        xbuild=msbuild.exe
     else
         hash xbuild 2>/dev/null || { echo >&2 "Please install mono, which is availble through your package manager or http://mono-project.com/"; exit 1; }
         hash mono 2>/dev/null || { echo >&2 "Please install mono, which is availble through your package manager or http://mono-project.com/"; exit 1; }
