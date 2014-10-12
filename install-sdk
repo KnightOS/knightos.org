@@ -12,13 +12,13 @@ prereqs() {
     hash a2x 2>/dev/null || { echo >&2 "Please install asciidoc, which is availble through your package manager or http://asciidoc.org/"; exit 1; }
     hash gcc 2>/dev/null || { echo >&2 "Please install gcc, which is availble through your package manager or https://gcc.gnu.org/"; exit 1; }
     hash python3 2>/dev/null || { echo >&2 "Please install Python 3, which is availble through your package manager or https://www.python.org/"; exit 1; }
-    hash pip3 2>/dev/null || { echo >&2 "Please install pip3, which is availble through your package manager or https://pip.pypa.io/en/latest/installing.html"; exit 1; }
     if cygwin; then
         hash msbuild.exe 2>/dev/null || { echo >&2 "Please install Microsoft.NET and add it to your %PATH%, which is availble from http://www.microsoft.com/net"; exit 1; }
         xbuild=msbuild.exe
     else
         hash xbuild 2>/dev/null || { echo >&2 "Please install mono, which is availble through your package manager or http://mono-project.com/"; exit 1; }
         hash mono 2>/dev/null || { echo >&2 "Please install mono, which is availble through your package manager or http://mono-project.com/"; exit 1; }
+        hash pip3 2>/dev/null || { echo >&2 "Please install pip3, which is availble through your package manager or https://pip.pypa.io/en/latest/installing.html"; exit 1; }
         hash sdl-config 2>/dev/null || { echo >&2 "Please install SDL (and its headers), which is availble through your package manager or http://www.libsdl.org/"; exit 1; }
     fi
 }
@@ -80,7 +80,14 @@ sass() {
     asroot make install
 }
 
-sdl() {
+pip() { # cygwin only
+    info Installing pip...
+    quiet wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py
+    quiet python3 ez_setup.py
+    quiet /usr/bin/easy_install-3.2 pip
+}
+
+sdl() { # cygwin only
     info Downloading SDL...
     quiet wget http://www.libsdl.org/release/SDL-1.2.14.tar.gz
     info Extracting SDL...
@@ -122,5 +129,6 @@ install kpack
 install sass
 if cygwin; then
     hash sdl-config 2>/dev/null || sdl
+    hash pip3 2>/dev/null || pip
 fi
 install sdk
