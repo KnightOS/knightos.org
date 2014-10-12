@@ -88,6 +88,11 @@ pip() { # cygwin only
 }
 
 sdl() { # cygwin only
+    # Check for xorg headers
+    if [[ ! -d /usr/include/X11/ ]]; then
+        echo "Error: can't find X11 headers for SDL. Do you have libx11-devel installed from cygwin?"
+        exit 1
+    fi
     info Downloading SDL...
     quiet wget http://www.libsdl.org/release/SDL-1.2.14.tar.gz
     info Extracting SDL...
@@ -134,21 +139,9 @@ force_all() {
     info KnightOS SDK installed!
 }
 
-install_all() {
-    hash genkfs 2>/dev/null || install genkfs
-    hash kpack 2>/dev/null || install kpack
-    hash sass 2>/dev/null || install sass
-    if cygwin; then
-        hash sdl-config 2>/dev/null || install sdl
-        hash pip3 2>/dev/null || install pip
-    fi
-    hash knightos 2>/dev/null || install sdk
-    info KnightOS SDK installed!
-}
-
 prereqs
 if [[ $# -eq 0 ]]; then
-    install_all
+    force_all
     echo "Thanks for installing the KnightOS SDK!"
     echo "You can run 'knightos --help' to find out how to use it."
     echo "Resources are available online at http://www.knightos.org/documentation"
