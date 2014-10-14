@@ -14,10 +14,10 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#condInit">condInit</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/concurrency.asm#L60">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/concurrency.asm#L63">View Source</a></small>
                     </h2>
                     
-                    <p>Returns a pointer to a newly allocated condition variable. The application must <a href="system.html#free">free</a> this variable when no threads are using it any longer.</p>
+                    <p>Returns a pointer to a new condition variable.</p>
 
                     <div class="details">
                     
@@ -38,6 +38,13 @@ layout: documentation
                             </dl>
                         
                     
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>This allocates memory for the condition variable. You should deallocate it 
+ with <a href="system.html#free">free</a> when you're done.</p>
+                        
+                    
                     </div>
                 </div>
             </div>
@@ -46,10 +53,10 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#condNotifyAll">condNotifyAll</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/concurrency.asm#L115">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/concurrency.asm#L120">View Source</a></small>
                     </h2>
                     
-                    <p>Awakens all threads waiting on a condition variable. The threads should check to see if the condition that they were waiting for (perhaps if a queue has data) is still true! To avoid corner-case race conditions, the calling thread must lock the associated mutex before invoking this routine (and release it when done).</p>
+                    <p>Awakens all threads waiting on a condition variable.</p>
 
                     <div class="details">
                     
@@ -62,6 +69,15 @@ layout: documentation
                                 <dd><p>Pointer to condition variable</p></dd>
                                 
                             </dl>
+                        
+                    
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>Threads awoken by this mechanism should check to see if the condition variable 
+ they were waiting for is still true. </p>
+<p>The thread calling this function must lock the associated mutex before invoking 
+ this function, and release it afterwards.</p>
                         
                     
                     </div>
@@ -72,10 +88,10 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#condNotifyOne">condNotifyOne</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/concurrency.asm#L139">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/concurrency.asm#L145">View Source</a></small>
                     </h2>
                     
-                    <p>Awakens the thread that has been waiting the longest on a condition variable. The threads should check to see if the condition that they were waiting for (perhaps if a queue has data) is still true! To avoid corner-case race conditions, the calling thread must lock the associated mutex before invoking this routine (and release it when done).</p>
+                    <p>Awakens the thread that has been waiting the longest on a condition variable.</p>
 
                     <div class="details">
                     
@@ -90,6 +106,15 @@ layout: documentation
                             </dl>
                         
                     
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>Threads awoken by this mechanism should check to see if the condition variable 
+ they were waiting for is still true. </p>
+<p>The thread calling this function must lock the associated mutex before invoking 
+ this function, and release it afterwards.</p>
+                        
+                    
                     </div>
                 </div>
             </div>
@@ -98,10 +123,10 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#condWait">condWait</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/concurrency.asm#L86">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/concurrency.asm#L90">View Source</a></small>
                     </h2>
                     
-                    <p>Blocks execution of the current thread until another thread notifies the condition variable.  A thread that intends to wait on a condition variable must first acquire a mutex and pass it to this routine.  The wait operation will atomically release the mutex and suspend the thread.  When the condition variable is notified, the thread is reawakened and the mutex is reacquired.  Interrupts will be enabled by this routine.</p>
+                    <p>Blocks until another thread notifies the condition variable. </p>
 
                     <div class="details">
                     
@@ -119,6 +144,16 @@ layout: documentation
                             </dl>
                         
                     
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>This function will enable interrupts. </p>
+<p>You must provide a pre-initialized mutex and condition variable to this 
+ function. This function will release the mutex and suspend the thread, 
+ then awaken it when the condition variable is notified. The mutex will 
+ then be reacquired.</p>
+                        
+                    
                     </div>
                 </div>
             </div>
@@ -127,10 +162,10 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#mutexInit">mutexInit</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/concurrency.asm#L50">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/concurrency.asm#L54">View Source</a></small>
                     </h2>
                     
-                    <p>Initializes a byte at (HL) to be used with lockMutex and unlockMutex.</p>
+                    <p>Initializes a mutex byte at (HL).</p>
 
                     <div class="details">
                     
@@ -153,10 +188,10 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#mutexLock">mutexLock</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/concurrency.asm#L1">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/concurrency.asm#L1">View Source</a></small>
                     </h2>
                     
-                    <p>Atomically locks a mutex byte.  The application should initialize the byte with <span class="deadlink">initMutex</span>. This routine blocks until the mutex is locked. Interrupts will be enabled to perform a context switch (if needed) and restored to their former state when done.</p>
+                    <p>Atomically locks a mutex.</p>
 
                     <div class="details">
                     
@@ -171,6 +206,15 @@ layout: documentation
                             </dl>
                         
                     
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>The application should have already initialized the mutex with <span class="deadlink">initMutex</span>. </p>
+<p>This function blocks until the mutex is locked. </p>
+<p>Interrupts will be enabled to do a context switch (if needed) and will be 
+ restored to their original state afterwards.</p>
+                        
+                    
                     </div>
                 </div>
             </div>
@@ -179,10 +223,10 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#mutexUnlock">mutexUnlock</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/concurrency.asm#L30">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/concurrency.asm#L33">View Source</a></small>
                     </h2>
                     
-                    <p>Atomically unlocks a mutex byte.  If the mutex is not locked already by this thread, an error will be returned.</p>
+                    <p>Atomically unlocks a mutex.</p>
 
                     <div class="details">
                     
@@ -209,6 +253,12 @@ layout: documentation
                                 <dd><p>Set on success, reset on failure</p></dd>
                                 
                             </dl>
+                        
+                    
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>If the mutex is not locked already by this thread, an error will be returned.</p>
                         
                     
                     </div>

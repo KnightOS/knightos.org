@@ -10,11 +10,48 @@ layout: documentation
         <h1>Strings</h1>
         <div class="docs">
             
+            <div id="isAlphaNum" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#isAlphaNum">isAlphaNum</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/util.asm#L507">View Source</a></small>
+                    </h2>
+                    
+                    <p>Tests if a character is a letter or a number.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Character to test</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>C</dt>
+                                <dd><p>Set if the character is alphanumeric</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
             <div id="strchr" class="docsection">
                 <div>
                     <h2 class="doc-title">
                         <a href="#strchr">strchr</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/9fcb6f0a0bbbd8cb6715b29d67e45555cf5715d9/src/00/strings.asm#L85">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/strings.asm#L88">View Source</a></small>
                     </h2>
                     
                     <p>Returns a pointer on the first occurence of a character in a string.</p>
@@ -27,10 +64,10 @@ layout: documentation
                             <dl>
                                 
                                 <dt>B</dt>
-                                <dd><p>character to search</p></dd>
+                                <dd><p>Needle</p></dd>
                                 
                                 <dt>HL</dt>
-                                <dd><p>string pointer</p></dd>
+                                <dd><p>Haystack</p></dd>
                                 
                             </dl>
                         
@@ -40,19 +77,16 @@ layout: documentation
                         
                             <dl>
                                 
+                                <dt>A</dt>
+                                <dd><p>Destroyed</p></dd>
+                                
                                 <dt>Z</dt>
-                                <dd><p>set if character found</p></dd>
+                                <dd><p>Set if character found</p></dd>
                                 
                                 <dt>HL</dt>
-                                <dd><p>pointer on first occurence of character in string in case of success</p></dd>
+                                <dd><p>Pointer to first occurence of character</p></dd>
                                 
                             </dl>
-                        
-                    
-                    
-                        <h3>Notes</h3>
-                        
-                            <p>Destroys A</p>
                         
                     
                     </div>
@@ -63,7 +97,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#strcmp">strcmp</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/9fcb6f0a0bbbd8cb6715b29d67e45555cf5715d9/src/00/strings.asm#L21">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/strings.asm#L21">View Source</a></small>
                     </h2>
                     
                     <p>Determines if two strings are equal, and checks alphabetical sort order.</p>
@@ -106,10 +140,10 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#strcmp_sort">strcmp_sort</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/9fcb6f0a0bbbd8cb6715b29d67e45555cf5715d9/src/00/strings.asm#L45">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/strings.asm#L45">View Source</a></small>
                     </h2>
                     
-                    <p>Compares strings at ((HL)) and ((DE)).  That is, calls indirect16HLDE, then calls strcmp.</p>
+                    <p>Compares strings at ((HL)) and ((DE)).  That is, calls <a href="miscellaneous.html#indirect16HLDE">indirect16HLDE</a>, then calls <a href="strings.html#strcmp">strcmp</a>.</p>
 
                     <div class="details">
                     
@@ -144,8 +178,8 @@ layout: documentation
                     
                         <h3>Notes</h3>
                         
-                            <p>This routine is extremely useful as the callback for the <a href="miscellaneous.html#callbackSort">callbackSort</a> routine. 
- It allows sorting a list of pointers to strings by the strings' sort order.</p>
+                            <p>This routine is useful as the callback for the <a href="miscellaneous.html#callbackSort">callbackSort</a> routine. 
+ It allows sorting a list of pointers to strings in alphabetical order.</p>
                         
                     
                     </div>
@@ -156,7 +190,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#strcpy">strcpy</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/9fcb6f0a0bbbd8cb6715b29d67e45555cf5715d9/src/00/strings.asm#L66">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/strings.asm#L66">View Source</a></small>
                     </h2>
                     
                     <p>Copies a string.</p>
@@ -177,6 +211,13 @@ layout: documentation
                             </dl>
                         
                     
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>This will trample into undefined territory if you try to copy a string into some 
+ allocated memory it won't fit in.</p>
+                        
+                    
                     </div>
                 </div>
             </div>
@@ -185,7 +226,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#strlen">strlen</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/9fcb6f0a0bbbd8cb6715b29d67e45555cf5715d9/src/00/strings.asm#L1">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/strings.asm#L1">View Source</a></small>
                     </h2>
                     
                     <p>Determines the length of a zero delimited string.</p>
@@ -222,10 +263,10 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#strtoi">strtoi</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/9fcb6f0a0bbbd8cb6715b29d67e45555cf5715d9/src/00/strings.asm#L108">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/strings.asm#L110">View Source</a></small>
                     </h2>
                     
-                    <p>Converts an ASCII-encoded signed decimal into a word of variable size.</p>
+                    <p>Converts an ASCII-encoded signed decimal into a number.</p>
 
                     <div class="details">
                     
@@ -235,10 +276,10 @@ layout: documentation
                             <dl>
                                 
                                 <dt>B</dt>
-                                <dd><p>maximum number of digits to convert</p></dd>
+                                <dd><p>Maximum number of digits to convert</p></dd>
                                 
                                 <dt>HL</dt>
-                                <dd><p>pointer on ASCII-encoded decimal</p></dd>
+                                <dd><p>Pointer on ASCII-encoded decimal</p></dd>
                                 
                             </dl>
                         
@@ -249,10 +290,10 @@ layout: documentation
                             <dl>
                                 
                                 <dt>DEHL</dt>
-                                <dd><p>converted word</p></dd>
+                                <dd><p>Converted word</p></dd>
                                 
                                 <dt>Z</dt>
-                                <dd><p>set on success, reset on error</p></dd>
+                                <dd><p>Set on success, reset on error</p></dd>
                                 
                             </dl>
                         
@@ -260,13 +301,74 @@ layout: documentation
                     
                         <h3>Notes</h3>
                         
-                            <p>The routine will ignore leading zeroes to produce a number composed by a<br />
- maximum of 10 digits, the maximal value being 4,294,967,295. If a 10-digits 
- number with a greater value is encountered, no error will be thrown but the 
- number won't be converted as expected. 
- Besides, the routine supports negative numbers that starts with the character '-'. 
- This character has no effect on the number of digits parsed. 
- Destroys BC', DE' and HL'.</p>
+                            <p>This will ignore leading zeros and has an unsigned range of 0 to 4,294,967,295. 
+ Signed numbers may be prefixed with '-' and have a range of -2,147,483,648 to 
+ 2,147,483,647. Strings whose numbers fall outside that range produce undefined 
+ behavior.</p>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="toLower" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#toLower">toLower</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/strings.asm#L254">View Source</a></small>
+                    </h2>
+                    
+                    <p>Converts every alpha character of a string to lowercase.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Pointer to string</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>This modifies the string in-place.</p>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="toUpper" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#toUpper">toUpper</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/strings.asm#L278">View Source</a></small>
+                    </h2>
+                    
+                    <p>Converts every alpha character of a string to uppercase.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Pointer to string</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>This modifies the string in-place.</p>
                         
                     
                     </div>
@@ -281,6 +383,11 @@ layout: documentation
             
             
             <li><a href="/documentation/reference/color.html">Color</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/concurrency.html">Concurrency</a></li>
             
             </li>
             
@@ -335,6 +442,10 @@ layout: documentation
                 <ul class="nav doc-nav">
                     
                     <li>
+                        <a href="#isAlphaNum" class="text-muted">isAlphaNum</a>
+                    </li>
+                    
+                    <li>
                         <a href="#strchr" class="text-muted">strchr</a>
                     </li>
                     
@@ -356,6 +467,14 @@ layout: documentation
                     
                     <li>
                         <a href="#strtoi" class="text-muted">strtoi</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#toLower" class="text-muted">toLower</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#toUpper" class="text-muted">toUpper</a>
                     </li>
                     
                 </ul>

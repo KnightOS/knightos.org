@@ -12,11 +12,55 @@ layout: documentation
         <h1>Filesystem</h1>
         <div class="docs">
             
+            <div id="checkFilesystem" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#checkFilesystem">checkFilesystem</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/filesystem.asm#L985">View Source</a></small>
+                    </h2>
+                    
+                    <p>Checks the integrity of the filesystem and sets certain bits of A with the results.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A=0</dt>
+                                <dd><p>No problems</p></dd>
+                                
+                                <dt>A/4</dt>
+                                <dd><p>Unclosed new file entries found</p></dd>
+                                
+                                <dt>A/3</dt>
+                                <dd><p>Invalid heap blocks found</p></dd>
+                                
+                                <dt>A/2</dt>
+                                <dd><p>Invalid FAT entries found</p></dd>
+                                
+                                <dt>A/1</dt>
+                                <dd><p>Unformatted pages found</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>Passing A into <span class="deadlink">fixFilesystem</span> is the appropriate course of action if A is nonzero.</p>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
             <div id="createDirectory" class="docsection">
                 <div>
                     <h2 class="doc-title">
                         <a href="#createDirectory">createDirectory</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/9fcb6f0a0bbbd8cb6715b29d67e45555cf5715d9/src/00/filesystem.asm#L598">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/filesystem.asm#L607">View Source</a></small>
                     </h2>
                     
                     <p>Creates a new directory in the filesystem and returns information about the new filesystem entry.</p>
@@ -59,7 +103,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#deleteFile">deleteFile</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/9fcb6f0a0bbbd8cb6715b29d67e45555cf5715d9/src/00/filesystem.asm#L1">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/filesystem.asm#L1">View Source</a></small>
                     </h2>
                     
                     <p>Deletes a file.</p>
@@ -99,7 +143,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#directoryExists">directoryExists</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/9fcb6f0a0bbbd8cb6715b29d67e45555cf5715d9/src/00/filesystem.asm#L63">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/filesystem.asm#L63">View Source</a></small>
                     </h2>
                     
                     <p>Determines if a directory exists.</p>
@@ -136,7 +180,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#fileExists">fileExists</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/9fcb6f0a0bbbd8cb6715b29d67e45555cf5715d9/src/00/filesystem.asm#L41">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/filesystem.asm#L41">View Source</a></small>
                     </h2>
                     
                     <p>Determines if a file exists.</p>
@@ -173,7 +217,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#findDirectoryEntry">findDirectoryEntry</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/9fcb6f0a0bbbd8cb6715b29d67e45555cf5715d9/src/00/filesystem.asm#L833">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/filesystem.asm#L844">View Source</a></small>
                     </h2>
                     
                     <p>Finds a directory entry in the FAT.</p>
@@ -224,7 +268,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#findFileEntry">findFileEntry</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/9fcb6f0a0bbbd8cb6715b29d67e45555cf5715d9/src/00/filesystem.asm#L693">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/filesystem.asm#L704">View Source</a></small>
                     </h2>
                     
                     <p>Finds a file entry in the FAT.</p>
@@ -263,23 +307,16 @@ layout: documentation
                 </div>
             </div>
             
-            <div id="formatUnusedPages" class="docsection">
+            <div id="fixKFS" class="docsection">
                 <div>
                     <h2 class="doc-title">
-                        <a href="#formatUnusedPages">formatUnusedPages</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/9fcb6f0a0bbbd8cb6715b29d67e45555cf5715d9/src/00/filesystem.asm#L967">View Source</a></small>
+                        <a href="#fixKFS">fixKFS</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/filesystem.asm#L979">View Source</a></small>
                     </h2>
                     
-                    <p>If /bin/init is called with A set to 0xFF, this function should be called. It may be appropriate to show the user some sort of UI while this is processing, as it will take some time to run.</p>
+                    <p>Fixes issues found from <a href="filesystem.html#checkFilesystem">checkFilesystem</a></p>
 
                     <div class="details">
-                    
-                    
-                        <h3>Notes</h3>
-                        
-                            <p>This function is only relevant to system-level programmers. 
- Most programmers do not have to concern themselves with it.</p>
-                        
                     
                     </div>
                 </div>
@@ -289,7 +326,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#listDirectory">listDirectory</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/9fcb6f0a0bbbd8cb6715b29d67e45555cf5715d9/src/00/filesystem.asm#L85">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/filesystem.asm#L85">View Source</a></small>
                     </h2>
                     
                     <p>Lists the contents of a directory on the filesystem.</p>
@@ -350,7 +387,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#renameFile">renameFile</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/9fcb6f0a0bbbd8cb6715b29d67e45555cf5715d9/src/00/filesystem.asm#L1036">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/ab6b4691384581bdcdcdb1de484751f1f7dc26e3/src/00/filesystem.asm#L1056">View Source</a></small>
                     </h2>
                     
                     <p>Renames a file.</p>
@@ -401,6 +438,11 @@ layout: documentation
             </li>
             
             
+            <li><a href="/documentation/reference/concurrency.html">Concurrency</a></li>
+            
+            </li>
+            
+            
             <li><a href="/documentation/reference/cryptography.html">Cryptography</a></li>
             
             </li>
@@ -419,6 +461,10 @@ layout: documentation
             <li class="active">
                 <a href="/documentation/reference/filesystem.html" class="text-bold">Filesystem</a>
                 <ul class="nav doc-nav">
+                    
+                    <li>
+                        <a href="#checkFilesystem" class="text-muted">checkFilesystem</a>
+                    </li>
                     
                     <li>
                         <a href="#createDirectory" class="text-muted">createDirectory</a>
@@ -445,7 +491,7 @@ layout: documentation
                     </li>
                     
                     <li>
-                        <a href="#formatUnusedPages" class="text-muted">formatUnusedPages</a>
+                        <a href="#fixKFS" class="text-muted">fixKFS</a>
                     </li>
                     
                     <li>
