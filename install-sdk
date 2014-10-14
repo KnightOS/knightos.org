@@ -13,7 +13,7 @@ prereqs() {
     hash gcc 2>/dev/null || { echo >&2 "Please install gcc, which is availble through your package manager or https://gcc.gnu.org/"; exit 1; }
     hash python3 2>/dev/null || { echo >&2 "Please install Python 3, which is availble through your package manager or https://www.python.org/"; exit 1; }
     if cygwin; then
-        hash msbuild.exe 2>/dev/null || { echo >&2 "Please install Microsoft.NET and add 'C:\\Windows\\Microsoft.NET\\Framework\\v3.5' to your %PATH%. .NET is availble from http://www.microsoft.com/net"; exit 1; }
+        hash msbuild.exe 2>/dev/null || { echo >&2 "Please install Microsoft.NET and add 'C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319' to your %PATH%. .NET is availble from http://www.microsoft.com/net"; exit 1; }
         xbuild=msbuild.exe
     else
         hash xbuild 2>/dev/null || { echo >&2 "Please install mono, which is availble through your package manager or http://mono-project.com/"; exit 1; }
