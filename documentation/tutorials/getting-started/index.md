@@ -15,7 +15,8 @@ that you can get the code for it and modify it to suit your needs, or help
 improve it so that the rest of the world benefits, too. This is a general
 purpose tutorial to introduce a number of important concepts and get your
 enviornment up and running. You can help improve it by submitting pull requests
-to [KnightOS/knightos.org](https://github.com/KnightOS/knightos.org) on GitHub.
+to [KnightOS/knightos.org](https://github.com/KnightOS/knightos.org/tree/gh-pages/documentation/tutorials/getting-started)
+on GitHub.
 
 ## Contents
 
