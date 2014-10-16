@@ -2,6 +2,15 @@ body {
     text-align: justify;
 }
 
+body > .container {
+  margin-bottom: 30px;
+}
+
+blockquote {
+  border-left-color: #aaa;
+  background: #ddd;
+}
+
 .dropdown-header {
   font-size: 16pt;
 }

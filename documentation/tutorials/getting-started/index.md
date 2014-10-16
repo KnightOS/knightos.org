@@ -21,7 +21,7 @@ on GitHub.
 ## Contents
 
 1. [Prerequisites and environment](prereqs)
-   1. Tweaking KnightOS for a programmer
+   1. "Rooting" your calculator
    1. Exploring KnightOS internals
    1. The KnightOS SDK
 1. [Your first program](first-program)
