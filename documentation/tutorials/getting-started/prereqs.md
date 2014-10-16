@@ -107,7 +107,7 @@ command mentioned above to install the SDK.
 
 Once you have the SDK installed, you should run a few commands to make sure
 they're all working. Each one should complain about "invalid usage" but any
-other errors should raise alarm.
+other errors should raise alarm. Run each of these commands to check:
 
 * `kpack`
 * `genkfs`
