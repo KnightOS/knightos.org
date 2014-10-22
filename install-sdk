@@ -12,6 +12,7 @@ prereqs() {
     hash git 2>/dev/null || { missing=1; echo >&2 "Please install git, which is availble through your package manager or http://git-scm.com/"; }
     hash a2x 2>/dev/null || { missing=1; echo >&2 "Please install asciidoc, which is availble through your package manager or http://asciidoc.org/"; }
     hash gcc 2>/dev/null || { missing=1; echo >&2 "Please install gcc, which is availble through your package manager or https://gcc.gnu.org/"; }
+    hash make 2>/dev/null || { missing=1; echo >&2 "Please install GNU make, which is availble through your package manager or http://www.gnu.org/software/make/"; }
     hash python3 2>/dev/null || { missing=1; echo >&2 "Please install Python 3, which is availble through your package manager or https://www.python.org/"; }
     if cygwin; then
         hash msbuild.exe 2>/dev/null || { missing=1; echo >&2 "Please install Microsoft.NET and add 'C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319' to your %PATH%. .NET is availble from http://www.microsoft.com/net"; }
