@@ -40,7 +40,7 @@ install() {
 
 asroot() {
     if [[ "$(uname -s | sed -re "s/-.*$//")" = "CYGWIN_NT" ]]; then
-        cygstart --action=runas "$*"
+        quiet $*
     else
         sudo $*
     fi
