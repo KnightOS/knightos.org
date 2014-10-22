@@ -26,6 +26,9 @@ prereqs() {
     if [ $missing -eq 1 ]; then
         exit 1
     fi
+    if cygwin; then
+        echo "Cygwin users - make sure you're running cygwin as administrator!"
+    fi
 }
 
 quiet() {
