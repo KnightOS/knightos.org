@@ -68,7 +68,7 @@ genkfs() {
 }
 
 mktiupgrade() {
-    info Downloading mktiupgrade
+    info Downloading mktiupgrade...
     quiet git clone git://github.com/KnightOS/mktiupgrade
     cd mktiupgrade
     info Compiling mktiupgrade...
@@ -86,6 +86,17 @@ kpack() {
     quiet cmake .
     quiet make
     info Installing kpack...
+    asroot make install
+}
+
+z80e() {
+    info Downloading z80e...
+    quiet git clone git://github.com/KnightOS/z80e.git
+    cd z80e
+    info Compiling z80e...
+    quiet cmake -Denable-sdl=YES .
+    quiet make
+    info Installing z80e...
     asroot make install
 }
 
@@ -124,6 +135,8 @@ force_all() {
     install sass
     if cygwin; then
         install pip
+    else
+        install z80e
     fi
     install sdk
     info KnightOS SDK installed!
@@ -148,6 +161,10 @@ else
             ;;
         kpack)
             install kpack
+            shift 1
+            ;;
+        z80e)
+            install z80e
             shift 1
             ;;
         sass)
