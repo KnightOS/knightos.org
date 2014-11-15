@@ -23,6 +23,7 @@ prereqs() {
         hash pip3 2>/dev/null || { missing=1; echo >&2 "Please install pip3, which is availble through your package manager or https://pip.pypa.io/en/latest/installing.html"; }
         hash sdl-config 2>/dev/null || { missing=1; echo >&2 "Please install SDL (and its headers), which is availble through your package manager or http://www.libsdl.org/"; }
     fi
+    [ -e /usr/include/readline/readline.h ] || { missing=1; echo >&2 "Please install readline (and its headers), which is available through your package manager (libreadline-dev on Debian/Ubuntu)"; }
     if [ $missing -eq 1 ]; then
         exit 1
     fi
