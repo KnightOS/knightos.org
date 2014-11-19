@@ -124,6 +124,8 @@ sdk() {
     info Installing SDK requirements...
     asroot pip3 install docopt
     asroot pip3 install requests
+    asroot pip3 install pystache
+    asroot pip3 install pyyaml
     cd sdk
     info Installing SDK...
     asroot make install
