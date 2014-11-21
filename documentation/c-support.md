@@ -54,7 +54,7 @@ void main(void) {
 <div class="col-md-6"> <img src="https://cdn.mediacru.sh/5YXv4hRm-Lt-.png" /> </div>
 </div>
 
-If you're feeling adventerous enough to give it a try, install kcc and then use
-`knightos init --template=c your_project` to get started. To get help and to
-help us improve C support, join [#knightos on
+If you're feeling adventerous enough to give it a try, install kcc and scas and
+then use `knightos init --template=c your_project` to get started. To get help
+and to help us improve C support, join [#knightos on
 irc.freenode.net](http://webchat.freenode.net/?channels=knightos&uio=d4).
