@@ -37,7 +37,6 @@ KnightOS:
 
 void main(void) {
     SCREEN *screen;
-    int i;
     load_library("/lib/core");
     get_lcd_lock();
     screen = screen_allocate();
