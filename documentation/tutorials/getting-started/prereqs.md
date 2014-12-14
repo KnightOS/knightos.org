@@ -1,7 +1,7 @@
 ---
 # vim: tw=80
 title: Getting Started with KnightOS Assembly
-layout: base
+layout: page
 ---
 
 <h1>
