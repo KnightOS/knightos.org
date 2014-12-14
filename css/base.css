@@ -1,5 +1,13 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
 body {
-    text-align: justify;
+  text-align: justify;
+  background: #DFDFDF;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Open Sans', sans-serif !important;
 }
 
 body > .container {
@@ -11,6 +19,10 @@ blockquote {
   background: #ddd;
 }
 
+.btn {
+  border-radius: 0;
+}
+
 .dropdown-header {
   font-size: 16pt;
 }
@@ -19,36 +31,112 @@ blockquote {
   text-align: left;
 }
 
-.page-header {
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-row .flex-col {
+  width: 32%;
+  background: white;
+  box-shadow: 5px 5px 10px #888;
+  padding: 10px;
+  padding-bottom: 50px;
+  position: relative;
+}
+
+.flex-col h3 {
+  padding: 0;
   margin-top: 0;
-  border-bottom: none;
-  border-top: 1px solid #999;
+  color: #39B3D7;
+  font-size: 18pt;
+  text-align: left;
+}
+
+.flex-col h3 a {
+  color: #39B3D7;
+}
+
+.flex-col .bottom-link {
+  display: block;
+  background: #ddd;
+  border-top: 1px solid #444;
+  width: 100%;
+  color: #000;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  line-height: 40px;
+  height: 40px;
+  transition: background-color 0.25s linear;
+}
+
+.flex-col .bottom-link:hover {
+  text-decoration: none;
+  background-color: #fff;
+}
+
+.page-header {
+  background: url('/img/screenshotbanner-blurred.png') repeat;
+  margin: 0;
+  padding: 0;
+  height: 375px;
+}
+
+.page-header .container .intro {
+  width: 400px;
+  background: rgba(256, 256, 256, 1);
+  padding: 10px;
+  box-shadow: 5px 5px 3px #444;
+}
+
+.page-header .container .intro .btn {
+  border-radius: 0;
+  margin-top: -2px;
+  width: 200px;
+}
+
+.page-header .container .intro.pull-right {
+  margin-top: 250px;
+}
+
+.page-header .container .intro.pull-left {
+  margin-top: 10px;
+  margin-left: 40px;
+  z-index: 99999;
+  position: relative;
+}
+
+.page-header .container .intro.pull-left p {
+  margin: 0;
+  padding: 0;
+}
+
+.page-header .container .intro h1, .page-header .container .intro h3 {
+  margin: 0;
+  padding: 0;
 }
 
 .calculator {
-  background: url('/img/calculator.png');
+  background: url('/img/calculator.png') 0 -28px;
   width: 645px;
-  height: 422px;
-  margin: 0 auto;
-  position: relative;
+  height: 375px;
+  position: absolute;
+  left: 0;
 }
 
 .calculator canvas {
   position: absolute;
   left: 122px;
-  top: 130px;
+  top: 100px;
 }
 
 .calculator .call-to-action {
   width: 250px;
   position: absolute;
-  right: -150px;
-}
-
-.calculator .temporary {
-  width: 250px;
-  position: absolute;
-  left: -150px;
+  right: -225px;
+  top: 50px;
 }
 
 table {
@@ -228,6 +316,7 @@ dd {
 
 .tt-dropdown-menu h4 {
     font-size: 10pt;
+    color: #000;
 }
 
 .tt-dropdown-menu div.text-muted {
@@ -256,16 +345,17 @@ dd {
   color: #fff;
   background-color: #39b3d7;
   border-color: #269abc;
+  margin-bottom: 0;
 }
 .navbar-default .navbar-nav > li > a{
-	color:#fff;
+  color:#fff;
 }
 .navbar-default .navbar-nav > .dropdown > a .caret{
-	border-top-color: #fff;
-    border-bottom-color: #fff;
+  border-top-color: #fff;
+  border-bottom-color: #fff;
 }
 .navbar-default .navbar-brand{
-	color:#fff;
+  color:#fff;
 }
 .menu-large {
   position: static !important;
@@ -329,7 +419,7 @@ dd {
 
   }
   .navbar-nav .open .dropdown-menu .dropdown-header{
-	color:#fff;
+        color:#fff;
   }
 }
 

@@ -3,56 +3,80 @@ title: KnightOS
 layout: base
 ---
 
-<div class="calculator">
-    <div class="alert alert-danger temporary text-center">
-        This emulator is a work in progress and may be severely broken! You have been warned!<br />
-        <a data-dismiss="alert" class="btn btn-danger btn-sm" style="margin-top: 10px;" href="#">Dismiss This</a>
-    </div>
-    <div class="alert alert-info call-to-action text-center">
-        This is a real calculator running the latest version of KnightOS! You can use your arrow keys,
-        Enter, Escape, and your function keys (F1-F5) to try it out.<br />
-        <a data-dismiss="alert" class="btn btn-danger btn-sm" style="margin-top: 10px;" href="#">Dismiss This</a>
-        <a data-dismiss="alert" class="btn btn-primary btn-sm" style="margin-top: 10px;" href="#">Guided Tour</a>
-    </div>
-    <canvas width="385" height="256" id="screen"></canvas>
-</div>
 <div class="page-header">
-    <h1>KnightOS <small>An open source OS for TI calculators</small></h1>
-</div>
-<div class="row">
-    <div class="col-md-6">
-        <dl>
-            <dt>Multitasking</dt>
-            <dd>Run up to 32 programs simultaneously</dd>
-            <dt>Cross Platform</dt>
-            <dd>Run your programs on 9 different calculators - including the new Color Silver Edition</dd>
-            <dt>Memory Safe</dt>
-            <dd>No more panicked RAM resets. Crashes do not affect user data.</dd>
-        </dl>
+    <div class="calculator">
+        <canvas width="385" height="256" id="screen"></canvas>
     </div>
-    <div class="col-md-6">
-        <dl>
-            <dt>More Memory</dt>
-            <dd>KnightOS programs may use 31K of RAM. TI-OS offers 24K under ideal conditions</dd>
-            <dt>Storage Space</dt>
-            <dd>KnightOS is compact, leaving plenty of space for your files</dd>
-            <dt>Open Source</dt>
-            <dd>You're freely able to browse, change, and improve the <a href="https://github.com/KnightOS/kernel">source code</a></dd>
-        </dl>
+    <div class="container">
+        <div class="pull-left intro">
+            <h3>Try KnightOS!</h3>
+            <p>
+                This is a real calculator running the latest version of KnightOS. Use your arrow keys and F1-F5 to play with it.
+            </p>
+            <p class="text-danger">Note: This is a work in progress and may be broken.</p>
+        </div>
+        <div class="pull-right intro">
+            <a href="/download" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-cloud-download"></span> Download KnightOS</a>
+            <h1>KnightOS</h1>
+            <h3>An open-source OS for calculators</h3>
+        </div>
     </div>
 </div>
-<p>KnightOS is the first open-source operating system for Texas Instruments calculators. It aims to be a Unix-like system
-that runs the average z80 calculator, with multitasking and a proper filesystem and other features familiar to users of
-conventional PC operating systems. The end goal is to also provide a great operating system suitable for use in the classroom.</p>
-<p>Programmers, head over to the <a href="/documentation">documentation</a>. Users, hang in there while we work on fleshing out
-the system for you. If you'd like, you can come <a href="http://webchat.freenode.net/?channels=knightos&uio=d4">join us on IRC</a>
-to chat about the project and make sure you like where it's going. We need your direction!</p>
-<p><strong>Supported calculators</strong>: TI-73, TI-83+, TI-83+ SE, TI-84+, TI-84+ SE, TI-84+ CSE</p>
+<div class="container" style="margin-top: 20px;">
+    <div class="flex-row">
+        <div class="flex-col">
+            {% for post in site.posts %}
+            {% if forloop.index0 < 3 %}
+            <h3>
+                <a href="{{ post.url }}"> {{ post.title }} </a>
+                <small>{{ post.date | date_to_string }}</small>
+            </h3>
+            <p>{{ post.excerpt }}</p>
+            <a href="{{ post.url }}" style="margin-bottom: 10px; display: block">Read full article »</a>
+            {% endif %}
+            {% endfor %}
+            <a href="/blog" class="bottom-link">Read More »</a>
+        </div>
+        <div class="flex-col">
+            <h3>What is KnightOS?</h3>
+            <p>
+                KnightOS is an open-source operating system for Texas Instruments calculators.
+                It's freely available in both source and binary forms under the terms of the MIT license.
+                With KnightOS, you get an unmatched level of freedom and customization over your calculator.
+            </p>
+            <h3>Why KnightOS?</h3>
+            <p>
+                If you choose to use KnightOS, you get more memory to play with, more space for your files,
+                and loads of great features. KnightOS has a package manager for easy installation of software
+                and can run several things at once. If you're into free and open-source software, you'll also
+                find KnightOS to be a hacker's paradise.
+            </p>
+            <h3>Can I use KnightOS?</h3>
+            <p>
+                KnightOS will run on any upgradable Texas Instruments calculator based on the z80 CPU. This includes the
+                TI-73, TI-83+, TI-83+ Silver Edition, TI-84+, TI-84+ Silver Edition, and TI-84+ Color Silver Edition.
+                You can also run it on the French variations of these calculators, or in an emulator.
+            </p>
+            <a href="/download" class="bottom-link">Get KnightOS »</a>
+        </div>
+        <div class="flex-col">
+            <h3>Get Involved</h3>
+            <p>The best thing about KnightOS, by far, is the open-source nature of it. KnightOS is built by a community
+            of developers around the world - a community that you are welcome to join! Even if you aren't a programmer,
+            you can help the project grow. If you are interested in writing code, you can help us build KnightOS in
+            assembly, C, Python, HTML/CSS, and JavaScript.</p>
+            <p>KnightOS development is centered around <a href="https://github.com/KnightOS">GitHub</a>. There are a lot
+            of sub-projects and a lot of things to do, so you're welcome to dive in and get started. We track all bugs,
+            feature requests, and todo items <a href="https://github.com/KnightOS/KnightOS/issues">here</a>. You can
+            browse by programming language and difficulty, so I'm sure there's something there for you.</p>
+            <p>Non-programmers can help us work on the user manual, write documentation, triage bugs, and more. We also
+            rely a lot on you guys to provide devs with feedback and ideas so that we can make the best OS possible. You
+            can even edit this website - click the link at the bottom of each page to get started.</p>
+            <p>Regardless of your passion, meet us on IRC at <a href="http://webchat.freenode.net/?channels=knightos&uio=d4">
+            #knightos on irc.freenode.net</a> and chat with us. We're happy to have newcomers.</p>
+            <a href="/contributing" class="bottom-link">Get Started »</a>
+        </div>
+    </div>
+</div>
 
-<script>
-    var Module = {
-        memoryInitializerPrefixURL: "OpenTI/webui/js/lib/"
-    };
-</script>
-<script src="OpenTI/webui/js/lib/z80e.js"></script>
 <script data-main="js/index.js" src="OpenTI/webui/js/lib/require.js"></script>

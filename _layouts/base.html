@@ -13,8 +13,9 @@
     </head>
     <body>
         {% include nav.html %}
+        {{ content }}
         <div class="container">
-            {{ content }}
+            <a href="https://github.com/KnightOS/knightos.org/edit/gh-pages/{{ page.path }}" class="pull-right"><span class="glyphicon glyphicon-pencil"></span> Edit this page</a>
         </div>
     </body>
 </html>

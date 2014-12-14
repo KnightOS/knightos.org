@@ -1,0 +1,197 @@
+---
+layout: page-header
+title: What can I do for KnightOS?
+noTitle: true
+# This page licensed under the Mozilla Public License
+---
+
+<script>
+  $(document).ready(function() { $('#responses div').show(); });
+</script>
+<script src="/js/floopy.js"></script>
+<script type="text/javascript" src="/js/l10n.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/asknot.css" />
+<link rel="resource" type="application/l10n" href="/locales.ini" />
+
+<div id="wrapper">
+  <div class="group" id="progornoprog">
+    <span class="question" data-l10n-id="progquestion"></span>
+    <ul class="choices">
+      <li next-group="proglang"><span data-l10n-id="writecode"></span></li>
+      <li next-group="support"><span data-l10n-id="usersupport"></span></li>
+      <li next-group="advocate"><span data-l10n-id="advocacy"></span></li>
+    </ul>
+  </div>
+
+  <div class="group" id="support">
+    <span class="question" data-l10n-id="support-intro"></span>
+    <ul class="choices">
+      <li target="http://webchat.freenode.net/?channels=knightos&uio=d4" data-choice-id="sumoqa">KnightOS IRC
+        <div class="extra" data-l10n-id="sumo-extra"></div>
+      </li>
+      <li target="https://github.com/KnightOS/knightos.org" data-choice-id="sumoqa">knightos.org
+        <div class="extra" data-l10n-id="sumodoc-extra"></div>
+      </li>
+      <li target="https://github.com/KnightOS/KnightOS/issues" data-choice-id="sumoqa">The Issue Tracker
+        <div class="extra" data-l10n-id="sumobugs-extra"></div>
+      </li>
+      <li target="https://github.com/KnightOS/manual" data-choice-id="sumoqa">User Manual
+        <div class="extra" data-l10n-id="sumoman-extra"></div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="group" id="advocate">
+    <span class="question" data-l10n-id="advocate-intro"></span>
+    <!-- TODO: Write pages to link these items to -->
+    <ul class="choices">
+      <li target="http://www.knightos.org" data-choice-id="evangelism">Finding Contributors
+        <div class="extra" data-l10n-id="aff-extra"></div>
+      </li>
+      <li target="http://www.knightos.org" data-choice-id="teachers">Getting Teachers on Board
+        <div class="extra" data-l10n-id="aff-teachers"></div>
+      </li>
+      <li target="http://www.knightos.org/blog" data-choice-id="blog">Blogging
+        <div class="extra" data-l10n-id="aff-blogging"></div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="group" id="proglang">
+    <span class="question" data-l10n-id="question"></span>
+    <ul class="choices">
+      <li next-group="c">C</li>
+      <li next-group="assembly">Assembly</li>
+      <li next-group="js">JavaScript</li>
+      <li next-group="py">Python</li>
+      <li next-group="html">HTML/CSS</li>
+    </ul>
+  </div>
+
+  <div class="group" id="c">
+    <span class="question" data-l10n-id="c-intro"></span>
+    <ul class="choices">
+      <li target="https://github.com/KnightOS/scas" data-choice-id="scas">scas
+        <div class="extra" data-l10n-id="c-scas-extra"></div>
+      </li>
+      <li target="https://github.com/KnightOS/libc" data-choice-id="libc">libc
+        <div class="extra" data-l10n-id="c-libc-extra"></div>
+      </li>
+      <li target="https://github.com/KnightOS/kcc" data-choice-id="kcc">kcc
+        <div class="extra" data-l10n-id="c-kcc-extra"></div>
+      </li>
+      <li target="https://github.com/KnightOS/kpack" data-choice-id="kpack">kpack
+        <div class="extra" data-l10n-id="c-kpack-extra"></div>
+      </li>
+      <li target="https://github.com/KnightOS/z80e" data-choice-id="z80e">z80e
+        <div class="extra" data-l10n-id="c-z80e-extra"></div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="group" id="js">
+    <span class="question" data-l10n-id="js-intro"></span>
+    <ul class="choices">
+      <li target="https://github.com/KnightOS/OpenTI" data-choice-id="openti">OpenTI
+        <div class="extra" data-l10n-id="js-openti"></div>
+      </li>
+      <li target="https://github.com/KnightOS/try.knightos.org" data-choice-id="try-knightos-org">try.knightos.org
+        <div class="extra" data-l10n-id="js-try-knightos-org"></div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="group" id="assembly">
+    <span class="question" data-l10n-id="asm-intro"></span>
+    <ul class="choices">
+      <li target="https://github.com/KnightOS/kernel" data-choice-id="kernel">the kernel
+        <div class="extra" data-l10n-id="asm-kernel"></div>
+      </li>
+      <li target="https://github.com/KnightOS/corelib" data-choice-id="corelib">corelib
+        <div class="extra" data-l10n-id="asm-corelib"></div>
+      </li>
+      <li target="https://github.com/KnightOS/bed" data-choice-id="bed">bed
+        <div class="extra" data-l10n-id="asm-bed"></div>
+      </li>
+      <li target="https://github.com/KnightOS/fileman" data-choice-id="fileman">fileman
+        <div class="extra" data-l10n-id="asm-fileman"></div>
+      </li>
+      <li target="https://github.com/KnightOS/kpy" data-choice-id="kpy">kpy
+        <div class="extra" data-l10n-id="asm-kpy"></div>
+      </li>
+      <li target="https://github.com/KnightOS/kiofs" data-choice-id="kiofs">kiofs
+        <div class="extra" data-l10n-id="asm-kiofs"></div>
+      </li>
+      <li target="https://github.com/KnightOS/kpm" data-choice-id="kpm">kpm
+        <div class="extra" data-l10n-id="asm-kpm"></div>
+      </li>
+      <li target="https://github.com/KnightOS/kpm" data-choice-id="kpm">kpm
+        <div class="extra" data-l10n-id="asm-kpm"></div>
+      </li>
+      <li target="https://github.com/KnightOS/phoenix" data-choice-id="phoenix">phoenix
+        <div class="extra" data-l10n-id="asm-phoenix"></div>
+      </li>
+      <li target="https://github.com/KnightOS/settings" data-choice-id="settings">settings
+        <div class="extra" data-l10n-id="asm-settings"></div>
+      </li>
+      <li target="https://github.com/KnightOS/init" data-choice-id="init">init
+        <div class="extra" data-l10n-id="asm-init"></div>
+      </li>
+      <li target="https://github.com/KnightOS/castle" data-choice-id="castle">castle
+        <div class="extra" data-l10n-id="asm-castle"></div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="group" id="py">
+    <span class="question" data-l10n-id="py-intro"></span>
+    <ul class="choices">
+      <li target="https://github.com/KnightOS/sdk" data-choice-id="sdk">the SDK
+        <div class="extra" data-l10n-id="py-sdk"></div>
+      </li>
+      <li target="https://github.com/KnightOS/kdoc" data-choice-id="kdoc">kdoc
+        <div class="extra" data-l10n-id="py-kdoc"></div>
+      </li>
+      <li target="https://github.com/KnightOS/packages.knightos.org" data-choice-id="pko">PKO
+        <div class="extra" data-l10n-id="py-pko"></div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="group" id="html">
+    <span class="question" data-l10n-id="html-intro"></span>
+    <ul class="choices">
+      <li target="https://github.com/KnightOS/packages.knightos.org" data-choice-id="pko-html">PKO
+        <div class="extra" data-l10n-id="html-pko"></div>
+      </li>
+      <li target="https://github.com/KnightOS/knightos.org" data-choice-id="knightos-org">knightos.org
+        <div class="extra" data-l10n-id="html-kos"></div>
+      </li>
+      <li target="https://github.com/KnightOS/try.knightos.org" data-choice-id="try-knightos-org-html">try.knightos.org
+        <div class="extra" data-l10n-id="html-try"></div>
+      </li>
+    </ul>
+  </div>
+
+  <div id="responses">
+    <div id="ok"><a href="javascript:" data-l10n-id="more"></a></div>
+    <div id="next">
+      <a href="javascript:">
+        <span data-l10n-id="negative1" class="negative"></span>
+        <span data-l10n-id="negative2" class="negative"></span>
+        <span data-l10n-id="negative3" class="negative"></span>
+        <span data-l10n-id="negative4" class="negative"></span>
+        <span data-l10n-id="negative5" class="negative"></span>
+        <span data-l10n-id="negative6" class="negative"></span>
+      </a>
+    </div>
+    <div id="back" style="display: block"><a href="javascript:" data-l10n-id="back"></a></div>
+    <!-- message showing only if javascript disabled -->
+    <noscript>
+      <span>Please enable JavaScript in your browser!</span>
+    </noscript>
+    <!-- end of noscript message -->
+  </div>
+
+  <div id="footer" data-l10n-id="credits"></div>
+</div>

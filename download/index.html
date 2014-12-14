@@ -3,72 +3,80 @@ layout: base
 title: Download KnightOS
 ---
 
-<h1>Download KnightOS <small id="current-version">Version ...</small></h1>
+<div class="well well-sm">
+    <div class="container">
+        <h1>Download KnightOS <small id="current-version">Version ...</small></h1>
+    </div>
+</div>
 
-<p>
-    <a href="#" class="btn btn-success btn-block" id="download-link" disabled>Download Latest Version</a>
-    <a href="http://builds.knightos.org" class="btn btn-primary btn-block">Browse Other Versions</a>
-</p>
+<div class="container">
+    <div class="row" style="margin-bottom: 20px">
+        <div class="col-md-6">
+            <a href="#" class="btn btn-success btn-block" id="download-link" disabled>Download Latest Version</a>
+        </div>
+        <div class="col-md-6">
+            <a href="http://builds.knightos.org" class="btn btn-primary btn-block">Browse Other Versions</a>
+        </div>
+    </div>
 
-<div class="alert alert-danger"><strong>Warning!</strong> KnightOS isn't done, and you may be underwhelmed. Additionally, note that installing
-KnightOS will <strong>erase your RAM and TI-OS Archive</strong>. Proceed with caution.</div>
+    <div class="alert alert-danger"><strong>Warning!</strong> KnightOS isn't done, and you may be underwhelmed. Additionally, note that installing
+    KnightOS will <strong>erase your RAM and TI-OS Archive</strong>. Proceed with caution.</div>
 
-<p>Special thanks to Sorunome for hosting the KnightOS build server.</p>
+    <h2>Installing KnightOS</h2>
+    <p>Users should first install <a href="http://lpg.ticalc.org/prj_tilp/index.html">TiLP</a> or
+    <a href="http://education.ti.com/en/us/products/computer_software/connectivity-software/ti-connect-software/features/features-summary">TI-Connect</a>
+    to facilitate the transfer.</p>
+    <ol>
+        <li>Check your boot code version.
+            <ul>
+                <li>On KnightOS, look in your system settings for the boot code version.</li>
+                <li>On TI-OS, press MODE, then Alpha+S to enter a self test, which displays your boot code version.</li>
+                <li><strong>Note</strong>: TI-84+ Color Silver Edition users can skip this check.</li>
+            </ul>
+        </li>
+        <li>For users with boot code 1.02 or older, proceed normally. Otherwise, read below for additional instructions.</li>
+        <li>Remove a battery from your calculator, then plug it into your computer.
+            <ul>
+                <li>SilverLink users on Linux, see below</li>
+            </ul>
+        </li>
+        <li>Hold down DEL, then replace the battery you removed. Release DEL.</li>
+        <li>Send the OS upgrade
+            <ul>
+                <li>For TI-Connect users, use the TI OS Downloader tool.</li>
+                <li>For TiLP users...
+                    <ul>
+                        <li>Windows, Mac: Use the TiLP GUI to send the OS</li>
+                        <li>Linux: Run <code>tilp -n &lt;path/to/KnightOS&gt;</code> as root</li>
+                    </ul>
+            </ul>
+        </li>
+        <li>Wait for it to complete, remove the cable and press ON, welcome to KnightOS!</li>
+    </ol>
 
-<h2>Installing KnightOS</h2>
-<p>Users should first install <a href="http://lpg.ticalc.org/prj_tilp/index.html">TiLP</a> or
-<a href="http://education.ti.com/en/us/products/computer_software/connectivity-software/ti-connect-software/features/features-summary">TI-Connect</a>
-to facilitate the transfer.</p>
-<ol>
-    <li>Check your boot code version.
-        <ul>
-            <li>On KnightOS, look in your system settings for the boot code version.</li>
-            <li>On TI-OS, press MODE, then Alpha+S to enter a self test, which displays your boot code version.</li>
-            <li><strong>Note</strong>: TI-84+ Color Silver Edition users can skip this check.</li>
-        </ul>
-    </li>
-    <li>For users with boot code 1.02 or older, proceed normally. Otherwise, read below for additional instructions.</li>
-    <li>Remove a battery from your calculator, then plug it into your computer.
-        <ul>
-            <li>SilverLink users on Linux, see below</li>
-        </ul>
-    </li>
-    <li>Hold down DEL, then replace the battery you removed. Release DEL.</li>
-    <li>Send the OS upgrade
-        <ul>
-            <li>For TI-Connect users, use the TI OS Downloader tool.</li>
-            <li>For TiLP users...
-                <ul>
-                    <li>Windows, Mac: Use the TiLP GUI to send the OS</li>
-                    <li>Linux: Run <code>tilp -n &lt;path/to/KnightOS&gt;</code> as root</li>
-                </ul>
-        </ul>
-    </li>
-    <li>Wait for it to complete, remove the cable and press ON, welcome to KnightOS!</li>
-</ol>
+    <h3>Troublesome Boot Codes</h3>
+    <p>Texas Instruments has put measures in place to prevent users from upgrading the operating system on their calculators, starting with
+    boot code 1.03. Unfortunately, this means it will be a bit more difficult for you to install KnightOS. It is possible, so do not fear.
+    Here are your options.</p>
+    <ol>
+        <li><strong>Patch your boot code</strong>. It is possible for calculators manufactured before a certain date to patch their boot code to remove
+        the extra validation. This can be more dangerous than the alternatives, but is a more permanent solution. We suggest using
+        <a href="http://www.ticalc.org/archives/files/fileinfo/441/44190.html">Unsigned</a> to patch your boot code. After doing so, follow the installation
+        steps normally.</li>
+        <li><strong>Use UOSRECV</strong>. Brandon Wilson has made a tool available that will allow you to install an unsigned OS on your device.
+        You can get it <a href="http://www.cemetech.net/forum/viewtopic.php?t=9111">here</a>. Follow the installation process normally, but instead of removing
+        a battery in step 3, run <code>Asm(prgmUOSRECV</code> on your calculator. Skip step 4.</li>
+    </ol>
+    <p>TI-84+ Color Silver Edition users do not need to follow these steps unless they have trouble without, thanks to another exploit from BrandonW that
+    allows us to circumvent the validation without a complex procedure. A similar exploit is in development for other affected calculators.</p>
 
-<h3>Troublesome Boot Codes</h3>
-<p>Texas Instruments has put measures in place to prevent users from upgrading the operating system on their calculators, starting with
-boot code 1.03. Unfortunately, this means it will be a bit more difficult for you to install KnightOS. It is possible, so do not fear.
-Here are your options.</p>
-<ol>
-    <li><strong>Patch your boot code</strong>. It is possible for calculators manufactured before a certain date to patch their boot code to remove
-    the extra validation. This can be more dangerous than the alternatives, but is a more permanent solution. We suggest using
-    <a href="http://www.ticalc.org/archives/files/fileinfo/441/44190.html">Unsigned</a> to patch your boot code. After doing so, follow the installation
-    steps normally.</li>
-    <li><strong>Use UOSRECV</strong>. Brandon Wilson has made a tool available that will allow you to install an unsigned OS on your device.
-    You can get it <a href="http://www.cemetech.net/forum/viewtopic.php?t=9111">here</a>. Follow the installation process normally, but instead of removing
-    a battery in step 3, run <code>Asm(prgmUOSRECV</code> on your calculator. Skip step 4.</li>
-</ol>
-<p>TI-84+ Color Silver Edition users do not need to follow these steps unless they have trouble without, thanks to another exploit from BrandonW that
-allows us to circumvent the validation without a complex procedure. A similar exploit is in development for other affected calculators.</p>
+    <h3>Linux and SilverLink</h3>
+    <p>Linux users, please ensure that you are running the latest version of TiLP (you may have to compile it yourself). Recent updates have improved SilverLink
+    support, but it may be buggy. Good luck.</p>
 
-<h3>Linux and SilverLink</h3>
-<p>Linux users, please ensure that you are running the latest version of TiLP (you may have to compile it yourself). Recent updates have improved SilverLink
-support, but it may be buggy. Good luck.</p>
+    <h2>Installing TI-OS</h2>
+    <p>If you wish to reinstall TI-OS, <a href="http://education.ti.com/en/us/software/details/en/400C88E8E75B4123BB7E90B6A676368D/ti84plusoperatingsystem">download it from TI</a>.
+    Follow the same instructions for installing KnightOS, but don't worry about your boot code version.</p>
 
-<h2>Installing TI-OS</h2>
-<p>If you wish to reinstall TI-OS, <a href="http://education.ti.com/en/us/software/details/en/400C88E8E75B4123BB7E90B6A676368D/ti84plusoperatingsystem">download it from TI</a>.
-Follow the same instructions for installing KnightOS, but don't worry about your boot code version.</p>
-
-<script src="/js/download.js"></script>
+    <script src="/js/download.js"></script>
+</div>

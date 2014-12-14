@@ -1,0 +1,28 @@
+---
+title: KnightOS Blog
+layout: base
+---
+
+<div class="page-header" style="height: 200px">
+    <div class="container">
+        <div class="pull-right intro" style="margin-top: 100px;">
+            <h1>KnightOS Blog</h1>
+            <h3>Updates from the KnightOS team</h3>
+        </div>
+    </div>
+</div>
+<div class="container" style="margin-top: 20px;">
+    <p>Anyone who has contributed to KnightOS is welcome to write a blog post about KnightOS. If you've made
+    a contribution and want to talk about it, simply write up a post and send a pull request to
+    <a href="https://github.com/KnightOS/knightos.org">github.com/KnightOS/knightos.org</a>. Want to write a
+    post here but haven't contributed to the project? <a href="/get-involved">Get started here</a>!</p>
+    <h2>Recent Posts</h2>
+    {% for post in site.posts %}
+    <h3>
+        <a href="{{ post.url }}"> {{ post.title }} </a>
+        <small>{{ post.date | date_to_string }}</small>
+    </h3>
+    <p>{{ post.excerpt }}</p>
+    <a href="{{ post.url }}" style="margin-bottom: 10px; display: block">Read full article »</a>
+    {% endfor %}
+</div>

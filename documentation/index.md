@@ -5,7 +5,12 @@ layout: documentation
 
 # Documentation
 
-**Note: KnightOS is still in development and documentation efforts are ongoing.**
+<div class="alert alert-warning">
+<strong>Note</strong>: KnightOS is still in development and documentation efforts are ongoing.
+You can help out by clicking <a href="https://github.com/KnightOS/knightos.org/edit/gh-pages/{{ page.path }}">
+<span class="glyphicon glyphicon-pencil"></span> Edit this page</a> at the
+bottom of any page!
+</div>
 
 KnightOS is intended to be a great playground for TI programmers. if you're familiar with
 Unix, you'll feel at home here.
@@ -26,12 +31,3 @@ This website publishes [reference documentation](/documentation/reference/) for 
 API and important userspace libraries.
 
 Please note that prior to version 1.0.0, API compatability is not guaranteed.
-
-## Articles
-
-There are additional articles that document the kernel in more detail:
-
-* [KnightOS filesystem specification (KFS)](/documentation/kfs.html)
-* [Memory layout](/documentation/memory.html)
-* [KnightOS executable format](/documentation/kexc.html)
-* [KnightOS image formats](/documentation/kimg.html)

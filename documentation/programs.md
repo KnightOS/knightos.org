@@ -1,7 +1,7 @@
 ---
 # vim: tw=82
 title: Writing Userspace Programs
-layout: base
+layout: page
 ---
 
 # Writing Userspace Programs

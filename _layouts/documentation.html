@@ -15,7 +15,7 @@
     <body>
         {% include nav.html search=true %}
         <div class="container">
-            <div class="documentation">
+            <div class="documentation" style="margin-top: 10px">
                 {{ content }}
             </div>
             <script type="text/javascript">
@@ -39,6 +39,9 @@
             </script>
             {% endraw %}
             <script type="text/javascript" src="/js/documentation.js"></script>
+        </div>
+        <div class="container">
+            <a href="https://github.com/KnightOS/knightos.org/edit/gh-pages/{{ page.path }}" class="pull-right"><span class="glyphicon glyphicon-pencil"></span> Edit this page</a>
         </div>
     </body>
 </html>

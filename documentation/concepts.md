@@ -1,7 +1,7 @@
 ---
 # vim: tw=82
 title: Learning KnightOS Concepts
-layout: base
+layout: page
 ---
 
 # Learning KnightOS Concepts

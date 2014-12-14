@@ -1,7 +1,7 @@
 ---
 # vim: tw=80
 title: Writing KnightOS programs in C
-layout: base
+layout: page
 ---
 
 # Writing KnightOS programs in C
