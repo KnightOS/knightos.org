@@ -84,6 +84,10 @@ blockquote {
   height: 375px;
 }
 
+.page-header .container {
+  position: relative;
+}
+
 .page-header .container .intro {
   width: 400px;
   background: rgba(256, 256, 256, 1);
@@ -99,6 +103,8 @@ blockquote {
 
 .page-header .container .intro.pull-right {
   margin-top: 250px;
+  position: absolute;
+  right: 0;
 }
 
 .page-header .container .intro.pull-left {
