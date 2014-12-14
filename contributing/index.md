@@ -43,3 +43,6 @@ well-maintained. If you have an idea, come join the team and make it happen. To
 contribute to established projects, you can either find something you want to
 work on and simply get started, or check out "[What can I do for
 KnightOS?](/contributing/what-can-i-do.html)" if you can't decide.
+
+When you're ready to get started, head over to our [contributor
+guidelines](/contributing/guidelines.html) for a little direction.
