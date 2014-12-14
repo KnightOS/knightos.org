@@ -21,6 +21,9 @@ If you do this enough times and you're interested, we can give you write access
 to the repositories you contribute to frequently. Joining our team is as simple
 as making a few good pull requests.
 
+If you prefer to contribute through a more traditional venue, send patches to
+our [mailing lists](http://lists.knightos.org).
+
 ## Opening Issues
 
 Please report issues on all official KnightOS subprojects to
