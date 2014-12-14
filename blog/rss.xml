@@ -1,0 +1,27 @@
+---
+layout: none
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>KnightOS Blog</title>
+		<description>Updates from the KnightOS team</description>
+        <link>http://www.knightos.org/blog/</link>
+        <atom:link href="http://www.knightos.org/blog/rss.xml" rel="self" type="application/rss+xml" />
+		{% for post in site.posts limit:10 %}
+			<item>
+				<title>{{ post.title }}</title>
+                <description>
+                    {% if post.in_browser %}
+                    &lt;p&gt;Hello RSS user! Head&apos;s up - this post is more easily viewed in a web browser.
+                        &lt;a href=&quot;http://www.knightos.org{{ post.url }}&quot;&gt;Click here!&lt;/a&gt;&lt;/p&gt;
+                    {% endif %}
+                    {{ post.content | xml_escape }}
+                </description>
+				<pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+                <link>http://www.knightos.org{{ post.url }}</link>
+                <guid isPermaLink="true">http://www.knightos.org{{ post.url }}</guid>
+			</item>
+		{% endfor %}
+	</channel>
+</rss>

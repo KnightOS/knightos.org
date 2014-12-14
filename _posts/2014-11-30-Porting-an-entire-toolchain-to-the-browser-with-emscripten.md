@@ -3,6 +3,7 @@
 layout: post_toolchain
 author: Drew DeVault
 title: Porting our toolchain to the browser
+in_browser: true
 ---
 
 Emscripten is pretty cool! It lets you write portable C and cross-compile
