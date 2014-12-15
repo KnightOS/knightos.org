@@ -77,9 +77,10 @@ implementation must be done in C or assembly.
 
 ## Lua Port
 
-Lua is a highly portable programming language that has been ported to many
-embedded systems. Porting it to KnightOS (a non-POSIX) system will be
-challenging, but is feasible.
+Lua is a highly portable programming language that has already been ported to
+many embedded systems. Porting it to KnightOS (a non-POSIX) system will be
+challenging, but is feasible. It's written in ANSI C and you might need to make
+some patches to our compiler and libc implementation to get it working.
 
 **Expected results**
 
@@ -118,11 +119,14 @@ to be very comfortable with assembly.
 
 KnightOS has no support for linking with a computer, which means you can't
 transfer files after the initial install. This is clearly not ideal. Mounting a
-calculator to your PC with FUSE would be incredibly cool.
+calculator to your PC with FUSE would be incredibly cool. You will have to
+design a protocol to use between the calculator and computer and will have to
+implement both sides of that protocol.
 
 **Expected results**
 
 Users are able to connect their calculators to a PC and mount the filesystem.
+Bonus points if you can browse one calculator's filesystem on another calculator.
 
 **Knowledge prerequisites**
 
@@ -135,7 +139,8 @@ Intermediate knowledge with both C and assembly will serve you well here.
 ## C99 Support for kcc
 
 kcc, the KnightOS C compiler, has support for ANSI C but is missing a lot of
-C99. Implement it!
+C99. Implement it! We can also send your patches upstream to SDCC, which KCC is
+forked from.
 
 **Expected results**
 
