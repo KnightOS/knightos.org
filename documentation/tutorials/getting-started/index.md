@@ -1,45 +1,29 @@
 ---
 # vim: tw=80
-title: Getting Started with KnightOS Assembly
+title: Getting Started with Assembly
 layout: page
 ---
 
 # Getting Started with KnightOS Assembly
 
-This tutorial is a work in progress.
+Assembly is the bread and butter of KnightOS. Most of the system is written in
+it and the most effecient code you can write for the system is in assembly. This
+tutorial covers some skills with z80 assembly in the context of KnightOS. You're
+encouraged to make improvements wherever you see fit by clicking "Edit this
+page" at the bottom of any part of this tutorial.
 
-KnightOS is designed to be very hackable. As a programmer, you will especially
-enjoy using it. You'll find it to be a very flexible enviornment that gives you
-a lot of tools to work with. On top of that, everything is open source, meaning
-that you can get the code for it and modify it to suit your needs, or help
-improve it so that the rest of the world benefits, too. This is a general
-purpose tutorial to introduce a number of important concepts and get your
-enviornment up and running. You can help improve it by submitting pull requests
-to [KnightOS/knightos.org](https://github.com/KnightOS/knightos.org/tree/gh-pages/documentation/tutorials/getting-started)
-on GitHub.
+<div class="alert alert-danger">
+This tutorial is a work in progress.
+</div>
 
 ## Contents
 
-1. [Prerequisites and environment](prereqs)
-   1. "Rooting" your calculator
-   1. Exploring KnightOS internals
-   1. The KnightOS SDK
-1. [Your first program](first-program)
-   1. Barebones
-   1. Compiling and testing
-   1. Relocation
-   1. A simple game
-1. [Integrating with KnightOS](integration)
-   1. Using libraries
-   1. Leaving your program
-   1. KnightOS best practices
-1. [Graphical interface](gui)
-   1. Moving into a window
-   1. Adding a menus
-1. [User customization](customization)
-   1. configlib
-   1. Shared resources
-   1. Replacing system tools
-1. [Packaging and distribution](packaging)
-   1. packages.knightos.org
-   1. Packaging guidelines
+1. [Setting up your environment](environment.html)
+1. [Writing your first KnightOS program](program.html)
+1. [Adding corelib and drawing windows](corelib.html)
+1. [Diving into z80 assembly](assembly.html)
+1. [How to be a good citizen in KnightOS](userspace.html)
+1. [Building "Pong"](pong.html)
+1. [Packaging software](packagin.html)
+
+<a href="environment.html" class="pull-right btn btn-primary">Next »</a>

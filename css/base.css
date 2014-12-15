@@ -31,6 +31,11 @@ blockquote {
   text-align: left;
 }
 
+.container.page img {
+  display: block;
+  margin: 0 auto;
+}
+
 .well-white {
   background: #fff;
   margin-bottom: 10px;
