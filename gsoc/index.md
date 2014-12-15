@@ -51,25 +51,27 @@ the KnightOS world wants and that we think you can help with. If you're
 interested in any of these ideas and aren't participating in GSOC, you're still
 welcome to come chat with us and take something on.
 
-## Calculator Application
+## Implement Math Support
 
-What good is a calculator that can't calculate? KnightOS is good for lots of
-things, but there still isn't a way to simply do math with it.
+What good is a calculator that can't do calculations? KnightOS is good for lots
+of things, but there still isn't a way to simply do math with it. The old "build
+a calculator" program you did when you were learning isn't like this - you'll be
+expected to build an expression parser and a GUI from scratch (without a GUI
+toolkit!). Expect a challenging and rewarding project from this.
 
 **Expected results**
 
 Some sort of application with which someone could do mathematical calculations
-for day-to-day calculator use.
+for day-to-day calculator use. It should parse expression strings and have
+support for fancier features like hexadecimal literals and higher-level math
+functions.
 
 **Knowledge prerequisites**
 
-You should be prepared to do this in either Assembly or C. Believe it or not,
-you will probably have an easier time with assembly. Deep knowledge of these
-languages in the context of KnightOS is not required, and you can pick it up
-easily if you already have a familiarity with low-level programming. Familiarity
-with Unix-like systems is required if you want to get anywhere.
+A healthy knowledge of lower-level concepts is required here, but the actual
+implementation must be done in C or assembly.
 
-**Skill level**: Novice to medium
+**Skill level**: Medium
 
 **Mentor**: [Drew DeVault \<sir@cmpwn.com>](mailto:sir@cmpwn.com)
 
