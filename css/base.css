@@ -1,4 +1,113 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+html {overflow-y:scroll}
+html, body, .tooltip, .popover {font-family:'Open Sans', sans-serif}
+body {background-color:#eee; padding-bottom:30px}
+a {color:#39B3D7}
+
+.btn, .panel, .alert {border-radius:0}
+
+.navbar-default {background-color:#39B3D7; margin-bottom:0}
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color:#fff
+}
+.navbar-default .navbar-brand:hover {text-shadow:0 1px 1px rgba(0,0,0,0.7)}
+
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-nav > li > a:focus {
+    background-color:transparent; color:#fff
+}
+.navbar-default .navbar-nav > li > a:hover {
+    background-color:#287D96; color:#fff; text-shadow:0 1px 1px rgba(0,0,0,0.7)
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    background-color:#287D96; color:#fff
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a,
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color:#fff
+}
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {background-color:#287D96}
+
+.navbar-nav > li > .dropdown-menu {background-color:#39B3D7; border-radius:0; border-color:#E7E7E7}
+
+.navbar-default .navbar-toggle,
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    border-color:#fff; border-radius:0;
+    background-color:transparent
+}
+.navbar-default .navbar-toggle > .icon-bar {background-color:#fff}
+
+.tt-dropdown-menu {
+    background-color:#fff
+}
+
+#hero {
+    background-image: url('/img/screenshotbanner-blurred.png');
+    background-position:center;
+    background-repeat:repeat;
+    padding-top:20px;
+    position:relative;
+    margin-bottom:20px;
+    -webkit-box-shadow:0 0 5px #000;
+    box-shadow:0 0 5px #000
+}
+.hero-block {background-color:#fff; padding:0 20px}
+#hero-calculator {position:relative; padding-top:30px}
+#hero-calculator-img {display:block}
+#hero-calculator-text {position:absolute; top:0; left:0; width:480px}
+#hero-introduction {position:absolute; bottom:20px; right:0; padding-bottom:20px}
+
+#screen {position:absolute; top:160px; left:122px}
+
+#body-text {display:flex}
+#body-text > .col-md-4 {position:relative; padding-bottom:50px}
+#body-text > .col-md-4 > .bottom-link {position:absolute; bottom:0; right:15px; left:15px}
+#body-text h3 {color:#39B3D7; padding-bottom:10px; border-bottom:1px solid #ccc}
+
+#edit-page {margin-top:20px}
+
+.sub-hero {
+    background-image: url('/img/screenshotbanner-blurred.png');
+    background-position:center;
+    background-repeat:repeat;
+    padding:50px 0; margin-bottom:20px; min-height:210px;
+}
+.sub-hero-block {background-color:#fff; padding:0 20px 10px}
+
+/* responsive */
+@media (max-width:767px) { /* xs */
+	#hero {padding:100px 0; text-align:center}
+    #hero-introduction {position:static; bottom:auto; right:auto; float:none!important; display:inline-block}
+    
+    #body-text {display:block}
+}
+
+@media (min-width:768px) and (max-width:991px) { /* sm */
+	#search {width:150px}
+
+    #hero-calculator {float:none!important}
+    #hero-introduction {float:none!important; width:100%; position:static; bottom:auto; right:auto}
+    
+    #body-text {display:block}
+}
+
+@media (min-width:992px) and (max-width:1199px) { /* md */
+	
+}
+
+@media (min-width:1200px) { /* lg */
+	
+}
+
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
 body {
   text-align: justify;
@@ -434,7 +543,7 @@ dd {
   .navbar-nav .open .dropdown-menu .dropdown-header{
         color:#fff;
   }
-}
+}*/
 
 .highlight  { background: #ffffff; }
 .highlight .c { color: #999988; font-style: italic } /* Comment */

@@ -1,48 +1,72 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>{{ page.title }}</title>
-        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="/css/base.css" />
-        <link rel="icon" type="image/vnd.microsoft.icon" href="//avatars2.githubusercontent.com/u/4286195?v=2&s=200" />
-        <script type="text/javascript" src="//code.jquery.com/jquery-2.1.0.min.js"></script>
-        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/js/typeahead.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.2/handlebars.min.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    </head>
-    <body>
-        {% include nav.html search=true %}
-        <div class="container">
-            <div class="documentation" style="margin-top: 10px">
-                {{ content }}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+    <title>{{ page.title }}</title>
+    
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/base.css" />
+    
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for knightos.org" href="/blog/rss.xml" />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="//avatars2.githubusercontent.com/u/4286195?v=2&s=200" />
+    
+    <!--[if lt IE 9]>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.2/handlebars.min.js"></script>
+    <script type="text/javascript" src="/js/typeahead.js"></script>
+</head>
+<body>
+    {% include nav.html search=true %}
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="documentation" style="margin-top: 10px">
+                    {{ content }}
+                </div>
             </div>
-            <script type="text/javascript">
-                function updateHash() {
-                    if (window.location.hash && window.location.hash != '') {
-                        var item = document.getElementById(window.location.hash.substr(1));
-                        if (item) {
-                            item.classList.add('linked');
-                            setTimeout(function() { item.classList.remove('linked'); }, 3000);
-                        }
-                    }
+        </div>
+    </div>
+    
+    <div id="edit-page" class="container">
+        <div class="row">
+            <div class="col-xs-12 text-right">
+                <a class="btn btn-default" href="https://github.com/KnightOS/knightos.org/edit/gh-pages/{{ page.path }}">
+                    <i class="glyphicon glyphicon-pencil"></i> Edit this page
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        function updateHash() {
+            if (window.location.hash && window.location.hash != '') {
+                var item = document.getElementById(window.location.hash.substr(1));
+                if (item) {
+                    item.classList.add('linked');
+                    setTimeout(function() { item.classList.remove('linked'); }, 3000);
                 }
-                window.addEventListener('hashchange', updateHash);
-                updateHash();
-            </script>
-            {% raw %}
-            <script type="text/x-template" id="template-empty"><span class="text-muted no-results">No results</span></script>
-            <script type="text/x-template" id="template-suggestion">
-                <h4>{{name}}</h4>
-                <div class="text-muted">{{description}}</div>
-            </script>
-            {% endraw %}
-            <script type="text/javascript" src="/js/documentation.js"></script>
-        </div>
-        <div class="container">
-            <a href="https://github.com/KnightOS/knightos.org/edit/gh-pages/{{ page.path }}" class="pull-right"><span class="glyphicon glyphicon-pencil"></span> Edit this page</a>
-        </div>
-    </body>
+            }
+        }
+        window.addEventListener('hashchange', updateHash);
+        updateHash();
+    </script>
+    
+    {% raw %}
+    <script type="text/x-template" id="template-empty"><span class="text-muted no-results">No results</span></script>
+    <script type="text/x-template" id="template-suggestion">
+        <h4>{{name}}</h4>
+        <div class="text-muted">{{description}}</div>
+    </script>
+    {% endraw %}
+    <script type="text/javascript" src="/js/documentation.js"></script>
+</body>
 </html>
 
