@@ -51,33 +51,36 @@ the KnightOS world wants and that we think you can help with. If you're
 interested in any of these ideas and aren't participating in GSOC, you're still
 welcome to come chat with us and take something on.
 
-## Calculator Application
+## Implement Math Support
 
-What good is a calculator that can't calculate? KnightOS is good for lots of
-things, but there still isn't a way to simply do math with it.
+What good is a calculator that can't do calculations? KnightOS is good for lots
+of things, but there still isn't a way to simply do math with it. The old "build
+a calculator" program you did when you were learning isn't like this - you'll be
+expected to build an expression parser and a GUI from scratch (without a GUI
+toolkit!). Expect a challenging and rewarding project from this.
 
 **Expected results**
 
 Some sort of application with which someone could do mathematical calculations
-for day-to-day calculator use.
+for day-to-day calculator use. It should parse expression strings and have
+support for fancier features like hexadecimal literals and higher-level math
+functions.
 
 **Knowledge prerequisites**
 
-You should be prepared to do this in either Assembly or C. Believe it or not,
-you will probably have an easier time with assembly. Deep knowledge of these
-languages in the context of KnightOS is not required, and you can pick it up
-easily if you already have a familiarity with low-level programming. Familiarity
-with Unix-like systems is required if you want to get anywhere.
+A healthy knowledge of lower-level concepts is required here, but the actual
+implementation must be done in C or assembly.
 
-**Skill level**: Novice to medium
+**Skill level**: Medium
 
 **Mentor**: [Drew DeVault \<sir@cmpwn.com>](mailto:sir@cmpwn.com)
 
 ## Lua Port
 
-Lua is a highly portable programming language that has been ported to many
-embedded systems. Porting it to KnightOS (a non-POSIX) system will be
-challenging, but is feasible.
+Lua is a highly portable programming language that has already been ported to
+many embedded systems. Porting it to KnightOS (a non-POSIX) system will be
+challenging, but is feasible. It's written in ANSI C and you might need to make
+some patches to our compiler and libc implementation to get it working.
 
 **Expected results**
 
@@ -90,6 +93,25 @@ Highly comfortable with C and intermediate experience with assembly.
 **Skill level**: High
 
 **Mentor**: [Jose Diez \<me@jdiez.me>](mailto:me@jdiez.me)
+
+## TI-Basic Implementation
+
+TI-Basic is the official programming langauge of TI-OS, and there is a large
+body of software available written in TI-Basic. An interpreter that runs on
+KnightOS would bring a lot of software to the platform.
+
+**Expected results**
+
+Enough of TI-Basic is supported to run several common programs that already
+exist for TI-OS.
+
+**Knowledge prerequisites**
+
+Assembly.
+
+**Skill level**: Medium to high
+
+**Mentor**: [Drew DeVault \<sir@cmpwn.com>](mailto:sir@cmpwn.com)
 
 ## Floating point support in kernel
 
@@ -116,11 +138,14 @@ to be very comfortable with assembly.
 
 KnightOS has no support for linking with a computer, which means you can't
 transfer files after the initial install. This is clearly not ideal. Mounting a
-calculator to your PC with FUSE would be incredibly cool.
+calculator to your PC with FUSE would be incredibly cool. You will have to
+design a protocol to use between the calculator and computer and will have to
+implement both sides of that protocol.
 
 **Expected results**
 
 Users are able to connect their calculators to a PC and mount the filesystem.
+Bonus points if you can browse one calculator's filesystem on another calculator.
 
 **Knowledge prerequisites**
 
@@ -133,7 +158,8 @@ Intermediate knowledge with both C and assembly will serve you well here.
 ## C99 Support for kcc
 
 kcc, the KnightOS C compiler, has support for ANSI C but is missing a lot of
-C99. Implement it!
+C99. Implement it! We can also send your patches upstream to SDCC, which KCC is
+forked from.
 
 **Expected results**
 
