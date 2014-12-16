@@ -1,5 +1,5 @@
 <div class="navbar navbar-default navbar-static-top">
-    <div class="container">
+    <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -29,7 +29,7 @@
             </ul>
             
             {% if include.search %}
-                <form class="navbar-form navbar-left">
+                <form class="navbar-form navbar-left hidden-xs">
                     <input type="text" class="form-control" id="search" placeholder="Search docs..." autocomplete="off">
                 </form>
             {% endif %}

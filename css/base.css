@@ -1,9 +1,10 @@
+/* general css and override bootstrap */
 html {overflow-y:scroll}
 html, body, .tooltip, .popover {font-family:'Open Sans', sans-serif}
 body {background-color:#eee; padding-bottom:30px}
 a {color:#39B3D7}
 
-.btn, .alert {border-radius:0}
+.btn, .alert, .form-control {border-radius:0}
 
 .navbar-default {background-color:#39B3D7; margin-bottom:0}
 
@@ -29,11 +30,10 @@ a {color:#39B3D7}
 }
 
 .navbar-default .navbar-nav .open .dropdown-menu > li > a,
-.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
 .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-    color:#fff
+    background-color:transparent; color:#fff
 }
-.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {background-color:#287D96}
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {color:#fff; background-color:#287D96}
 
 .navbar-nav > li > .dropdown-menu {background-color:#39B3D7; border-radius:0; border-color:#E7E7E7}
 
@@ -45,10 +45,7 @@ a {color:#39B3D7}
 }
 .navbar-default .navbar-toggle > .icon-bar {background-color:#fff}
 
-.tt-dropdown-menu {
-    background-color:#fff
-}
-
+/* hero section on index */
 #hero {
     background-image: url('/img/screenshotbanner-blurred.png');
     background-position:center;
@@ -65,15 +62,19 @@ a {color:#39B3D7}
 #hero-calculator-text {position:absolute; top:0; left:0; width:480px}
 #hero-introduction {position:absolute; bottom:20px; right:0; padding-bottom:20px}
 
+/* calculator screen in index */
 #screen {position:absolute; top:160px; left:122px}
 
+/* three section text in index */
 #body-text {display:flex}
 #body-text > .col-md-4 {position:relative; padding-bottom:50px}
 #body-text > .col-md-4 > .bottom-link {position:absolute; bottom:0; right:15px; left:15px}
 #body-text h3 {color:#39B3D7; padding-bottom:10px; border-bottom:1px solid #ccc}
 
+/* footer edit page link */
 #edit-page {margin-top:20px}
 
+/* sub hero for use in other pages */
 .sub-hero {
     background-image: url('/img/screenshotbanner-blurred.png');
     background-position:center;
@@ -82,177 +83,45 @@ a {color:#39B3D7}
 }
 .sub-hero-block {background-color:#fff; padding:0 20px 10px; display:inline-block}
 
+/* paginator for blog page and posts */
 .paginator {margin:10px 0}
 .paginator > .btn {min-width:100px; margin:5px 0}
 
-/*table {
-    border-collapse: collapse !important;
-}
+/* documentation section */
+.documentation {margin-top:20px}
+.documentation .docsection {margin-bottom:30px; padding:5px 20px; background-color:#fff}
+.documentation .doc-title > a {color:#333}
+.documentation .doc-title > small {font-size:14px}
+.documentation .details {padding-left:20px}
+.documentation .details > h3 {padding-bottom:5px; margin-bottom:5px; border-bottom:1px solid #ccc}
 
-table td,
-table th {
-    background-color: #fff !important;
-}
+/* documentation navigation */
+.doc-nav > li > a {padding:5px 10px; border-left:4px solid transparent}
+.doc-nav > li.active > a {border-color:#39B3D7; font-weight:700}
+.doc-nav > li > ul {padding-left:20px}
 
-table {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-table > thead > tr > th,
-table > tbody > tr > th,
-table > tfoot > tr > th,
-table > thead > tr > td,
-table > tbody > tr > td,
-table > tfoot > tr > td {
-  padding: 8px;
-  line-height: 1.428571429;
-  vertical-align: top;
-  border-top: 1px solid #dddddd;
-}
-
-table > thead > tr > th {
-  vertical-align: bottom;
-  border-bottom: 2px solid #dddddd;
-}
-
-table > caption + thead > tr:first-child > th,
-table > colgroup + thead > tr:first-child > th,
-table > thead:first-child > tr:first-child > th,
-table > caption + thead > tr:first-child > td,
-table > colgroup + thead > tr:first-child > td,
-table > thead:first-child > tr:first-child > td {
-  border-top: 0;
-}
-
-table > tbody + tbody {
-  border-top: 2px solid #dddddd;
-}
-
-table table {
-  background-color: #ffffff;
-}*/
-
-.documentation .docsection {
-    padding-top: 40px;
-    margin-bottom: -40px;
-}
-
-.documentation .docsection div {
-    padding-left: 5px;
-    margin-left: -5px;
-    border-radius: 5px;
-    padding-bottom: 5px;
-}
-
-.documentation .docsection:first-child {
-    margin-top: -40px;
-}
-
-.documentation {
-    margin-bottom: 50px;
-}
-
-.documentation h2 {
-    font-size: 18pt;
-    position: relative;
-}
-
-.documentation h2 > a:before {
-    content: url('/img/link.png');
-    position: absolute;
-    left: -25px;
-    opacity: 0;
-    transition: opacity linear 0.2s;
-    cursor: pointer;
-    width: 10px;
-    height: 10px;
-    top: 5px;
-}
-
-.documentation h2 > a:hover:before {
-    opacity: 1;
-}
-
-.documentation h2 > a {
-    color: #000;
-    cursor: text;
-}
-
-.documentation h2 > a:hover {
-    text-decoration: none;
-}
-
-.documentation h3 {
-    font-size: 14pt;
-    margin: 5px 0;
-    border-bottom: 1px solid #ccc;
-    max-width: 300px;
-}
-
-.documentation dl, .documentation p {
-    margin: 0;
-}
-
-.documentation .linked div {
-    -webkit-animation: fadeColor 3s linear 1;
-    animation: fadeColor 3s linear 1;
-}
-
-@-webkit-keyframes fadeColor {
-    from {
-        background-color: #ddd;
-    }
-    80% {
-        background-color: #ddd;
-    }
-    to {
-        background-color: transparent;
-    }
-}
-
-@keyframes fadeColor {
-    from {
-        background-color: #ddd;
-    }
-    80% {
-        background-color: #ddd;
-    }
-    to {
-        background-color: transparent;
-    }
-}
-
-.recording {
-    padding: 5px;
-    border: 1px solid #aaa;
-    border-radius: 3px;
-    margin: 0 auto;
-    display: block;
-}
-
-.documentation .docsection .details {
-    margin-left: 10px;
-}
-
-dd {
-    margin-left: 5px;
-}
-
-.doc-nav li a {
-    padding: 2px 15px;
-}
-
-.doc-nav li.active > a {
-    border-left: 1px solid #000;
-    font-weight: bold;
-}
-
-.doc-nav ul {
-    margin-left: 20px;
-}
-
+/* typeahead */
 .tt-dropdown-menu {
+    background-color:#fff; border:1px solid #ccc; width:300px;
+    overflow-x:hidden; margin-top:8px;
+    box-shadow:0 6px 12px rgba(0, 0, 0, 0.176)
+}
+
+.tt-dropdown-menu h4 {
+    font-size:16px; margin:0;
+}
+.tt-dropdown-menu div.text-muted {
+    font-size:12px;
+    display:block;
+    white-space:nowrap!important
+}
+.tt-dropdown-menu .tt-suggestion {padding:5px 10px; cursor:pointer}
+.tt-dropdown-menu .tt-suggestion:hover {background-color:#eee}
+.tt-dropdown-menu .no-results {
+    padding:5px 10px
+}
+
+/*.tt-dropdown-menu {
     background: #fff;
     border: 1px solid #888;
     border-radius: 3px;
@@ -351,7 +220,7 @@ dd {
   .navbar-nav .open .dropdown-menu .dropdown-header{
         color:#fff;
   }
-}
+}*/
 
 /* responsive */
 @media (max-width:767px) { /* xs */
@@ -364,7 +233,7 @@ dd {
 }
 
 @media (min-width:768px) and (max-width:991px) { /* sm */
-	.navbar-form .form-control, .tt-hint {width:150px}
+	.navbar-form .form-control, .tt-hint {width:120px}
 
     #hero-calculator {float:none!important}
     #hero-introduction {float:none!important; width:100%; position:static; bottom:auto; right:auto}
@@ -380,162 +249,8 @@ dd {
 	
 }
 
-/*@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
-body {
-  text-align: justify;
-  background: #DFDFDF;
-  font-family: 'Open Sans', sans-serif;
-}
-
-h1, h2, h3, h4, h5 {
-  font-family: 'Open Sans', sans-serif !important;
-}
-
-body > .container {
-  margin-bottom: 30px;
-}
-
-blockquote {
-  border-left-color: #aaa;
-  background: #ddd;
-}
-
-.btn {
-  border-radius: 0;
-}
-
-.dropdown-header {
-  font-size: 16pt;
-}
-
-.no-justify {
-  text-align: left;
-}
-
-.well-white {
-  background: #fff;
-  margin-bottom: 10px;
-  padding: 10px;
-  box-shadow: 5px 5px 10px #888;
-}
-
-.flex-row {
-  display: flex;
-  justify-content: space-between;
-}
-
-.flex-row .flex-col {
-  width: 32%;
-  background: white;
-  box-shadow: 5px 5px 10px #888;
-  padding: 10px;
-  padding-bottom: 50px;
-  position: relative;
-}
-
-.flex-col h3 {
-  padding: 0;
-  margin-top: 0;
-  color: #39B3D7;
-  font-size: 18pt;
-  text-align: left;
-}
-
-.flex-col h3 a {
-  color: #39B3D7;
-}
-
-.flex-col .bottom-link {
-  display: block;
-  background: #ddd;
-  border-top: 1px solid #444;
-  width: 100%;
-  color: #000;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  text-align: center;
-  line-height: 40px;
-  height: 40px;
-  transition: background-color 0.25s linear;
-}
-
-.flex-col .bottom-link:hover {
-  text-decoration: none;
-  background-color: #fff;
-}
-
-.page-header {
-  background: url('/img/screenshotbanner-blurred.png') repeat;
-  margin: 0;
-  padding: 0;
-  height: 375px;
-}
-
-.page-header .container {
-  position: relative;
-}
-
-.page-header .container .intro {
-  width: 400px;
-  background: rgba(256, 256, 256, 1);
-  padding: 10px;
-  box-shadow: 5px 5px 3px #444;
-}
-
-.page-header .container .intro .btn {
-  border-radius: 0;
-  margin-top: -2px;
-  width: 200px;
-}
-
-.page-header .container .intro.pull-right {
-  margin-top: 250px;
-  position: absolute;
-  right: 0;
-}
-
-.page-header .container .intro.pull-left {
-  margin-top: 10px;
-  margin-left: 40px;
-  z-index: 99999;
-  position: relative;
-}
-
-.page-header .container .intro.pull-left p {
-  margin: 0;
-  padding: 0;
-}
-
-.page-header .container .intro h1, .page-header .container .intro h3 {
-  margin: 0;
-  padding: 0;
-}
-
-.calculator {
-  background: url('/img/calculator.png') 0 -28px;
-  width: 645px;
-  height: 375px;
-  position: absolute;
-  left: 0;
-}
-
-.calculator canvas {
-  position: absolute;
-  left: 122px;
-  top: 100px;
-}
-
-.calculator .call-to-action {
-  width: 250px;
-  position: absolute;
-  right: -225px;
-  top: 50px;
-}
-
-*/
-
+/* pygment highlight */
 .highlight  { background: #ffffff; }
 .highlight .c { color: #999988; font-style: italic } /* Comment */
 .highlight .k { font-weight: bold } /* Keyword */
