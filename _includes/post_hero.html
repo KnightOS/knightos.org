@@ -1,27 +1,12 @@
----
-layout: base
-showTitle: true
----
-
-{% if page.noTitle %}
-{% else %}
 <div class="sub-hero">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 text-center">
                 <div class="sub-hero-block">
                     <h1>{{ page.title }}</h1>
+                    <h5 class="text-muted">Posted {{ page.date | date_to_string }} by {{ page.author }}</h5>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-{% endif %}
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            {{ content }}
         </div>
     </div>
 </div>

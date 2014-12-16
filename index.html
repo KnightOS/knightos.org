@@ -33,14 +33,12 @@ layout: base
 
 <div class="container">
     <div class="row">
-        <div class="col-xs-12">
-            <div class="panel panel-info">
-                <div class="panel-body">
-                    <i class="glyphicon glyphicon-info-sign"></i>
-                    Google Summer of Code is almost upon us! KnightOS will be applying as a
-                    mentoring organization for the first time this year. <a
-                    href="/gsoc/">Come help us find project ideas!</a>
-                </div>
+        <div class="col-md-8 col-md-offset-2">
+            <div class="alert alert-info">
+                <i class="glyphicon glyphicon-info-sign"></i>
+                Google Summer of Code is almost upon us! KnightOS will be applying as a
+                mentoring organization for the first time this year. <a
+                href="/gsoc/">Come help us find project ideas!</a>
             </div>
         </div>
     </div>
@@ -48,18 +46,18 @@ layout: base
     <div id="body-text" class="row">
         <div class="col-md-4">
             {% for post in site.posts %}
-            {% if forloop.index0 < 3 %}
-            <h3>
-                <a href="{{ post.url }}">{{ post.title }}</a>
-                <small>{{ post.date | date_to_string }}</small>
-            </h3>
-            {{ post.excerpt }}
-            <p class="text-right">
-                <a href="{{ post.url }}">Read the full article »</a>
-            </p>
-            {% endif %}
+                {% if forloop.index0 < 3 %}
+                    <h3>
+                        <a href="{{ post.url }}">{{ post.title }}</a>
+                        <small>{{ post.date | date_to_string }}</small>
+                    </h3>
+                    {{ post.excerpt }}
+                    <p class="text-right">
+                        <a href="{{ post.url }}">Read the full article »</a>
+                    </p>
+                {% endif %}
             {% endfor %}
-            <a href="/blog/" class="btn btn-default bottom-link">Read More »</a>
+            <a href="/blog/" class="btn btn-primary bottom-link">Read More »</a>
         </div>
         
         <div class="col-md-4">
@@ -82,7 +80,7 @@ layout: base
                 TI-73, TI-83+, TI-83+ Silver Edition, TI-84+, TI-84+ Silver Edition, and TI-84+ Color Silver Edition.
                 You can also run it on the French variations of these calculators, or in an emulator.
             </p>
-            <a href="/download/" class="btn btn-default bottom-link">Get KnightOS »</a>
+            <a href="/download/" class="btn btn-primary bottom-link">Get KnightOS »</a>
         </div>
         
         <div class="col-md-4">
@@ -100,9 +98,9 @@ layout: base
             can even edit this website - click the link at the bottom of each page to get started.</p>
             <p>Regardless of your passion, meet us on IRC at <a href="http://webchat.freenode.net/?channels=knightos&uio=d4">
             #knightos on irc.freenode.net</a> and chat with us. We're happy to have newcomers.</p>
-            <a href="/contributing/" class="btn btn-default bottom-link">Get Started »</a>
+            <a href="/contributing/" class="btn btn-primary bottom-link">Get Started »</a>
         </div>
     </div>
 </div>
 
-<script data-main="js/index.js" src="OpenTI/webui/js/lib/require.js"></script>
+<script data-main="js/index.js" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js"></script>
