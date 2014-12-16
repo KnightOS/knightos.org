@@ -94,6 +94,25 @@ Highly comfortable with C and intermediate experience with assembly.
 
 **Mentor**: [Jose Diez \<me@jdiez.me>](mailto:me@jdiez.me)
 
+## TI-Basic Implementation
+
+TI-Basic is the official programming langauge of TI-OS, and there is a large
+body of software available written in TI-Basic. An interpreter that runs on
+KnightOS would bring a lot of software to the platform.
+
+**Expected results**
+
+Enough of TI-Basic is supported to run several common programs that already
+exist for TI-OS.
+
+**Knowledge prerequisites**
+
+Assembly.
+
+**Skill level**: Medium to high
+
+**Mentor**: [Drew DeVault \<sir@cmpwn.com>](mailto:sir@cmpwn.com)
+
 ## Floating point support in kernel
 
 Floating point arithmetic can be done on KnightOS if you write C, but assembly
