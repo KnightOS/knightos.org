@@ -51,20 +51,10 @@ layout: base
                         <i class="glyphicon glyphicon-chevron-left"></i>
                         Previous
                     </a>
-                {% else %}
-                    <a class="btn btn-default pull-left disabled">
-                        <i class="glyphicon glyphicon-chevron-left"></i>
-                        Previous
-                    </a>
                 {% endif %}
                 
                 {% if paginator.next_page %}
                     <a href="{{ paginator.next_page_path }}" class="btn btn-default pull-right">
-                        Next
-                        <i class="glyphicon glyphicon-chevron-right"></i>
-                    </a>
-                {% else %}
-                    <a class="btn btn-default pull-right disabled">
                         Next
                         <i class="glyphicon glyphicon-chevron-right"></i>
                     </a>
