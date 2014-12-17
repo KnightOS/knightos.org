@@ -1,31 +1,65 @@
 ---
-title: KnightOS Blog
+title: Blog
 layout: base
 ---
 
-<div class="page-header" style="height: 200px">
+<div class="sub-hero">
     <div class="container">
-        <div class="pull-right intro" style="margin-top: 100px;">
-            <a href="/blog/rss.xml" class="pull-right">
-                <img src="/img/rss.png" height=38 />
-            </a>
-            <h1>KnightOS Blog</h1>
-            <h3>Updates from the KnightOS team</h3>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <div class="sub-hero-block">
+                    <h1>
+                        KnightOS Blog
+                        <a href="/blog/rss.xml">
+                            <img src="/img/rss.png" width="38" height="38">
+                        </a>
+                    </h1>
+                    <h4 class="text-muted">Updates from the KnightOS team</h4>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<div class="container" style="margin-top: 20px;">
-    <p>Anyone who has contributed to KnightOS is welcome to write a blog post about KnightOS. If you've made
-    a contribution and want to talk about it, simply write up a post and send a pull request to
-    <a href="https://github.com/KnightOS/knightos.org">github.com/KnightOS/knightos.org</a>. Want to write a
-    post here but haven't contributed to the project? <a href="/contributing">Get started here</a>!</p>
-    <h2>Recent Posts</h2>
-    {% for post in site.posts %}
-    <h3>
-        <a href="{{ post.url }}"> {{ post.title }} </a>
-        <small>{{ post.date | date_to_string }}</small>
-    </h3>
-    <p>{{ post.excerpt }}</p>
-    <a href="{{ post.url }}" style="margin-bottom: 10px; display: block">Read full article »</a>
-    {% endfor %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            {% if paginator.page == 1 %}
+                <div class="alert alert-info">
+                    <i class="glyphicon glyphicon-info-sign"></i>
+                    Anyone who has contributed to KnightOS is welcome to write a blog post about KnightOS. If you've made
+                    a contribution and want to talk about it, simply write up a post and send a pull request to
+                    <a href="https://github.com/KnightOS/knightos.org">github.com/KnightOS/knightos.org</a>. Want to write a
+                    post here but haven't contributed to the project? <a href="/contribute/">Get started here!</a>
+                </div>
+            {% endif %}
+            
+            {% for post in paginator.posts %}
+                <h3>
+                    <a href="{{ post.url }}"> {{ post.title }} </a>
+                    <small>{{ post.date | date_to_string }}</small>
+                </h3>
+                {{ post.excerpt }}
+                <p>
+                    <a href="{{ post.url }}">Read the full article »</a>
+                </p>
+            {% endfor %}
+            
+            <div class="paginator clearfix">
+                {% if paginator.previous_page %}
+                    <a href="{{ paginator.previous_page_path }}" class="btn btn-default pull-left">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
+                    </a>
+                {% endif %}
+                
+                {% if paginator.next_page %}
+                    <a href="{{ paginator.next_page_path }}" class="btn btn-default pull-right">
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 </div>

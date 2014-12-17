@@ -3,46 +3,64 @@ title: KnightOS
 layout: base
 ---
 
-<div class="page-header">
-    <div class="calculator">
-        <canvas width="385" height="256" id="screen"></canvas>
-    </div>
+<div id="hero">
     <div class="container">
-        <div class="pull-left intro">
-            <h3>Try KnightOS!</h3>
-            <p>
-                This is a real calculator running the latest version of KnightOS. Use your arrow keys and F1-F5 to play with it.
-            </p>
-            <p class="text-danger">Note: This is a work in progress and may be broken.</p>
-        </div>
-        <div class="pull-right intro">
-            <a href="/download" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-cloud-download"></span> Download KnightOS</a>
-            <h1>KnightOS</h1>
-            <h3>An open-source OS for calculators</h3>
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="hero-calculator" class="pull-left hidden-xs">
+                    <img id="hero-calculator-img" src="/img/calculator.png" alt="Try KnightOS" width="635" height="422">
+                    
+                    <canvas width="385" height="256" id="screen"></canvas>
+                    
+                    <div id="hero-calculator-text" class="hero-block">
+                        <h3>Try KnightOS!</h3>
+                        <p>This is a real calculator running the latest version of KnightOS. Use your arrow keys and F1-F5 to play with it.</p>
+                        <p class="text-danger">Note: This is a work in progress and may be broken.</p>
+                    </div>
+                </div>
+                
+                <div id="hero-introduction" class="hero-block text-center pull-right clearfix">
+                    <h1>KnightOS</h1>
+                    <h4>An open-source OS for calculators</h4>
+                    <a href="/download" class="btn btn-primary btn-block btn-lg">
+                        <i class="glyphicon glyphicon-cloud-download"></i> Download
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<div class="container" style="margin-top: 20px;">
-    <div class="well-white">
-        Google Summer of Code is almost upon us! KnightOS will be applying as a
-        mentoring organization for the first time this year. <a
-        href="/gsoc/">Come help us find project ideas</a>!
-    </div>
-    <div class="flex-row">
-        <div class="flex-col">
-            {% for post in site.posts %}
-            {% if forloop.index0 < 3 %}
-            <h3>
-                <a href="{{ post.url }}"> {{ post.title }} </a>
-                <small>{{ post.date | date_to_string }}</small>
-            </h3>
-            <p>{{ post.excerpt }}</p>
-            <a href="{{ post.url }}" style="margin-bottom: 10px; display: block">Read full article »</a>
-            {% endif %}
-            {% endfor %}
-            <a href="/blog" class="bottom-link">Read More »</a>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="alert alert-info">
+                <i class="glyphicon glyphicon-info-sign"></i>
+                Google Summer of Code is almost upon us! KnightOS will be applying as a
+                mentoring organization for the first time this year. <a
+                href="/gsoc/">Come help us find project ideas!</a>
+            </div>
         </div>
-        <div class="flex-col">
+    </div>
+    
+    <div id="body-text" class="row">
+        <div class="col-md-4">
+            {% for post in site.posts %}
+                {% if forloop.index0 < 3 %}
+                    <h3>
+                        <a href="{{ post.url }}">{{ post.title }}</a>
+                        <small>{{ post.date | date_to_string }}</small>
+                    </h3>
+                    {{ post.excerpt }}
+                    <p class="text-right">
+                        <a href="{{ post.url }}">Read the full article »</a>
+                    </p>
+                {% endif %}
+            {% endfor %}
+            <a href="/blog/" class="btn btn-primary bottom-link">Read More »</a>
+        </div>
+        
+        <div class="col-md-4">
             <h3>What is KnightOS?</h3>
             <p>
                 KnightOS is an open-source operating system for Texas Instruments calculators.
@@ -62,9 +80,10 @@ layout: base
                 TI-73, TI-83+, TI-83+ Silver Edition, TI-84+, TI-84+ Silver Edition, and TI-84+ Color Silver Edition.
                 You can also run it on the French variations of these calculators, or in an emulator.
             </p>
-            <a href="/download" class="bottom-link">Get KnightOS »</a>
+            <a href="/download/" class="btn btn-primary bottom-link">Get KnightOS »</a>
         </div>
-        <div class="flex-col">
+        
+        <div class="col-md-4">
             <h3>Get Involved</h3>
             <p>The best thing about KnightOS, by far, is the open-source nature of it. KnightOS is built by a community
             of developers around the world - a community that you are welcome to join! Even if you aren't a programmer,
@@ -79,9 +98,9 @@ layout: base
             can even edit this website - click the link at the bottom of each page to get started.</p>
             <p>Regardless of your passion, meet us on IRC at <a href="http://webchat.freenode.net/?channels=knightos&uio=d4">
             #knightos on irc.freenode.net</a> and chat with us. We're happy to have newcomers.</p>
-            <a href="/contributing" class="bottom-link">Get Started »</a>
+            <a href="/contributing/" class="btn btn-primary bottom-link">Get Started »</a>
         </div>
     </div>
 </div>
 
-<script data-main="js/index.js" src="OpenTI/webui/js/lib/require.js"></script>
+<script data-main="js/index.js" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js"></script>

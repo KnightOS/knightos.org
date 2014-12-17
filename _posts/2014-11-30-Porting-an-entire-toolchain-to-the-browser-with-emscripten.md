@@ -35,7 +35,7 @@ All of the tools in our toolchain are written in C. We saw Emscripten as an
 opportunity to reduce all of this effort into simply firing up your web browser.
 It works, too! Here's what was involved.
 
->**Note**: Click the screen on the emulator to the left to give it your
+>**Note**: Click the screen on the emulator to give it your
 >keyboard. Click away to take it back. You can use your arrow keys, F1-F5,
 >enter, and escape (as MODE).
 
@@ -51,10 +51,19 @@ your web browser:
     <div class="editor" data-source="/sources/helloworld.asm" data-file="main.asm"></div>
     <div class="calculator-wrapper">
         <div class="calculator">
-            <canvas width="385" height="256" class="emulator-screen"></canvas>
+            <canvas width="250" height="166" class="emulator-screen"></canvas>
         </div>
     </div>
 </div>
+
+<!--<div class="demo">
+    <div class="editor" data-source="/sources/helloworld.asm" data-file="main.asm"></div>
+    <div class="calculator-wrapper">
+        <div class="calculator">
+            <canvas width="385" height="256" class="emulator-screen"></canvas>
+        </div>
+    </div>
+</div>-->
 
 We can also install new dependencies on the fly and use them in our programs.
 Here's another program that draws the "hello world" message in a window. You

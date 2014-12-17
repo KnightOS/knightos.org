@@ -1,0 +1,15 @@
+<div class="paginator clearfix">
+    {% if page.previous.url %} 
+        <a class="btn btn-default pull-left" href="{{ page.previous.url }}">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            {{ page.previous.title }}
+        </a> 
+    {% endif %} 
+    
+    {% if page.next.url %} 
+        <a class="btn btn-default pull-right" href="{{ page.next.url }}">
+            {{ page.next.title }}
+            <i class="glyphicon glyphicon-chevron-right"></i>
+        </a> 
+    {% endif %} 
+</div>

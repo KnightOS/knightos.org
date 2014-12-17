@@ -3,23 +3,18 @@ layout: base
 showTitle: true
 ---
 
-<div class="page-header" style="height: 200px">
-    <div class="container">
-        <div class="pull-right intro" style="margin-top: 100px; width: 700px;">
-            <h1>{{ page.title }}</h1>
-            <small>Posted {{ page.date | date_to_string }} by {{ page.author }}</small>
+{% include post_hero.html %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            {{ content }}
+            
+            <br>
+            
+            {% include post_paginator.html %}
+            
+            {% include post_disqus.html %}
         </div>
     </div>
-</div>
-<div class="container" style="margin-top: 20px;">
-    {{ content }}
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    var disqus_shortname = 'drewdevaultblog';
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
 </div>
