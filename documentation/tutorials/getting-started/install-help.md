@@ -54,13 +54,13 @@ kos-sass in a section below.</div>
 #!/bin/bash
 
 list="genkfs mktiupgrade kpack z80e sass"
-for project in list; do
+for project in $list; do
     git clone https://github.com/KnightOS$project.git
 done
 
-for dir in list; do
+for dir in $list; do
     pushd $dir
-    if [[ "$dir" == "sass" ]]; then
+    if [[ $dir == "sass" ]]; then
         # If this fails you probably don't have mono installed
         make; sudo make install
         popd
