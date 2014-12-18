@@ -20,7 +20,9 @@ Install `aur/knightos-sdk`.
 ---
 
 ## Mac OS X
-###Dependencies:
+
+###Dependencies
+
 * [asciidoc](http://www.methods.co.nz/asciidoc/INSTALL.html) (suggestion: [use homebrew](http://brewformulas.org/Asciidoc))
 * [genkfs](https://github.com/KnightOS/genkfs)
 * [mktiupgrade](https://github.com/KnightOS/mktiupgrade)
@@ -35,17 +37,20 @@ Install `aur/knightos-sdk`.
 	* [pyyaml](http://pyyaml.org/wiki/PyYAML)
 
 ###Installation:
+
 Create a new directory for your KnightOS projects (the source will also live here.)
 
-` cd; mkdir knightos; cd $_`
+    cd; mkdir knightos; cd $_
 
 This will create a directory *knightos* in your user's home folder, and change the working directory to the new folder.
 
 Use this automated build script or perform these steps manually:
 
-<small>Note: If you use `sass` (the css-preprocessor) you will want to rename KnightOS' sass to something distinguishable. I use `kos-sass` in a section below.</small>
+<div class="alert alert-info">Note: If you use sass (the css-preprocessor) you
+will want to rename KnightOS' sass to something distinguishable. I use
+kos-sass in a section below.</div>
 
-```bash
+{% highlight bash %}
 #!/bin/bash
 
 list="genkfs mktiupgrade kpack z80e sass"
@@ -64,11 +69,11 @@ for dir in list; do
     cmake .; make; sudo make install
     popd
 done
-```
+{% endhighlight %}
 
 Now you will need [the actual SDK](https://github.com/KnightOS/sdk).
 
-```bash
+{% highlight bash %}
 #!/bin/bash
 
 git clone https://github.com/KnightOS/sdk.git
@@ -79,11 +84,12 @@ sudo pip3 install pyyaml
 pushd sdk
 sudo make install
 popd
-```
+{% endhighlight %}
 
 If everything installed without failures, **congratulations**, you are ready to create knightos projects!
 
 ###Using sass with sass:
+
 Clone each project (as presented in the first given script) then `cd` into `sass`.
 
 Save this into a `kos-sass.diff` file.
@@ -92,30 +98,29 @@ Then make these changes with `git apply -p0 kos-sass.diff` (make sure you are in
 
 Of course you can do this manually too.
 
-```diff
-diff --git a/Makefile b/Makefile
-index 48aca36..bae88ed 100644
---- a/Makefile
-+++ b/Makefile
-@@ -27,12 +27,12 @@ sass/bin/Debug/sass.exe: sass/*.cs
- install:
- 	mkdir -p $(DESTDIR)/bin/
- 	mkdir -p $(DESTDIR)/mono/
--	install -c -m 775 sass/bin/Debug/sass.exe $(DESTDIR)/mono/sass.exe
--	echo -ne "#!/bin/sh\n$(SASSPREFIX) $(PREFIX)/mono/sass.exe \$$*" > $(DESTDIR)/bin/sass
--	chmod +x $(DESTDIR)/bin/sass
-+	install -c -m 775 sass/bin/Debug/sass.exe $(DESTDIR)/mono/kos-sass.exe
-+	echo "#!/bin/sh\n$(SASSPREFIX) $(PREFIX)/mono/kos-sass.exe \$$*" > $(DESTDIR)/bin/kos-sass
-+	chmod +x $(DESTDIR)/bin/kos-sass
- 
- uninstall:
--	rm $(DESTDIR)/bin/sass
--	rm $(DESTDIR)/mono/sass.exe
-+	rm $(DESTDIR)/bin/kos-sass
-+	rm $(DESTDIR)/mono/kos-sass.exe
- 
- .PHONY: all install uninstall clean
-```
+    diff --git a/Makefile b/Makefile
+    index 48aca36..bae88ed 100644
+    --- a/Makefile
+    +++ b/Makefile
+    @@ -27,12 +27,12 @@ sass/bin/Debug/sass.exe: sass/*.cs
+     install:
+        mkdir -p $(DESTDIR)/bin/
+        mkdir -p $(DESTDIR)/mono/
+    -	install -c -m 775 sass/bin/Debug/sass.exe $(DESTDIR)/mono/sass.exe
+    -	echo -ne "#!/bin/sh\n$(SASSPREFIX) $(PREFIX)/mono/sass.exe \$$*" > $(DESTDIR)/bin/sass
+    -	chmod +x $(DESTDIR)/bin/sass
+    +	install -c -m 775 sass/bin/Debug/sass.exe $(DESTDIR)/mono/kos-sass.exe
+    +	echo "#!/bin/sh\n$(SASSPREFIX) $(PREFIX)/mono/kos-sass.exe \$$*" > $(DESTDIR)/bin/kos-sass
+    +	chmod +x $(DESTDIR)/bin/kos-sass
+     
+     uninstall:
+    -	rm $(DESTDIR)/bin/sass
+    -	rm $(DESTDIR)/mono/sass.exe
+    +	rm $(DESTDIR)/bin/kos-sass
+    +	rm $(DESTDIR)/mono/kos-sass.exe
+     
+     .PHONY: all install uninstall clean
+
 Doing this means that when creating a knightos project via the sdk you will need to supply the argument `--assembler=kos-sass`.
 
 Now you can use the automated build script provided above.
