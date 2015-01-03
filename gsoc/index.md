@@ -39,9 +39,6 @@ and KnightOS happens on
 [IRC](http://webchat.freenode.net/?channels=knightos&uio=d4) and in the [mailing
 list](http://lists.knightos.org).
 
-<div class="alert alert-warning">We're looking for a somewhat larger pool of
-mentors to draw from - if you're interested, please come chat with us in IRC.</div>
-
 # Ideas
 
 If you still need more inspiration, pick through our [issue
