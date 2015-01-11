@@ -82,9 +82,9 @@ in question, so you'll probably feel fairly comfortable with it.
     	for (i = 0; i < 10; i++) {
     		b += c.something;
     	}
-        if (b > 40) {
-            return a - b;
-        }
+    	if (b > 40) {
+    		return a - b;
+    	}
     	return a + b;
     }
 
