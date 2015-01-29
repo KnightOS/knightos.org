@@ -8,20 +8,20 @@ xbuild=xbuild
 
 prereqs() {
     missing=0
-    hash cmake 2>/dev/null || { missing=1; echo >&2 "Please install cmake, which is availble through your package manager or http://www.cmake.org/"; }
-    hash git 2>/dev/null || { missing=1; echo >&2 "Please install git, which is availble through your package manager or http://git-scm.com/"; }
-    hash a2x 2>/dev/null || { missing=1; echo >&2 "Please install asciidoc, which is availble through your package manager or http://asciidoc.org/"; }
-    hash gcc 2>/dev/null || { missing=1; echo >&2 "Please install gcc, which is availble through your package manager or https://gcc.gnu.org/"; }
-    hash make 2>/dev/null || { missing=1; echo >&2 "Please install GNU make, which is availble through your package manager or http://www.gnu.org/software/make/"; }
-    hash python3 2>/dev/null || { missing=1; echo >&2 "Please install Python 3, which is availble through your package manager or https://www.python.org/"; }
+    hash cmake 2>/dev/null || { missing=1; echo >&2 "Please install cmake, which is available through your package manager or http://www.cmake.org/"; }
+    hash git 2>/dev/null || { missing=1; echo >&2 "Please install git, which is available through your package manager or http://git-scm.com/"; }
+    hash a2x 2>/dev/null || { missing=1; echo >&2 "Please install asciidoc, which is available through your package manager or http://asciidoc.org/"; }
+    hash gcc 2>/dev/null || { missing=1; echo >&2 "Please install gcc, which is available through your package manager or https://gcc.gnu.org/"; }
+    hash make 2>/dev/null || { missing=1; echo >&2 "Please install GNU make, which is available through your package manager or http://www.gnu.org/software/make/"; }
+    hash python3 2>/dev/null || { missing=1; echo >&2 "Please install Python 3, which is available through your package manager or https://www.python.org/"; }
     if cygwin; then
-        hash msbuild.exe 2>/dev/null || { missing=1; echo >&2 "Please install Microsoft.NET and add 'C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319' to your %PATH%. .NET is availble from http://www.microsoft.com/net"; }
+        hash msbuild.exe 2>/dev/null || { missing=1; echo >&2 "Please install Microsoft.NET and add 'C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319' to your %PATH%. .NET is available from http://www.microsoft.com/net"; }
         xbuild=msbuild.exe
     else
-        hash mono 2>/dev/null || { missing=1; echo >&2 "Please install mono, which is availble through your package manager or http://mono-project.com/"; }
-        hash xbuild 2>/dev/null || { missing=1; echo >&2 "Please install mono (including build tools), which is availble through your package manager or http://mono-project.com/"; }
-        hash pip3 2>/dev/null || { missing=1; echo >&2 "Please install pip3, which is availble through your package manager or https://pip.pypa.io/en/latest/installing.html"; }
-        hash sdl-config 2>/dev/null || { missing=1; echo >&2 "Please install SDL (and its headers), which is availble through your package manager or http://www.libsdl.org/"; }
+        hash mono 2>/dev/null || { missing=1; echo >&2 "Please install mono, which is available through your package manager or http://mono-project.com/"; }
+        hash xbuild 2>/dev/null || { missing=1; echo >&2 "Please install mono (including build tools), which is available through your package manager or http://mono-project.com/"; }
+        hash pip3 2>/dev/null || { missing=1; echo >&2 "Please install pip3, which is available through your package manager or https://pip.pypa.io/en/latest/installing.html"; }
+        hash sdl-config 2>/dev/null || { missing=1; echo >&2 "Please install SDL (and its headers), which is available through your package manager or http://www.libsdl.org/"; }
     fi
     [ -e /usr/include/readline/readline.h ] || { missing=1; echo >&2 "Please install readline (and its headers), which is available through your package manager (libreadline-dev on Debian/Ubuntu)"; }
     if [ $missing -eq 1 ]; then
