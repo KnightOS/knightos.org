@@ -1,6 +1,6 @@
 require.config({
     paths: {
-        'z80e': '../OpenTI/webui/js/lib/z80e'
+        'z80e': '/tools/z80e'
     },
     shim: {
         'z80e': {
@@ -158,7 +158,7 @@ require(['z80e', '../OpenTI/webui/js/OpenTI/OpenTI'], function(z80e, OpenTI) {
             if (arrayBuffer) {
                 var byteArray = new Uint8Array(arrayBuffer);
                 var pointer = z80e.Module.allocate(byteArray, 'i8', z80e.Module.ALLOC_STACK);
-                Module.HEAPU32[asic.mmu._flashPointer] = pointer;
+                z80e.Module.HEAPU32[asic.mmu._flashPointer] = pointer;
 
                 openti_log.print("KnightOS "+z80e.Module.Pointer_stringify(pointer + 0x64)+" loaded!\n");
 
@@ -169,15 +169,15 @@ require(['z80e', '../OpenTI/webui/js/OpenTI/OpenTI'], function(z80e, OpenTI) {
                     if (!asic.stopped || asic.cpu.interrupt) {
                         asic.runloop.tick(asic.clock_rate / 20);
                     }
-                    setTimeout(tick, 0);
-                }, 1000 / 60);
+                    setTimeout(tick, 1000 / 30);
+                }, 1000 / 30);
 
                 setTimeout(function tick() {
                     if (update_lcd) {
                         print_lcd(update_lcd);
                     }
-                    setTimeout(tick, 1000 / 60);
-                }, 1000 / 60);
+                    setTimeout(tick, 1000 / 30);
+                }, 1000 / 30);
             }
         }
 
