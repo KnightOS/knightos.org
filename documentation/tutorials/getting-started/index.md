@@ -7,7 +7,7 @@ layout: page
 # Getting Started with KnightOS Assembly
 
 Assembly is the bread and butter of KnightOS. Most of the system is written in
-it and the most effecient code you can write for the system is in assembly. This
+it and the most efficient code you can write for the system is in assembly. This
 tutorial covers some skills with z80 assembly in the context of KnightOS. You're
 encouraged to make improvements wherever you see fit by clicking "Edit this
 page" at the bottom of any part of this tutorial.
