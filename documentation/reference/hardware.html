@@ -11,46 +11,11 @@ layout: documentation
         <h1>Hardware</h1>
         <div class="docs">
             
-            <div id="getBatteryLevel" class="docsection">
-                <div>
-                    <h2 class="doc-title">
-                        <a href="#getBatteryLevel">getBatteryLevel</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd03865881c3266f28cd34fc34ff4b09734a0d8d/src/00/util.asm#L175">View Source</a></small>
-                    </h2>
-                    
-                    <p>Determines the approximate battery level.</p>
-
-                    <div class="details">
-                    
-                    
-                        <h3>Outputs</h3>
-                        
-                            <dl>
-                                
-                                <dt>B</dt>
-                                <dd><p>Battery level</p></dd>
-                                
-                            </dl>
-                        
-                    
-                    
-                        <h3>Notes</h3>
-                        
-                            <p>This returns a value from 0-255. The precision of this value varies by calculator 
- model. 6 MHz platforms will return a 0 or a 255. 15 MHz platforms will return a 0, 
- 85, 170, or 255 (255 quartered). The 84+ CSE will return a higher resolution number 
- between 0.255.</p>
-                        
-                    
-                    </div>
-                </div>
-            </div>
-            
             <div id="getIOLock" class="docsection">
                 <div>
                     <h2 class="doc-title">
                         <a href="#getIOLock">getIOLock</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd03865881c3266f28cd34fc34ff4b09734a0d8d/src/00/locks.asm#L13">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/locks.asm#L13">View Source</a></small>
                     </h2>
                     
                     <p>Locks the I/O port to the current thread.</p>
@@ -65,7 +30,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#getKeypadLock">getKeypadLock</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd03865881c3266f28cd34fc34ff4b09734a0d8d/src/00/locks.asm#L22">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/locks.asm#L22">View Source</a></small>
                     </h2>
                     
                     <p>Locks the keyboard to the current thread.</p>
@@ -80,7 +45,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#getLcdLock">getLcdLock</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd03865881c3266f28cd34fc34ff4b09734a0d8d/src/00/locks.asm#L1">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/locks.asm#L1">View Source</a></small>
                     </h2>
                     
                     <p>Locks the LCD to the current thread.</p>
@@ -95,7 +60,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#getUSBLock">getUSBLock</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd03865881c3266f28cd34fc34ff4b09734a0d8d/src/00/locks.asm#L31">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/locks.asm#L31">View Source</a></small>
                     </h2>
                     
                     <p>Locks the USB port to the current thread.</p>
@@ -110,7 +75,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#hasIOLock">hasIOLock</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd03865881c3266f28cd34fc34ff4b09734a0d8d/src/00/locks.asm#L53">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/locks.asm#L53">View Source</a></small>
                     </h2>
                     
                     <p>Sets Z if the current thread has a lock on the I/O port.</p>
@@ -125,7 +90,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#hasKeypadLock">hasKeypadLock</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd03865881c3266f28cd34fc34ff4b09734a0d8d/src/00/locks.asm#L66">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/locks.asm#L66">View Source</a></small>
                     </h2>
                     
                     <p>Sets Z if the current thread has a lock on the keyboard.</p>
@@ -140,7 +105,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#hasLCDLock">hasLCDLock</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd03865881c3266f28cd34fc34ff4b09734a0d8d/src/00/locks.asm#L40">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/locks.asm#L40">View Source</a></small>
                     </h2>
                     
                     <p>Sets Z if the current thread has a lock on the LCD.</p>
@@ -155,25 +120,10 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#hasUSBLock">hasUSBLock</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd03865881c3266f28cd34fc34ff4b09734a0d8d/src/00/locks.asm#L79">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/locks.asm#L79">View Source</a></small>
                     </h2>
                     
                     <p>Sets Z if the current thread has a lock on the USB.</p>
-
-                    <div class="details">
-                    
-                    </div>
-                </div>
-            </div>
-            
-            <div id="lcdDelay" class="docsection">
-                <div>
-                    <h2 class="doc-title">
-                        <a href="#lcdDelay">lcdDelay</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd03865881c3266f28cd34fc34ff4b09734a0d8d/src/00/util.asm#L165">View Source</a></small>
-                    </h2>
-                    
-                    <p>Blocks until the LCD is ready to receive data.</p>
 
                     <div class="details">
                     
@@ -228,10 +178,6 @@ layout: documentation
                 <ul class="nav doc-nav">
                     
                     <li>
-                        <a href="#getBatteryLevel" class="text-muted">getBatteryLevel</a>
-                    </li>
-                    
-                    <li>
                         <a href="#getIOLock" class="text-muted">getIOLock</a>
                     </li>
                     
@@ -261,10 +207,6 @@ layout: documentation
                     
                     <li>
                         <a href="#hasUSBLock" class="text-muted">hasUSBLock</a>
-                    </li>
-                    
-                    <li>
-                        <a href="#lcdDelay" class="text-muted">lcdDelay</a>
                     </li>
                     
                 </ul>

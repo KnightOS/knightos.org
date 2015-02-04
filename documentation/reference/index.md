@@ -10,7 +10,7 @@ browse through them with the categories below.
 
 ## Kernel API
 
-<table class="table table-striped table-bordered">
+<table class="table">
 
     <tr>
         <th><a href="/documentation/reference/color.html">Color</a></th>
