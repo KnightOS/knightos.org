@@ -87,6 +87,9 @@ a {color:#39B3D7}
 .paginator {margin:10px 0}
 .paginator > .btn {min-width:100px; margin:5px 0}
 
+/* Div container */
+.container {margin-right:25px;}
+
 /* documentation section */
 .documentation {margin-top:20px}
 .documentation .docsection {margin-bottom:30px; padding:5px 20px; background-color:#fff}
