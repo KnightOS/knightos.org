@@ -15,7 +15,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#callbackSort">callbackSort</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/02/sort.asm#L54">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/02/sort.asm#L54">View Source</a></small>
                     </h2>
                     
                     <p>Sorts an array of arbitrarily-sized blocks using a callback function to perform comparisons.</p>
@@ -60,7 +60,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#cpHLDE_sort">cpHLDE_sort</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/util.asm#L298">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/util.asm#L286">View Source</a></small>
                     </h2>
                     
                     <p>Compares 16-bit integers at (HL) and (DE).  That is, calls indirect16HLDE, then calls cpHLDE.</p>
@@ -90,41 +90,8 @@ layout: documentation
                     
                         <h3>Notes</h3>
                         
-                            <p>This routine is extremely useful as the callback for the <a href="miscellaneous.html#callbackSort">callbackSort</a> routine. 
+                            <p>This routine is useful as the callback for the <a href="miscellaneous.html#callbackSort">callbackSort</a> routine. 
  It allows sorting a list of 16-bit numbers.</p>
-                        
-                    
-                    </div>
-                </div>
-            </div>
-            
-            <div id="getBatteryLevel" class="docsection">
-                <div>
-                    <h2 class="doc-title">
-                        <a href="#getBatteryLevel">getBatteryLevel</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/util.asm#L173">View Source</a></small>
-                    </h2>
-                    
-                    <p>Determines the approximate battery level.</p>
-
-                    <div class="details">
-                    
-                    
-                        <h3>Outputs</h3>
-                        
-                            <dl>
-                                
-                                <dt>B</dt>
-                                <dd><p>Battery level</p></dd>
-                                
-                            </dl>
-                        
-                    
-                    
-                        <h3>Notes</h3>
-                        
-                            <p>For 15MHz CPUs, B is a value from 0 to 4, where 0 is critical and 4 is full. 
- For 6MHz CPUs, B is either 0 or 1, where 0 is critical and 1 is good.</p>
                         
                     
                     </div>
@@ -135,7 +102,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#getBootCodeVersionString">getBootCodeVersionString</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/util.asm#L185">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/util.asm#L196">View Source</a></small>
                     </h2>
                     
                     <p>Gets the version string from the device's boot code.</p>
@@ -163,11 +130,37 @@ layout: documentation
                 </div>
             </div>
             
+            <div id="getBootPage" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#getBootPage">getBootPage</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/util.asm#L188">View Source</a></small>
+                    </h2>
+                    
+                    <p>Gets the boot page for this calculator.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Boot page</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
             <div id="getKernelCommitsSinceTag" class="docsection">
                 <div>
                     <h2 class="doc-title">
                         <a href="#getKernelCommitsSinceTag">getKernelCommitsSinceTag</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/util.asm#L422">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/util.asm#L418">View Source</a></small>
                     </h2>
                     
                     <p>Returns how many commits have been made since the last kernel tag.</p>
@@ -180,12 +173,19 @@ layout: documentation
                             <dl>
                                 
                                 <dt>Z</dt>
-                                <dd><p>set on success, reset on error</p></dd>
+                                <dd><p>Set on success, reset on error</p></dd>
                                 
                                 <dt>HL</dt>
-                                <dd><p>number of commits</p></dd>
+                                <dd><p>Number of commits</p></dd>
                                 
                             </dl>
+                        
+                    
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>This will fail most of the time, as it is only included when running 
+ on a development kernel between releases.</p>
                         
                     
                     </div>
@@ -196,7 +196,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#getKernelMajorVersion">getKernelMajorVersion</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/util.asm#L370">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/util.asm#L360">View Source</a></small>
                     </h2>
                     
                     <p>Returns the kernel's major version number.</p>
@@ -209,12 +209,18 @@ layout: documentation
                             <dl>
                                 
                                 <dt>Z</dt>
-                                <dd><p>set on success, reset on error</p></dd>
+                                <dd><p>Set on success, reset on error</p></dd>
                                 
                                 <dt>HL</dt>
-                                <dd><p>major version number</p></dd>
+                                <dd><p>Major version number</p></dd>
                                 
                             </dl>
+                        
+                    
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>Kernel versions are MAJOR.MINOR.PATCH. For kernel 1.6.2, this returns 1.</p>
                         
                     
                     </div>
@@ -225,7 +231,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#getKernelMinorVersion">getKernelMinorVersion</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/util.asm#L383">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/util.asm#L375">View Source</a></small>
                     </h2>
                     
                     <p>Returns the kernel's minor version number.</p>
@@ -238,12 +244,18 @@ layout: documentation
                             <dl>
                                 
                                 <dt>Z</dt>
-                                <dd><p>set on success, reset on error</p></dd>
+                                <dd><p>Set on success, reset on error</p></dd>
                                 
                                 <dt>HL</dt>
-                                <dd><p>minor version number</p></dd>
+                                <dd><p>Minor version number</p></dd>
                                 
                             </dl>
+                        
+                    
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>Kernel versions are MAJOR.MINOR.PATCH. For kernel 1.6.2, this returns 6.</p>
                         
                     
                     </div>
@@ -254,7 +266,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#getKernelPatchNumber">getKernelPatchNumber</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/util.asm#L401">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/util.asm#L395">View Source</a></small>
                     </h2>
                     
                     <p>Returns the kernel's patch number.</p>
@@ -267,12 +279,18 @@ layout: documentation
                             <dl>
                                 
                                 <dt>Z</dt>
-                                <dd><p>set on success, reset on error</p></dd>
+                                <dd><p>Set on success, reset on error</p></dd>
                                 
                                 <dt>HL</dt>
-                                <dd><p>patch number</p></dd>
+                                <dd><p>Patch number</p></dd>
                                 
                             </dl>
+                        
+                    
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>Kernel versions are MAJOR.MINOR.PATCH. For kernel 1.6.2, this returns 2.</p>
                         
                     
                     </div>
@@ -283,10 +301,10 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#getKernelShortHash">getKernelShortHash</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/util.asm#L447">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/util.asm#L446">View Source</a></small>
                     </h2>
                     
-                    <p>Returns the kernel's short hash, copied to malloc-ed RAM.</p>
+                    <p>Retreives the kernel's short hash string.</p>
 
                     <div class="details">
                     
@@ -296,10 +314,10 @@ layout: documentation
                             <dl>
                                 
                                 <dt>Z</dt>
-                                <dd><p>set on success, reset on error</p></dd>
+                                <dd><p>Set on success, reset on error</p></dd>
                                 
                                 <dt>HL</dt>
-                                <dd><p>pointer on short hash string</p></dd>
+                                <dd><p>Pointer on short hash string</p></dd>
                                 
                             </dl>
                         
@@ -307,8 +325,10 @@ layout: documentation
                     
                         <h3>Notes</h3>
                         
-                            <p>Make sure to free HL after you're done with the string. Failure 
- to do so will result in memory leaks !!</p>
+                            <p>This allocates memory to store the string. Deallocate it with <a href="system.html#free">free</a> 
+ when you're done. </p>
+<p>This will fail most of the time, as it is only included when running 
+ on a development kernel between releases.</p>
                         
                     
                     </div>
@@ -319,7 +339,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#getRandom">getRandom</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/random.asm#L18">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/random.asm#L18">View Source</a></small>
                     </h2>
                     
                     <p>Gets an 8-bit random number.</p>
@@ -351,7 +371,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#hexToA">hexToA</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/util.asm#L128">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/util.asm#L128">View Source</a></small>
                     </h2>
                     
                     <p>Converts a hexadecimal string to a number.</p>
@@ -388,7 +408,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#hexToHL">hexToHL</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/util.asm#L88">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/util.asm#L88">View Source</a></small>
                     </h2>
                     
                     <p>Converts a hexadecimal string to a number.</p>
@@ -425,7 +445,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#indirect16HL">indirect16HL</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/util.asm#L287">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/util.asm#L275">View Source</a></small>
                     </h2>
                     
                     <p>Performs HL = (HL)</p>
@@ -440,7 +460,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#indirect16HLDE">indirect16HLDE</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/util.asm#L277">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/util.asm#L265">View Source</a></small>
                     </h2>
                     
                     <p>Performs HL = (HL) and DE = (DE).</p>
@@ -461,7 +481,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#integerSort">integerSort</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/02/sort.asm#L1">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/02/sort.asm#L1">View Source</a></small>
                     </h2>
                     
                     <p>Sorts a specified array of 8-bit numbers using a fast (time complexity O(n)) algorithm.</p>
@@ -494,51 +514,14 @@ layout: documentation
                 </div>
             </div>
             
-            <div id="isAlphaNum" class="docsection">
-                <div>
-                    <h2 class="doc-title">
-                        <a href="#isAlphaNum">isAlphaNum</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/util.asm#L510">View Source</a></small>
-                    </h2>
-                    
-                    <p>Tests if a character is a letter or a number.</p>
-
-                    <div class="details">
-                    
-                    
-                        <h3>Inputs</h3>
-                        
-                            <dl>
-                                
-                                <dt>A</dt>
-                                <dd><p>character to test</p></dd>
-                                
-                            </dl>
-                        
-                    
-                    
-                        <h3>Outputs</h3>
-                        
-                            <dl>
-                                
-                                <dt>C</dt>
-                                <dd><p>set if the character is alphanumeric</p></dd>
-                                
-                            </dl>
-                        
-                    
-                    </div>
-                </div>
-            </div>
-            
             <div id="isKernelDirty" class="docsection">
                 <div>
                     <h2 class="doc-title">
                         <a href="#isKernelDirty">isKernelDirty</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/util.asm#L495">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/util.asm#L497">View Source</a></small>
                     </h2>
                     
-                    <p>Tests if the kernel is dirty, i.e if it has uncommited changes.</p>
+                    <p>Checks for a dirty kernel.</p>
 
                     <div class="details">
                     
@@ -548,49 +531,16 @@ layout: documentation
                             <dl>
                                 
                                 <dt>Z</dt>
-                                <dd><p>set if dirty</p></dd>
-                                
-                            </dl>
-                        
-                    
-                    </div>
-                </div>
-            </div>
-            
-            <div id="randA" class="docsection">
-                <div>
-                    <h2 class="doc-title">
-                        <a href="#randA">randA</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/util.asm#L216">View Source</a></small>
-                    </h2>
-                    
-                    <p>Returns a random byte in A.</p>
-
-                    <div class="details">
-                    
-                    
-                        <h3>Inputs</h3>
-                        
-                            <dl>
-                                
-                                <dt>A'</dt>
-                                <dd><p>seed</p></dd>
+                                <dd><p>Set if dirty</p></dd>
                                 
                             </dl>
                         
                     
                     
-                        <h3>Outputs</h3>
+                        <h3>Notes</h3>
                         
-                            <dl>
-                                
-                                <dt>A</dt>
-                                <dd><p>random byte</p></dd>
-                                
-                                <dt>A'</dt>
-                                <dd><p>reseeded</p></dd>
-                                
-                            </dl>
+                            <p>A kernel is considered "dirty" if there were uncommitted changes when it was 
+ compiled.</p>
                         
                     
                     </div>
@@ -601,10 +551,10 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#rleCalculateCompressedLength">rleCalculateCompressedLength</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/02/compression.asm#L90">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/02/compression.asm#L92">View Source</a></small>
                     </h2>
                     
-                    <p>Calculates the size of data resulting from a compression, but does not actually compress anything.</p>
+                    <p>Calculates the size of some data after compression, but does not compress it.</p>
 
                     <div class="details">
                     
@@ -631,7 +581,7 @@ layout: documentation
                                 <dd><p>Size of compressed data</p></dd>
                                 
                                 <dt>AF</dt>
-                                <dd><p>Destroyed</p></dd>
+                                <dd><p>Garbage</p></dd>
                                 
                             </dl>
                         
@@ -644,10 +594,10 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#rleCalculateDecompressedLength">rleCalculateDecompressedLength</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/02/compression.asm#L213">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/02/compression.asm#L214">View Source</a></small>
                     </h2>
                     
-                    <p>Calculates the size of data resulting from a decompression, but does not actually decompress anything.</p>
+                    <p>Calculates the decompressed size of some compressed data, but does not decompress it.</p>
 
                     <div class="details">
                     
@@ -674,7 +624,7 @@ layout: documentation
                                 <dd><p>Size of decompressed data</p></dd>
                                 
                                 <dt>AF</dt>
-                                <dd><p>Destroyed</p></dd>
+                                <dd><p>Garbage</p></dd>
                                 
                             </dl>
                         
@@ -687,10 +637,10 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#rleCompress">rleCompress</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/02/compression.asm#L4">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/02/compression.asm#L4">View Source</a></small>
                     </h2>
                     
-                    <p>Compresses data using a simple Run-Length-Encoding scheme. All bytes in a compressed block are treated as literal, except the two following a sentinel byte (selected because of its low occurance in z80 code), which specify the length of the run and the byte to run with, respectively.</p>
+                    <p>Compresses data using a simple Run-Length-Encoding scheme.</p>
 
                     <div class="details">
                     
@@ -720,9 +670,18 @@ layout: documentation
                                 <dd><p>Size of compressed data</p></dd>
                                 
                                 <dt>AF</dt>
-                                <dd><p>Destroyed</p></dd>
+                                <dd><p>Garbage</p></dd>
                                 
                             </dl>
+                        
+                    
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>All bytes are considered literal, but 0x9B indicates a run. It is 
+ followed by the length of the run and the byte it consists of, 
+ respectively. </p>
+<p>For example, you may compress <code>01 02 02 02 02 02</code> as <code>01 9B 05 02</code>.</p>
                         
                     
                     </div>
@@ -733,10 +692,10 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#rleDecompress">rleDecompress</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/02/compression.asm#L157">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/02/compression.asm#L159">View Source</a></small>
                     </h2>
                     
-                    <p>Decompresses data compressed with the algorithm used by the kernel routine rleCompress.  See its documentation for algorithm details.</p>
+                    <p>Decompresses data compressed with <a href="miscellaneous.html#rleCompress">rleCompress</a> or a compatible algorithm.</p>
 
                     <div class="details">
                     
@@ -766,7 +725,7 @@ layout: documentation
                                 <dd><p>Size of decompressed data</p></dd>
                                 
                                 <dt>AF</dt>
-                                <dd><p>Destroyed</p></dd>
+                                <dd><p>Garbage</p></dd>
                                 
                             </dl>
                         
@@ -779,7 +738,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#sleep">sleep</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/util.asm#L316">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/util.asm#L306">View Source</a></small>
                     </h2>
                     
                     <p>Delays a number of milliseconds.</p>
@@ -878,11 +837,11 @@ layout: documentation
                     </li>
                     
                     <li>
-                        <a href="#getBatteryLevel" class="text-muted">getBatteryLevel</a>
+                        <a href="#getBootCodeVersionString" class="text-muted">getBootCodeVersionString</a>
                     </li>
                     
                     <li>
-                        <a href="#getBootCodeVersionString" class="text-muted">getBootCodeVersionString</a>
+                        <a href="#getBootPage" class="text-muted">getBootPage</a>
                     </li>
                     
                     <li>
@@ -930,15 +889,7 @@ layout: documentation
                     </li>
                     
                     <li>
-                        <a href="#isAlphaNum" class="text-muted">isAlphaNum</a>
-                    </li>
-                    
-                    <li>
                         <a href="#isKernelDirty" class="text-muted">isKernelDirty</a>
-                    </li>
-                    
-                    <li>
-                        <a href="#randA" class="text-muted">randA</a>
                     </li>
                     
                     <li>

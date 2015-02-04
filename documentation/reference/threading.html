@@ -13,11 +13,48 @@ layout: documentation
         <h1>Threading</h1>
         <div class="docs">
             
+            <div id="checkThread" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#checkThread">checkThread</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/thread.asm#L42">View Source</a></small>
+                    </h2>
+                    
+                    <p>Checks to see if the specified thread ID is still running.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Thread ID</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set if running, reset if not found</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
             <div id="createSignal" class="docsection">
                 <div>
                     <h2 class="doc-title">
                         <a href="#createSignal">createSignal</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/signals.asm#L8">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/signals.asm#L8">View Source</a></small>
                     </h2>
                     
                     <p>Signals another thread with a simple message.</p>
@@ -56,7 +93,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#exitThread">exitThread</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/thread.asm#L425">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/thread.asm#L437">View Source</a></small>
                     </h2>
                     
                     <p>Immediately terminates the running thread.</p>
@@ -79,7 +116,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#getCurrentThreadID">getCurrentThreadID</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/thread.asm#L26">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/thread.asm#L26">View Source</a></small>
                     </h2>
                     
                     <p>Gets the ID of the currently executing thread.</p>
@@ -105,7 +142,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#getEntryPoint">getEntryPoint</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/thread.asm#L448">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/thread.asm#L460">View Source</a></small>
                     </h2>
                     
                     <p>Retrieves the entry point for the specified thread.</p>
@@ -134,6 +171,14 @@ layout: documentation
                             </dl>
                         
                     
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>This gives you the location of the executable in memory. This does NOT 
+ get the KEXC entry point (KEXC_ENTRY_POINT) from the executable header. 
+ For that, use <a href="threading.html#getHeaderValue">getHeaderValue</a>.</p>
+                        
+                    
                     </div>
                 </div>
             </div>
@@ -142,7 +187,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#getHeaderValue">getHeaderValue</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/thread.asm#L498">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/thread.asm#L510">View Source</a></small>
                     </h2>
                     
                     <p>Finds a header in the specified thread, and returns its value.</p>
@@ -180,51 +225,11 @@ layout: documentation
                             </dl>
                         
                     
-                    </div>
-                </div>
-            </div>
-            
-            <div id="getThreadEntry" class="docsection">
-                <div>
-                    <h2 class="doc-title">
-                        <a href="#getThreadEntry">getThreadEntry</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/thread.asm#L466">View Source</a></small>
-                    </h2>
-                    
-                    <p>Gets a pointer to the specified thread's entry in the thread table.</p>
-
-                    <div class="details">
-                    
-                    
-                        <h3>Inputs</h3>
-                        
-                            <dl>
-                                
-                                <dt>A</dt>
-                                <dd><p>Thread ID</p></dd>
-                                
-                            </dl>
-                        
-                    
-                    
-                        <h3>Outputs</h3>
-                        
-                            <dl>
-                                
-                                <dt>HL</dt>
-                                <dd><p>Thread entry</p></dd>
-                                
-                            </dl>
-                        
-                    
                     
                         <h3>Notes</h3>
                         
-                            <p>You must disable interrupts while manipulating the thread table to 
- guarantee that it will not change while you do so. </p>
-<p>Programs that manipulate the thread table directly should force a 
- specific major kernel version, as this is liable to change between 
- versions.</p>
+                            <p>This only works for threads that are valid KEXC formatted executables. 
+ This fails for threads manually created through other means.</p>
                         
                     
                     </div>
@@ -235,7 +240,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#killCurrentThread">killCurrentThread</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/thread.asm#L132">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/thread.asm#L144">View Source</a></small>
                     </h2>
                     
                     <p>Kills the currently executing thread.</p>
@@ -259,7 +264,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#killThread">killThread</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/thread.asm#L208">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/thread.asm#L220">View Source</a></small>
                     </h2>
                     
                     <p>Kills the specified thread.</p>
@@ -306,7 +311,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#launchProgram">launchProgram</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/thread.asm#L320">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/thread.asm#L332">View Source</a></small>
                     </h2>
                     
                     <p>Loads the specified file into memory as a program and starts a new thread for it. The file must be a valid KEXC executable.</p>
@@ -354,7 +359,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#readSignal">readSignal</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/signals.asm#L65">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/signals.asm#L65">View Source</a></small>
                     </h2>
                     
                     <p>Reads the next pending signal from this thread's signal queue.</p>
@@ -386,7 +391,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#resumeThread">resumeThread</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/thread.asm#L820">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/thread.asm#L835">View Source</a></small>
                     </h2>
                     
                     <p>Resumes the specified thread.</p>
@@ -412,7 +417,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#setInitialA">setInitialA</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/thread.asm#L709">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/thread.asm#L724">View Source</a></small>
                     </h2>
                     
                     <p>Sets the initial value of the A register for the specified thread.</p>
@@ -464,7 +469,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#setInitialBC">setInitialBC</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/thread.asm#L631">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/thread.asm#L646">View Source</a></small>
                     </h2>
                     
                     <p>Sets the initial value of the BC register for the specified thread.</p>
@@ -516,7 +521,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#setInitialDE">setInitialDE</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/thread.asm#L657">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/thread.asm#L672">View Source</a></small>
                     </h2>
                     
                     <p>Sets the initial value of the DE register for the specified thread.</p>
@@ -568,7 +573,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#setInitialHL">setInitialHL</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/thread.asm#L683">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/thread.asm#L698">View Source</a></small>
                     </h2>
                     
                     <p>Sets the initial value of the HL register for the specified thread.</p>
@@ -620,7 +625,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#setInitialIX">setInitialIX</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/thread.asm#L735">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/thread.asm#L750">View Source</a></small>
                     </h2>
                     
                     <p>Sets the initial value of the IX register for the specified thread.</p>
@@ -672,7 +677,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#setInitialIY">setInitialIY</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/thread.asm#L761">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/thread.asm#L776">View Source</a></small>
                     </h2>
                     
                     <p>Sets the initial value of the IY register for the specified thread.</p>
@@ -724,7 +729,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#setReturnPoint">setReturnPoint</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/thread.asm#L607">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/thread.asm#L622">View Source</a></small>
                     </h2>
                     
                     <p>Sets the return point for the specified thread. This is set to <a href="threading.html#killThread">killThread</a> by default.</p>
@@ -767,7 +772,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#startThread">startThread</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/thread.asm#L42">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/thread.asm#L54">View Source</a></small>
                     </h2>
                     
                     <p>Starts a new thread.</p>
@@ -823,7 +828,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#suspendCurrentThread">suspendCurrentThread</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/thread.asm#L802">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/thread.asm#L817">View Source</a></small>
                     </h2>
                     
                     <p>Suspends the currently executing thread.</p>
@@ -922,6 +927,10 @@ layout: documentation
                 <ul class="nav doc-nav">
                     
                     <li>
+                        <a href="#checkThread" class="text-muted">checkThread</a>
+                    </li>
+                    
+                    <li>
                         <a href="#createSignal" class="text-muted">createSignal</a>
                     </li>
                     
@@ -939,10 +948,6 @@ layout: documentation
                     
                     <li>
                         <a href="#getHeaderValue" class="text-muted">getHeaderValue</a>
-                    </li>
-                    
-                    <li>
-                        <a href="#getThreadEntry" class="text-muted">getThreadEntry</a>
                     </li>
                     
                     <li>

@@ -15,7 +15,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#add16To32">add16To32</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/math.asm#L310">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/math.asm#L310">View Source</a></small>
                     </h2>
                     
                     <p>Performs <code>ACIX = ACIX + DE</code></p>
@@ -30,7 +30,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#cpBCDE">cpBCDE</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/math.asm#L19">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/math.asm#L19">View Source</a></small>
                     </h2>
                     
                     <p>Compares DE to BC.</p>
@@ -51,7 +51,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#cpHLBC">cpHLBC</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/math.asm#L10">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/math.asm#L10">View Source</a></small>
                     </h2>
                     
                     <p>Compares HL to BC.</p>
@@ -72,7 +72,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#cpHLDE">cpHLDE</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/math.asm#L1">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/math.asm#L1">View Source</a></small>
                     </h2>
                     
                     <p>Compares HL to DE.</p>
@@ -93,7 +93,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#crc16_init">crc16_init</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/crc.asm#L1">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/crc.asm#L1">View Source</a></small>
                     </h2>
                     
                     <p>Initializes a Cyclic Redundancy Check.</p>
@@ -101,9 +101,14 @@ layout: documentation
                     <div class="details">
                     
                     
-                        <h3>Notes</h3>
+                        <h3>Outputs</h3>
                         
-                            <p>This basically sets DE to 0xffff.</p>
+                            <dl>
+                                
+                                <dt>DE</dt>
+                                <dd><p>Fresh CRC value</p></dd>
+                                
+                            </dl>
                         
                     
                     </div>
@@ -114,7 +119,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#crc16_updateBuffer">crc16_updateBuffer</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/crc.asm#L41">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/crc.asm#L41">View Source</a></small>
                     </h2>
                     
                     <p>Updates the current CRC16 with the CRC16 of a buffer of given size.</p>
@@ -127,13 +132,13 @@ layout: documentation
                             <dl>
                                 
                                 <dt>DE</dt>
-                                <dd><p>current CRC16</p></dd>
+                                <dd><p>Current CRC16</p></dd>
                                 
                                 <dt>HL</dt>
-                                <dd><p>pointer on buffer to process</p></dd>
+                                <dd><p>Pointer to buffer</p></dd>
                                 
                                 <dt>BC</dt>
-                                <dd><p>number of bytes to process</p></dd>
+                                <dd><p>Number of bytes to process</p></dd>
                                 
                             </dl>
                         
@@ -144,7 +149,7 @@ layout: documentation
                             <dl>
                                 
                                 <dt>DE</dt>
-                                <dd><p>updated CRC16 of byte</p></dd>
+                                <dd><p>Updated CRC16</p></dd>
                                 
                             </dl>
                         
@@ -157,7 +162,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#crc16_updateByte">crc16_updateByte</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/crc.asm#L9">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/crc.asm#L9">View Source</a></small>
                     </h2>
                     
                     <p>Updates the current CRC16 with the CRC16 of a single byte.</p>
@@ -173,7 +178,7 @@ layout: documentation
                                 <dd><p>byte to process</p></dd>
                                 
                                 <dt>DE</dt>
-                                <dd><p>current CRC16</p></dd>
+                                <dd><p>Current CRC16</p></dd>
                                 
                             </dl>
                         
@@ -184,7 +189,7 @@ layout: documentation
                             <dl>
                                 
                                 <dt>DE</dt>
-                                <dd><p>updated CRC16 of byte</p></dd>
+                                <dd><p>Updated CRC16</p></dd>
                                 
                             </dl>
                         
@@ -197,7 +202,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#div32By16">div32By16</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/math.asm#L201">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/math.asm#L201">View Source</a></small>
                     </h2>
                     
                     <p>Performs <code>ACIX = ACIX / DE</code></p>
@@ -225,11 +230,11 @@ layout: documentation
                 </div>
             </div>
             
-            <div id="div8by8" class="docsection">
+            <div id="div8By8" class="docsection">
                 <div>
                     <h2 class="doc-title">
-                        <a href="#div8by8">div8by8</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/math.asm#L229">View Source</a></small>
+                        <a href="#div8By8">div8By8</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/math.asm#L229">View Source</a></small>
                     </h2>
                     
                     <p>Performs <code>D = D / E</code></p>
@@ -258,7 +263,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#divACByDE">divACByDE</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/math.asm#L348">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/math.asm#L348">View Source</a></small>
                     </h2>
                     
                     <p>Performs <code>AC = AC / DE</code></p>
@@ -287,7 +292,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#divHLByC">divHLByC</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/math.asm#L329">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/math.asm#L329">View Source</a></small>
                     </h2>
                     
                     <p>Performs <code>HL = HL / C</code></p>
@@ -316,7 +321,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#icos">icos</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/math.asm#L565">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/math.asm#L567">View Source</a></small>
                     </h2>
                     
                     <p>Returns the cosine of the given angle.</p>
@@ -329,7 +334,7 @@ layout: documentation
                             <dl>
                                 
                                 <dt>A</dt>
-                                <dd><p>angle</p></dd>
+                                <dd><p>Angle</p></dd>
                                 
                             </dl>
                         
@@ -340,7 +345,7 @@ layout: documentation
                             <dl>
                                 
                                 <dt>A</dt>
-                                <dd><p>sine of the angle, scaled to 64</p></dd>
+                                <dd><p>Sine of the angle, scaled to 64</p></dd>
                                 
                             </dl>
                         
@@ -348,9 +353,10 @@ layout: documentation
                     
                         <h3>Notes</h3>
                         
-                            <p>To fit assembly, both the input and output have an uncommon format : 
- the input angle has a period of 256, and the outputted value will 
- be in the range [-63, 63] instead of [-1,1].</p>
+                            <p>The input angle has a period of 256, and the output value will be 
+ in the range [-64, 64] to represent [-1, 1]. </p>
+<p>That is, to get the cosine of 180 degrees, pass in 128 and you will 
+ receive -64 (two's compliment).</p>
                         
                     
                     </div>
@@ -361,7 +367,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#isin">isin</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/math.asm#L551">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/math.asm#L551">View Source</a></small>
                     </h2>
                     
                     <p>Returns the sine of the given angle.</p>
@@ -374,7 +380,7 @@ layout: documentation
                             <dl>
                                 
                                 <dt>A</dt>
-                                <dd><p>angle</p></dd>
+                                <dd><p>Angle</p></dd>
                                 
                             </dl>
                         
@@ -385,7 +391,7 @@ layout: documentation
                             <dl>
                                 
                                 <dt>A</dt>
-                                <dd><p>sine of the angle, scaled to 64</p></dd>
+                                <dd><p>Sine of the angle, scaled to 64</p></dd>
                                 
                             </dl>
                         
@@ -393,9 +399,10 @@ layout: documentation
                     
                         <h3>Notes</h3>
                         
-                            <p>To fit assembly, both the input and output have an uncommon format : 
- the input angle has a period of 256, and the outputted value will 
- be in the range [-64, 64] instead of [-1,1].</p>
+                            <p>The input angle has a period of 256, and the output value will be 
+ in the range [-64, 64] to represent [-1, 1]. </p>
+<p>That is, to get the cosine of 180 degrees, pass in 128 and you will 
+ receive 0.</p>
                         
                     
                     </div>
@@ -406,7 +413,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#mul16By16">mul16By16</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/math.asm#L123">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/math.asm#L123">View Source</a></small>
                     </h2>
                     
                     <p>Performs an unsigned multiplication of DE and BC.</p>
@@ -446,7 +453,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#mul16By8">mul16By8</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/math.asm#L88">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/math.asm#L88">View Source</a></small>
                     </h2>
                     
                     <p>Performs an unsigned multiplication of A and DE.</p>
@@ -486,7 +493,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#mul32By8">mul32By8</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/math.asm#L166">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/math.asm#L166">View Source</a></small>
                     </h2>
                     
                     <p>Performs an unsigned multiplication of DEHL and A.</p>
@@ -512,7 +519,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#mul8By8">mul8By8</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/math.asm#L56">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/math.asm#L56">View Source</a></small>
                     </h2>
                     
                     <p>Performs an unsigned multiplication of H and E</p>
@@ -552,7 +559,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#sdivACbyDE">sdivACbyDE</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/math.asm#L469">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/math.asm#L469">View Source</a></small>
                     </h2>
                     
                     <p>Performs <code>AC = AC / DE</code>. The operation is signed.</p>
@@ -580,7 +587,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#smax">smax</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/math.asm#L531">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/math.asm#L531">View Source</a></small>
                     </h2>
                     
                     <p>Returns the largest between HL and DE. The operation is signed.</p>
@@ -623,7 +630,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#smin">smin</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/math.asm#L511">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/math.asm#L511">View Source</a></small>
                     </h2>
                     
                     <p>Returns the smallest between HL and DE. The operation is signed.</p>
@@ -666,7 +673,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#smul16By8">smul16By8</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/math.asm#L32">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/math.asm#L32">View Source</a></small>
                     </h2>
                     
                     <p>Performs a signed multiplication of A and DE.</p>
@@ -706,7 +713,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#sub16From32">sub16From32</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/math.asm#L287">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/math.asm#L287">View Source</a></small>
                     </h2>
                     
                     <p>Performs <code>ACIX = ACIX - DE</code></p>
@@ -806,7 +813,7 @@ layout: documentation
                     </li>
                     
                     <li>
-                        <a href="#div8by8" class="text-muted">div8by8</a>
+                        <a href="#div8By8" class="text-muted">div8By8</a>
                     </li>
                     
                     <li>

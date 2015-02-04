@@ -17,7 +17,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#closeStream">closeStream</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/filestreams.asm#L475">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/filestreams.asm#L479">View Source</a></small>
                     </h2>
                     
                     <p>Closes an open stream.</p>
@@ -57,7 +57,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#flush">flush</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/filestreams.asm#L713">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/filestreams.asm#L719">View Source</a></small>
                     </h2>
                     
                     <p>Flushes pending writes to disk.</p>
@@ -104,7 +104,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#getStreamBuffer">getStreamBuffer</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/filestreams.asm#L415">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/filestreams.asm#L419">View Source</a></small>
                     </h2>
                     
                     <p>Gets the address of a stream's memory buffer.</p>
@@ -150,54 +150,11 @@ layout: documentation
                 </div>
             </div>
             
-            <div id="getStreamEntry" class="docsection">
-                <div>
-                    <h2 class="doc-title">
-                        <a href="#getStreamEntry">getStreamEntry</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/filestreams.asm#L438">View Source</a></small>
-                    </h2>
-                    
-                    <p>Gets the address of a stream entry in the kernel file stream table. Note that it is almost always better to use the kernel functions for getting data out of this, because the internal struct layout may change between kernel releases.</p>
-
-                    <div class="details">
-                    
-                    
-                        <h3>Inputs</h3>
-                        
-                            <dl>
-                                
-                                <dt>D</dt>
-                                <dd><p>Stream ID</p></dd>
-                                
-                            </dl>
-                        
-                    
-                    
-                        <h3>Outputs</h3>
-                        
-                            <dl>
-                                
-                                <dt>A</dt>
-                                <dd><p>Error code (on failure)</p></dd>
-                                
-                                <dt>IX</dt>
-                                <dd><p>File stream entry poitner (on success)</p></dd>
-                                
-                                <dt>Z</dt>
-                                <dd><p>Set on success, reset on failure</p></dd>
-                                
-                            </dl>
-                        
-                    
-                    </div>
-                </div>
-            </div>
-            
             <div id="getStreamInfo" class="docsection">
                 <div>
                     <h2 class="doc-title">
                         <a href="#getStreamInfo">getStreamInfo</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/filestreams.asm#L1276">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/filestreams.asm#L1466">View Source</a></small>
                     </h2>
                     
                     <p>Gets the amount of space remaining in a file stream.</p>
@@ -236,11 +193,54 @@ layout: documentation
                 </div>
             </div>
             
+            <div id="getStreamPos" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#getStreamPos">getStreamPos</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/filestreams.asm#L1709">View Source</a></small>
+                    </h2>
+                    
+                    <p>Returns the current position in a file stream.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>D</dt>
+                                <dd><p>Stream ID</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dd>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on failure</p></dd>
+                                
+                                <dt>EBC</dt>
+                                <dd><p>Offset to start of file in bytes</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
             <div id="openFileRead" class="docsection">
                 <div>
                     <h2 class="doc-title">
                         <a href="#openFileRead">openFileRead</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/filestreams.asm#L10">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/filestreams.asm#L10">View Source</a></small>
                     </h2>
                     
                     <p>Opens a file stream in read-only mode.</p>
@@ -286,7 +286,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#openFileWrite">openFileWrite</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/filestreams.asm#L154">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/filestreams.asm#L154">View Source</a></small>
                     </h2>
                     
                     <p>Opens a file stream in write mode. If the file does not exist, it is created.</p>
@@ -332,7 +332,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#seek">seek</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/filestreams.asm#L1428">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/filestreams.asm#L1618">View Source</a></small>
                     </h2>
                     
                     <p>Moves the current position in a file stream.</p>
@@ -345,10 +345,10 @@ layout: documentation
                             <dl>
                                 
                                 <dt>D</dt>
-                                <dd><p>stream ID</p></dd>
+                                <dd><p>Stream ID</p></dd>
                                 
                                 <dt>EBC</dt>
-                                <dd><p>offset to start of file in bytes</p></dd>
+                                <dd><p>Offset to start of file in bytes</p></dd>
                                 
                             </dl>
                         
@@ -359,10 +359,10 @@ layout: documentation
                             <dl>
                                 
                                 <dt>A</dt>
-                                <dd><p>error code (on failure)</p></dd>
+                                <dd><p>Error code (on failure)</p></dd>
                                 
                                 <dt>Z</dt>
-                                <dd><p>set on success, reset on failure</p></dd>
+                                <dd><p>Set on success, reset on failure</p></dd>
                                 
                             </dl>
                         
@@ -375,7 +375,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#streamReadBuffer">streamReadBuffer</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/filestreams.asm#L1129">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/filestreams.asm#L1319">View Source</a></small>
                     </h2>
                     
                     <p>Reads a number of bytes from a file stream and advances the stream.</p>
@@ -428,7 +428,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#streamReadByte">streamReadByte</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/filestreams.asm#L991">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/filestreams.asm#L1081">View Source</a></small>
                     </h2>
                     
                     <p>Reads a single byte from a file stream and advances the stream.</p>
@@ -468,7 +468,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#streamReadToEnd">streamReadToEnd</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/filestreams.asm#L1375">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/filestreams.asm#L1565">View Source</a></small>
                     </h2>
                     
                     <p>Reads the remainder of a file stream into memory.</p>
@@ -511,7 +511,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#streamReadWord">streamReadWord</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/12b1ec37e2cb27efb2a57395c36e49f7dd84e34e/src/00/filestreams.asm#L1101">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/filestreams.asm#L1191">View Source</a></small>
                     </h2>
                     
                     <p>Reads a 16-bit word from a file stream and advances the stream.</p>
@@ -542,6 +542,138 @@ layout: documentation
                                 
                                 <dt>HL</dt>
                                 <dd><p>Data read (on success)</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="streamWriteBuffer" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#streamWriteBuffer">streamWriteBuffer</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/filestreams.asm#L1219">View Source</a></small>
+                    </h2>
+                    
+                    <p>Writes a buffer of bytes to a file stream and advances the stream.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Buffer address</p></dd>
+                                
+                                <dt>D</dt>
+                                <dd><p>Stream ID</p></dd>
+                                
+                                <dt>BC</dt>
+                                <dd><p>Length</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dd>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on failure</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="streamWriteByte" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#streamWriteByte">streamWriteByte</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/filestreams.asm#L997">View Source</a></small>
+                    </h2>
+                    
+                    <p>Writes a single byte to a file stream and advances the stream.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Value</p></dd>
+                                
+                                <dt>D</dt>
+                                <dd><p>Stream ID</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dd>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on failure</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="streamWriteWord" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#streamWriteWord">streamWriteWord</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e8c9b1a5d0ae8c283798985e81c292d965239f87/src/00/filestreams.asm#L1059">View Source</a></small>
+                    </h2>
+                    
+                    <p>Writes a 16-bit word to a file stream and advances the stream.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>D</dt>
+                                <dd><p>Stream ID</p></dd>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Value</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Error code (on failure)</p></dd>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on failure</p></dd>
                                 
                             </dl>
                         
@@ -594,11 +726,11 @@ layout: documentation
                     </li>
                     
                     <li>
-                        <a href="#getStreamEntry" class="text-muted">getStreamEntry</a>
+                        <a href="#getStreamInfo" class="text-muted">getStreamInfo</a>
                     </li>
                     
                     <li>
-                        <a href="#getStreamInfo" class="text-muted">getStreamInfo</a>
+                        <a href="#getStreamPos" class="text-muted">getStreamPos</a>
                     </li>
                     
                     <li>
@@ -627,6 +759,18 @@ layout: documentation
                     
                     <li>
                         <a href="#streamReadWord" class="text-muted">streamReadWord</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#streamWriteBuffer" class="text-muted">streamWriteBuffer</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#streamWriteByte" class="text-muted">streamWriteByte</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#streamWriteWord" class="text-muted">streamWriteWord</a>
                     </li>
                     
                 </ul>
