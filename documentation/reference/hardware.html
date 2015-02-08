@@ -15,7 +15,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#getBatteryLevel">getBatteryLevel</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e7860ab91f48a414a58f5a13fb296f4df5a5fb81/src/00/util.asm#L175">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cbe862e3ca50caf9d28231762f3f2deeffcef388/src/00/util.asm#L175">View Source</a></small>
                     </h2>
                     
                     <p>Determines the approximate battery level.</p>
@@ -37,9 +37,8 @@ layout: documentation
                         <h3>Notes</h3>
                         
                             <p>This returns a value from 0-255. The precision of this value varies by calculator 
- model. 6 MHz platforms will return a 0 or a 255. 15 MHz platforms will return a 0, 
- 85, 170, or 255 (255 quartered). The 84+ CSE will return a higher resolution number 
- between 0.255.</p>
+ model. 6 MHz platforms will return a 0 or a 255. 15 MHz platforms will return 
+ 0, 63, 127, 191, or 255 (multiples of 64), where 0 is critical.</p>
                         
                     
                     </div>
@@ -50,7 +49,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#getIOLock">getIOLock</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e7860ab91f48a414a58f5a13fb296f4df5a5fb81/src/00/locks.asm#L13">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cbe862e3ca50caf9d28231762f3f2deeffcef388/src/00/locks.asm#L13">View Source</a></small>
                     </h2>
                     
                     <p>Locks the I/O port to the current thread.</p>
@@ -65,7 +64,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#getKeypadLock">getKeypadLock</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e7860ab91f48a414a58f5a13fb296f4df5a5fb81/src/00/locks.asm#L22">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cbe862e3ca50caf9d28231762f3f2deeffcef388/src/00/locks.asm#L22">View Source</a></small>
                     </h2>
                     
                     <p>Locks the keyboard to the current thread.</p>
@@ -80,7 +79,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#getLcdLock">getLcdLock</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e7860ab91f48a414a58f5a13fb296f4df5a5fb81/src/00/locks.asm#L1">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cbe862e3ca50caf9d28231762f3f2deeffcef388/src/00/locks.asm#L1">View Source</a></small>
                     </h2>
                     
                     <p>Locks the LCD to the current thread.</p>
@@ -95,7 +94,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#getUSBLock">getUSBLock</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e7860ab91f48a414a58f5a13fb296f4df5a5fb81/src/00/locks.asm#L31">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cbe862e3ca50caf9d28231762f3f2deeffcef388/src/00/locks.asm#L31">View Source</a></small>
                     </h2>
                     
                     <p>Locks the USB port to the current thread.</p>
@@ -110,7 +109,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#hasIOLock">hasIOLock</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e7860ab91f48a414a58f5a13fb296f4df5a5fb81/src/00/locks.asm#L53">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cbe862e3ca50caf9d28231762f3f2deeffcef388/src/00/locks.asm#L53">View Source</a></small>
                     </h2>
                     
                     <p>Sets Z if the current thread has a lock on the I/O port.</p>
@@ -125,7 +124,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#hasKeypadLock">hasKeypadLock</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e7860ab91f48a414a58f5a13fb296f4df5a5fb81/src/00/locks.asm#L66">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cbe862e3ca50caf9d28231762f3f2deeffcef388/src/00/locks.asm#L66">View Source</a></small>
                     </h2>
                     
                     <p>Sets Z if the current thread has a lock on the keyboard.</p>
@@ -140,7 +139,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#hasLCDLock">hasLCDLock</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e7860ab91f48a414a58f5a13fb296f4df5a5fb81/src/00/locks.asm#L40">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cbe862e3ca50caf9d28231762f3f2deeffcef388/src/00/locks.asm#L40">View Source</a></small>
                     </h2>
                     
                     <p>Sets Z if the current thread has a lock on the LCD.</p>
@@ -155,7 +154,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#hasUSBLock">hasUSBLock</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e7860ab91f48a414a58f5a13fb296f4df5a5fb81/src/00/locks.asm#L79">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cbe862e3ca50caf9d28231762f3f2deeffcef388/src/00/locks.asm#L79">View Source</a></small>
                     </h2>
                     
                     <p>Sets Z if the current thread has a lock on the USB.</p>
@@ -170,7 +169,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#lcdDelay">lcdDelay</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e7860ab91f48a414a58f5a13fb296f4df5a5fb81/src/00/util.asm#L165">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/cbe862e3ca50caf9d28231762f3f2deeffcef388/src/00/util.asm#L165">View Source</a></small>
                     </h2>
                     
                     <p>Blocks until the LCD is ready to receive data.</p>
