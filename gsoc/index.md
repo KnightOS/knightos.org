@@ -48,30 +48,6 @@ the KnightOS world wants and that we think you can help with. If you're
 interested in any of these ideas and aren't participating in GSOC, you're still
 welcome to come chat with us and take something on.
 
-## Implement Math Support
-
-What good is a calculator that can't do calculations? KnightOS is good for lots
-of things, but there still isn't a way to simply do math with it. The old "build
-a calculator" program you did when you were learning isn't like this - you'll be
-expected to build an expression parser and a GUI from scratch (without a GUI
-toolkit!). Expect a challenging and rewarding project from this.
-
-**Expected results**
-
-Some sort of application with which someone could do mathematical calculations
-for day-to-day calculator use. It should parse expression strings and have
-support for fancier features like hexadecimal literals and higher-level math
-functions.
-
-**Knowledge prerequisites**
-
-A healthy knowledge of lower-level concepts is required here, but the actual
-implementation must be done in C or assembly.
-
-**Skill level**: Medium
-
-**Mentor**: [Drew DeVault \<sir@cmpwn.com>](mailto:sir@cmpwn.com)
-
 ## Lua Port
 
 Lua is a highly portable programming language that has already been ported to
@@ -187,7 +163,7 @@ An understanding of Windows programming and C is required.
 
 **Skill level**: Novice
 
-**Mentor**: None (bring it up on IRC to find one)
+**Mentor**: [Kevin Lange \<klange@dakko.us>](mailto:klange@dakko.us)
 
 ## Graphical debugger for z80
 
@@ -206,7 +182,26 @@ with, as well as a moderate degree of knowledge with C.
 
 **Skill level**: Novice to medium
 
-**Mentor**: [Jose Diez \<me@jdiez.me>](mailto:me@jdiez.me)
+**Mentor**: [Kevin Lange \<klange@dakko.us>](mailto:klange@dakko.us)
+
+## Emscripten wrapper for scas
+
+z80e includes a JavaScript wrapper in the form of OpenTI that lets JavaScript
+users do z80 emulation. A similar tool for scas would allow JavaScript
+programmers to build in-browser assembly tools.
+**Expected results**
+
+JavaScript programmers can interact with scas with a JavaScript-friendly API.
+You will be expected to build some useful in-browser tool to show this off.
+
+**Knowledge prerequisites**
+
+A high degree of JavaScript knowledge is required. You can get by with only a
+basic understanding of C.
+
+**Skill level**: Medium
+
+**Mentor**: None (bring it up on IRC to find one)
 
 ## Emscripten wrapper for scas
 
@@ -226,4 +221,23 @@ basic understanding of C.
 
 **Skill level**: Medium
 
-**Mentor**: None (bring it up on IRC to find one)
+**Mentor**: [Drew DeVault \<sir@cmpwn.com>](mailto:sir@cmpwn.com)
+
+## Welcome program
+
+Upon the initial install of KnightOS, it would be useful to run a program
+that learns about the user (their username, date/time, etc) and introduce the
+new user to the system.
+
+**Expected results**
+
+When installing KnightOS for the first time, this program runs and then removes
+itself.
+
+**Knowledge prerequisites**
+
+Moderate assembly skill.
+
+**Skill level**: Low to medium
+
+**Mentor**: [Drew DeVault \<sir@cmpwn.com>](mailto:sir@cmpwn.com)
