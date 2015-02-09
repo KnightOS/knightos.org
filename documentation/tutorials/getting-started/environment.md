@@ -34,6 +34,10 @@ following things installed:
 * Python 3 & pip
 * SDL
 
+<div class="alert alert-info"><strong>Note</strong>: You should be able to use
+clang/llvm instead of gcc. This is probably what most OSX users will want to do.
+</div>
+
 You'll also need the development headers for readline. There are more detailed
 system-specific instructions available [here](install-help.html) if you need a
 little more help.
