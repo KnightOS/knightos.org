@@ -93,7 +93,7 @@ Highly comfortable with C and intermediate experience with assembly.
 
 ## TI-Basic Implementation
 
-TI-Basic is the official programming langauge of TI-OS, and there is a large
+TI-Basic is the official programming language of TI-OS, and there is a large
 body of software available written in TI-Basic. An interpreter that runs on
 KnightOS would bring a lot of software to the platform.
 
@@ -113,7 +113,7 @@ Assembly.
 ## Floating point support in kernel
 
 Floating point arithmetic can be done on KnightOS if you write C, but assembly
-programmers are left out - and assembly is the best way to write effecient
+programmers are left out - and assembly is the best way to write efficient
 programs for the system.
 
 **Expected results**
@@ -165,7 +165,7 @@ kcc is able to compile the average C99 project successfully.
 **Knowledge prerequisites**
 
 Heavy expertise with the C programming language is required. A background in
-assembly is helpful but advanced knowledge is probably not neccessary.
+assembly is helpful but advanced knowledge is probably not necessary.
 
 **Skill level**: High
 
