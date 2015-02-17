@@ -14,6 +14,7 @@ prereqs() {
     hash gcc 2>/dev/null || { missing=1; echo >&2 "Please install gcc, which is available through your package manager or https://gcc.gnu.org/"; }
     hash make 2>/dev/null || { missing=1; echo >&2 "Please install GNU make, which is available through your package manager or http://www.gnu.org/software/make/"; }
     hash python3 2>/dev/null || { missing=1; echo >&2 "Please install Python 3, which is available through your package manager or https://www.python.org/"; }
+    hash Magick-config 2>/dev/null || { missing=1; echo >&2 "Please install ImageMagick (and its headers), which is available through your package manager or http://imagemagick.org"; }
     if cygwin; then
         hash msbuild.exe 2>/dev/null || { missing=1; echo >&2 "Please install Microsoft.NET and add 'C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319' to your %PATH%. .NET is available from http://www.microsoft.com/net"; }
         xbuild=msbuild.exe
@@ -90,6 +91,17 @@ kpack() {
     asroot make install
 }
 
+kimg() {
+    info Downloading kimg...
+    quiet git clone git://github.com/KnightOS/kimg.git
+    cd kimg
+    info Compiling kimg...
+    quiet cmake .
+    quiet make
+    info Installing kimg...
+    asroot make install
+}
+
 z80e() {
     info Downloading z80e...
     quiet git clone git://github.com/KnightOS/z80e.git
@@ -135,6 +147,7 @@ force_all() {
     install genkfs
     install mktiupgrade
     install kpack
+    install kimg
     install sass
     if cygwin; then
         install pip
@@ -164,6 +177,10 @@ else
             ;;
         kpack)
             install kpack
+            shift 1
+            ;;
+        kimg)
+            install kimg
             shift 1
             ;;
         z80e)
