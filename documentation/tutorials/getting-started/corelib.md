@@ -5,7 +5,7 @@ title: >
 layout: page
 ---
 
-# "Corelib" on KnightOS
+# Corelib on KnightOS
 
 This tutorial will contain instructions on adding corelib to your program and drawing windows.
 
