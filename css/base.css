@@ -1,4 +1,6 @@
 /* general css and override bootstrap */
+img { text-align: center; display: block; margin: 0 auto; }
+
 html {overflow-y:scroll}
 html, body, .tooltip, .popover {font-family:'Open Sans', sans-serif}
 body {background-color:#eee; padding-bottom:30px}
