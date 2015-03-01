@@ -3,7 +3,7 @@ GitHub pages for KnightOS
 
 ## Contributing
 
-If you would like to help make [knightos.org](https://www.knightos.org) better, you can easily edit any page by clicking the "Edit this page" button. If you want to do more in-depth changes to knightos.org, you can host a local copy on your system.
+If you would like to help make [knightos.org](http://www.knightos.org) better, you can easily edit any page by clicking the "Edit this page" button. If you want to do more in-depth changes to knightos.org, you can host a local copy on your system.
 
 ### Hosting a local copy
 
