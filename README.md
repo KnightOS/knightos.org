@@ -9,7 +9,7 @@ If you would like to help make [knightos.org](https://www.knightos.org) better, 
 
 If you do not have ruby installed on your system, you need to get it from [here](https://www.ruby-lang.org/en/downloads/). After installing ruby, you will need to install the ruby gem jekyll by running
 
-  gem install jekyll
+    gem install jekyll
 
 
 After installing the prerequisites, clone this repository and navigate to its root directory
