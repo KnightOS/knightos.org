@@ -24,6 +24,6 @@ This tutorial is a work in progress.
 1. [Diving into z80 assembly](assembly.html)
 1. [How to be a good citizen in KnightOS](userspace.html)
 1. [Building "Pong"](pong.html)
-1. [Packaging software](packagin.html)
+1. [Packaging software](packaging.html)
 
 <a href="environment.html" class="pull-right btn btn-primary">Next »</a>
