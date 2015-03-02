@@ -189,25 +189,6 @@ with, as well as a moderate degree of knowledge with C.
 z80e includes a JavaScript wrapper in the form of OpenTI that lets JavaScript
 users do z80 emulation. A similar tool for scas would allow JavaScript
 programmers to build in-browser assembly tools.
-**Expected results**
-
-JavaScript programmers can interact with scas with a JavaScript-friendly API.
-You will be expected to build some useful in-browser tool to show this off.
-
-**Knowledge prerequisites**
-
-A high degree of JavaScript knowledge is required. You can get by with only a
-basic understanding of C.
-
-**Skill level**: Medium
-
-**Mentor**: None (bring it up on IRC to find one)
-
-## Emscripten wrapper for scas
-
-z80e includes a JavaScript wrapper in the form of OpenTI that lets JavaScript
-users do z80 emulation. A similar tool for scas would allow JavaScript
-programmers to build in-browser assembly tools.
 
 **Expected results**
 
