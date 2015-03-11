@@ -41,7 +41,7 @@ Some of the things commonly handled by each are covered here:
 
 Your programs must use a certain format for the kernel to agree to load them. A
 simple template is provided here, and you may read [additional
-docs](/documentation/kexc.html) later to learn more about it.
+docs](https://github.com/KnightOS/kernel/blob/master/doc/kexc) later to learn more about it.
 
 {% highlight nasm %}
 #include "kernel.inc"
