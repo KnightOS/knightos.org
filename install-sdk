@@ -39,7 +39,7 @@ quiet() {
 
 install() {
     wd=$(pwd)
-    cd $(mktemp -dt SDK)
+    cd $(mktemp -dt SDK.xxxxxx)
     $*
     cd $wd
 }
