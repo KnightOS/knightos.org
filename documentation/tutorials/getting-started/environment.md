@@ -26,13 +26,13 @@ installer](https://github.com/KnightOS/knightos.org/blob/gh-pages/install-sdk).
 The script will warn you if you are missing dependencies - you need to have the
 following things installed:
 
-* Mono
+* Mono (mono-complete)
 * cmake
 * git
 * asciidoc
 * gcc
-* Python 3 & pip
-* SDL
+* Python 3 & pip (python3-pip)
+* SDL (libsdl1.2-dev)
 
 <div class="alert alert-info"><strong>Note</strong>: You should be able to use
 clang/llvm instead of gcc. This is probably what most OSX users will want to do.
