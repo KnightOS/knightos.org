@@ -17,7 +17,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#clockSupported">clockSupported</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/0e6ac5f77611fff1dad464b5c7df62a97b9a5c96/src/02/time.asm#L1">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/69a13761e640c25cd3ddf0e73f8b4d0508b5d3ff/src/02/time.asm#L1">View Source</a></small>
                     </h2>
                     
                     <p>Returns whether the clock is supported.</p>
@@ -30,10 +30,10 @@ layout: documentation
                             <dl>
                                 
                                 <dt>A</dt>
-                                <dd><p>preserved on success; error code on failure</p></dd>
+                                <dd><p>Preserved on success; error code on failure</p></dd>
                                 
                                 <dt>Z</dt>
-                                <dd><p>set when the clock is supported; reset otherwise</p></dd>
+                                <dd><p>Set when the clock is supported; reset otherwise</p></dd>
                                 
                             </dl>
                         
@@ -46,10 +46,10 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#convertTimeFromTicks">convertTimeFromTicks</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/0e6ac5f77611fff1dad464b5c7df62a97b9a5c96/src/02/time.asm#L81">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/69a13761e640c25cd3ddf0e73f8b4d0508b5d3ff/src/02/time.asm#L262">View Source</a></small>
                     </h2>
                     
-                    <p>Convert from ticks in seconds to time. The epoch is January 1st, 1997 (a Wednesday)</p>
+                    <p>Convert from ticks in seconds to time. The epoch is January 1st, 1997 (a Wednesday).</p>
 
                     <div class="details">
                     
@@ -73,13 +73,13 @@ layout: documentation
                             <dl>
                                 
                                 <dt>A</dt>
-                                <dd><p>Day of the week, from 0-6 with 0 being sunday</p></dd>
+                                <dd><p>Day of the week, from 0-6 with 0 being Sunday</p></dd>
                                 
                                 <dt>IX</dt>
                                 <dd><p>Current year</p></dd>
                                 
                                 <dt>C</dt>
-                                <dd><p>Current minute, from 0-59</p></dd>
+                                <dd><p>Current minute (0-59)</p></dd>
                                 
                                 <dt>B</dt>
                                 <dd><p>Current hour, from 0-23</p></dd>
@@ -88,7 +88,7 @@ layout: documentation
                                 <dd><p>Garbage</p></dd>
                                 
                                 <dt>D</dt>
-                                <dd><p>Current second, from 0-59</p></dd>
+                                <dd><p>Current second (0-59)</p></dd>
                                 
                                 <dt>H</dt>
                                 <dd><p>Current day, from 0-30</p></dd>
@@ -99,6 +99,12 @@ layout: documentation
                             </dl>
                         
                     
+                    
+                        <h3>Notes</h3>
+                        
+                            <p>As of now, only the time is output correctly.</p>
+                        
+                    
                     </div>
                 </div>
             </div>
@@ -107,7 +113,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#convertTimeToTicks">convertTimeToTicks</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/0e6ac5f77611fff1dad464b5c7df62a97b9a5c96/src/02/time.asm#L279">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/69a13761e640c25cd3ddf0e73f8b4d0508b5d3ff/src/02/time.asm#L364">View Source</a></small>
                     </h2>
                     
                     <p>Converts a time structure to seconds since epoch.</p>
@@ -119,26 +125,23 @@ layout: documentation
                         
                             <dl>
                                 
-                                <dt>A</dt>
-                                <dd><p>Day of the week, from 0-6 with 0 being sunday</p></dd>
-                                
                                 <dt>IX</dt>
                                 <dd><p>Current year</p></dd>
                                 
                                 <dt>C</dt>
-                                <dd><p>Current minute, from 0-59</p></dd>
+                                <dd><p>Current minute (0-59)</p></dd>
                                 
                                 <dt>B</dt>
-                                <dd><p>Current hour, from 0-23</p></dd>
+                                <dd><p>Current hour (0-23)</p></dd>
                                 
                                 <dt>D</dt>
-                                <dd><p>Current second, from 0-59</p></dd>
+                                <dd><p>Current second (0-59)</p></dd>
                                 
                                 <dt>H</dt>
-                                <dd><p>Current day, from 0-30</p></dd>
+                                <dd><p>Current day (0-30)</p></dd>
                                 
                                 <dt>L</dt>
-                                <dd><p>Current month, from 0-11</p></dd>
+                                <dd><p>Current month (0-11)</p></dd>
                                 
                             </dl>
                         
@@ -157,12 +160,6 @@ layout: documentation
                             </dl>
                         
                     
-                    
-                        <h3>Notes</h3>
-                        
-                            <p>This is unimplemented.</p>
-                        
-                    
                     </div>
                 </div>
             </div>
@@ -171,7 +168,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#getClock">getClock</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/0e6ac5f77611fff1dad464b5c7df62a97b9a5c96/src/02/time.asm#L47">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/69a13761e640c25cd3ddf0e73f8b4d0508b5d3ff/src/02/time.asm#L47">View Source</a></small>
                     </h2>
                     
                     <p>Gets the internal clock.</p>
@@ -206,7 +203,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#getTime">getTime</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/0e6ac5f77611fff1dad464b5c7df62a97b9a5c96/src/02/time.asm#L298">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/69a13761e640c25cd3ddf0e73f8b4d0508b5d3ff/src/02/time.asm#L473">View Source</a></small>
                     </h2>
                     
                     <p>Gets the current time.</p>
@@ -219,28 +216,102 @@ layout: documentation
                             <dl>
                                 
                                 <dt>A</dt>
-                                <dd><p>Day of the week, from 0-6 with 0 being sunday</p></dd>
+                                <dd><p>Day of the week, from 0-6 with 0 being Sunday</p></dd>
                                 
                                 <dt>IX</dt>
                                 <dd><p>Current year</p></dd>
                                 
                                 <dt>C</dt>
-                                <dd><p>Current minute, from 0-59</p></dd>
+                                <dd><p>Current minute (0-59)</p></dd>
                                 
                                 <dt>B</dt>
-                                <dd><p>Current hour, from 0-23</p></dd>
-                                
-                                <dt>E</dt>
-                                <dd><p>Garbage</p></dd>
+                                <dd><p>Current hour (0-23)</p></dd>
                                 
                                 <dt>D</dt>
-                                <dd><p>Current second, from 0-59</p></dd>
+                                <dd><p>Current second (0-59)</p></dd>
                                 
                                 <dt>H</dt>
-                                <dd><p>Current day, from 0-30</p></dd>
+                                <dd><p>Current day (0-30)</p></dd>
                                 
                                 <dt>L</dt>
-                                <dd><p>Current month, from 0-11</p></dd>
+                                <dd><p>Current month (0-11)</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="isLeapYear" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#isLeapYear">isLeapYear</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/69a13761e640c25cd3ddf0e73f8b4d0508b5d3ff/src/02/time.asm#L128">View Source</a></small>
+                    </h2>
+                    
+                    <p>Determines whether the given year is a leap year.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>HL</dt>
+                                <dd><p>The year</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>1 if it is a leap year; 0 if it is not</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <div id="monthLength" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#monthLength">monthLength</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/69a13761e640c25cd3ddf0e73f8b4d0508b5d3ff/src/02/time.asm#L74">View Source</a></small>
+                    </h2>
+                    
+                    <p>Computes the amount of days in a given month.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>E</dt>
+                                <dd><p>The month (0-11)</p></dd>
+                                
+                                <dt>HL</dt>
+                                <dd><p>The year</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>The amount of days in this month</p></dd>
                                 
                             </dl>
                         
@@ -253,7 +324,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#setClock">setClock</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/0e6ac5f77611fff1dad464b5c7df62a97b9a5c96/src/02/time.asm#L15">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/69a13761e640c25cd3ddf0e73f8b4d0508b5d3ff/src/02/time.asm#L15">View Source</a></small>
                     </h2>
                     
                     <p>Sets the internal clock.</p>
@@ -396,6 +467,14 @@ layout: documentation
                     
                     <li>
                         <a href="#getTime" class="text-muted">getTime</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#isLeapYear" class="text-muted">isLeapYear</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#monthLength" class="text-muted">monthLength</a>
                     </li>
                     
                     <li>
