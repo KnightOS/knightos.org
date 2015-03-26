@@ -33,7 +33,7 @@ following things installed:
 * gcc
 * Python 3 & pip (python3-pip)
 * SDL (libsdl1.2-dev)
-* ImageMagick (libmagick-dev)
+* ImageMagick (libmagickwand-dev)
 * readline (libreadline-dev)
 
 <div class="alert alert-info"><strong>Note</strong>: You should be able to use
