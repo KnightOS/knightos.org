@@ -33,6 +33,8 @@ following things installed:
 * gcc
 * Python 3 & pip (python3-pip)
 * SDL (libsdl1.2-dev)
+* ImageMagick (libmagick-dev)
+* readline (libreadline-dev)
 
 <div class="alert alert-info"><strong>Note</strong>: You should be able to use
 clang/llvm instead of gcc. This is probably what most OSX users will want to do.
