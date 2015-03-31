@@ -45,7 +45,7 @@ clang/llvm instead of gcc. This is probably what most OSX users will want to do.
 </div>
 
 You'll also need the development headers for readline. There are more detailed
-system-specific instructions available [here](install-help.html) if you need a
+system-specific instructions available [here](http://wiki.knightos.org/index.php/KOS_Projects/sdk) if you need a
 little more help.
 
 ## Setup for Windows
