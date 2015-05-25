@@ -19,7 +19,7 @@ We aren't getting into that here.</div>
 For Unix-like systems, including Linux, OS X, BSD, and so on, the installation
 procedure is very straightforward. Open a terminal and run this:
 
-    curl -s http://www.knightos.org/install-sdk | bash
+    $ curl -s http://www.knightos.org/install-sdk | bash
 
 This will download and run the [KnightOS SDK
 installer](https://github.com/KnightOS/knightos.org/blob/gh-pages/install-sdk).
@@ -36,7 +36,7 @@ following things installed:
 * ImageMagick (libmagickwand-dev)
 * readline (libreadline-dev)
 
-<pre>sudo apt-get install mono-complete cmake git asciidoc gcc python3-pip libsdl1.2-dev libmagickwand-dev libreadline-dev</pre>
+<pre>$ sudo apt-get install mono-complete cmake git asciidoc gcc python3-pip libsdl1.2-dev libmagickwand-dev libreadline-dev</pre>
 
 will install all the dependencies on a debian based system (you may need to symlink pip-3.2 to pip3).
 
@@ -54,7 +54,7 @@ The Windows setup is similar, but requires [Cygwin](http://cygwin.com/). Install
 the same dependencies (not including SDL) through the Cygwin installer, and then
 run the same command:
 
-    curl -s http://www.knightos.org/install-sdk | bash
+    $ curl -s http://www.knightos.org/install-sdk | bash
 
 Detailed Windows instructions can be found [here](install-help.html) if you need
 help.
