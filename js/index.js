@@ -153,6 +153,21 @@ require(['z80e', '../OpenTI/webui/js/OpenTI/OpenTI'], function(z80e, OpenTI) {
         oReq.open("GET", "http://builds.knightos.org/latest-TI84pSE.rom", true);
         oReq.responseType = "arraybuffer";
 
+        var play = null;
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/img/emulator.png");
+        xhr.responseType = "blob";
+        xhr.onload = function() {
+            var url = URL.createObjectURL(xhr.response);
+            play = document.createElement("img");
+            play.src = url;
+        };
+        xhr.send();
+        var running = false;
+        document.getElementById("screen").addEventListener("click", function() {
+            running = true;
+        });
+
         oReq.onload = function (oEvent) {
             var arrayBuffer = oReq.response; // Note: not oReq.responseText
             if (arrayBuffer) {
@@ -165,19 +180,24 @@ require(['z80e', '../OpenTI/webui/js/OpenTI/OpenTI'], function(z80e, OpenTI) {
                 asic.runloop.tick(1000);
                 asic.cpu.halted = 0;
 
-                setTimeout(function tick() {
-                    if (!asic.stopped || asic.cpu.interrupt) {
-                        asic.runloop.tick(asic.clock_rate / 20);
+                function frame() {
+                    if (!running) {
+                        if (play !== null) {
+                            lcd_ctx.drawImage(play, 0, 0);
+                        }
+                        requestAnimationFrame(frame);
+                        return;
                     }
-                    setTimeout(tick, 1000 / 30);
-                }, 1000 / 30);
-
-                setTimeout(function tick() {
                     if (update_lcd) {
                         print_lcd(update_lcd);
                     }
-                    setTimeout(tick, 1000 / 30);
-                }, 1000 / 30);
+                    if (!asic.stopped || asic.cpu.interrupt) {
+                        asic.runloop.tick(asic.clock_rate / 20);
+                    }
+                    requestAnimationFrame(frame);
+                }
+
+                requestAnimationFrame(frame);
             }
         }
 
