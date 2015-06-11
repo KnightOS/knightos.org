@@ -13,6 +13,8 @@ prereqs() {
     hash a2x 2>/dev/null || { missing=1; echo >&2 "Please install asciidoc, which is available through your package manager or http://asciidoc.org/"; }
     hash gcc 2>/dev/null || { missing=1; echo >&2 "Please install gcc, which is available through your package manager or https://gcc.gnu.org/"; }
     hash make 2>/dev/null || { missing=1; echo >&2 "Please install GNU make, which is available through your package manager or http://www.gnu.org/software/make/"; }
+    hash flex 2>/dev/null || { missing=1; echo >&2 "Please install flex, which is available through your package manager or http://flex.sourceforge.net/"; }
+    hash bison 2>/dev/null || { missing=1; echo >&2 "Please install bison, which is available through your package manager or https://www.gnu.org/software/bison/"; }
     hash python3 2>/dev/null || { missing=1; echo >&2 "Please install Python 3, which is available through your package manager or https://www.python.org/"; }
     hash Magick-config 2>/dev/null || { missing=1; echo >&2 "Please install ImageMagick (and its headers), which is available through your package manager or http://imagemagick.org"; }
     if cygwin; then
@@ -25,6 +27,7 @@ prereqs() {
         hash sdl-config 2>/dev/null || { missing=1; echo >&2 "Please install SDL (and its headers), which is available through your package manager or http://www.libsdl.org/"; }
     fi
     [ -e /usr/include/readline/readline.h ] || { missing=1; echo >&2 "Please install readline (and its headers), which is available through your package manager (libreadline-dev on Debian/Ubuntu)"; }
+    [ -e /usr/include/boost/config.hpp ] || { missing=1; echo >&2 "Please install boost (and its headers), which is available through your package manager"; }
     if [ $missing -eq 1 ]; then
         exit 1
     fi
@@ -113,6 +116,28 @@ z80e() {
     asroot make install
 }
 
+scas() {
+    info Downloading scas...
+    quiet git clone git://github.com/KnightOS/scas.git
+    cd scas
+    info Compiling scas...
+    quiet cmake -DINSTRUCTION_SET_PATH=/usr/share/scas/instruction_sets/ .
+    quiet make
+    info Installing scas...
+    asroot make install
+}
+
+kcc() {
+    info Downloading kcc...
+    quiet git clone git://github.com/KnightOS/kcc.git
+    cd kcc
+    info Compiling kcc...
+    quiet cmake .
+    quiet make
+    info Installing kcc...
+    asroot make install
+}
+
 sass() {
     info Downloading sass...
     quiet git clone git://github.com/KnightOS/sass.git
@@ -149,6 +174,8 @@ force_all() {
     install kpack
     install kimg
     install sass
+    install scas
+    install kcc
     if cygwin; then
         install pip
     else
@@ -189,6 +216,14 @@ else
             ;;
         sass)
             install sass
+            shift 1
+            ;;
+        scas)
+            install scas
+            shift 1
+            ;;
+        kcc)
+            install kcc
             shift 1
             ;;
         sdk)
