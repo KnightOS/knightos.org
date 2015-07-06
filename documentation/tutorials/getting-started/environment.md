@@ -35,8 +35,9 @@ following things installed:
 * SDL (libsdl1.2-dev)
 * ImageMagick (libmagickwand-dev)
 * readline (libreadline-dev)
+* boost (libboost-dev)
 
-<pre>$ sudo apt-get install mono-complete cmake git asciidoc gcc python3-pip libsdl1.2-dev libmagickwand-dev libreadline-dev</pre>
+<pre>$ sudo apt-get install mono-complete cmake git asciidoc gcc python3-pip libsdl1.2-dev libmagickwand-dev libreadline-dev libboost-dev</pre>
 
 will install all the dependencies on a debian based system (you may need to symlink pip-3.2 to pip3).
 
