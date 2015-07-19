@@ -17,7 +17,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#checkFilesystem">checkFilesystem</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/46cd2ba09fe29fac155aa97aee2061e9974ee475/src/00/filesystem.asm#L1030">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/af804e27239f4a56b4aef9482da43f77b9c2e3e8/src/00/filesystem.asm#L899">View Source</a></small>
                     </h2>
                     
                     <p>Checks the integrity of the filesystem and sets certain bits of A with the results.</p>
@@ -61,7 +61,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#createDirectory">createDirectory</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/46cd2ba09fe29fac155aa97aee2061e9974ee475/src/00/filesystem.asm#L607">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/af804e27239f4a56b4aef9482da43f77b9c2e3e8/src/00/filesystem.asm#L617">View Source</a></small>
                     </h2>
                     
                     <p>Creates a new directory in the filesystem and returns information about the new filesystem entry.</p>
@@ -104,10 +104,10 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#deleteFile">deleteFile</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/46cd2ba09fe29fac155aa97aee2061e9974ee475/src/00/filesystem.asm#L1">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/af804e27239f4a56b4aef9482da43f77b9c2e3e8/src/00/filesystem.asm#L9">View Source</a></small>
                     </h2>
                     
-                    <p>Deletes a file.</p>
+                    <p>Deletes a file or symbolic link.</p>
 
                     <div class="details">
                     
@@ -144,7 +144,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#directoryExists">directoryExists</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/46cd2ba09fe29fac155aa97aee2061e9974ee475/src/00/filesystem.asm#L63">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/af804e27239f4a56b4aef9482da43f77b9c2e3e8/src/00/filesystem.asm#L86">View Source</a></small>
                     </h2>
                     
                     <p>Determines if a directory exists.</p>
@@ -181,7 +181,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#fileExists">fileExists</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/46cd2ba09fe29fac155aa97aee2061e9974ee475/src/00/filesystem.asm#L41">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/af804e27239f4a56b4aef9482da43f77b9c2e3e8/src/00/filesystem.asm#L64">View Source</a></small>
                     </h2>
                     
                     <p>Determines if a file exists.</p>
@@ -214,105 +214,11 @@ layout: documentation
                 </div>
             </div>
             
-            <div id="findDirectoryEntry" class="docsection">
-                <div>
-                    <h2 class="doc-title">
-                        <a href="#findDirectoryEntry">findDirectoryEntry</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/46cd2ba09fe29fac155aa97aee2061e9974ee475/src/00/filesystem.asm#L889">View Source</a></small>
-                    </h2>
-                    
-                    <p>Finds a directory entry in the FAT.</p>
-
-                    <div class="details">
-                    
-                    
-                        <h3>Inputs</h3>
-                        
-                            <dl>
-                                
-                                <dt>DE</dt>
-                                <dd><p>Path to directory</p></dd>
-                                
-                            </dl>
-                        
-                    
-                    
-                        <h3>Outputs</h3>
-                        
-                            <dl>
-                                
-                                <dt>A</dt>
-                                <dd><p>Flash page (on success); Error code (on failure)</p></dd>
-                                
-                                <dt>Z</dt>
-                                <dd><p>Set on success, reset on failure</p></dd>
-                                
-                                <dt>HL</dt>
-                                <dd><p>Address relative to 0x4000 (on success)</p></dd>
-                                
-                            </dl>
-                        
-                    
-                    
-                        <h3>Notes</h3>
-                        
-                            <p>This function returns HL=0 for the root directory. You should 
- handle this special case yourself. The root directory has ID 0 
- and has no parent directory.</p>
-                        
-                    
-                    </div>
-                </div>
-            </div>
-            
-            <div id="findFileEntry" class="docsection">
-                <div>
-                    <h2 class="doc-title">
-                        <a href="#findFileEntry">findFileEntry</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/46cd2ba09fe29fac155aa97aee2061e9974ee475/src/00/filesystem.asm#L704">View Source</a></small>
-                    </h2>
-                    
-                    <p>Finds a file entry in the FAT.</p>
-
-                    <div class="details">
-                    
-                    
-                        <h3>Inputs</h3>
-                        
-                            <dl>
-                                
-                                <dt>DE</dt>
-                                <dd><p>Path to file (string pointer)</p></dd>
-                                
-                            </dl>
-                        
-                    
-                    
-                        <h3>Outputs</h3>
-                        
-                            <dl>
-                                
-                                <dt>A</dt>
-                                <dd><p>Flash page (on success); Error code (on failure)</p></dd>
-                                
-                                <dt>Z</dt>
-                                <dd><p>Set on success, reset on failure</p></dd>
-                                
-                                <dt>HL</dt>
-                                <dd><p>Address relative to 0x4000 (on success)</p></dd>
-                                
-                            </dl>
-                        
-                    
-                    </div>
-                </div>
-            </div>
-            
             <div id="fixKFS" class="docsection">
                 <div>
                     <h2 class="doc-title">
                         <a href="#fixKFS">fixKFS</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/46cd2ba09fe29fac155aa97aee2061e9974ee475/src/00/filesystem.asm#L1024">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/af804e27239f4a56b4aef9482da43f77b9c2e3e8/src/00/filesystem.asm#L893">View Source</a></small>
                     </h2>
                     
                     <p>Fixes issues found from <a href="filesystem.html#checkFilesystem">checkFilesystem</a></p>
@@ -327,7 +233,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#listDirectory">listDirectory</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/46cd2ba09fe29fac155aa97aee2061e9974ee475/src/00/filesystem.asm#L85">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/af804e27239f4a56b4aef9482da43f77b9c2e3e8/src/00/filesystem.asm#L95">View Source</a></small>
                     </h2>
                     
                     <p>Lists the contents of a directory on the filesystem.</p>
@@ -388,7 +294,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#renameFile">renameFile</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/46cd2ba09fe29fac155aa97aee2061e9974ee475/src/00/filesystem.asm#L1101">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/af804e27239f4a56b4aef9482da43f77b9c2e3e8/src/00/filesystem.asm#L952">View Source</a></small>
                     </h2>
                     
                     <p>Renames a file.</p>
@@ -481,14 +387,6 @@ layout: documentation
                     
                     <li>
                         <a href="#fileExists" class="text-muted">fileExists</a>
-                    </li>
-                    
-                    <li>
-                        <a href="#findDirectoryEntry" class="text-muted">findDirectoryEntry</a>
-                    </li>
-                    
-                    <li>
-                        <a href="#findFileEntry" class="text-muted">findFileEntry</a>
                     </li>
                     
                     <li>
