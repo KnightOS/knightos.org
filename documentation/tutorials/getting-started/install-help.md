@@ -71,7 +71,7 @@ for dir in $list; do
 done
 {% endhighlight %}
 
-Now you will need [the actual SDK](https://github.com/KnightOS/sdk).
+Now you will need [the actual SDK](http://wiki.knightos.org/index.php/Tutorials/General/KnightOS_SDK).
 
 {% highlight bash %}
 #!/bin/bash
