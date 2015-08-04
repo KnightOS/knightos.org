@@ -57,7 +57,7 @@ run the same command:
 
     $ curl -s http://www.knightos.org/install-sdk | bash
 
-Detailed Windows instructions can be found [here](install-help.html) if you need
+Detailed Windows instructions can be found [here](http://wiki.knightos.org/index.php/Tutorials/General/KnightOS_SDK) if you need
 help.
 
 ## Testing the Installation
