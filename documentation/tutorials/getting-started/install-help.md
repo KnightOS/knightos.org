@@ -22,19 +22,7 @@ Install `aur/knightos-sdk`.
 ## Mac OS X
 
 ###Dependencies
-
-* [asciidoc](http://www.methods.co.nz/asciidoc/INSTALL.html) (suggestion: [use homebrew](http://brewformulas.org/Asciidoc))
-* [genkfs](https://github.com/KnightOS/genkfs)
-* [mktiupgrade](https://github.com/KnightOS/mktiupgrade)
-* [kpack](https://github.com/KnightOS/kpack)
-* [z80e](https://github.com/KnightOS/z80e)
-* [sass](https://github.com/KnightOS/sass)
- 	* requires [mono](mono-project.com)
-* pip3
-	* [docopt](http://docopt.org/)
-	* [requests](http://docs.python-requests.org/en/latest/user/install/)
-	* [pystache](https://github.com/defunkt/pystache)
-	* [pyyaml](http://pyyaml.org/wiki/PyYAML)
+A list of dependencies can be found on the [wiki page](http://wiki.knightos.org/index.php/Tutorials/General/KnightOS_SDK)]
 
 ###Installation:
 
