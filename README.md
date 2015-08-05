@@ -11,6 +11,9 @@ If you do not have ruby installed on your system, you need to get it from [here]
 
     gem install jekyll
 
+Be sure to also install [NodeJS](https://nodejs.org/) and Coffee-Script
+
+    npm install -g coffee-script
 
 After installing the prerequisites, clone this repository and navigate to its root directory
 
