@@ -35,8 +35,11 @@ following things installed:
 * SDL (libsdl1.2-dev)
 * ImageMagick (libmagickwand-dev)
 * readline (libreadline-dev)
+* boost (libboost-dev)
+* flex
+* bison
 
-<pre>$ sudo apt-get install mono-complete cmake git asciidoc gcc python3-pip libsdl1.2-dev libmagickwand-dev libreadline-dev</pre>
+<pre>$ sudo apt-get install mono-complete cmake git asciidoc gcc python3-pip libsdl1.2-dev libmagickwand-dev libreadline-dev libboost-dev flex bison</pre>
 
 will install all the dependencies on a debian based system (you may need to symlink pip-3.2 to pip3).
 
@@ -56,7 +59,7 @@ run the same command:
 
     $ curl -s http://www.knightos.org/install-sdk | bash
 
-Detailed Windows instructions can be found [here](install-help.html) if you need
+Detailed Windows instructions can be found [here](http://wiki.knightos.org/index.php/Tutorials/General/KnightOS_SDK) if you need
 help.
 
 ## Testing the Installation
