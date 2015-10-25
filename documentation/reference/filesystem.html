@@ -17,7 +17,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#checkFilesystem">checkFilesystem</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd7b3761a9b80aaf877ffe13925acef713718882/src/00/filesystem.asm#L898">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/908c3c72c3da5b47ae5f79b8b69dc1cd328075be/src/00/filesystem.asm#L907">View Source</a></small>
                     </h2>
                     
                     <p>Checks the integrity of the filesystem and sets certain bits of A with the results.</p>
@@ -61,7 +61,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#createDirectory">createDirectory</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd7b3761a9b80aaf877ffe13925acef713718882/src/00/filesystem.asm#L617">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/908c3c72c3da5b47ae5f79b8b69dc1cd328075be/src/00/filesystem.asm#L626">View Source</a></small>
                     </h2>
                     
                     <p>Creates a new directory in the filesystem and returns information about the new filesystem entry.</p>
@@ -100,11 +100,57 @@ layout: documentation
                 </div>
             </div>
             
+            <div id="createSymLink" class="docsection">
+                <div>
+                    <h2 class="doc-title">
+                        <a href="#createSymLink">createSymLink</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/908c3c72c3da5b47ae5f79b8b69dc1cd328075be/src/00/filesystem.asm#L1015">View Source</a></small>
+                    </h2>
+                    
+                    <p>Creates a symbolic link.</p>
+
+                    <div class="details">
+                    
+                    
+                        <h3>Inputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>DE</dt>
+                                <dd><p>Path to new symlink</p></dd>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Path to target</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    
+                        <h3>Outputs</h3>
+                        
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Flash page (on success); error code (on failure)</p></dd>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on failure</p></dd>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Address relative to 0x4000 (on success)</p></dd>
+                                
+                            </dl>
+                        
+                    
+                    </div>
+                </div>
+            </div>
+            
             <div id="deleteFile" class="docsection">
                 <div>
                     <h2 class="doc-title">
                         <a href="#deleteFile">deleteFile</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd7b3761a9b80aaf877ffe13925acef713718882/src/00/filesystem.asm#L9">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/908c3c72c3da5b47ae5f79b8b69dc1cd328075be/src/00/filesystem.asm#L9">View Source</a></small>
                     </h2>
                     
                     <p>Deletes a file or symbolic link.</p>
@@ -144,7 +190,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#directoryExists">directoryExists</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd7b3761a9b80aaf877ffe13925acef713718882/src/00/filesystem.asm#L86">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/908c3c72c3da5b47ae5f79b8b69dc1cd328075be/src/00/filesystem.asm#L86">View Source</a></small>
                     </h2>
                     
                     <p>Determines if a directory exists.</p>
@@ -181,7 +227,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#fileExists">fileExists</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd7b3761a9b80aaf877ffe13925acef713718882/src/00/filesystem.asm#L64">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/908c3c72c3da5b47ae5f79b8b69dc1cd328075be/src/00/filesystem.asm#L64">View Source</a></small>
                     </h2>
                     
                     <p>Determines if a file exists.</p>
@@ -218,7 +264,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#fixKFS">fixKFS</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd7b3761a9b80aaf877ffe13925acef713718882/src/00/filesystem.asm#L892">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/908c3c72c3da5b47ae5f79b8b69dc1cd328075be/src/00/filesystem.asm#L901">View Source</a></small>
                     </h2>
                     
                     <p>Fixes issues found from <a href="filesystem.html#checkFilesystem">checkFilesystem</a></p>
@@ -233,7 +279,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#listDirectory">listDirectory</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd7b3761a9b80aaf877ffe13925acef713718882/src/00/filesystem.asm#L95">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/908c3c72c3da5b47ae5f79b8b69dc1cd328075be/src/00/filesystem.asm#L95">View Source</a></small>
                     </h2>
                     
                     <p>Lists the contents of a directory on the filesystem.</p>
@@ -294,7 +340,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#renameFile">renameFile</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/dd7b3761a9b80aaf877ffe13925acef713718882/src/00/filesystem.asm#L951">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/908c3c72c3da5b47ae5f79b8b69dc1cd328075be/src/00/filesystem.asm#L960">View Source</a></small>
                     </h2>
                     
                     <p>Renames a file.</p>
@@ -378,6 +424,10 @@ layout: documentation
                     </li>
                     
                     <li>
+                        <a href="#createSymLink" class="text-muted">createSymLink</a>
+                    </li>
+                    
+                    <li>
                         <a href="#deleteFile" class="text-muted">deleteFile</a>
                     </li>
                     
@@ -413,6 +463,11 @@ layout: documentation
             
             
             <li><a href="/documentation/reference/hardware.html">Hardware</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/i/o.html">I/O</a></li>
             
             </li>
             
