@@ -15,7 +15,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#ioRegisterHandler">ioRegisterHandler</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/faa44501faef1b8d1165aaa141341c84cc46f996/src/00/link.asm#L99">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/aa620ce01783efb25d09479d946f82e1ddf470d9/src/00/link.asm#L101">View Source</a></small>
                     </h2>
                     
                     <p>Registers an I/O packet handler for a given machine ID.</p>
@@ -44,12 +44,11 @@ layout: documentation
                         
                             <p>The "expected header length" is the length of the packet header at the time 
  you want your callback told about it. The maximum is 4. </p>
-<p>During normal operation, your callback will be called with the Z flag set and 
- HL set to the address of the packet header. </p>
+<p>Your callback will be called with HL set to the address of the packet header. </p>
 <p>Your callback will be called during an interrupt, so make it short and sweet. 
  If you return HL != 0 and BC != 0, we'll assume that HL is a pointer to a 
- buffer to be filled with BC bytes from the rest of the packet. Your callback 
- will be run again once we get that many bytes, but this time with Z reset. </p>
+ buffer to be filled with BC bytes from the rest of the packet. You may set IX 
+ to a callback to run when the full packet is read, or to 0 otherwise. </p>
 <p>If a handler has already been reserved with this machine ID, it will take 
  precedence.</p>
                         
@@ -62,7 +61,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#ioSendBuffer">ioSendBuffer</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/faa44501faef1b8d1165aaa141341c84cc46f996/src/00/link.asm#L153">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/aa620ce01783efb25d09479d946f82e1ddf470d9/src/00/link.asm#L154">View Source</a></small>
                     </h2>
                     
                     <p>Sends a buffer of bytes over I/O.</p>
