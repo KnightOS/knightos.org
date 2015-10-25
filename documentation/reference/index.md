@@ -69,6 +69,13 @@ browse through them with the categories below.
     </tr>
 
     <tr>
+        <th><a href="/documentation/reference/i_o.html">I/O</a></th>
+        
+        <td>Link routines</td>
+        
+    </tr>
+
+    <tr>
         <th><a href="/documentation/reference/input.html">Input</a></th>
         
         <td>Keyboard driver</td>
