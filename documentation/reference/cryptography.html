@@ -17,7 +17,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#sha1AddByte">sha1AddByte</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/908c3c72c3da5b47ae5f79b8b69dc1cd328075be/src/02/crypto.asm#L128">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/06aeba5442a073d023380f1b961f06375f843bb8/src/02/crypto.asm#L128">View Source</a></small>
                     </h2>
                     
                     <p>Adds a single byte to the SHA1 hash input stream. Call this function once for each byte in the input stream, then call <a href="cryptography.html#sha1Pad">sha1Pad</a>.</p>
@@ -46,7 +46,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#sha1AddRange">sha1AddRange</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/908c3c72c3da5b47ae5f79b8b69dc1cd328075be/src/02/crypto.asm#L419">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/06aeba5442a073d023380f1b961f06375f843bb8/src/02/crypto.asm#L419">View Source</a></small>
                     </h2>
                     
                     <p>Adds a range of bytes to a SHA1 hash.  This routine is equivalent to, but faster than, calling <a href="cryptography.html#sha1AddByte">sha1AddByte</a> many times.</p>
@@ -78,7 +78,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#sha1Clean">sha1Clean</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/908c3c72c3da5b47ae5f79b8b69dc1cd328075be/src/02/crypto.asm#L74">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/06aeba5442a073d023380f1b961f06375f843bb8/src/02/crypto.asm#L74">View Source</a></small>
                     </h2>
                     
                     <p>Safely deallocates a SHA1 state block allocated by sha1Init.</p>
@@ -104,7 +104,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#sha1Init">sha1Init</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/908c3c72c3da5b47ae5f79b8b69dc1cd328075be/src/02/crypto.asm#L1">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/06aeba5442a073d023380f1b961f06375f843bb8/src/02/crypto.asm#L1">View Source</a></small>
                     </h2>
                     
                     <p>Allocates a memory block to keep the state and result of a SHA1 hash operation.  The result is kept in the first 20 bytes of the allocated block.  You must use <a href="cryptography.html#sha1Clean">sha1Clean</a> to deallocate the block; simply using <a href="system.html#free">free</a> will result in a memory leak!</p>
@@ -136,7 +136,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#sha1Pad">sha1Pad</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/908c3c72c3da5b47ae5f79b8b69dc1cd328075be/src/02/crypto.asm#L91">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/06aeba5442a073d023380f1b961f06375f843bb8/src/02/crypto.asm#L91">View Source</a></small>
                     </h2>
                     
                     <p>Finishes the SHA1 computation by appending the required bits to the input.  Call this routine once after calling <a href="cryptography.html#sha1AddByte">sha1AddByte</a> for each input byte.  After this routine, the 8 bytes pointed to by IX will contain the big-endian SHA1 hash.</p>
