@@ -43,7 +43,7 @@ result of your hard work:
 A window will pop up with the z80e emulator running your project. Press F12 to
 turn the emulated calculator on and see your "Hello, world!" message appear.
 
-![](https://a.pomf.se/gbxzhm.png)
+![](https://sr.ht/q1M6.png)
 
 <div class="alert alert-info">Note that Windows users will see the Wabbitemu
 emulator instead of z80e.</div>
