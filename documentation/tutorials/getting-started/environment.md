@@ -19,7 +19,7 @@ We aren't getting into that here.</div>
 For Unix-like systems, including Linux, OS X, BSD, and so on, the installation
 procedure is very straightforward. Open a terminal and run this:
 
-    $ curl -s http://www.knightos.org/install-sdk | bash
+    $ curl -s https://raw.githubusercontent.com/KnightOS/knightos.org/gh-pages/install-sdk | bash
 
 This will download and run the [KnightOS SDK
 installer](https://github.com/KnightOS/knightos.org/blob/gh-pages/install-sdk).
@@ -57,7 +57,7 @@ The Windows setup is similar, but requires [Cygwin](http://cygwin.com/). Install
 the same dependencies (not including SDL) through the Cygwin installer, and then
 run the same command:
 
-    $ curl -s http://www.knightos.org/install-sdk | bash
+    $ curl -s https://raw.githubusercontent.com/KnightOS/knightos.org/gh-pages/install-sdk | bash
 
 Detailed Windows instructions can be found [here](http://wiki.knightos.org/index.php/Tutorials/General/KnightOS_SDK) if you need
 help.
