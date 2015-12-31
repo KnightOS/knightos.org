@@ -130,7 +130,7 @@ thing (though slightly slower) by setting D and E seperately.</div>
 
 Now, running `make run` again should show you a proper window:
 
-![](https://a.pomf.se/vyipga.png)
+![](https://sr.ht/jIJQ.png)
 
 Now that we have a window, we have two icons on the left and right. In most
 KnightOS programs, tapping the left (F1, or Y=) will take you to the application
@@ -155,7 +155,7 @@ corelib has got you covered.
 it will switch to the appropriate application. If you run your app now and press
 F1...
 
-![](https://a.pomf.se/ctxisn.png)
+![](https://sr.ht/GtbI.png)
 
 Kernel panic! This happens because when corelib switches away from your
 application, it suspends it to save on CPU time so that the applications that
@@ -191,7 +191,7 @@ If you run it now and press F1, you'll be taken to the castle (which is empty
 because we haven't configured it with any apps). Press F5 to go to the app
 switcher, which should list your app. Press enter here to return to your app.
 
-![](http://a.pomf.se/hciogg.gif)
+![](https://sr.ht/uvZy.gif)
 
 <div class="alert alert-info"><strong>Note</strong>:
 <code>.knightos/pkgroot</code> is a directory used by the KnightOS SDK. The
