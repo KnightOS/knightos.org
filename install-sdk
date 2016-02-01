@@ -107,7 +107,7 @@ kimg() {
 
 z80e() {
     info Downloading z80e...
-    quiet git clone git://github.com/KnightOS/z80e.git
+    quiet git clone --recursive git://github.com/KnightOS/z80e.git
     cd z80e
     info Compiling z80e...
     quiet cmake -Denable-sdl=YES .
