@@ -68,7 +68,7 @@ void main() {
     get_lcd_lock();
     screen = screen_allocate();
     screen_clear(screen);
-+   draw_window(screen, "C Demo", 0);
++   draw_window(screen, "C Demo", WIN_DEFAULTS);
 +   draw_string(screen, 0, 0, "Hello world!");
     screen_draw(screen);
     while (1);
