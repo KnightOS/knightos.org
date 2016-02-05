@@ -26,7 +26,7 @@ Concepts](concepts.html) or [check out our wiki](http://wiki.knightos.org/index.
 tutorials:
 
 * [Getting started with assembly](tutorials/getting-started/)
-* [Getting started with C](tutorials/getting-started-c/) (to be written)
+* [Getting started with C](tutorials/getting-started-c/)
 
 By the way, we could use more tutorials. [Want to write
 one](https://github.com/KnightOS/knightos.org)?
