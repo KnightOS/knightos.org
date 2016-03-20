@@ -15,7 +15,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#ioRegisterHandler">ioRegisterHandler</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/2ebf59550ace462ad3867aa96993cf45727c05a3/src/00/link.asm#L106">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/1873a80a01e706cf7758ca71ef51cf02675c0bae/src/00/link.asm#L70">View Source</a></small>
                     </h2>
                     
                     <p>Registers an I/O packet handler for a given machine ID.</p>
@@ -57,14 +57,14 @@ layout: documentation
                 </div>
             </div>
             
-            <div id="ioSendBuffer" class="docsection">
+            <div id="ioSendPacket" class="docsection">
                 <div>
                     <h2 class="doc-title">
-                        <a href="#ioSendBuffer">ioSendBuffer</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/2ebf59550ace462ad3867aa96993cf45727c05a3/src/00/link.asm#L159">View Source</a></small>
+                        <a href="#ioSendPacket">ioSendPacket</a>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/1873a80a01e706cf7758ca71ef51cf02675c0bae/src/00/link.asm#L123">View Source</a></small>
                     </h2>
                     
-                    <p>Sends a buffer of bytes over I/O.</p>
+                    <p>Sends a DBus packet via the I/O port.</p>
 
                     <div class="details">
                     
@@ -74,13 +74,19 @@ layout: documentation
                             <dl>
                                 
                                 <dt>IX</dt>
-                                <dd><p>Callback (or 0)</p></dd>
+                                <dd><p>Callback (or zero)</p></dd>
+                                
+                                <dt>E</dt>
+                                <dd><p>Machine ID</p></dd>
+                                
+                                <dt>D</dt>
+                                <dd><p>Command ID</p></dd>
                                 
                                 <dt>HL</dt>
-                                <dd><p>Buffer</p></dd>
+                                <dd><p>Buffer (or zero)</p></dd>
                                 
                                 <dt>BC</dt>
-                                <dd><p>Length</p></dd>
+                                <dd><p>Buffer length (or zero)</p></dd>
                                 
                             </dl>
                         
@@ -166,7 +172,7 @@ layout: documentation
                     </li>
                     
                     <li>
-                        <a href="#ioSendBuffer" class="text-muted">ioSendBuffer</a>
+                        <a href="#ioSendPacket" class="text-muted">ioSendPacket</a>
                     </li>
                     
                 </ul>
