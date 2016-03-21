@@ -15,7 +15,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#ioRegisterHandler">ioRegisterHandler</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/44696e1483fef15d7a3800dba6bf64f931eb6b88/src/00/link.asm#L72">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/3dc63a6977d1b36ffcef24d5f64078a4cbb11015/src/00/link.asm#L72">View Source</a></small>
                     </h2>
                     
                     <p>Registers an I/O packet handler for a given machine ID.</p>
@@ -61,7 +61,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#ioSendPacket">ioSendPacket</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/44696e1483fef15d7a3800dba6bf64f931eb6b88/src/00/link.asm#L125">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/3dc63a6977d1b36ffcef24d5f64078a4cbb11015/src/00/link.asm#L125">View Source</a></small>
                     </h2>
                     
                     <p>Sends a DBus packet via the I/O port.</p>
@@ -109,7 +109,9 @@ layout: documentation
  (outside the context of your thread) when the send is complete. 
  Please keep your callback short and sweet, as it will be called 
  during an interrupt. You are advised to suspend your main thread 
- or use <a href="concurrency.html#condWait">condWait</a> and have your callback resume/notify it.</p>
+ or use <a href="concurrency.html#condWait">condWait</a> and have your callback resume/notify it. </p>
+<p>Attempts to access the buffer memory before the callback is run 
+ will end in tears.</p>
                         
                     
                     </div>
