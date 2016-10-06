@@ -16,7 +16,7 @@ We aren't getting into that here.</div>
 
 ## Setup for Unix
 
-For Unix-like systems, including Linux, OS X, BSD, and so on, the installation
+For Unix-like systems, including Linux, macOS, BSD, and so on, the installation
 procedure is very straightforward. Open a terminal and run this:
 
     $ curl -s https://raw.githubusercontent.com/KnightOS/knightos.org/gh-pages/install-sdk | bash
@@ -44,7 +44,7 @@ following things installed:
 will install all the dependencies on a debian based system (you may need to symlink pip-3.2 to pip3).
 
 <div class="alert alert-info"><strong>Note</strong>: You should be able to use
-clang/llvm instead of gcc. This is probably what most OSX users will want to do.
+clang/llvm instead of gcc. This is probably what most macOS users will want to do.
 </div>
 
 You'll also need the development headers for readline. There are more detailed
