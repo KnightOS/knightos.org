@@ -56,13 +56,12 @@ a {color:#39B3D7}
     position:relative;
     margin-bottom:20px;
     -webkit-box-shadow:0 0 5px #000;
-    box-shadow:0 0 5px #000
+    box-shadow:0 0 5px #000;
+    min-height: 20rem;
 }
-.hero-block {background-color:#fff; padding:0 20px}
+.hero-block {background-color:#fff; padding:0 20px;padding-bottom: 10px;}
 #hero-calculator {position:relative; padding-top:30px}
 #hero-calculator-img {display:block}
-#hero-calculator-text {position:absolute; top:0; left:0; width:480px}
-#hero-introduction {position:absolute; bottom:20px; right:0; padding-bottom:20px}
 
 /* calculator screen in index */
 #screen {position:absolute; top:160px; left:122px}
