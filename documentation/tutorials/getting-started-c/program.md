@@ -64,6 +64,7 @@ convenience), we can go over how it works.
 void main() {
     SCREEN *screen;
     get_lcd_lock();
+    get_keypad_lock();
     screen = screen_allocate();
     screen_clear(screen);
     draw_string(screen, 0, 0, "Hello world!");
@@ -76,9 +77,10 @@ void main() {
 On KnightOS, your program has to cooperate with other running programs. Because of this, we
 manage the allocation of each part of the calculator so that your program gets
 along with the others. For this example, we need to reserve and allocate the screen (aka the
-LCD): 
+LCD) and the keypad:
 {% highlight c %}
 get_lcd_lock();
+get_keypad_lock();
 screen = screen_allocate();
 {% endhighlight %}
 
