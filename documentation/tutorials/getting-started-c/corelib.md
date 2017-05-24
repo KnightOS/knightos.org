@@ -53,7 +53,7 @@ void main(void) {
     SCREEN *screen;
 +   load_library("/lib/core");
     get_lcd_lock();
-    screen = screen_allocate();
+    get_keypad_lock();
 {% endhighlight %}
 
 Now that we have corelib loaded into memory, we can start to use the functions
@@ -65,7 +65,9 @@ around it.
 @@ -13,2 +14,4 @@ start:
 void main() {
     SCREEN *screen;
+    load_library("/lib/core");
     get_lcd_lock();
+    get_keypad_lock();
     screen = screen_allocate();
     screen_clear(screen);
 +   draw_window(screen, "C Demo", WIN_DEFAULTS);
@@ -87,6 +89,7 @@ void main(void) {
     SCREEN *screen;
     load_library("/lib/core");
     get_lcd_lock();
+    get_keypad_lock();
     screen = screen_allocate();
     screen_clear(screen);
     draw_window(screen, "C Demo", 0);
