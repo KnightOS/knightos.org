@@ -17,7 +17,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#fpAbs">fpAbs</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/3f0f38de0755b2975a7fe5d3c3a63af39fb76d3d/src/02/fp-math.asm#L756">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e873701aa76fb98178551fb18f0ff42f300ce790/src/02/fp-math.asm#L756">View Source</a></small>
                     </h2>
                     
                     <p>Takes the absolute value of the floating point number at IX.</p>
@@ -25,15 +25,25 @@ layout: documentation
                     <div class="details">
                     
                     
-                        <h3>Input</h3>
+                        <h3>Inputs</h3>
                         
-                            <p>IX: Pointer to operand</p>
+                            <dl>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Pointer to operand</p></dd>
+                                
+                            </dl>
                         
                     
                     
-                        <h3>Output</h3>
+                        <h3>Outputs</h3>
                         
-                            <p>IX: Pointer to result</p>
+                            <dl>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Pointer to result</p></dd>
+                                
+                            </dl>
                         
                     
                     </div>
@@ -44,7 +54,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#fpAdd">fpAdd</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/3f0f38de0755b2975a7fe5d3c3a63af39fb76d3d/src/02/fp-math.asm#L806">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e873701aa76fb98178551fb18f0ff42f300ce790/src/02/fp-math.asm#L806">View Source</a></small>
                     </h2>
                     
                     <p>Adds the two floating point numbers.</p>
@@ -79,7 +89,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#fpAnd">fpAnd</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/3f0f38de0755b2975a7fe5d3c3a63af39fb76d3d/src/02/fp-math.asm#L999">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e873701aa76fb98178551fb18f0ff42f300ce790/src/02/fp-math.asm#L999">View Source</a></small>
                     </h2>
                     
                     <p>Performs a logical AND on the two floating point numbers.</p>
@@ -98,10 +108,17 @@ layout: documentation
                         
                     
                     
-                        <h3>Output</h3>
+                        <h3>Outputs</h3>
                         
-                            <p>Z: Result was false 
- NZ: Result was true</p>
+                            <dl>
+                                
+                                <dt>NZ</dt>
+                                <dd><p>Result was true</p></dd>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Result was false</p></dd>
+                                
+                            </dl>
                         
                     
                     </div>
@@ -112,7 +129,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#fpCompare">fpCompare</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/3f0f38de0755b2975a7fe5d3c3a63af39fb76d3d/src/02/fp-math.asm#L1105">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e873701aa76fb98178551fb18f0ff42f300ce790/src/02/fp-math.asm#L1105">View Source</a></small>
                     </h2>
                     
                     <p>Compares the two floating point numbers.</p>
@@ -131,9 +148,15 @@ layout: documentation
                         
                     
                     
-                        <h3>Output</h3>
+                        <h3>Outputs</h3>
                         
-                            <p>Same as z80 CP instruction.</p>
+                            <dl>
+                                
+                                <dt>Same as z80 CP instruction.
+fpCompare</dt>
+                                <dd></dd>
+                                
+                            </dl>
                         
                     
                     </div>
@@ -144,7 +167,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#fpFPart">fpFPart</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/3f0f38de0755b2975a7fe5d3c3a63af39fb76d3d/src/02/fp-math.asm#L1295">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e873701aa76fb98178551fb18f0ff42f300ce790/src/02/fp-math.asm#L1294">View Source</a></small>
                     </h2>
                     
                     <p>Calculates the fractional part of a floating point number, similar to TI-OS's <code>fPart()</code> command.</p>
@@ -152,15 +175,25 @@ layout: documentation
                     <div class="details">
                     
                     
-                        <h3>Input</h3>
+                        <h3>Inputs</h3>
                         
-                            <p>IX: Pointer to operand</p>
+                            <dl>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Pointer to operand</p></dd>
+                                
+                            </dl>
                         
                     
                     
-                        <h3>Output</h3>
+                        <h3>Outputs</h3>
                         
-                            <p>IX: Pointer to result</p>
+                            <dl>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Pointer to result</p></dd>
+                                
+                            </dl>
                         
                     
                     </div>
@@ -171,7 +204,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#fpIPart">fpIPart</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/3f0f38de0755b2975a7fe5d3c3a63af39fb76d3d/src/02/fp-math.asm#L1237">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e873701aa76fb98178551fb18f0ff42f300ce790/src/02/fp-math.asm#L1236">View Source</a></small>
                     </h2>
                     
                     <p>Calculates the integer part of a floating point number, similar to TI-OS's <code>iPart()</code> command.</p>
@@ -179,15 +212,25 @@ layout: documentation
                     <div class="details">
                     
                     
-                        <h3>Input</h3>
+                        <h3>Inputs</h3>
                         
-                            <p>IX: Pointer to operand</p>
+                            <dl>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Pointer to operand</p></dd>
+                                
+                            </dl>
                         
                     
                     
-                        <h3>Output</h3>
+                        <h3>Outputs</h3>
                         
-                            <p>IX: Pointer to result</p>
+                            <dl>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Pointer to result</p></dd>
+                                
+                            </dl>
                         
                     
                     </div>
@@ -198,7 +241,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#fpLdConst">fpLdConst</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/3f0f38de0755b2975a7fe5d3c3a63af39fb76d3d/src/02/fp-math.asm#L606">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e873701aa76fb98178551fb18f0ff42f300ce790/src/02/fp-math.asm#L606">View Source</a></small>
                     </h2>
                     
                     <p>Loads a floating point constant specified by A into HL.</p>
@@ -206,10 +249,17 @@ layout: documentation
                     <div class="details">
                     
                     
-                        <h3>Input</h3>
+                        <h3>Inputs</h3>
                         
-                            <p>A: Constant to load, use <code>FP_*</code> macros from kernel.inc 
- HL: Pointer to destination buffer</p>
+                            <dl>
+                                
+                                <dt>A</dt>
+                                <dd><p>Constant to load, use <code>FP_*</code> macros from kernel.inc</p></dd>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Pointer to destination buffer</p></dd>
+                                
+                            </dl>
                         
                     
                     </div>
@@ -220,7 +270,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#fpMax">fpMax</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/3f0f38de0755b2975a7fe5d3c3a63af39fb76d3d/src/02/fp-math.asm#L1170">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e873701aa76fb98178551fb18f0ff42f300ce790/src/02/fp-math.asm#L1169">View Source</a></small>
                     </h2>
                     
                     <p>Finds the maximum of the two floating point numbers.</p>
@@ -239,9 +289,14 @@ layout: documentation
                         
                     
                     
-                        <h3>Output</h3>
+                        <h3>Outputs</h3>
                         
-                            <p>HL: Pointer to maximum</p>
+                            <dl>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Pointer to maximum</p></dd>
+                                
+                            </dl>
                         
                     
                     </div>
@@ -252,7 +307,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#fpMin">fpMin</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/3f0f38de0755b2975a7fe5d3c3a63af39fb76d3d/src/02/fp-math.asm#L1155">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e873701aa76fb98178551fb18f0ff42f300ce790/src/02/fp-math.asm#L1154">View Source</a></small>
                     </h2>
                     
                     <p>Finds the minimum of the two floating point numbers.</p>
@@ -271,9 +326,14 @@ layout: documentation
                         
                     
                     
-                        <h3>Output</h3>
+                        <h3>Outputs</h3>
                         
-                            <p>HL: Pointer to minimum</p>
+                            <dl>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Pointer to minimum</p></dd>
+                                
+                            </dl>
                         
                     
                     </div>
@@ -284,7 +344,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#fpMulPow10">fpMulPow10</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/3f0f38de0755b2975a7fe5d3c3a63af39fb76d3d/src/02/fp-math.asm#L976">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e873701aa76fb98178551fb18f0ff42f300ce790/src/02/fp-math.asm#L976">View Source</a></small>
                     </h2>
                     
                     <p>Multiplies the floating point number in IX by 10^E.</p>
@@ -292,16 +352,28 @@ layout: documentation
                     <div class="details">
                     
                     
-                        <h3>Input</h3>
+                        <h3>Inputs</h3>
                         
-                            <p>IX: Pointer to operand 
- E: Signed exponent (i.e. 2 -&gt; 100, 3 -&gt; 0.001)</p>
+                            <dl>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Pointer to operand</p></dd>
+                                
+                                <dt>E</dt>
+                                <dd><p>Signed exponent (i.e. 2 -&gt; 100, 3 -&gt; 0.001)</p></dd>
+                                
+                            </dl>
                         
                     
                     
-                        <h3>Output</h3>
+                        <h3>Outputs</h3>
                         
-                            <p>IX: Pointer to result</p>
+                            <dl>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Pointer to result</p></dd>
+                                
+                            </dl>
                         
                     
                     
@@ -318,7 +390,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#fpNeg">fpNeg</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/3f0f38de0755b2975a7fe5d3c3a63af39fb76d3d/src/02/fp-math.asm#L766">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e873701aa76fb98178551fb18f0ff42f300ce790/src/02/fp-math.asm#L766">View Source</a></small>
                     </h2>
                     
                     <p>Negates the floating point number at IX.</p>
@@ -326,15 +398,25 @@ layout: documentation
                     <div class="details">
                     
                     
-                        <h3>Input</h3>
+                        <h3>Inputs</h3>
                         
-                            <p>IX: Pointer to operand</p>
+                            <dl>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Pointer to operand</p></dd>
+                                
+                            </dl>
                         
                     
                     
-                        <h3>Output</h3>
+                        <h3>Outputs</h3>
                         
-                            <p>IX: Pointer to result</p>
+                            <dl>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Pointer to result</p></dd>
+                                
+                            </dl>
                         
                     
                     </div>
@@ -345,7 +427,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#fpNot">fpNot</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/3f0f38de0755b2975a7fe5d3c3a63af39fb76d3d/src/02/fp-math.asm#L1080">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e873701aa76fb98178551fb18f0ff42f300ce790/src/02/fp-math.asm#L1080">View Source</a></small>
                     </h2>
                     
                     <p>Performs a logical NOT on the floating point number.</p>
@@ -353,16 +435,28 @@ layout: documentation
                     <div class="details">
                     
                     
-                        <h3>Input</h3>
+                        <h3>Inputs</h3>
                         
-                            <p>IX: Pointer to operand</p>
+                            <dl>
+                                
+                                <dt>IX</dt>
+                                <dd><p>Pointer to operand</p></dd>
+                                
+                            </dl>
                         
                     
                     
-                        <h3>Output</h3>
+                        <h3>Outputs</h3>
                         
-                            <p>Z: Result was false 
- NZ: Result was true</p>
+                            <dl>
+                                
+                                <dt>NZ</dt>
+                                <dd><p>Result was true</p></dd>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Result was false</p></dd>
+                                
+                            </dl>
                         
                     
                     </div>
@@ -373,7 +467,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#fpOr">fpOr</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/3f0f38de0755b2975a7fe5d3c3a63af39fb76d3d/src/02/fp-math.asm#L1023">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e873701aa76fb98178551fb18f0ff42f300ce790/src/02/fp-math.asm#L1023">View Source</a></small>
                     </h2>
                     
                     <p>Performs a logical OR on the two floating point numbers.</p>
@@ -392,10 +486,17 @@ layout: documentation
                         
                     
                     
-                        <h3>Output</h3>
+                        <h3>Outputs</h3>
                         
-                            <p>Z: Result was false 
- NZ: Result was true</p>
+                            <dl>
+                                
+                                <dt>NZ</dt>
+                                <dd><p>Result was true</p></dd>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Result was false</p></dd>
+                                
+                            </dl>
                         
                     
                     </div>
@@ -406,7 +507,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#fpRand">fpRand</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/3f0f38de0755b2975a7fe5d3c3a63af39fb76d3d/src/02/fp-math.asm#L1185">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e873701aa76fb98178551fb18f0ff42f300ce790/src/02/fp-math.asm#L1184">View Source</a></small>
                     </h2>
                     
                     <p>Generates a random floating point number between 0 and 1, similar to TI-OS's <code>rand</code> command.</p>
@@ -414,9 +515,14 @@ layout: documentation
                     <div class="details">
                     
                     
-                        <h3>Input</h3>
+                        <h3>Inputs</h3>
                         
-                            <p>HL: Pointer to output</p>
+                            <dl>
+                                
+                                <dt>HL</dt>
+                                <dd><p>Pointer to output</p></dd>
+                                
+                            </dl>
                         
                     
                     
@@ -434,7 +540,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#fpSub">fpSub</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/3f0f38de0755b2975a7fe5d3c3a63af39fb76d3d/src/02/fp-math.asm#L786">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e873701aa76fb98178551fb18f0ff42f300ce790/src/02/fp-math.asm#L786">View Source</a></small>
                     </h2>
                     
                     <p>Subtracts the two floating point numbers.</p>
@@ -466,7 +572,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#fpXor">fpXor</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/3f0f38de0755b2975a7fe5d3c3a63af39fb76d3d/src/02/fp-math.asm#L1046">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e873701aa76fb98178551fb18f0ff42f300ce790/src/02/fp-math.asm#L1046">View Source</a></small>
                     </h2>
                     
                     <p>Performs a logical XOR on the two floating point numbers.</p>
@@ -485,10 +591,17 @@ layout: documentation
                         
                     
                     
-                        <h3>Output</h3>
+                        <h3>Outputs</h3>
                         
-                            <p>Z: Result was false 
- NZ: Result was true</p>
+                            <dl>
+                                
+                                <dt>NZ</dt>
+                                <dd><p>Result was true</p></dd>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Result was false</p></dd>
+                                
+                            </dl>
                         
                     
                     </div>
@@ -499,7 +612,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#fptostr">fptostr</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/3f0f38de0755b2975a7fe5d3c3a63af39fb76d3d/src/02/fp-math.asm#L266">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e873701aa76fb98178551fb18f0ff42f300ce790/src/02/fp-math.asm#L266">View Source</a></small>
                     </h2>
                     
                     <p>Converts a floating point number into an ASCII-encoded decimal string.</p>
@@ -547,7 +660,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#itofp">itofp</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/3f0f38de0755b2975a7fe5d3c3a63af39fb76d3d/src/02/fp-math.asm#L13">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e873701aa76fb98178551fb18f0ff42f300ce790/src/02/fp-math.asm#L13">View Source</a></small>
                     </h2>
                     
                     <p>Converts a 32-bit unsigned integer into a floating-point binary coded decimal format and stores it to the buffer at HL.</p>
@@ -590,7 +703,7 @@ layout: documentation
                 <div>
                     <h2 class="doc-title">
                         <a href="#strtofp">strtofp</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/3f0f38de0755b2975a7fe5d3c3a63af39fb76d3d/src/02/fp-math.asm#L124">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/e873701aa76fb98178551fb18f0ff42f300ce790/src/02/fp-math.asm#L124">View Source</a></small>
                     </h2>
                     
                     <p>Converts an ASCII-encoded signed decimal into a floating-point binary coded decimal format and stores it to the buffer at HL.</p>
@@ -612,9 +725,14 @@ layout: documentation
                         
                     
                     
-                        <h3>Output</h3>
+                        <h3>Outputs</h3>
                         
-                            <p>Z: Set on success, reset on error</p>
+                            <dl>
+                                
+                                <dt>Z</dt>
+                                <dd><p>Set on success, reset on error</p></dd>
+                                
+                            </dl>
                         
                     
                     
