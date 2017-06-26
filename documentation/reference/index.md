@@ -34,6 +34,13 @@ browse through them with the categories below.
     </tr>
 
     <tr>
+        <th><a href="/documentation/reference/decimal_floating_point.html">Decimal Floating Point</a></th>
+        
+        <td>Decimal floating point math</td>
+        
+    </tr>
+
+    <tr>
         <th><a href="/documentation/reference/display.html">Display</a></th>
         
         <td>Monochrome graphics and display driver</td>

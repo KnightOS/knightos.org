@@ -6,9 +6,9 @@ layout: documentation
 
 
 <p>KnightOS supports the TI-84+ Color Silver Edition. This calculator uses a <a href="http://www.displayfuture.com/Display/datasheet/controller/ILI9335.pdf">ILI9335 display</a>, which has a resolution of 320x240. KnightOS uses 16-bit colors, in the format 0bRRRRRGGGGGGBBBBB.
-Due to the size of the screen, and the speed requirements for driving it, KnightOS programs do not use an in-memory buffer. An uncompressed image the full size of the screen takes up more than all addressable memory on the device. Instead, we've provided functions for drawing directly to the LCD.
+Due to the size of the screen, and the speed requirements for driving it, KnightOS programs do not use an in-memory buffer. An uncompressed image the full size of the screen takes up more than all addressable memory on the device.  Instead, we've provided functions for drawing directly to the LCD.
 Generally speaking, the color you wish to draw with is provided in the IY register (which is used for the monochrome buffer in non-color applications).
-The kernel supports both monochrome and color display modes on the same calculator, and even running at the same time. We refer to monochrome mode as "legacy mode", and color mode as "color mode". Your program should tell the kernel which mode you'd like to use, and the kernel will handle the switching semantics to help you coorperate with the rest of the enviornment.</p>
+The kernel supports both monochrome and color display modes on the same calculator, and even running at the same time.  We refer to monochrome mode as "legacy mode", and color mode as "color mode".  Your program should tell the kernel which mode you'd like to use, and the kernel will handle the switching semantics to help you coorperate with the rest of the enviornment.</p>
 
 
 <div class="row">
@@ -20,7 +20,7 @@ The kernel supports both monochrome and color display modes on the same calculat
                 <div>
                     <h2 class="doc-title">
                         <a href="#checkLegacyLcdMode">checkLegacyLcdMode</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/b89adc1c097314ec0c7432c07afecc0dfe134710/src/00/display-color.asm#L539">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/6efc483c8c2c3e08d7127315e74502a9d1e46fc3/src/00/display-color.asm#L539">View Source</a></small>
                     </h2>
                     
                     <p>Sets Z if the current thread is in legacy mode.</p>
@@ -35,7 +35,7 @@ The kernel supports both monochrome and color display modes on the same calculat
                 <div>
                     <h2 class="doc-title">
                         <a href="#clearColorLcd">clearColorLcd</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/b89adc1c097314ec0c7432c07afecc0dfe134710/src/00/display-color.asm#L326">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/6efc483c8c2c3e08d7127315e74502a9d1e46fc3/src/00/display-color.asm#L326">View Source</a></small>
                     </h2>
                     
                     <p>Sets all pixels on the LCD to a specified color in color mode.</p>
@@ -67,7 +67,7 @@ The kernel supports both monochrome and color display modes on the same calculat
                 <div>
                     <h2 class="doc-title">
                         <a href="#clipColorRectangle">clipColorRectangle</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/b89adc1c097314ec0c7432c07afecc0dfe134710/src/00/display-color.asm#L575">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/6efc483c8c2c3e08d7127315e74502a9d1e46fc3/src/00/display-color.asm#L575">View Source</a></small>
                     </h2>
                     
                     <p>Draws a clipped rectangle of the specified size with the specified color in color mode.</p>
@@ -112,7 +112,7 @@ The kernel supports both monochrome and color display modes on the same calculat
                 <div>
                     <h2 class="doc-title">
                         <a href="#colorLcdOff">colorLcdOff</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/b89adc1c097314ec0c7432c07afecc0dfe134710/src/00/display-color.asm#L207">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/6efc483c8c2c3e08d7127315e74502a9d1e46fc3/src/00/display-color.asm#L207">View Source</a></small>
                     </h2>
                     
                     <p>Turns off the color LCD and backlight.</p>
@@ -127,7 +127,7 @@ The kernel supports both monochrome and color display modes on the same calculat
                 <div>
                     <h2 class="doc-title">
                         <a href="#colorLcdOn">colorLcdOn</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/b89adc1c097314ec0c7432c07afecc0dfe134710/src/00/display-color.asm#L141">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/6efc483c8c2c3e08d7127315e74502a9d1e46fc3/src/00/display-color.asm#L141">View Source</a></small>
                     </h2>
                     
                     <p>Initializes and turns on the color LCD in color mode.</p>
@@ -142,7 +142,7 @@ The kernel supports both monochrome and color display modes on the same calculat
                 <div>
                     <h2 class="doc-title">
                         <a href="#colorSupported">colorSupported</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/b89adc1c097314ec0c7432c07afecc0dfe134710/src/00/display-color.asm#L40">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/6efc483c8c2c3e08d7127315e74502a9d1e46fc3/src/00/display-color.asm#L40">View Source</a></small>
                     </h2>
                     
                     <p>Sets Z if color is supported on this device.</p>
@@ -171,7 +171,7 @@ The kernel supports both monochrome and color display modes on the same calculat
                 <div>
                     <h2 class="doc-title">
                         <a href="#fullScreenWindow">fullScreenWindow</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/b89adc1c097314ec0c7432c07afecc0dfe134710/src/00/display-color.asm#L99">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/6efc483c8c2c3e08d7127315e74502a9d1e46fc3/src/00/display-color.asm#L99">View Source</a></small>
                     </h2>
                     
                     <p>Sets the clipping window to fit the LCD screen in color mode.</p>
@@ -186,7 +186,7 @@ The kernel supports both monochrome and color display modes on the same calculat
                 <div>
                     <h2 class="doc-title">
                         <a href="#readLcdRegister">readLcdRegister</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/b89adc1c097314ec0c7432c07afecc0dfe134710/src/00/display-color.asm#L113">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/6efc483c8c2c3e08d7127315e74502a9d1e46fc3/src/00/display-color.asm#L113">View Source</a></small>
                     </h2>
                     
                     <p>Reads a 16-bit value from a color LCD register</p>
@@ -229,7 +229,7 @@ The kernel supports both monochrome and color display modes on the same calculat
                 <div>
                     <h2 class="doc-title">
                         <a href="#resetLegacyLcdMode">resetLegacyLcdMode</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/b89adc1c097314ec0c7432c07afecc0dfe134710/src/00/display-color.asm#L487">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/6efc483c8c2c3e08d7127315e74502a9d1e46fc3/src/00/display-color.asm#L487">View Source</a></small>
                     </h2>
                     
                     <p>Sets the LCD to color mode. Call this before you call <a href="hardware.html#getLcdLock">getLcdLock</a>.</p>
@@ -244,7 +244,7 @@ The kernel supports both monochrome and color display modes on the same calculat
                 <div>
                     <h2 class="doc-title">
                         <a href="#setLcdWindow">setLcdWindow</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/b89adc1c097314ec0c7432c07afecc0dfe134710/src/00/display-color.asm#L63">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/6efc483c8c2c3e08d7127315e74502a9d1e46fc3/src/00/display-color.asm#L63">View Source</a></small>
                     </h2>
                     
                     <p>Sets the LCD's clipping window. Values are inclusive.</p>
@@ -285,7 +285,7 @@ The kernel supports both monochrome and color display modes on the same calculat
                 <div>
                     <h2 class="doc-title">
                         <a href="#setLegacyLcdMode">setLegacyLcdMode</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/b89adc1c097314ec0c7432c07afecc0dfe134710/src/00/display-color.asm#L405">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/6efc483c8c2c3e08d7127315e74502a9d1e46fc3/src/00/display-color.asm#L405">View Source</a></small>
                     </h2>
                     
                     <p>Sets the LCD to legacy mode.</p>
@@ -307,7 +307,7 @@ The kernel supports both monochrome and color display modes on the same calculat
                 <div>
                     <h2 class="doc-title">
                         <a href="#writeLcdRegister">writeLcdRegister</a>
-                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/b89adc1c097314ec0c7432c07afecc0dfe134710/src/00/display-color.asm#L49">View Source</a></small>
+                        <small><a target="_blank" href="https://github.com/KnightOS/kernel/blob/6efc483c8c2c3e08d7127315e74502a9d1e46fc3/src/00/display-color.asm#L49">View Source</a></small>
                     </h2>
                     
                     <p>Writes a 16-bit value to a color LCD register</p>
@@ -409,6 +409,11 @@ The kernel supports both monochrome and color display modes on the same calculat
             
             
             <li><a href="/documentation/reference/cryptography.html">Cryptography</a></li>
+            
+            </li>
+            
+            
+            <li><a href="/documentation/reference/decimal_floating_point.html">Decimal Floating Point</a></li>
             
             </li>
             
