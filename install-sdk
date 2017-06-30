@@ -177,7 +177,7 @@ sdk() {
     asroot pip3 install pyyaml
     cd sdk
     info Installing SDK...
-    asroot make install
+    asroot ./setup.py install
 }
 
 force_all() {
