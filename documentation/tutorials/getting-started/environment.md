@@ -14,12 +14,11 @@ some extra software installed on your PC to compile programs.
 familiar with your favorite text editor, and with working on the command line.
 We aren't getting into that here.</div>
 
-## Setup for Unix
+## SDK installation
 
 For Unix-like systems, including Linux, macOS, BSD, and so on, the installation
-procedure is very straightforward. Open a terminal and run this:
-
-    $ curl -s https://raw.githubusercontent.com/KnightOS/knightos.org/gh-pages/install-sdk | bash
+procedure is very straightforward. [Installation instructions are available
+here](/sdk). Instructions for Windows are also provided.
 
 This will download and run the [KnightOS SDK
 installer](https://github.com/KnightOS/knightos.org/blob/gh-pages/install-sdk).
@@ -47,20 +46,7 @@ will install all the dependencies on a debian based system (you may need to syml
 clang/llvm instead of gcc. This is probably what most macOS users will want to do.
 </div>
 
-You'll also need the development headers for readline. There are more detailed
-system-specific instructions available [here](http://wiki.knightos.org/index.php/KOS_Projects/sdk) if you need a
-little more help.
-
-## Setup for Windows
-
-The Windows setup is similar, but requires [Cygwin](http://cygwin.com/). Install
-the same dependencies (not including SDL) through the Cygwin installer, and then
-run the same command:
-
-    $ curl -s https://raw.githubusercontent.com/KnightOS/knightos.org/gh-pages/install-sdk | bash
-
-Detailed Windows instructions can be found [here](http://wiki.knightos.org/index.php/Tutorials/General/KnightOS_SDK) if you need
-help.
+You'll also need the development headers for readline.
 
 ## Testing the Installation
 

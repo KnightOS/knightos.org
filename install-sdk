@@ -1,8 +1,14 @@
 #!/bin/bash
 set -e
 
+unamestr=`uname`
+
 cygwin() {
-    [[ "$(uname -s | sed -re "s/-.*$//")" = "CYGWIN_NT" ]]
+    if [[ $unamestr == 'Darwin' ]]; then
+        [[ "$(uname -s | sed -E "s/-.*$//")" = "CYGWIN_NT" ]]
+    else
+        [[ "$(uname -s | sed -re "s/-.*$//")" = "CYGWIN_NT" ]]
+    fi
 }
 xbuild=xbuild
 
@@ -16,7 +22,7 @@ prereqs() {
     hash flex 2>/dev/null || { missing=1; echo >&2 "Please install flex, which is available through your package manager or http://flex.sourceforge.net/"; }
     hash bison 2>/dev/null || { missing=1; echo >&2 "Please install bison, which is available through your package manager or https://www.gnu.org/software/bison/"; }
     hash python3 2>/dev/null || { missing=1; echo >&2 "Please install Python 3, which is available through your package manager or https://www.python.org/"; }
-    pkg-config --modversion MagickWand 2>/dev/null || { missing=1; echo >&2 "Please install ImageMagick (and its headers), which is available through your package manager or http://imagemagick.org"; }
+    pkg-config --modversion MagickWand 2>/dev/null || { missing=1; echo >&2 "Please install ImageMagick 6 (and its headers), which is available through your package manager or http://imagemagick.org"; }
     if cygwin; then
         hash msbuild.exe 2>/dev/null || { missing=1; echo >&2 "Please install Microsoft.NET and add 'C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319' to your %PATH%. .NET is available from http://www.microsoft.com/net"; }
         xbuild=msbuild.exe
@@ -27,7 +33,11 @@ prereqs() {
         hash sdl-config 2>/dev/null || { missing=1; echo >&2 "Please install SDL (and its headers), which is available through your package manager or http://www.libsdl.org/"; }
     fi
     [ -e /usr/include/readline/readline.h ] || { missing=1; echo >&2 "Please install readline (and its headers), which is available through your package manager (libreadline-dev on Debian/Ubuntu)"; }
-    [ -e /usr/include/boost/config.hpp ] || { missing=1; echo >&2 "Please install boost (and its headers), which is available through your package manager"; }
+    if [[ $unamestr == 'Darwin' ]]; then
+       [ -e "/usr/local/Cellar/boost/"*"/include/boost/config.hpp" ] || { missing=1; echo >&2 "Please install boost (and its headers) via Homebrew"; }
+    else
+        [ -e /usr/include/boost/config.hpp ] || { missing=1; echo >&2 "Please install boost (and its headers), which is available through your package manager"; }
+    fi
     if [ $missing -eq 1 ]; then
         exit 1
     fi
@@ -48,7 +58,9 @@ install() {
 }
 
 asroot() {
-    if [[ "$(uname -s | sed -re "s/-.*$//")" = "CYGWIN_NT" ]]; then
+    if [[ $unamestr == 'Darwin' ]]; then
+        sudo $*
+    elif [[ "$(uname -s | sed -re "s/-.*$//")" = "CYGWIN_NT" ]]; then
         quiet $*
     else
         sudo $*
@@ -165,7 +177,7 @@ sdk() {
     asroot pip3 install pyyaml
     cd sdk
     info Installing SDK...
-    asroot make install
+    asroot ./setup.py install
 }
 
 force_all() {

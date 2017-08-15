@@ -11,3 +11,5 @@ In order to help make KnightOS a more transparent and inviting project, the [Kni
 
 KnightOS is a solely community driven project so that means we need your help to make the KnightOS Wiki. So next time you find yourself doing something undocumented with KnightOS, how about heading over to [wiki.knightos.org](http://wiki.knightos.org), creating yourself an account and sharing it with the community!
 
+**Note**: the wiki is no longer online. Documentation is focused on github pages
+(this website).
