@@ -44,8 +44,8 @@ Now that we can represent arbitrary real numbers as floating point tuples,
 how do we actually encode the significand and exponent in memory? The standard
 way is [IEEE 754](https://en.wikipedia.org/wiki/IEEE_754), which I won't delve
 into since there are many references online. Its main downside is that base-2
-representation causes some rational decimal numbers, such as 0.2, to become
-irrational. This makes it difficult to reason about its precision in terms of
+representation causes some finite decimal numbers, such as 0.2, to repeat
+infinitely. This makes it difficult to reason about its precision in terms of
 base-10 digits, and it is therefore poorly suited for calculators.
 
 Most calculators, including TI's, instead use a digit representation called
