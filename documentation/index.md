@@ -20,10 +20,11 @@ familiar with Unix, you'll feel at home here.
 
 The first thing you should do is [join our IRC
 channel](https://webchat.freenode.net/?channels=knightos&uio=d4), #knightos on
-irc.freenode.net. (You can also subscribe to our <a href="http://lists.knightos.org/">Mailing List</a>). Here, you can interact with other developers and get your
-questions answered. Then, you can read through [Learning KnightOS
-Concepts](concepts.html) or [check out our wiki](http://wiki.knightos.org/index.php/Tutorials/General/KnightOS_SDK) to get an introduction and head over to one of our
-tutorials:
+irc.freenode.net. (You can also subscribe to our
+<a href="http://lists.knightos.org/">Mailing List</a>). Here, you can interact
+with other developers and get your questions answered. Then, you can read
+through [Learning KnightOS Concepts](concepts.html) to get an introduction and
+head over to one of our tutorials:
 
 * [Getting started with assembly](tutorials/getting-started/)
 * [Getting started with C](tutorials/getting-started-c/)

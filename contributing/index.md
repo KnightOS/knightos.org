@@ -46,5 +46,5 @@ KnightOS?](/contributing/what-can-i-do.html)" if you can't decide.
 
 When you're ready to get started, head over to our [contributor
 guidelines](/contributing/guidelines.html) for a little direction.
-You also might need the KnightOS [SDK](http://wiki.knightos.org/index.php/Tutorials/General/KnightOS_SDK). 
+You also might need the KnightOS. 
 Don't know what to do? Have a look at the [KnightOS issues](https://github.com/KnightOS/KnightOS/issues) page.
