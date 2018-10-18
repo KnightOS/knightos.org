@@ -49,11 +49,7 @@ To call the assembly function getRandom, you could just do the following:
 {% highlight c %}
 unsigned char getRandom() __naked {
 	__asm
-{% endhighlight %}
-{% highlight nasm %}
 	call getRandom
-{% endhighlight %}
-{% highlight c %}
 	__endasm;
 }
 {% endhighlight %}
@@ -74,14 +70,10 @@ function of
 {% highlight c %}
 unsigned char getRandom() __naked {
 	__asm
-{% endhighlight %}
-{% highlight nasm %}
 	pcall(getRandom)
 	ld l, a
 	ret
 	__endasm;
-{% endhighlight %}
-{% highlight c %}
 }
 {% endhighlight %}
 
@@ -91,13 +83,9 @@ function, but if you check system.c, you'll see this:
 {% highlight c %}
 unsigned char get_random() __naked {
 	__asm
-{% endhighlight %}
-{% highlight nasm %}
 	PCALL(GETRANDOM)
 	LD L, A
 	RET
-{% endhighlight %}
-{% highlight c %}
 	__endasm;
 }
 {% endhighlight %}
