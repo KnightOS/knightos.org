@@ -64,13 +64,20 @@ ABI, or Application Binary Interface. When a function in KCC returns a `char`
 must be returned in `hl`). The asm getRandom function returns its value in
 register a!
 
-Obviously, that means `ld l, a` is needed before returning, giving the final
-function of 
+Obviously, that means `ld l, a` is needed before returning.
+
+However, there's one more small issue: `pcall` is a macro KnightOS provides *for
+assembly code only*. To make `pcall`s in C bindings, you need to use a different
+macro, PCALL, which KnightOS provides for C.
+
+Furthermore, *all kernel functions, when used in C, need to be in all caps.*
+
+The final function, then, is as follows:
 
 {% highlight c %}
 unsigned char getRandom() __naked {
 	__asm
-	pcall(getRandom)
+	PCALL(GETRANDOM)
 	ld l, a
 	ret
 	__endasm;
@@ -90,8 +97,8 @@ unsigned char get_random() __naked {
 }
 {% endhighlight %}
 
-It's really that easy!
-
+Normal instructions (such as ld and ret) are *not* case-sensitive, so both
+functions are valid.
 
 <a href="packaging.html" class="pull-right btn btn-primary">Next »</a>
 <a href="corelib.html" class="btn btn-primary">« Back</a>
