@@ -32,11 +32,12 @@ prereqs() {
         hash pip3 2>/dev/null || { missing=1; echo >&2 "Please install pip3, which is available through your package manager or https://pip.pypa.io/en/latest/installing.html"; }
         hash sdl-config 2>/dev/null || { missing=1; echo >&2 "Please install SDL (and its headers), which is available through your package manager or http://www.libsdl.org/"; }
     fi
-    [ -e /usr/include/readline/readline.h ] || { missing=1; echo >&2 "Please install readline (and its headers), which is available through your package manager (libreadline-dev on Debian/Ubuntu)"; }
     if [[ $unamestr == 'Darwin' ]]; then
        [ -e "/usr/local/Cellar/boost/"*"/include/boost/config.hpp" ] || { missing=1; echo >&2 "Please install boost (and its headers) via Homebrew"; }
+       [ -e /usr/local/include/readline/readline.h ] || { missing=1; echo >&2 "Please install readline (and its headers), which is available through your package manager (libreadline-dev on Debian/Ubuntu)"; }
     else
         [ -e /usr/include/boost/config.hpp ] || { missing=1; echo >&2 "Please install boost (and its headers), which is available through your package manager"; }
+        [ -e /usr/include/readline/readline.h ] || { missing=1; echo >&2 "Please install readline (and its headers), which is available through your package manager (libreadline-dev on Debian/Ubuntu)"; }
     fi
     if [ $missing -eq 1 ]; then
         exit 1
