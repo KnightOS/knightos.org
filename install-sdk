@@ -34,7 +34,7 @@ prereqs() {
     fi
     if [[ $unamestr == 'Darwin' ]]; then
        [ -e "/usr/local/Cellar/boost/"*"/include/boost/config.hpp" ] || { missing=1; echo >&2 "Please install boost (and its headers) via Homebrew"; }
-       [ -e /usr/local/include/readline/readline.h ] || { missing=1; echo >&2 "Please install readline (and its headers), which is available through your package manager (libreadline-dev on Debian/Ubuntu)"; }
+       [ -e /usr/local/include/readline/readline.h ] || { missing=1; echo >&2 "Please install readline (and its headers) via Homebrew"; }
     else
         [ -e /usr/include/boost/config.hpp ] || { missing=1; echo >&2 "Please install boost (and its headers), which is available through your package manager"; }
         [ -e /usr/include/readline/readline.h ] || { missing=1; echo >&2 "Please install readline (and its headers), which is available through your package manager (libreadline-dev on Debian/Ubuntu)"; }
