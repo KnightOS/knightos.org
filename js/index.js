@@ -145,7 +145,7 @@ require(['z80e', '../OpenTI/webui/js/OpenTI/OpenTI'], function(z80e, OpenTI) {
                 });
 
             state.exec(str);
-        }
+        };
 
         openti_log.print("OpenTI loaded!\n");
 
@@ -199,7 +199,7 @@ require(['z80e', '../OpenTI/webui/js/OpenTI/OpenTI'], function(z80e, OpenTI) {
 
                 requestAnimationFrame(frame);
             }
-        }
+        };
 
         oReq.send(null);
     });

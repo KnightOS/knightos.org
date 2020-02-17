@@ -871,7 +871,7 @@
             function hightlightTextNode(textNode) {
                 var match, patternNode;
                 if (match = regex.exec(textNode.data)) {
-                    wrapperNode = doc.createElement(o.tagName);
+                    var wrapperNode = doc.createElement(o.tagName);
                     o.className && (wrapperNode.className = o.className);
                     patternNode = textNode.splitText(match.index);
                     patternNode.splitText(match[0].length);

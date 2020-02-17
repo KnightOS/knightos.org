@@ -129,7 +129,7 @@ define(['z80e', '../OpenTI/webui/js/OpenTI/OpenTI'], function(z80e, OpenTI) {
             }
             return;
             /* TODO: this causes assertion errors */
-            self.asic.free();
+            //self.asic.free();
         };
 
         this.load_rom = function load_rom(arrayBuffer) {
@@ -154,5 +154,5 @@ define(['z80e', '../OpenTI/webui/js/OpenTI/OpenTI'], function(z80e, OpenTI) {
                 setTimeout(tick, 1000 / 60);
             }, 1000 / 60);
         }
-    }
+    };
 })

@@ -113,8 +113,7 @@ document.webL10n = (function(window, document, undefined) {
     function evalString(text) {
       if (text.lastIndexOf('\\') < 0)
         return text;
-      return text.replace(/\\\\/g, '\\')
-                 .replace(/\\n/g, '\n')
+      return text.replace(/\\n/g, '\n')
                  .replace(/\\r/g, '\r')
                  .replace(/\\t/g, '\t')
                  .replace(/\\b/g, '\b')
@@ -122,7 +121,8 @@ document.webL10n = (function(window, document, undefined) {
                  .replace(/\\{/g, '{')
                  .replace(/\\}/g, '}')
                  .replace(/\\"/g, '"')
-                 .replace(/\\'/g, "'");
+                 .replace(/\\'/g, "'")
+                 .replace(/\\\\/g, '\\');
     }
 
     // parse *.properties text data into an l10n dictionary
@@ -139,7 +139,6 @@ document.webL10n = (function(window, document, undefined) {
       // parse the *.properties file into an associative array
       function parseRawLines(rawText, extendedSyntax) {
         var entries = rawText.replace(reBlank, '').split(/[\r\n]+/);
-        var currentLang = '*';
         var genericLang = lang.replace(/-[a-z]+$/i, '');
         var skipLang = false;
         var match = '';
@@ -155,7 +154,7 @@ document.webL10n = (function(window, document, undefined) {
           if (extendedSyntax) {
             if (reSection.test(line)) { // section start?
               match = reSection.exec(line);
-              currentLang = match[1];
+              var currentLang = match[1];
               skipLang = (currentLang !== '*') &&
                   (currentLang !== lang) && (currentLang !== genericLang);
               continue;
@@ -269,7 +268,6 @@ document.webL10n = (function(window, document, undefined) {
     // load all resource files
     function l10nResourceLink(link) {
       var href = link.href;
-      var type = link.type;
       this.load = function(lang, callback) {
         var applied = lang;
         parseResource(href, lang, callback, function() {
@@ -798,7 +796,7 @@ document.webL10n = (function(window, document, undefined) {
     var reArgs = /\{\{\s*([a-zA-Z\.]+)\s*\}\}/;
     var match = reArgs.exec(str);
     while (match) {
-      if (!match || match.length < 2)
+      if (match.length < 2)
         return str; // argument key not found
 
       var arg = match[1];
