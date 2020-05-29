@@ -150,11 +150,11 @@ needs to be told that `castle` is the application launcher, and that
 `threadlist` is the application switcher. Since KnightOS allows the user to
 customize to their heart's content, corelib doesn't assume that you *want* to
 use the official launcher and switcher. To set them correctly, you'll need to
-create some symbolic links so that `/bin/launcher` and `/bin/switcher` are
+create some symbolic links so that `bin/launcher` and `bin/switcher` are
 accurate. Run these commands to do so:
 
-    ln -s /bin/castle .knightos/pkgroot/bin/launcher
-    ln -s /bin/threadlist .knightos/pkgroot/bin/switcher
+    ln -s .knightos/pkgroot/bin/castle bin/launcher
+    ln -s .knightos/pkgroot/bin/threadlist bin/switcher
 
 If you run it now and press F1, you'll be taken to the castle (which is empty
 because we haven't configured it with any apps). Press F5 to go to the app
