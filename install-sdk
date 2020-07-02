@@ -22,7 +22,7 @@ prereqs() {
     hash flex 2>/dev/null || { missing=1; echo >&2 "Please install flex, which is available through your package manager or http://flex.sourceforge.net/"; }
     hash bison 2>/dev/null || { missing=1; echo >&2 "Please install bison, which is available through your package manager or https://www.gnu.org/software/bison/"; }
     hash python3 2>/dev/null || { missing=1; echo >&2 "Please install Python 3, which is available through your package manager or https://www.python.org/"; }
-    hash magick 2>/dev/null || { missing=1; echo >&2 "Please install ImageMagick 6 (and its headers), which is available through your package manager or http://imagemagick.org"; }
+    hash magick 2>/dev/null || { missing=1; echo >&2 "Please install ImageMagick 6 or 7 (and its headers), which is available through your package manager or http://imagemagick.org"; }
     if cygwin; then
         hash msbuild.exe 2>/dev/null || { missing=1; echo >&2 "Please install Microsoft.NET and add 'C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319' to your %PATH%. .NET is available from http://www.microsoft.com/net"; }
         xbuild=msbuild.exe
