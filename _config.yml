@@ -1,5 +1,5 @@
 markdown: kramdown
-highlighter: rogue
+highlighter: rouge
 paginate: 5
 paginate_path: blog/page:num
 plugins: 
