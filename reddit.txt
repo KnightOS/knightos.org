@@ -1,1 +1,0 @@
-KnightOS is maintained by Drew DeVault (and loads of other open source contributors), who goes by /u/sircmpwn on Reddit.
