@@ -11,10 +11,9 @@ If you're on a Unix-like system (i.e. Linux, OS X, BSD), run the following
 commands to install the SDK:
 
 ```sh
-wget http://www.knightos.org/install-sdk
-chmod +x install-sdk
-./install-sdk
+curl https://knightos.org/install-sdk | bash
 ```
+
 ## Archlinux
 
 On Archlinux, there is an AUR package named `knightos-sdk` which you can install with an aur helper like `aurman` which does (almost) all the work for you which may save you some time.
