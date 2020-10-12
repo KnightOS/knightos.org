@@ -11,7 +11,7 @@ it to JavaScript so it'll run in a web browser. I looked to emscripten as
 a potential means of reducing the cost of entry for new developers hoping
 to target the OS.
 
-*Note: This blog post was originally posted on [drewdevault.com](http://www.drewdevault.com) and has been cross-posted here.*
+*Note: This blog post was originally posted on [drewdevault.com](https://drewdevault.com) and has been cross-posted here.*
 
 ## Rationale for Emscripten
 
