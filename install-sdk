@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-unamestr=`uname`
+unamestr=$(uname)
 
 cygwin() {
     if [[ $unamestr == 'Darwin' ]]; then
@@ -10,7 +10,6 @@ cygwin() {
         [[ "$(uname -s | sed -re "s/-.*$//")" = "CYGWIN_NT" ]]
     fi
 }
-xbuild=xbuild
 
 prereqs() {
     missing=0
@@ -23,17 +22,13 @@ prereqs() {
     hash bison 2>/dev/null || { missing=1; echo >&2 "Please install bison, which is available through your package manager or https://www.gnu.org/software/bison/"; }
     hash python3 2>/dev/null || { missing=1; echo >&2 "Please install Python 3, which is available through your package manager or https://www.python.org/"; }
     hash magick 2>/dev/null || { missing=1; echo >&2 "Please install ImageMagick 6 or 7 (and its headers), which is available through your package manager or http://imagemagick.org"; }
-    if cygwin; then
-        hash msbuild.exe 2>/dev/null || { missing=1; echo >&2 "Please install Microsoft.NET and add 'C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319' to your %PATH%. .NET is available from http://www.microsoft.com/net"; }
-        xbuild=msbuild.exe
-    else
+    if ! cygwin; then
         hash mono 2>/dev/null || { missing=1; echo >&2 "Please install mono, which is available through your package manager or http://mono-project.com/"; }
-        hash xbuild 2>/dev/null || { missing=1; echo >&2 "Please install mono (including build tools), which is available through your package manager or http://mono-project.com/"; }
         hash pip3 2>/dev/null || { missing=1; echo >&2 "Please install pip3, which is available through your package manager or https://pip.pypa.io/en/latest/installing.html"; }
         hash sdl-config 2>/dev/null || { missing=1; echo >&2 "Please install SDL (and its headers), which is available through your package manager or http://www.libsdl.org/"; }
     fi
     if [[ $unamestr == 'Darwin' ]]; then
-       [ -e "/usr/local/Cellar/boost/"*"/include/boost/config.hpp" ] || { missing=1; echo >&2 "Please install boost (and its headers) via Homebrew"; }
+       [ -e "/usr/local/Cellar/boost/" ] || { missing=1; echo >&2 "Please install boost (and its headers) via Homebrew"; }
        [ -e /usr/local/include/readline/readline.h ] || { missing=1; echo >&2 "Please install readline (and its headers) via Homebrew"; }
     else
         [ -e /usr/include/boost/config.hpp ] || { missing=1; echo >&2 "Please install boost (and its headers), which is available through your package manager"; }
@@ -48,29 +43,36 @@ prereqs() {
 }
 
 quiet() {
-    output=`$* 2>&1` || { echo $output; exit 1; }
+    output=$("$@" 2>&1) || { echo "$output"; exit 1; }
 }
 
 install() {
     wd=$(pwd)
-    cd $(mktemp -dt SDK.XXXXXX)
-    $*
-    cd $wd
+    cd "$(mktemp -dt SDK.XXXXXX)"
+    "$@"
+    cd "$wd"
 }
 
 asroot() {
     if [[ $unamestr == 'Darwin' ]]; then
-        sudo $*
+        sudo "$@"
     elif [[ "$(uname -s | sed -re "s/-.*$//")" = "CYGWIN_NT" ]]; then
-        quiet $*
+        quiet "$@"
+    elif [[ -n "$(which sudo)" ]]
+    then
+        sudo "$@"
+    elif [[ -n "$(which doas)" ]]
+    then
+        doas "$@"
     else
-        sudo $*
+        echo No method of running as root detected!
+        exit 1
     fi
 }
 
 info() {
     echo -ne '\e[0;34m'
-    echo -n $*
+    echo -n "$@"
     echo -e '\e[0m'
 }
 
