@@ -1,13 +1,13 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 
 unamestr=$(uname)
 
 cygwin() {
-    if [[ $unamestr == 'Darwin' ]]; then
-        [[ "$(uname -s | sed -E "s/-.*$//")" = "CYGWIN_NT" ]]
+    if [ "$unamestr" = 'Darwin' ]; then
+        [ "$(uname -s | sed -E "s/-.*$//")" = "CYGWIN_NT" ]
     else
-        [[ "$(uname -s | sed -re "s/-.*$//")" = "CYGWIN_NT" ]]
+        [ "$(uname -s | sed -re "s/-.*$//")" = "CYGWIN_NT" ]
     fi
 }
 
@@ -27,7 +27,7 @@ prereqs() {
         hash pip3 2>/dev/null || { missing=1; echo >&2 "Please install pip3, which is available through your package manager or https://pip.pypa.io/en/latest/installing.html"; }
         hash sdl-config 2>/dev/null || { missing=1; echo >&2 "Please install SDL (and its headers), which is available through your package manager or http://www.libsdl.org/"; }
     fi
-    if [[ $unamestr == 'Darwin' ]]; then
+    if [ "$unamestr" = 'Darwin' ]; then
        [ -e "/usr/local/Cellar/boost/" ] || { missing=1; echo >&2 "Please install boost (and its headers) via Homebrew"; }
        [ -e /usr/local/include/readline/readline.h ] || { missing=1; echo >&2 "Please install readline (and its headers) via Homebrew"; }
     else
@@ -54,14 +54,14 @@ install() {
 }
 
 asroot() {
-    if [[ $unamestr == 'Darwin' ]]; then
+    if [ "$unamestr" = 'Darwin' ]; then
         sudo "$@"
-    elif [[ "$(uname -s | sed -re "s/-.*$//")" = "CYGWIN_NT" ]]; then
+    elif [ "$(uname -s | sed -re "s/-.*$//")" = "CYGWIN_NT" ]; then
         quiet "$@"
-    elif [[ -n "$(which sudo)" ]]
+    elif [ -n "$(which sudo)" ]
     then
         sudo "$@"
-    elif [[ -n "$(which doas)" ]]
+    elif [ -n "$(which doas)" ]
     then
         doas "$@"
     else
@@ -71,9 +71,7 @@ asroot() {
 }
 
 info() {
-    echo -ne '\e[0;34m'
-    echo -n "$@"
-    echo -e '\e[0m'
+    printf '\e[0;34m%s\e[0m\n' "$*"
 }
 
 genkfs() {
@@ -201,7 +199,7 @@ force_all() {
 }
 
 prereqs
-if [[ $# -eq 0 ]]; then
+if [ $# -eq 0 ]; then
     force_all
     echo "Thanks for installing the KnightOS SDK!"
     echo "You can run 'knightos --help' to find out how to use it."
