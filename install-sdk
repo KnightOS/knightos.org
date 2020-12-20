@@ -21,7 +21,6 @@ prereqs() {
     hash flex 2>/dev/null || { missing=1; echo >&2 "Please install flex, which is available through your package manager or http://flex.sourceforge.net/"; }
     hash bison 2>/dev/null || { missing=1; echo >&2 "Please install bison, which is available through your package manager or https://www.gnu.org/software/bison/"; }
     hash python3 2>/dev/null || { missing=1; echo >&2 "Please install Python 3, which is available through your package manager or https://www.python.org/"; }
-    hash magick 2>/dev/null || { missing=1; echo >&2 "Please install ImageMagick 6 or 7 (and its headers), which is available through your package manager or http://imagemagick.org"; }
     if ! cygwin; then
         hash mono 2>/dev/null || { missing=1; echo >&2 "Please install mono, which is available through your package manager or http://mono-project.com/"; }
         hash pip3 2>/dev/null || { missing=1; echo >&2 "Please install pip3, which is available through your package manager or https://pip.pypa.io/en/latest/installing.html"; }
