@@ -133,7 +133,7 @@ scas() {
     quiet git clone git://github.com/KnightOS/scas.git
     cd scas
     info Compiling scas...
-    quiet cmake -DINSTRUCTION_SET_PATH=/usr/share/scas/instruction_sets/ .
+    quiet cmake -DINSTRUCTION_SET_PATH=/usr/share/scas/instruction_sets/ -DSCAS_LIBRARY=TRUE .
     quiet make
     info Installing scas...
     asroot make install
