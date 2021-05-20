@@ -55,5 +55,4 @@ void main(void) {
 
 If you're feeling adventerous enough to give it a try, install kcc and scas and
 then use `knightos init --template=c your_project` to get started. To get help
-and to help us improve C support, join [#knightos on
-irc.freenode.net](http://webchat.freenode.net/?channels=knightos&uio=d4).
+and to help us improve C support, join `#knightos` on `irc.libera.chat`.

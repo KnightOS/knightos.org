@@ -7,7 +7,7 @@ title: Contributing to KnightOS
 There are many ways for people of all backgrounds to help out with KnightOS.
 We're very happy that you are interested in being one of them! There's always
 something to do. Before you do anything, though, you should introduce yourself
-to the rest of the community in our [IRC channel](http://webchat.freenode.net/?channels=knightos&uio=d4).
+to the rest of the community in our [IRC channel](/irc/).
 Be patient, though, not everyone is listening all the time.
 
 ## Getting Involved as a User

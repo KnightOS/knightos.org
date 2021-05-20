@@ -18,10 +18,8 @@ familiar with Unix, you'll feel at home here.
 
 ## Getting Started
 
-The first thing you should do is [join our IRC
-channel](https://webchat.freenode.net/?channels=knightos&uio=d4), #knightos on
-irc.freenode.net. (You can also subscribe to our
-<a href="http://lists.knightos.org/">Mailing List</a>). Here, you can interact
+The first thing you should do is [join our IRC](/irc).You can also subscribe to our
+<a href="http://lists.sr.ht/~pixelherodev/knightos">Mailing List</a>. Here, you can interact
 with other developers and get your questions answered. Then, you can read
 through [Learning KnightOS Concepts](concepts.html) to get an introduction and
 head over to one of our tutorials:

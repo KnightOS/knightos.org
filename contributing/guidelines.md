@@ -6,7 +6,7 @@ title: Contributor Guidelines
 
 Ready to get cracking? There are a few guidelines to follow. First of all,
 please please please join our [IRC
-channel](http://webchat.freenode.net/?channels=knightos&uio=d4) to talk about
+channel](/irc) to talk about
 what you'd like to accomplish. Odds are that the collective minds of IRC can
 provide more insight into the problem you're solving than you can alone.
 

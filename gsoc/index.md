@@ -7,7 +7,7 @@ title: Google Summer of Code 2015
 # Hello! Are you hoping to contribute to this file? Simply follow the style
 # that's already in place for existing proposals and send a pull request on
 # GitHub. You should talk your ideas over in our IRC channel, too! We hang out
-# at #knightos on irc.freenode.net
+# at #knightos on irc.libera.chat
 #
 # Here's a template for you:
 #   
@@ -35,9 +35,8 @@ request](https://github.com/KnightOS/knightos.org/edit/gh-pages/gsoc/index.md).
 If we can match you with a mentor and the idea is solid, we'll get you going.
 The KnightOS project is a very student-driven project and we want to see
 students shape it. Please don't hesitate to get involved.  Discussion for GSOC
-and KnightOS happens on
-[IRC](http://webchat.freenode.net/?channels=knightos&uio=d4) and in the [mailing
-list](http://lists.knightos.org).
+and KnightOS happens in #knightos-gsoc on irc.libera.chat and in the [mailing
+list](http://lists.sr.ht/~pixelherodev/knightos).
 
 # Ideas
 

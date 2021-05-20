@@ -354,5 +354,4 @@ If you, reader, are interested in working on some pretty cool shit, there's a
 place for you! We have things to do in Assembly, C, JavaScript, Python, and a
 handful of other things. Did you notice how bad try.knightos.org looks? Maybe
 you have a knack for design and want to help improve it. Whatever the case may
-be, if you have interest in this stuff, come hang out with us on IRC: [#knightos
-on irc.freenode.net](http://webchat.freenode.net/?channels=knightos&uio=d4).
+be, if you have interest in this stuff, come hang out with us on IRC!
