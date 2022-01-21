@@ -1,0 +1,4 @@
+_layout/documentation requires typeahead and documentation
+the head template includes jquery and bootstrap... but only the "what can I do to help" actually uses it
+documentation/reference doesn't actually use JS; all of the files have empty script tags produced by kdoc (the kdoc template has commmented out the script that would be there)
+
