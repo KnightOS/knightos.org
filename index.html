@@ -25,12 +25,12 @@ layout: base
             {% for post in site.posts %}
                 {% if forloop.index0 < 3 %}
                     <h3>
-                        <a href="{{ post.url }}">{{ post.title }}</a>
+                        <a href="./{{ post.url }}">{{ post.title }}</a>
                         <small>{{ post.date | date_to_string }}</small>
                     </h3>
                     {{ post.excerpt }}
                     <p class="text-right">
-                        <a href="{{ post.url }}">Read the full article »</a>
+                        <a href="./{{ post.url }}">Read the full article »</a>
                     </p>
                 {% endif %}
             {% endfor %}
