@@ -48,7 +48,7 @@ that](https://github.com/KnightOS/kcc) 😉. Here's a "hello world" you can run 
 your web browser:
 
 <div class="demo">
-    <div class="editor" data-source="/sources/helloworld.asm" data-file="main.asm"></div>
+    <div class="editor" data-source="./sources/helloworld.asm" data-file="main.asm"></div>
     <div class="calculator-wrapper">
         <div class="calculator">
             <canvas width="250" height="166" class="emulator-screen"></canvas>
@@ -57,7 +57,7 @@ your web browser:
 </div>
 
 <!--<div class="demo">
-    <div class="editor" data-source="/sources/helloworld.asm" data-file="main.asm"></div>
+    <div class="editor" data-source="./sources/helloworld.asm" data-file="main.asm"></div>
     <div class="calculator-wrapper">
         <div class="calculator">
             <canvas width="385" height="256" class="emulator-screen"></canvas>
@@ -73,7 +73,7 @@ should install `core/corelib` first:
 <input type="button" id="install-package" value="Install" />
 
 <div class="demo">
-    <div class="editor" data-source="/sources/corelib-hello.asm" data-file="main.asm"></div>
+    <div class="editor" data-source="./sources/corelib-hello.asm" data-file="main.asm"></div>
     <div class="calculator-wrapper">
         <div class="calculator">
             <canvas width="385" height="256" class="emulator-screen"></canvas>
@@ -92,7 +92,7 @@ Install:
 <input type="button" class="install-package-button" data-package="core/corelib" value="core/corelib" />
 
 <div class="demo">
-    <div class="editor" data-source="/sources/fileman.asm" data-file="main.asm"></div>
+    <div class="editor" data-source="./sources/fileman.asm" data-file="main.asm"></div>
     <div class="calculator-wrapper">
         <div class="calculator">
             <canvas width="385" height="256" class="emulator-screen"></canvas>
