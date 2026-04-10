@@ -29,7 +29,7 @@ The default assembler for the SDK has also been switched over to scas, which
 should be complete enough for most userspace code. Sass is available as a
 fallback as needed.
 
-![new projects](/img/hello.png)
+<img src="/img/hello.png" style="max-width: 100%; height: auto;">
 
 With any luck, more to share soon. Toodles!
 
